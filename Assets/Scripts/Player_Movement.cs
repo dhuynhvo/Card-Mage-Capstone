@@ -16,7 +16,6 @@ public class Player_Movement : MonoBehaviour
         DownKey = "s";
         LeftKey = "a";
         RightKey = "d";
-        PlayerSpeed = 1;
     }
 
 

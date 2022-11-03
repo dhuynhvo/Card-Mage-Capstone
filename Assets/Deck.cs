@@ -7,9 +7,11 @@ public class Deck : MonoBehaviour
 {
 
     public List<GameObject> Cards;
+    public List<GameObject> Graveyard;
     private bool DoneIndexing = false;
     public int DeckLimit = 9;
     int CardIndex = 1;
+    int GraveIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,12 +58,25 @@ public class Deck : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Cards[0] != null)
         {
             Debug.Log(Cards[0].ToString() + " has been played");
+            Graveyard[GraveIndex] = Cards[0];
+            GraveIndex++;
             Cards[0] = null;
         }
 
-        else if (Input.GetMouseButtonDown(0) && Cards[0] == null)
+        else if (Input.GetMouseButton(0) && Cards[0] == null)
         {
             Debug.Log("Empty Deck!!!");
+            for(int i = 0; i < GraveIndex; i++)
+            {
+                Cards[i] = Graveyard[i];
+            }
+            
+            for (int i = 0; i < GraveIndex; i++)
+            {
+                Graveyard[i] = null;
+            }
+            GraveIndex = 0;
+            Debug.Log("Deck Reload");
         }
     }
 }
