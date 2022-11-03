@@ -24,19 +24,19 @@ public class Player_Movement : MonoBehaviour
     {
         if(Input.GetKey(UpKey))
         {
-            transform.position += Vector3.forward * PlayerSpeed * Time.deltaTime;
+            transform.position += Vector3.forward.normalized * PlayerSpeed * Time.deltaTime;
         }
         if (Input.GetKey(DownKey))
         {
-            transform.position += Vector3.back * PlayerSpeed * Time.deltaTime;
+            transform.position += Vector3.back.normalized * PlayerSpeed * Time.deltaTime;
         }
         if (Input.GetKey(LeftKey))
         {
-            transform.position += Vector3.left * PlayerSpeed * Time.deltaTime;
+            transform.position += Vector3.left.normalized * PlayerSpeed * Time.deltaTime;
         }
         if (Input.GetKey(RightKey))
         {
-            transform.position += Vector3.right * PlayerSpeed * Time.deltaTime;
+            transform.position += Vector3.right.normalized * PlayerSpeed * Time.deltaTime;
         }
     }
 }
