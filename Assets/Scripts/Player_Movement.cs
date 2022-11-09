@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    string UpKey, DownKey, LeftKey, RightKey;
+    public string UpKey, DownKey, LeftKey, RightKey;
     public float PlayerSpeed;
     
     
@@ -12,10 +12,6 @@ public class Player_Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpKey = "w";
-        DownKey = "s";
-        LeftKey = "a";
-        RightKey = "d";
     }
 
 
