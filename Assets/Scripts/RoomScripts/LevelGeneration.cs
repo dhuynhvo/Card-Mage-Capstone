@@ -102,11 +102,8 @@ public class LevelGeneration : MonoBehaviour
             {
 
                 Collider2D col = Physics2D.OverlapCircle(transform.position, 1, room);
-               
-                    print(col.GetComponent<RoomType>().type);
                     if (col.GetComponent<RoomType>().type != 1 && col.GetComponent<RoomType>().type != 3) // if there isnt a bottom opening
                     {
-                        print("no bottom");
                         if (downCount >= 2)
                         {
                             col.GetComponent<RoomType>().RoomDestruction();// destroy a room
