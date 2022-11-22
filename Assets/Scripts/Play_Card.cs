@@ -47,7 +47,7 @@ public class Play_Card : MonoBehaviour
         else if (Input.GetKeyDown(Card1Bind) && PlayerHand.CardsInHand[0] != null)
         {
             Debug.Log("Played: " + PlayerHand.CardsInHand[0].name);
-            Instantiate(PlayerHand.CardsInHand[0], SpellSpawnArea.transform.position, Quaternion.identity);
+            Instantiate(PlayerHand.CardsInHand[0], SpellSpawnArea.transform.position, Quaternion.Euler(90,0,0));
             PlayerDeck.GraveTheCard(PlayerHand.CardsInHand[0], ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[0] = null;
         }
@@ -55,7 +55,7 @@ public class Play_Card : MonoBehaviour
         else if (Input.GetKeyDown(Card2Bind) && PlayerHand.CardsInHand[1] != null)
         {
             Debug.Log("Played: " + PlayerHand.CardsInHand[1].name);
-            Instantiate(PlayerHand.CardsInHand[1], SpellSpawnArea.transform.position, Quaternion.identity);
+            Instantiate(PlayerHand.CardsInHand[1], SpellSpawnArea.transform.position, Quaternion.Euler(90, 0, 0));
             PlayerDeck.GraveTheCard(PlayerHand.CardsInHand[1], ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[1] = null;
         }
@@ -63,7 +63,7 @@ public class Play_Card : MonoBehaviour
         else if (Input.GetKeyDown(Card3Bind) && PlayerHand.CardsInHand[2] != null)
         {
             Debug.Log("Played: " + PlayerHand.CardsInHand[2].name);
-            Instantiate(PlayerHand.CardsInHand[2], SpellSpawnArea.transform.position, Quaternion.identity);
+            Instantiate(PlayerHand.CardsInHand[2], SpellSpawnArea.transform.position, Quaternion.Euler(90, 0, 0));
             PlayerDeck.GraveTheCard(PlayerHand.CardsInHand[2], ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[2] = null;
         }
@@ -71,7 +71,7 @@ public class Play_Card : MonoBehaviour
         else if (Input.GetKeyDown(Card4Bind) && PlayerHand.CardsInHand[3] != null)
         {
             Debug.Log("Played: " + PlayerHand.CardsInHand[3].name);
-            Instantiate(PlayerHand.CardsInHand[3], SpellSpawnArea.transform.position, Quaternion.identity);
+            Instantiate(PlayerHand.CardsInHand[3], SpellSpawnArea.transform.position, Quaternion.Euler(90, 0, 0));
             PlayerDeck.GraveTheCard(PlayerHand.CardsInHand[3], ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[3] = null;
         }
