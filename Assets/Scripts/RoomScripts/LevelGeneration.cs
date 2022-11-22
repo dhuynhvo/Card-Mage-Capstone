@@ -23,7 +23,7 @@ public class LevelGeneration : MonoBehaviour
     public float minZ; //farthest down can gen
     private bool stopGen; //kill generator
 
-    private int downCount;// if going down twice, spawn a room with holes in every direction
+    private int downCount=0;// if going down twice, spawn a room with holes in every direction
 
     public LayerMask room;
 
@@ -101,11 +101,12 @@ public class LevelGeneration : MonoBehaviour
             if (transform.position.z > minZ) //keep going, not at bottom
             {
 
-                Collider[] roomDetection = Physics.OverlapSphere(transform.position, 1, room);
-                foreach (Collider col in roomDetection)
-                {
+                Collider2D col = Physics2D.OverlapCircle(transform.position, 1, room);
+               
+                    print(col.GetComponent<RoomType>().type);
                     if (col.GetComponent<RoomType>().type != 1 && col.GetComponent<RoomType>().type != 3) // if there isnt a bottom opening
                     {
+                        print("no bottom");
                         if (downCount >= 2)
                         {
                             col.GetComponent<RoomType>().RoomDestruction();// destroy a room
@@ -124,7 +125,6 @@ public class LevelGeneration : MonoBehaviour
                         }
                         
                     }
-                }
                 Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveAmount);
                 transform.position = newPos;
                 direction = Random.Range(1, 6);
