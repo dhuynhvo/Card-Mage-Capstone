@@ -6,7 +6,9 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+//So uhh, Works by generating a path of traversal from top to bottom, with random left or right decisions. After this Path is made leftover nodes
+// generate their own rooms, these dont neccesarily have to be connected. To add unique rooms, manage the prefabs and change spawn nodes and make clusters.
+// ill be doing more l8er
 public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
