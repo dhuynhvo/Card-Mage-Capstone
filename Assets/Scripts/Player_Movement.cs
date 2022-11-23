@@ -6,32 +6,45 @@ public class Player_Movement : MonoBehaviour
 {
     public string UpKey, DownKey, LeftKey, RightKey;
     public float PlayerSpeed;
-    
-    
-    
+    [SerializeField]
+    private GameObject PlayerAvatar;
+    private char FacingWhat;
+    Rigidbody rb;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
 
     void FixedUpdate()
     {
-        if(Input.GetKey(UpKey))
+        if (Input.GetKey(UpKey))
         {
-            transform.position += Vector3.forward.normalized * PlayerSpeed * Time.deltaTime;
+            rb.MovePosition(transform.position + Vector3.forward * Time.deltaTime * PlayerSpeed);
+            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 0, 0);
+            FacingWhat = 'u';
         }
         if (Input.GetKey(DownKey))
         {
-            transform.position += Vector3.back.normalized * PlayerSpeed * Time.deltaTime;
+            rb.MovePosition(transform.position + Vector3.back * Time.deltaTime * PlayerSpeed);
+            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 180, 0);
+            FacingWhat = 'd';
         }
         if (Input.GetKey(LeftKey))
         {
-            transform.position += Vector3.left.normalized * PlayerSpeed * Time.deltaTime;
+            rb.MovePosition(transform.position + Vector3.left * Time.deltaTime * PlayerSpeed);
+            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 270, 0);
+            FacingWhat = 'l';
         }
         if (Input.GetKey(RightKey))
         {
-            transform.position += Vector3.right.normalized * PlayerSpeed * Time.deltaTime;
+            rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * PlayerSpeed);
+            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 90, 0);
+            FacingWhat = 'r';
         }
     }
 }

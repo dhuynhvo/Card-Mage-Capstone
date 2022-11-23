@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Spell_Mechanics : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Spell_Info info;
+    Rigidbody rb;
+
     void Start()
     {
-        Destroy(gameObject, 5);
+        info = gameObject.GetComponent<Spell_Info>();
+        rb = gameObject.GetComponent<Rigidbody>();
+        Destroy(gameObject, 20);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        SpellMovement();
+
+    }
+
+    private void SpellMovement()
+    {
+        rb.velocity = transform.up * info.speed;
     }
 }
