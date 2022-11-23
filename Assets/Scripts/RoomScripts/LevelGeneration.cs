@@ -24,15 +24,14 @@ public class LevelGeneration : MonoBehaviour
     private bool stopGen; //kill generator
 
     private int downCount=0;// if going down twice, spawn a room with holes in every direction
-
+    private int randStartingPos;
     public LayerMask room;
 
     private void Start()
     {
-        int randStartingPos = Random.Range(0, startingPositions.Length);
+        randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
         Instantiate(rooms[0],transform.position, Quaternion.identity);
-
         direction = Random.Range(1,6);
     }
 
@@ -132,7 +131,7 @@ public class LevelGeneration : MonoBehaviour
             else //reached bottom
             {
                 stopGen = true;
-                //stop level gen
+                transform.position = startingPositions[randStartingPos].position;
             }
         }
     } 
