@@ -11,27 +11,36 @@ public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
     public GameObject[] rooms; //index 0 = LR, index 1 = LRB, index 2 = LRT, index 3 = LRBT
+    public Transform[] poses;
 
     private int direction; //direction to move by offset
     public float moveAmount; //offset for spawning
 
     private float timeBetweenRoom;//time to spawn a room
-    public float startTimeBetweenRoom = 0.25f; 
+    public float startTimeBetweenRoom = 0.5f; 
 
     public float minX; //farthest left can gen
     public float maxX; //farthest right can gen
     public float minZ; //farthest down can gen
-    private bool stopGen; //kill generator
+    public bool stopGen; //kill generator
 
     private int downCount=0;// if going down twice, spawn a room with holes in every direction
     private int randStartingPos;
     public LayerMask room;
+    private Collider2D roomDetection;
+    public LayerMask Pose;
+    private Collider[] poseDetection;
+
+
+
 
     private void Start()
     {
         randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
         Instantiate(rooms[0],transform.position, Quaternion.identity);
+        poseDetection = Physics.OverlapSphere(transform.position, 1, Pose);
+        Destroy(poseDetection[0].gameObject);
         direction = Random.Range(1,6);
     }
 
@@ -60,6 +69,15 @@ public class LevelGeneration : MonoBehaviour
                 //spawn a random room type
                 int rand = Random.Range(0, rooms.Length);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                poseDetection = Physics.OverlapSphere(transform.position, 1, Pose);
+                if (poseDetection != null && poseDetection.Length>0)
+                {
+                    if (poseDetection[0] != null)
+                    {
+                        Debug.Log("Pose to Destroy" + poseDetection[0].name);
+                        Destroy(poseDetection[0].gameObject);
+                    }
+                }
 
                 direction = Random.Range(1, 6);
                 if (direction == 3)
@@ -87,6 +105,16 @@ public class LevelGeneration : MonoBehaviour
                 //spawn a random room type
                 int rand = Random.Range(0, rooms.Length);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                poseDetection = Physics.OverlapSphere(transform.position, 1, Pose);
+                if (poseDetection != null && poseDetection.Length>0)
+                {
+                    if (poseDetection[0] != null)
+                    {
+                        Debug.Log("Pose to Destroy" + poseDetection[0].name);
+                        Destroy(poseDetection[0].gameObject);
+                    }
+                }
+                
             }
             else
             { 
@@ -100,38 +128,80 @@ public class LevelGeneration : MonoBehaviour
             if (transform.position.z > minZ) //keep going, not at bottom
             {
 
-                Collider2D col = Physics2D.OverlapCircle(transform.position, 1, room);
-                    if (col.GetComponent<RoomType>().type != 1 && col.GetComponent<RoomType>().type != 3) // if there isnt a bottom opening
+                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
+                if (roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type != 3) // if there isnt a bottom opening                                                                                                           
+                {
+                    if (downCount >= 2)
                     {
-                        if (downCount >= 2)
+                        roomDetection.GetComponent<RoomType>().RoomDestruction();// destroy a room
+                        Instantiate(rooms[3], transform.position,Quaternion.identity);
+                        poseDetection = Physics.OverlapSphere(transform.position, 1, Pose);
+                        if (poseDetection != null && poseDetection.Length>0)
                         {
-                            col.GetComponent<RoomType>().RoomDestruction();// destroy a room
-                            Instantiate(rooms[3], transform.position,Quaternion.identity);
-                        }
-                        else
-                        {
-                            col.GetComponent<RoomType>().RoomDestruction();// destroy a room
-
-                            int randBottomRoom = Random.Range(1, 4);
-                            if (randBottomRoom == 2)
+                            if (poseDetection[0] != null)
                             {
-                                randBottomRoom = 1;
+                                Debug.Log("Pose to Destroy" + poseDetection);
+                                Debug.Log("Pose to Destroy" + poseDetection[0].name);
+                                Destroy(poseDetection[0].gameObject);
                             }
-                            Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        roomDetection.GetComponent<RoomType>().RoomDestruction();// destroy a room
+
+                        int randBottomRoom = Random.Range(1, 4);
+                        if (randBottomRoom == 2)
+                        {
+                            randBottomRoom = 1;
+                        }
+                        Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+
+                        poseDetection = Physics.OverlapSphere(transform.position, 1, Pose);
+                        if (poseDetection != null && poseDetection.Length>0)
+                        {
+                            if (poseDetection[0]!= null)
+                            {
+                                Debug.Log("Pose to Destroy" + poseDetection[0].name);
+                                Destroy(poseDetection[0].gameObject);
+                            }
+                            
                         }
                         
                     }
+                        
+                }
                 Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveAmount);
                 transform.position = newPos;
                 direction = Random.Range(1, 6);
 
                 int rand = Random.Range(2,4);
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                poseDetection = Physics.OverlapSphere(transform.position, 1, Pose);
+                if (poseDetection != null && poseDetection.Length>0)
+                {
+                    if (poseDetection[0] != null)
+                    {
+                        Debug.Log("Pose to Destroy" + poseDetection[0].name);
+                        Destroy(poseDetection[0].gameObject);
+                    }
+                }
             }
             else //reached bottom
             {
                 stopGen = true;
-                transform.position = startingPositions[randStartingPos].position;
+                //transform.position = startingPositions[randStartingPos].position;
+                foreach (Transform Pose in poses)
+                {
+                    if (Pose != null)
+                    {
+                        int rand = Random.Range(0, rooms.Length);
+                        transform.position = Pose.position;
+                        Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                        Destroy(Pose.gameObject);
+                    }
+                }
+
             }
         }
     } 
