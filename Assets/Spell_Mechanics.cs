@@ -24,9 +24,6 @@ public class Spell_Mechanics : MonoBehaviour
 
     private void SpellMovement()
     {
-        //rb.AddForce(Vector3.forward * 50);
-        //transform.position += new Vector3(0, 0, info.speed);
-        //Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        rb.velocity = new Vector3(0, 0, 1) * info.speed;
+        rb.velocity = transform.up * info.speed;
     }
 }
