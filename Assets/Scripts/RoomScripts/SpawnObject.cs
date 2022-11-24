@@ -17,9 +17,9 @@ public class SpawnObject : MonoBehaviour
             GameObject instance = (GameObject)Instantiate(objects[rand], transform.position, Quaternion.Euler(90, 0, 0));
             instance.transform.parent = transform;
         }
-        if (objects[rand].name == "bigTile")
+        if (objects[rand].name == "Cylinder")
         {
-            GameObject instance = (GameObject)Instantiate(objects[rand], transform.position, Quaternion.Euler(90, 0, 0));
+            GameObject instance = (GameObject)Instantiate(objects[rand], transform.position, Quaternion.Euler(33, 4, 10));
             instance.transform.parent = transform;
         }
         else
