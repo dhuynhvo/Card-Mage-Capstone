@@ -11,14 +11,22 @@ public class ExitGame : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+           // exits game when user presses "esc"
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
+            Debug.Log("Game exited with esc press");
+        }
     }
-    //exit game
+       
+        // exits game with button press
     public void Exit()
     {
         Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+        Debug.Log("Game has exited");
     }
 }
