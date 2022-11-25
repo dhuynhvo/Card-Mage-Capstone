@@ -17,7 +17,7 @@ public class ExitGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false; // closes playing screen
+            //UnityEditor.EditorApplication.isPlaying = false; // closes playing screen
             Debug.Log("Game exited with esc press");
         }
     }
@@ -26,7 +26,7 @@ public class ExitGame : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false; // closes playig screen
+        //UnityEditor.EditorApplication.isPlaying = false; // closes playig screen
         Debug.Log("Game has exited");
     }
 }
