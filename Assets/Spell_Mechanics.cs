@@ -26,4 +26,12 @@ public class Spell_Mechanics : MonoBehaviour
     {
         rb.velocity = transform.up * info.speed;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject, 1f);
+        }
+    }
 }

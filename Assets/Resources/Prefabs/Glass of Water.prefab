@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: -1305633308567751407}
   - component: {fileID: 1252340363912507356}
   - component: {fileID: -7799769855401936433}
+  - component: {fileID: 5549209074855828003}
   m_Layer: 0
   m_Name: Glass of Water
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,3 +133,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce4815ce44437443b4193c4258a06df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5549209074855828003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8693225694756622806}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
