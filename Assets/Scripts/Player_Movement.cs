@@ -8,7 +8,7 @@ public class Player_Movement : MonoBehaviour
     public float PlayerSpeed;
     [SerializeField]
     private GameObject PlayerAvatar;
-    private char FacingWhat;
+    private char FacingWhat; // Unused currently
     Rigidbody rb;
 
 
@@ -26,25 +26,25 @@ public class Player_Movement : MonoBehaviour
         {
             rb.MovePosition(transform.position + Vector3.forward * Time.deltaTime * PlayerSpeed);
             PlayerAvatar.transform.rotation = Quaternion.Euler(90, 0, 0);
-            FacingWhat = 'u';
+            //FacingWhat = 'u';
         }
         if (Input.GetKey(DownKey))
         {
             rb.MovePosition(transform.position + Vector3.back * Time.deltaTime * PlayerSpeed);
             PlayerAvatar.transform.rotation = Quaternion.Euler(90, 180, 0);
-            FacingWhat = 'd';
+            //FacingWhat = 'd';
         }
         if (Input.GetKey(LeftKey))
         {
             rb.MovePosition(transform.position + Vector3.left * Time.deltaTime * PlayerSpeed);
             PlayerAvatar.transform.rotation = Quaternion.Euler(90, 270, 0);
-            FacingWhat = 'l';
+            //FacingWhat = 'l';
         }
         if (Input.GetKey(RightKey))
         {
             rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * PlayerSpeed);
             PlayerAvatar.transform.rotation = Quaternion.Euler(90, 90, 0);
-            FacingWhat = 'r';
+            //FacingWhat = 'r';
         }
     }
 }
