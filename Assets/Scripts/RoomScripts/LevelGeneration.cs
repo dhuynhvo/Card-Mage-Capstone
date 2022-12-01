@@ -13,7 +13,9 @@ public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
     public Transform playerLoc;
-    public GameObject[] rooms; //index 0 = LR, index 1 = LRB, index 2 = LRT, index 3 = LRBT
+    public GameObject[] spawnRooms;//index 0 = LeftTop, index 1 = RightToP, index 2 = spawnCenter
+    public GameObject[] rooms;//index 0 = LR, index 1 = LRB, index 2 = LRT, index 3 = LRBT
+    public GameObject[] bossRooms; //index 0 = BOSS
     public Transform[] poses;
 
     private int direction; //direction to move by offset
@@ -40,8 +42,23 @@ public class LevelGeneration : MonoBehaviour
     {
         randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
+        switch (randStartingPos)
+        {
+            case 0:
+                Instantiate(spawnRooms[0], transform.position, Quaternion.identity);
+                break;
+            case 1:
+                Instantiate(spawnRooms[2], transform.position, Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(spawnRooms[2], transform.position, Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(spawnRooms[1], transform.position, Quaternion.identity);
+                break;
+        }
         playerLoc.transform.position = startingPositions[randStartingPos].position;
-        Instantiate(rooms[0], transform.position, Quaternion.identity);
+        //Instantiate(rooms[0], transform.position, Quaternion.identity);
         poseDetection = Physics.OverlapSphere(transform.position, 1, Pose);
         Destroy(poseDetection[0].gameObject);
         direction = Random.Range(1, 6);
@@ -160,7 +177,6 @@ public class LevelGeneration : MonoBehaviour
                             randBottomRoom = 1;
                         }
                         Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
-
                         poseDetection = Physics.OverlapSphere(transform.position, 1, Pose);
                         if (poseDetection != null && poseDetection.Length > 0)
                         {
@@ -194,8 +210,12 @@ public class LevelGeneration : MonoBehaviour
             else //reached bottom
             {
                 stopGen = true;
-                //transform.position = startingPositions[randStartingPos].position;
-                foreach (Transform Pose in poses)
+                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
+                roomDetection.GetComponent<RoomType>().RoomDestruction();// destroy a room
+                int randBoss = Random.Range(0, bossRooms.Length);
+                Instantiate(bossRooms[randBoss], transform.position, Quaternion.identity); //make a boss room with a top hole in case path is obstructed horizontal.
+                
+                foreach (Transform Pose in poses) //fill out the rest of the map
                 {
                     if (Pose != null)
                     {
