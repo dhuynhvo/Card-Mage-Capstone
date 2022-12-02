@@ -5,56 +5,61 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-
+    [SerializeField]
     public List<GameObject> Cards;
+    [SerializeField]
     public List<GameObject> Graveyard;
-    public Hand PlayerHand;
+    [SerializeField]
+    private Hand PlayerHand;
+    [SerializeField]
     private bool DoneIndexing = false;
-    public int DeckLimit = 9; //The max number - 1 accounting for 0
-    public int CardIndex = 1;
+    [SerializeField]
+    private int DeckLimit; //The max number - 1 accounting for 0
+    [SerializeField]
+    private int CardIndex = 1;
+    [SerializeField]
     public int GraveIndex = 0;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Premade_Decks[] DeckStash;
+    [SerializeField]
+    private Premade_Decks CurrentDeck;
+    [SerializeField]
+    public bool LoadingDeck = false;
+    [SerializeField]
+    private string CurrentDeckName = "LITERALLY JUST FIRE";
+
+    private void Start()
     {
-        for(int i = 0; i < DeckLimit; i++)
-        {
-            Cards[i] = Resources.Load("Prefabs/FireCube") as GameObject;
-            i++;
-            if(i <= DeckLimit)
-            {
-                Cards[i] = Resources.Load("Prefabs/Glass of Water") as GameObject;
-            }
-        }
+        LoadDeck();
     }
 
-    // Update is called once per frame
     void Update()
     {
         PopDeck();
+    }
 
-        /*if (Input.GetMouseButtonDown(0) && Cards[0] != null)
+    public void LoadDeck(string nameOfDeck = "LITERALLY JUST FIRE")
+    {
+        PlayerHand.EmptyHand();
+        for(int i = 0; i < 3; i++)
         {
-            Debug.Log(Cards[0].ToString() + " has been played");
-            Graveyard[GraveIndex] = Cards[0];
-            GraveIndex++;
-            Cards[0] = null;
+            if(DeckStash[i].DeckName == nameOfDeck)
+            {
+                CurrentDeck = DeckStash[i];
+                CurrentDeckName = CurrentDeck.DeckName;
+            }
         }
 
-        else if (Input.GetMouseButton(0) && Cards[0] == null)
+        for (int i = 0; i < DeckLimit; i++)
         {
-            Debug.Log("Empty Deck!!!");
-            for(int i = 0; i < GraveIndex; i++)
+            Cards[i] = CurrentDeck.cards[i];
+            if (i >= DeckLimit - 1)
             {
-                Cards[i] = Graveyard[i];
+                Cards[DeckLimit] = CurrentDeck.cards[DeckLimit];
             }
-            
-            for (int i = 0; i < GraveIndex; i++)
-            {
-                Graveyard[i] = null;
-            }
-            GraveIndex = 0;
-            Debug.Log("Deck Reload");
-        }*/
+
+            LoadingDeck = false;
+        }
     }
 
     public void PopDeck()

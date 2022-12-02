@@ -9,10 +9,11 @@ public class Hand : MonoBehaviour
     public Deck PlayerDeck;
     public bool HandIsFull;
     public bool HandIsEmpty;
-    int MaxHandLength = 4;
+    [SerializeField]
+    private int MaxHandLength = 4;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CardsInHand = new List<GameObject>(new GameObject[MaxHandLength]);
     }
@@ -26,7 +27,7 @@ public class Hand : MonoBehaviour
     public void FillHand()
     {
         //if (PlayerDeck.Cards[0] != null && !HandFullCheck())
-        if (!HandFullCheck()) //unsure why the behavior works without the Player.Dek.Cards != null
+        if (!HandFullCheck()) //unsure why the behavior works without the Player.Deck.Cards != null
         {
             for (int i = 0; i < MaxHandLength; i++)
             {
@@ -39,6 +40,17 @@ public class Hand : MonoBehaviour
             }
 
         }
+    }
+
+    public void EmptyHand()
+    {
+            for (int i = 0; i < MaxHandLength; i++)
+            {
+                if (CardsInHand[i] != null)
+                {
+                    CardsInHand[i] = null;
+                }
+            }
     }
 
     public bool HandFullCheck()
