@@ -20,7 +20,7 @@ public class Deck : MonoBehaviour
     [SerializeField]
     public int GraveIndex = 0;
     [SerializeField]
-    private Premade_Decks[] DeckStash;
+    public Premade_Decks[] DeckStash;
     [SerializeField]
     private Premade_Decks CurrentDeck;
     [SerializeField]

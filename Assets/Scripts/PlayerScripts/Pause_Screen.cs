@@ -12,7 +12,17 @@ public class Pause_Screen : MonoBehaviour
     private GameObject ChangeDeckScreen;
     [SerializeField]
     private Deck PlayerDeck;
+    [SerializeField]
+    private Premade_Decks[] stash;
     private bool paused = false;
+
+    private void Start()
+    {
+        for(int i = 0; i < stash.Length; i++)
+        {
+            stash[i] = gameObject.GetComponent<Deck>().DeckStash[i];
+        }
+    }
 
     void Update()
     {
@@ -76,19 +86,19 @@ public class Pause_Screen : MonoBehaviour
     //It's hardcoded because i'm very sleepy, if anyone finds this remind me to fix it please -Dan
     public void ChoseDeck1()
     {
-        PlayerDeck.LoadDeck("LITERALLY JUST FIRE");
+        PlayerDeck.LoadDeck(stash[0].DeckName);
         BackToPause();
     }
 
     public void ChoseDeck2()
     {
-        PlayerDeck.LoadDeck("TALLEST GLASS OF WATER");
+        PlayerDeck.LoadDeck(stash[1].DeckName);
         BackToPause();
     }
 
     public void ChoseDeck3()
     {
-        PlayerDeck.LoadDeck("NOTHING LOL");
+        PlayerDeck.LoadDeck(stash[2].DeckName);
         BackToPause();
     }
 }
