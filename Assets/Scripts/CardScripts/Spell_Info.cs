@@ -8,5 +8,6 @@ public class Spell_Info : MonoBehaviour
     public string SpellName;
     public float damage;
     public float speed;
+    public float cooldown;
     public string[] SpellAttributes;
 }
