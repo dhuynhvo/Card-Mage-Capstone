@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class Play_Card : MonoBehaviour
 {
@@ -9,10 +8,6 @@ public class Play_Card : MonoBehaviour
     public Hand EnemyHand; //Currently unused
     public Deck PlayerDeck;
     public Deck EnemyDeck; //Currently unused
-    [SerializeField]
-    private List<GameObject> CardQueue;
-    [SerializeField]
-    private int MaxCardsInQueue;
     public string Card1Bind, Card2Bind, Card3Bind, Card4Bind;
     public GameObject SpellSpawnArea;
     string[] binds = {"1", "2", "3", "4"};
@@ -20,7 +15,7 @@ public class Play_Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CardQueue = new List<GameObject>(new GameObject[MaxCardsInQueue]);
+        
     }
 
     // Update is called once per frame
@@ -94,33 +89,5 @@ public class Play_Card : MonoBehaviour
             if (Input.GetKeyDown(key)) return true;
         }
         return false;
-    }
-
-    private void PushQueueforward()
-    {
-        bool QueueIsEmpty = CardQueue?.Any() != true;
-        if (CardQueue.Count < MaxCardsInQueue)
-        {
-            if(!QueueIsEmpty)
-            {
-                for(int i = MaxCardsInQueue - 2; i >= 0; i--)
-                {
-                    while(true)
-                    {
-                        //lol this will literally crash don't run this code dummy
-                    }
-                }
-            }
-        };
-    }
-
-    private void GetOutQueue()
-    {
-        bool QueueIsEmpty = CardQueue?.Any() != true;
-        if(!QueueIsEmpty)
-        {
-            
-        }
-
     }
 }
