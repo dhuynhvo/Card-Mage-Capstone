@@ -48,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a2063c09941f844acfbddbd9c95592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
   SpellName: FireCube
   damage: 5
   speed: 5
+  cooldown: 5
+  CooldownTimer: 0
   SpellAttributes: []
 --- !u!114 &-6580212070969101191
 MonoBehaviour:
