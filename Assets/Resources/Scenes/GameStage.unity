@@ -2510,11 +2510,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1545908075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2049558500584079581, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-  m_PrefabInstance: {fileID: 4111835783000134640}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1552826153
 GameObject:
   m_ObjectHideFlags: 0
@@ -3809,47 +3804,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2049558500584079553, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
   m_PrefabInstance: {fileID: 4111835783000134640}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545908075}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c7618c6f0d57e848a2cccc1f57a4168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2693524500158665524 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2049558500584079568, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-  m_PrefabInstance: {fileID: 4111835783000134640}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545908075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b0886b02e3546429e8474bea04d249, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2693524500158665525 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-  m_PrefabInstance: {fileID: 4111835783000134640}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545908075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09577994829e2eb4daa8d9ae97b5b44c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2693524500158665530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545908075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a66851a8d9fd025489faa2379a7cb3b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 86832846}
 --- !u!1001 &4111835783000134640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3857,14 +3817,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2049558500532570874, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: orthographic size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079553, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: PlayerDeck
-      value: 
-      objectReference: {fileID: 2693524500158665525}
     - target: {fileID: 2049558500584079553, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: PauseScreen
       value: 
@@ -3873,78 +3825,6 @@ PrefabInstance:
       propertyPath: ChangeDeckScreen
       value: 
       objectReference: {fileID: 736453597}
-    - target: {fileID: 2049558500584079553, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: stash.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079568, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: CardsInHand.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: DeckLimit
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: PlayerHand
-      value: 
-      objectReference: {fileID: 2693524500158665524}
-    - target: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: Cards.Array.size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: DeckStash.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: Graveyard.Array.size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: DeckStash.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 405961fe51aa0e347b486e26be3046fd, type: 2}
-    - target: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: DeckStash.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 36e3426e33f47e5459d6cc93cdccce57, type: 2}
-    - target: {fileID: 2049558500584079569, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: DeckStash.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: dab2173998535bb4db5c116e9b2de19d, type: 2}
-    - target: {fileID: 2049558500584079571, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: MaxCardsInQueue
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079571, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: CardQueue.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079571, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: CardQueue.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079571, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: CardQueue.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079571, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: CardQueue.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079571, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: CardQueue.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079571, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: CardQueue.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049558500584079571, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-      propertyPath: CardQueue.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2049558500584079580, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3993,5 +3873,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2693524500158665530, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 86832846}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
