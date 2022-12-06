@@ -307,7 +307,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 2049558500584079571}
   - component: {fileID: 2049558500584079552}
   - component: {fileID: 2049558500584079553}
+  - component: {fileID: 2693524500158665530}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -360,7 +361,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049558500584079581}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.6, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -425,6 +426,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Graveyard:
   - {fileID: 0}
   - {fileID: 0}
@@ -436,10 +447,28 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  PlayerHand: {fileID: 0}
-  DeckLimit: 9
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PlayerHand: {fileID: 2049558500584079568}
+  DoneIndexing: 0
+  DeckLimit: 19
   CardIndex: 1
   GraveIndex: 0
+  DeckStash:
+  - {fileID: 11400000, guid: 405961fe51aa0e347b486e26be3046fd, type: 2}
+  - {fileID: 11400000, guid: 36e3426e33f47e5459d6cc93cdccce57, type: 2}
+  - {fileID: 11400000, guid: dab2173998535bb4db5c116e9b2de19d, type: 2}
+  CurrentDeck: {fileID: 0}
+  LoadingDeck: 0
+  CurrentDeckName: LITERALLY JUST FIRE
 --- !u!114 &2049558500584079568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,10 +481,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b0886b02e3546429e8474bea04d249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardsInHand: []
+  CardsInHand:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   PlayerDeck: {fileID: 2049558500584079569}
   HandIsFull: 0
   HandIsEmpty: 0
+  MaxHandLength: 4
 --- !u!114 &2049558500584079571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +506,14 @@ MonoBehaviour:
   EnemyHand: {fileID: 2049558500584079568}
   PlayerDeck: {fileID: 2049558500584079569}
   EnemyDeck: {fileID: 2049558500584079569}
+  CardQueue:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  MaxCardsInQueue: 6
   Card1Bind: 1
   Card2Bind: 2
   Card3Bind: 3
@@ -507,6 +549,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseButton: Cancel
   PauseScreen: {fileID: 0}
+  ChangeDeckScreen: {fileID: 0}
+  PlayerDeck: {fileID: 2049558500584079569}
+  stash:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &2693524500158665530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049558500584079581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66851a8d9fd025489faa2379a7cb3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
 --- !u!1 &4111835781257705991
 GameObject:
   m_ObjectHideFlags: 0
