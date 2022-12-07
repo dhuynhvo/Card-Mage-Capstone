@@ -6,6 +6,8 @@ public class Enemy_Info : MonoBehaviour
 {
     [SerializeField]
     public float health;
+    [SerializeField]
+    public float DropChance;
 
     void Start()
     {

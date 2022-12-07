@@ -10,8 +10,6 @@ public class Enemy_Mechanics : MonoBehaviour
     [SerializeField]
     private Premade_Decks CardPool;
     [SerializeField]
-    float CardDropChance; //Currently unused
-    [SerializeField]
     Sprite DeadSprite;
     Enemy_Info info;
     private bool NotDead = true;
@@ -36,7 +34,11 @@ public class Enemy_Mechanics : MonoBehaviour
 
     public void DropCardOnDeath()
     {
+        float randChance = Random.Range(0f, 100f);
+        if(randChance < info.DropChance)
+        {
             var randPosition = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
             GameObject Card = Instantiate(CardPool.cards[0], transform.position + randPosition, Quaternion.Euler(90, 0, 0));
+        }
     }
 }

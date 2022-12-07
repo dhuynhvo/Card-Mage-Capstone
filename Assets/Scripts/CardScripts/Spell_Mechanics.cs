@@ -31,7 +31,7 @@ public class Spell_Mechanics : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
         }
     }
 }
