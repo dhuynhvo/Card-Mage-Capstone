@@ -11,7 +11,7 @@ public class Spell_Mechanics : MonoBehaviour
     {
         info = gameObject.GetComponent<Spell_Info>();
         rb = gameObject.GetComponent<Rigidbody>();
-        //Destroy(gameObject, 20);
+        Destroy(gameObject, 5);
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class Spell_Mechanics : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            //Destroy(gameObject, 1f);
+            Destroy(gameObject, 1f);
         }
     }
 }

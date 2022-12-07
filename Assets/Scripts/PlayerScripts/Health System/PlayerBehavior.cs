@@ -8,7 +8,6 @@ public class PlayerBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -37,4 +36,5 @@ public class PlayerBehavior : MonoBehaviour
         GameManager.gameManager.playerHealth.HealUnit(healing);
         healthBar.SetHealth(GameManager.gameManager.playerHealth.Health);
     }
+
 }

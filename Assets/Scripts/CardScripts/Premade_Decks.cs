@@ -10,5 +10,6 @@ public class Premade_Decks : ScriptableObject
     public string DeckName;
     [SerializeField]
     public List<GameObject> cards;
+    public List<string> CardNames; 
 
 }
