@@ -28,59 +28,24 @@ public class SpellSpawn_Rotate : MonoBehaviour
     void Update()
     {
         rotater();
+        /*if(Input.GetMouseButton(0))       //THIS IS A DEBUGGING TOOL, IF THE CURSOR IS BUGGED TURN THIS BACK ON, AND PUT THE NUMBERS INTO THE OFFSET
+        {
+            Debug.Log(Input.mousePosition.x + "     " + Input.mousePosition.y);
+        }*/
         
     }
 
     void rotater()
     {
-        /*Vector3 worldPos = position;
-        Quaternion q = Quaternion.AngleAxis(angle, axis);
-        Vector3 dif = worldPos - point;
-        dif = q * dif;
-        worldPos = point + dif;
-        position = worldPos;*/
-
-
         Vector3 spritePivot = new Vector3(PlayerAvatar.position.x, PlayerAvatar.position.y, PlayerAvatar.position.z); //location of pivot point
         Vector3 mouseToPoint = new Vector3(Input.mousePosition.x - OffsetX, 0, Input.mousePosition.y - OffsetY); //If anyone could explain why this works that would be great actually
-        //Vector3 mouseToPoint = new Vector3(Input.mousePosition.x - 1000, 0, Input.mousePosition.y - 600); //If anyone could explain why this works that would be great actually
-        //GameObject EnemyToCreate = Instantiate(Resources.Load("test point") as GameObject, mouseToPoint, Quaternion.identity);
+        //Vector3 mouseToPoint = new Vector3(Input.mousePosition.x - 1000, 0, Input.mousePosition.y - 600);
         //Debug.Log(Input.mousePosition.x + "     " + Input.mousePosition.y);
         mouseToPoint.Normalize();
         mouseToPoint *= radius;
         transform.position = spritePivot + mouseToPoint;
 
         ///////////////////////////////////////////////////////////
-        ///
-
-        /*Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-
-        difference.Normalize();
-
-        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(90f, 0f, -rotationZ - 90);
-
-        if (rotationZ < -90 || rotationZ > 90)
-        {
-
-
-
-            if (transform.eulerAngles.y == 0)
-            {
-
-
-                transform.localRotation = Quaternion.Euler(90, 0, rotationZ + 90);
-
-
-            }
-            else if (transform.eulerAngles.y == 180)
-            {
-
-
-                transform.localRotation = Quaternion.Euler(90, 180, rotationZ + 90);
-            }
-        }*/
 
         //Get the Screen positions of the object
         Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(PlayerAvatar.transform.position);
@@ -99,4 +64,5 @@ public class SpellSpawn_Rotate : MonoBehaviour
     {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
+
 }
