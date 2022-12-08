@@ -8,7 +8,10 @@ public class SpellSpawn_Rotate : MonoBehaviour
     private Transform PlayerAvatar;
     [SerializeField]
     private Rigidbody rb;
-
+    [SerializeField]
+    private float OffsetX;
+    [SerializeField]
+    private float OffsetY;
     public Vector2 turn;
     public float sensitivity = .5f;
     public Vector3 deltaMove;
@@ -39,7 +42,8 @@ public class SpellSpawn_Rotate : MonoBehaviour
 
 
         Vector3 spritePivot = new Vector3(PlayerAvatar.position.x, PlayerAvatar.position.y, PlayerAvatar.position.z); //location of pivot point
-        Vector3 mouseToPoint = new Vector3(Input.mousePosition.x - 1000, 0, Input.mousePosition.y - 600); //If anyone could explain why this works that would be great actually
+        Vector3 mouseToPoint = new Vector3(Input.mousePosition.x - OffsetX, 0, Input.mousePosition.y - OffsetY); //If anyone could explain why this works that would be great actually
+        //Vector3 mouseToPoint = new Vector3(Input.mousePosition.x - 1000, 0, Input.mousePosition.y - 600); //If anyone could explain why this works that would be great actually
         //GameObject EnemyToCreate = Instantiate(Resources.Load("test point") as GameObject, mouseToPoint, Quaternion.identity);
         //Debug.Log(Input.mousePosition.x + "     " + Input.mousePosition.y);
         mouseToPoint.Normalize();
