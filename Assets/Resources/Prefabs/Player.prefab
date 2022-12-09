@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 2049558499896436104}
   - component: {fileID: 2049558499896436106}
   - component: {fileID: 2049558499896436107}
-  - component: {fileID: 2049558499896436108}
+  - component: {fileID: 2442223974157463937}
   m_Layer: 0
   m_Name: Spell Spawn
   m_TagString: Player
@@ -154,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049558499896436105}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 1.8}
+  m_LocalPosition: {x: 0, y: 0, z: 2.5}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,28 +226,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAvatar: {fileID: 2049558498879427906}
-  rb: {fileID: 2049558499896436108}
   turn: {x: 0, y: 0}
   sensitivity: 0.5
   deltaMove: {x: 0, y: 0, z: 0}
-  speed: 1
-  radius: 1.8
---- !u!54 &2049558499896436108
-Rigidbody:
+  speed: 3
+  radius: 2
+--- !u!114 &2442223974157463937
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049558499896436105}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d31f69aa213f8448cd2eaa2d9817ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2049558500532570872
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +346,8 @@ GameObject:
   - component: {fileID: 2693524500158665533}
   - component: {fileID: 2693524500158665531}
   - component: {fileID: 2693524500158665532}
-  m_Layer: 0
+  - component: {fileID: 2617361372658682657}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -367,7 +363,7 @@ Transform:
   m_GameObject: {fileID: 2049558500584079581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.6, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 1, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2049558500532570877}
@@ -398,6 +394,7 @@ MonoBehaviour:
   NE: {x: 0, y: 0, z: 0}
   SW: {x: 0, y: 0, z: 0}
   SE: {x: 0, y: 0, z: 0}
+  MoveDir: {x: 0, y: 0, z: 0}
   PlayerSpeed: 10
   DashSpeed: 1000
   PlayerAvatar: {fileID: 2049558498879427907}
@@ -532,7 +529,7 @@ Rigidbody:
   m_GameObject: {fileID: 2049558500584079581}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 5
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -579,11 +576,11 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049558500584079581}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1560575207a7b4f27bcd4ab2aeb2e3a1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2693524500158665531
 MeshRenderer:
@@ -635,6 +632,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049558500584079581}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2617361372658682657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049558500584079581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d31f69aa213f8448cd2eaa2d9817ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4111835781257705991
 GameObject:
   m_ObjectHideFlags: 0

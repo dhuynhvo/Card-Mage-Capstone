@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  DropChance: 0
+  DropChance: 100
 --- !u!114 &2531800505239158647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,5 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d290ee9d964c02540b7f357ec64822eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardPool: {fileID: 0}
+  CardPool: {fileID: 11400000, guid: c7b4d07a7ff848644b2b6ef03844b0d8, type: 2}
   DeadSprite: {fileID: 21300000, guid: c6523f1e3860bf241957e5994cc37eb5, type: 3}
+  thisID: 0
+  test: 0

@@ -10,12 +10,15 @@ public class ShopScript : MonoBehaviour
     public float Cost;
     [SerializeField]
     private Premade_Decks CardPool;
+    [SerializeField]
+    private int thisID;
     // Start is called before the first frame update
     void Start()
     {
+        thisID = gameObject.GetInstanceID();
         GameEvents.current.OnShopBuy += Current_OnShopBuy;
     }
-    private void Current_OnShopBuy()
+    private void ShopErr()
     {
         throw new System.NotImplementedException();
     }
@@ -27,9 +30,29 @@ public class ShopScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("PURCHASE ATTTEMPTED");
-            GameEvents.current.DropCard_S();
-            GameEvents.current.OnShopBuy += Current_OnShopBuy;
+            GameEvents.current.DropCard_S(thisID, collision.gameObject);
             Destroy(gameObject);
         }
+    }
+
+    public void Current_OnShopBuy(int ID, GameObject player)
+    {
+        if(thisID == ID)
+        {
+            int randCard = Random.Range(0, CardPool.cards.Count);
+            int priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
+
+            if (priceOfCard < player.GetComponent<Player_Currency>().money)
+            {
+                player.GetComponent<Player_Currency>().money -= priceOfCard;
+                var randPosition = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
+                GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position + randPosition, Quaternion.Euler(90, 0, 0));
+            }
+        }
+    }
+
+    public void OnDestroy()
+    {
+        GameEvents.current.OnShopBuy -= Current_OnShopBuy;
     }
 }

@@ -142,7 +142,7 @@ public class Play_Card : MonoBehaviour
                 if(count > 0 && CardQueue[i] != null)
                 {
                     CardQueue[i].GetComponent<Spell_Info>().CooldownTimer++;
-                    Debug.Log(CardQueue[i].GetComponent<Spell_Info>().CooldownTimer);
+                    //Debug.Log(CardQueue[i].GetComponent<Spell_Info>().CooldownTimer);
                     if (CardQueue[i].GetComponent<Spell_Info>().CooldownTimer >= CardQueue[i].GetComponent<Spell_Info>().cooldown)
                     {
                         PlayerDeck.GraveTheCard(CardQueue[i], ref PlayerDeck.GraveIndex);

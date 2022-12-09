@@ -6,9 +6,11 @@ public class PickUp : MonoBehaviour
 {
     [SerializeField]
     private Premade_Decks PlayerCardPool;
+    public int thisID;
 
     void Start()
     {
+        thisID = gameObject.GetInstanceID();
         GameEvents.current.NearDroppedCard += PickUpCard;
         PlayerCardPool = Resources.Load<Premade_Decks>("Player_Card_Pool");
     }
@@ -18,40 +20,49 @@ public class PickUp : MonoBehaviour
 
     }
 
-    private void PickUpCard()
+    private void PickUpCard(int ID)
     {
-        string cardName = gameObject.GetComponent<Connected_Spell>().spell.GetComponent<Spell_Info>().SpellName;
-        bool isInList = false;
-        if(PlayerCardPool.CardNames.Count == 0)
+        if(thisID == ID)
         {
-            PlayerCardPool.CardNames.Add(cardName);
-            return;
-        }
+            string cardName = gameObject.GetComponent<Connected_Spell>().spell.GetComponent<Spell_Info>().SpellName;
+            bool isInList = false;
 
-        else if(PlayerCardPool.CardNames.Count > 0)
-        {
-            for (int i = 0; i < PlayerCardPool.CardNames.Count; i++)
+            if (PlayerCardPool.CardNames.Count == 0)
             {
-                if (PlayerCardPool.CardNames[i] == cardName)
+                PlayerCardPool.CardNames.Add(cardName);
+                return;
+            }
+
+            else if (PlayerCardPool.CardNames.Count > 0)
+            {
+                for (int i = 0; i < PlayerCardPool.CardNames.Count; i++)
                 {
-                    isInList = true;
+                    if (PlayerCardPool.CardNames[i] == cardName)
+                    {
+                        isInList = true;
+                    }
                 }
             }
-        }
 
-        if(isInList == false)
-        {
-            PlayerCardPool.CardNames.Add(cardName);
-        }
+            if (isInList == false)
+            {
+                PlayerCardPool.CardNames.Add(cardName);
+            }
 
-        Destroy(gameObject, 1f);
+            Destroy(gameObject, 1f);
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            GameEvents.current.PickUpCard_E();
+            GameEvents.current.PickUpCard_E(thisID);
         }
+    }
+
+    public void OnDestroy()
+    {
+        GameEvents.current.NearDroppedCard -= PickUpCard;
     }
 }

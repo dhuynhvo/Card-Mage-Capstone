@@ -12,28 +12,28 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
 
-    public event Action OnEnemyDeath;
-    public event Action OnShopBuy;
-    public event Action NearDroppedCard;
-    public void DropCard_E()
+    public event Action<int> OnEnemyDeath;
+    public event Action<int, GameObject> OnShopBuy;
+    public event Action<int> NearDroppedCard;
+    public void DropCard_E(int ID)
     {
         if(OnEnemyDeath != null)
         {
-            OnEnemyDeath();
+            OnEnemyDeath(ID);
         }
     }
-    public void DropCard_S()
+    public void DropCard_S(int ID, GameObject player)
     {
         if (OnShopBuy != null)
         {
-            OnShopBuy();
+            OnShopBuy(ID, player);
         }
     }
-    public void PickUpCard_E()
+    public void PickUpCard_E(int ID)
     {
         if(NearDroppedCard != null)
         {
-            NearDroppedCard();
+            NearDroppedCard(ID);
         }
     }
 }
