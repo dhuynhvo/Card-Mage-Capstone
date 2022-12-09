@@ -21,7 +21,6 @@ public class SpellSpawn_Rotate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -37,13 +36,14 @@ public class SpellSpawn_Rotate : MonoBehaviour
 
     void rotater()
     {
-        Vector3 spritePivot = new Vector3(PlayerAvatar.position.x, PlayerAvatar.position.y, PlayerAvatar.position.z); //location of pivot point
-        Vector3 mouseToPoint = new Vector3(Input.mousePosition.x - OffsetX, 0, Input.mousePosition.y - OffsetY); //If anyone could explain why this works that would be great actually
-        //Vector3 mouseToPoint = new Vector3(Input.mousePosition.x - 1000, 0, Input.mousePosition.y - 600);
-        //Debug.Log(Input.mousePosition.x + "     " + Input.mousePosition.y);
+        float positionXRatio = Input.mousePosition.x / Screen.width;
+        float positionYRatio = Input.mousePosition.y / Screen.height;
+
+        Vector3 spritePivot = PlayerAvatar.position; //location of pivot point
+        Vector3 mouseToPoint = new Vector3(positionXRatio - .5f, 0, positionYRatio -.5f); //If anyone could explain why this works that would be great actually
         mouseToPoint.Normalize();
-        mouseToPoint *= radius;
-        transform.position = spritePivot + mouseToPoint;
+
+        transform.position = spritePivot + mouseToPoint * radius;
 
         ///////////////////////////////////////////////////////////
 
