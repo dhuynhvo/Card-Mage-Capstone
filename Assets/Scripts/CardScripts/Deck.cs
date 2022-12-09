@@ -116,11 +116,12 @@ public class Deck : MonoBehaviour
     {
         for (int i = 0; i <= DeckLimit; i++)
         {
-            Cards[i] = Graveyard[i];
+            Cards[i] = Resources.Load<GameObject>("Prefabs/" + Graveyard[i].GetComponent<Spell_Info>().SpellName);
         }
 
         for (int i = 0; i <= DeckLimit; i++)
         {
+            Destroy(Graveyard[i], 1f);
             Graveyard[i] = null;
         }
     }

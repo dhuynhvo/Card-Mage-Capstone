@@ -9,6 +9,7 @@ public class Spell_Info : MonoBehaviour
     public float speed;
     public float cooldown;
     public float CooldownTimer = -1;
+    public float ActiveDuration;
     public string[] SpellAttributes;
 }
 

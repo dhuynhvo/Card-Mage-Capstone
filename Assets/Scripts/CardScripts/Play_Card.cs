@@ -41,7 +41,7 @@ public class Play_Card : MonoBehaviour
     public void PlayCard()
     {
 
-        if (PlayerHand.HandEmptyCheck() && AnyKeyDown(binds))
+        if (PlayerHand.HandEmptyCheck() && AnyKeyDown(binds) && count == 0)
         {
             PlayerDeck.GraveIndex = 0;
             PlayerDeck.DeckReload();

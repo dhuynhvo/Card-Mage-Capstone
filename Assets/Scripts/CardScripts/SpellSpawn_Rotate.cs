@@ -8,10 +8,6 @@ public class SpellSpawn_Rotate : MonoBehaviour
     private Transform PlayerAvatar;
     [SerializeField]
     private Rigidbody rb;
-    [SerializeField]
-    private float OffsetX;
-    [SerializeField]
-    private float OffsetY;
     public Vector2 turn;
     public float sensitivity = .5f;
     public Vector3 deltaMove;

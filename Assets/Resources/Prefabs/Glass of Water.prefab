@@ -53,7 +53,10 @@ MonoBehaviour:
   speed: 7
   cooldown: 1
   CooldownTimer: 0
-  SpellAttributes: []
+  ActiveDuration: 7
+  SpellAttributes:
+  - Water
+  - Projectile
 --- !u!54 &-1305633308567751407
 Rigidbody:
   m_ObjectHideFlags: 0

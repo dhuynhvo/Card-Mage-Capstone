@@ -53,7 +53,10 @@ MonoBehaviour:
   speed: 5
   cooldown: 5
   CooldownTimer: 0
-  SpellAttributes: []
+  ActiveDuration: 2
+  SpellAttributes:
+  - Fire
+  - Projectile
 --- !u!114 &-6580212070969101191
 MonoBehaviour:
   m_ObjectHideFlags: 0
