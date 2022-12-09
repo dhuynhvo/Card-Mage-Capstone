@@ -10504,6 +10504,11 @@ MonoBehaviour:
   objects:
   - {fileID: 9168807269015710304, guid: 2f4923b8d25461e4d943b05547065bf4, type: 3}
   - {fileID: 9168807269015710304, guid: 2f4923b8d25461e4d943b05547065bf4, type: 3}
+--- !u!4 &1616931013 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2049558499896436104, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+  m_PrefabInstance: {fileID: 4111835783000134640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1619706986
 GameObject:
   m_ObjectHideFlags: 0
@@ -14132,7 +14137,19 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2049558499896436107, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: orb
+      value: 
+      objectReference: {fileID: 1616931013}
+    - target: {fileID: 2049558499896436107, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049558499896436107, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049558499896436107, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: Nradius
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2049558499896436107, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
