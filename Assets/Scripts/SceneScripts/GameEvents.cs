@@ -13,6 +13,7 @@ public class GameEvents : MonoBehaviour
     }
 
     public event Action OnEnemyDeath;
+    public event Action OnShopBuy;
     public event Action NearDroppedCard;
     public void DropCard_E()
     {
@@ -21,7 +22,13 @@ public class GameEvents : MonoBehaviour
             OnEnemyDeath();
         }
     }
-
+    public void DropCard_S()
+    {
+        if (OnShopBuy != null)
+        {
+            OnShopBuy();
+        }
+    }
     public void PickUpCard_E()
     {
         if(NearDroppedCard != null)

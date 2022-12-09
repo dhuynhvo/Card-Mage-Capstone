@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -8,6 +9,8 @@ public class Player_Movement : MonoBehaviour
     private string UpKey, DownKey, LeftKey, RightKey, Dash;
     [SerializeField]
     private Vector3 NW, NE, SW, SE;
+    [SerializeField]
+    private Vector3 MoveDir;
     [SerializeField]
     private float PlayerSpeed, DashSpeed;
     [SerializeField]
@@ -32,16 +35,16 @@ public class Player_Movement : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         rb = gameObject.GetComponent<Rigidbody>();
-        NW = new Vector3(-1, 0, 1);
-        NE = new Vector3(1, 0, 1);
-        SW = new Vector3(-1, 0, -1);
-        SE = new Vector3(1, 0, -1);
+        NW = new Vector3(-1, 0, 1).normalized;
+        NE = new Vector3(1, 0, 1).normalized;
+        SW = new Vector3(-1, 0, -1).normalized;
+        SE = new Vector3(1, 0, -1).normalized;
     }
 
 
     void FixedUpdate()
     {
-
+        MoveDir = Vector3.zero;
         if(IsDashing)
         {
             DashTimer++;
@@ -52,63 +55,71 @@ public class Player_Movement : MonoBehaviour
                 DashSphere.SetActive(false);
             }
         }
-
+        //rigid body add force
         if(Input.GetKey(UpKey) && Input.GetKey(LeftKey))
         {
-            rb.MovePosition(transform.position + NW * Time.deltaTime * PlayerSpeed * .7f);
-            PlayerAvatar.transform.rotation = Quaternion.Euler(90, -45, 0);
-            FacingWhat = "ul";
+            MoveDir = NW;
+            //rb.moveposition(transform.position + nw * time.deltatime * playerspeed * .7f);
+            //playeravatar.transform.rotation = quaternion.euler(90, -45, 0);
+            //facingwhat = "ul";
         }
 
         else if (Input.GetKey(UpKey) && Input.GetKey(RightKey))
         {
-            rb.MovePosition(transform.position + NE * Time.deltaTime * PlayerSpeed * .7f);
-            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 45, 0);
-            FacingWhat = "ur";
+            MoveDir = NE;
+
+            //rb.MovePosition(transform.position + NE * Time.deltaTime * PlayerSpeed * .7f);
+            //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 45, 0);
+            //FacingWhat = "ur";
         }
 
         else if (Input.GetKey(DownKey) && Input.GetKey(LeftKey))
         {
-            rb.MovePosition(transform.position + SW * Time.deltaTime * PlayerSpeed * .7f);
-            PlayerAvatar.transform.rotation = Quaternion.Euler(90, -135, 0);
-            FacingWhat = "dl";
+            MoveDir = SW;
+            //rb.MovePosition(transform.position + SW * Time.deltaTime * PlayerSpeed * .7f);
+            //PlayerAvatar.transform.rotation = Quaternion.Euler(90, -135, 0);
+            //FacingWhat = "dl";
         }
 
         else if (Input.GetKey(DownKey) && Input.GetKey(RightKey))
         {
-            rb.MovePosition(transform.position + SE * Time.deltaTime * PlayerSpeed * .7f);
-            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 135, 0);
-            FacingWhat = "dr";
+            MoveDir = SE;
+            //rb.MovePosition(transform.position + SE * Time.deltaTime * PlayerSpeed * .7f);
+            //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 135, 0);
+            //FacingWhat = "dr";
         }
 
         else if (Input.GetKey(UpKey))
         {
-
-            rb.MovePosition(transform.position + Vector3.forward * Time.deltaTime * PlayerSpeed);
-            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 0, 0);
-            FacingWhat = "u";
+            MoveDir = Vector3.forward;
+            //rb.MovePosition(transform.position + Vector3.forward * Time.deltaTime * PlayerSpeed);
+            //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 0, 0);
+            //FacingWhat = "u";
         }
 
         else if (Input.GetKey(DownKey))
         {
-            rb.MovePosition(transform.position + Vector3.back * Time.deltaTime * PlayerSpeed);
-            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 180, 0);
-            FacingWhat = "d";
+            MoveDir = Vector3.back;
+            //rb.MovePosition(transform.position + Vector3.back * Time.deltaTime * PlayerSpeed);
+            //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 180, 0);
+            //FacingWhat = "d";
         }
 
         else if (Input.GetKey(LeftKey))
         {
-            rb.MovePosition(transform.position + Vector3.left * Time.deltaTime * PlayerSpeed);
-            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 270, 0);
-            FacingWhat = "l";
+            MoveDir = Vector3.left;
+            //rb.MovePosition(transform.position + Vector3.left * Time.deltaTime * PlayerSpeed);
+            //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 270, 0);
+            //FacingWhat = "l";
         }
         else if (Input.GetKey(RightKey))
         {
-            rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * PlayerSpeed);
-            PlayerAvatar.transform.rotation = Quaternion.Euler(90, 90, 0);
-            FacingWhat = "r";
+            MoveDir = Vector3.right;
+            //rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * PlayerSpeed);
+            //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 90, 0);
+            //FacingWhat = "r";
         }
-
+        
         if(Input.GetKeyDown(Dash) && (!IsDashing))
         {
             Vector3 dash = DashDirection(FacingWhat);
@@ -126,9 +137,13 @@ public class Player_Movement : MonoBehaviour
                 DashSphere.SetActive(true);
             }
         }
-
+        rb.velocity = MoveDir * PlayerSpeed;
+       // rb.AddForce(MoveDir*PlayerSpeed, ForceMode.VelocityChange);
     }
-
+    private void OnDrawGizmos()
+    {
+        //Gizmos.DrawRay(new Ray(transform.position + new Vector3(0, 1, 0), MoveDir * 3));
+    }
     private Vector3 DashDirection(string direction)
     {
         switch (direction)
