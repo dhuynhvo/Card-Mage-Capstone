@@ -31,7 +31,7 @@ public class Enemy_Mechanics : MonoBehaviour
         {
             GameEvents.current.DropCard_E(thisID);
             sprite.sprite = DeadSprite;
-            Destroy(gameObject, 1f);
+            Destroy(transform.parent.gameObject, 1f);
             NotDead = false;
         }
     }
