@@ -16,14 +16,19 @@ public class Play_Card : MonoBehaviour
     public List<GameObject> CardQueue;
     [SerializeField]
     private int MaxCardsInQueue;
-    public string Card1Bind, Card2Bind, Card3Bind, Card4Bind;
+    public string Card1Bind, Card2Bind, Card3Bind, Card4Bind, LCMouseBind;
     public GameObject SpellSpawnArea;
-    string[] binds = { "1", "2", "3", "4" };
+    string[] binds = { "1", "2", "3", "4"};
+    public GameObject newBasic;
+    private bool BasicOn;
+    private bool CRStarted;
+    Spell_Info info;
 
     void Start()
     {
         CardQueue = new List<GameObject>(new GameObject[MaxCardsInQueue]);
         StartCoroutine(GetOutQueue());
+        InstBasic();
     }
 
     void Update()
@@ -31,13 +36,51 @@ public class Play_Card : MonoBehaviour
         count = CardQueue.Count(x => x != null);
         PlayCard();
         PushQueueforward();
+        BasicBehavior();
     }
 
     private void FixedUpdate()
     {
         GetOutQueue();
+        BasicCooldown(); //This is semihardcoded, a coroutine would work better but this is a scratchy fix
     }
 
+    public void InstBasic()
+    {
+        newBasic = Instantiate(PlayerHand.BasicSpell, SpellSpawnArea.transform.position, Quaternion.Euler(90,0,0));
+        info = newBasic.GetComponent<Spell_Info>();
+        newBasic.SetActive(false);
+    }
+
+    public void BasicBehavior()
+    {
+        newBasic.transform.position = SpellSpawnArea.transform.position;
+        newBasic.transform.rotation = SpellSpawnArea.transform.rotation;
+
+        if(Input.GetMouseButtonDown(0) && !BasicOn)
+        {
+            Debug.Log("Basic Played");
+            newBasic.SetActive(true);
+            BasicOn = true;
+        }
+    }
+
+    public void BasicCooldown()
+    {
+        if(BasicOn)
+        {
+            info.CooldownTimer += .002f;
+            if(info.ActiveDuration <= info.CooldownTimer)
+            {
+                newBasic.SetActive(false);
+            }
+            if(info.cooldown <= info.CooldownTimer)
+            {
+                newBasic.GetComponent<Spell_Info>().CooldownTimer = 0;
+                BasicOn = false;
+            }
+        }
+    }
     public void PlayCard()
     {
 

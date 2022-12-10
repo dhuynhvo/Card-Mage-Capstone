@@ -28,7 +28,7 @@ public class Spell_Mechanics : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy" && info.DeactivateOnHit)
         {
             gameObject.SetActive(false);
         }

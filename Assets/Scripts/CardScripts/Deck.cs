@@ -28,7 +28,7 @@ public class Deck : MonoBehaviour
     [SerializeField]
     private string CurrentDeckName = "LITERALLY JUST FIRE";
 
-    private void Start()
+    private void Awake()
     {
         LoadDeck();
     }
@@ -41,11 +41,13 @@ public class Deck : MonoBehaviour
     public void LoadDeck(string nameOfDeck = "LITERALLY JUST FIRE")
     {
         PlayerHand.EmptyHand();
-        for(int i = 0; i < 3; i++)
+
+        for (int i = 0; i < 3; i++)
         {
             if(DeckStash[i].DeckName == nameOfDeck)
             {
                 CurrentDeck = DeckStash[i];
+                PlayerHand.BasicSpell = CurrentDeck.BasicSpell;
                 CurrentDeckName = CurrentDeck.DeckName;
             }
         }
@@ -57,9 +59,9 @@ public class Deck : MonoBehaviour
             {
                 Cards[DeckLimit] = CurrentDeck.cards[DeckLimit];
             }
-
-            LoadingDeck = false;
         }
+
+        LoadingDeck = false;
     }
 
     public void PopDeck()

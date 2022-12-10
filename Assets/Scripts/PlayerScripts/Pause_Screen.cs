@@ -26,7 +26,7 @@ public class Pause_Screen : MonoBehaviour
 
     void Update()
     {
-        /*if(Input.GetKey(KeyCode.RightBracket))          //THIS PORTION OF CODE IS FOR GETTING SCREENSHOTS, IF YOU DON'T NEED IT COMMENT IT OuT
+        if(Input.GetKey(KeyCode.RightBracket))          //THIS PORTION OF CODE IS FOR GETTING SCREENSHOTS, IF YOU DON'T NEED IT COMMENT IT OuT
         {
             Time.timeScale = 0f;
         }
@@ -34,7 +34,7 @@ public class Pause_Screen : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.LeftBracket))
         {
             Time.timeScale = 1f;
-        }   */                                            //Ends here
+        }                                            //Ends here
 
         if(Input.GetButtonDown(PauseButton))
         {

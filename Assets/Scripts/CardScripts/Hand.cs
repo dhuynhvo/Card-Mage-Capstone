@@ -6,6 +6,7 @@ public class Hand : MonoBehaviour
 {
 
     public List<GameObject> CardsInHand;
+    public GameObject BasicSpell;
     public Deck PlayerDeck;
     public bool HandIsFull;
     public bool HandIsEmpty;

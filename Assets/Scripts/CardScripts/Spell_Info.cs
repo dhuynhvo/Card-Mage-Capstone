@@ -11,6 +11,7 @@ public class Spell_Info : MonoBehaviour
     public float CooldownTimer = -1;
     public float ActiveDuration;
     public int SpellPrice;
+    public bool DeactivateOnHit = true;
     public string[] SpellAttributes;
 }
 

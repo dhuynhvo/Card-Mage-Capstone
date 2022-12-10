@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4460505611859714628}
   - component: {fileID: -371757436646788450}
   m_Layer: 0
-  m_Name: FireCube
+  m_Name: Wind Cross
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,17 +48,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a2063c09941f844acfbddbd9c95592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpellName: FireCube
-  damage: 5
-  speed: 5
-  cooldown: 5
+  SpellName: Wind Cross
+  damage: 3
+  speed: 0
+  cooldown: 0.5
   CooldownTimer: 0
-  ActiveDuration: 2
-  SpellPrice: 20
-  DeactivateOnHit: 1
+  ActiveDuration: 0.5
+  SpellPrice: 10
+  DeactivateOnHit: 0
   SpellAttributes:
-  - Fire
-  - Projectile
+  - Air
+  - Melee
+  - Basic
 --- !u!114 &-6580212070969101191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b2ab8443fb449f342a6bac6c5b3e7a60, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9d68b9bbd181b4408b13ed335b0ace7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

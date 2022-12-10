@@ -21,12 +21,7 @@ public class SpellSpawn_Rotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotater();
-        if(Input.GetMouseButton(0))       //THIS IS A DEBUGGING TOOL, IF THE CURSOR IS BUGGED TURN THIS BACK ON, AND PUT THE NUMBERS INTO THE OFFSET
-        {
-            Debug.Log(Input.mousePosition.x + "     " + Input.mousePosition.y);
-        }
-        
+        rotater();    
     }
 
     void rotater()
