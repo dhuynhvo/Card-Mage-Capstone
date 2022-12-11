@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6557349846305591025}
   - component: {fileID: -5151214799384336947}
   - component: {fileID: -6580212070969101191}
-  - component: {fileID: -2216448729533213662}
   - component: {fileID: 4460505611859714628}
   - component: {fileID: -371757436646788450}
+  - component: {fileID: 5754923321094154089}
   m_Layer: 0
   m_Name: FireCube
   m_TagString: Spell
@@ -71,22 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce4815ce44437443b4193c4258a06df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &-2216448729533213662
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557349846305590797}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!212 &4460505611859714628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -152,3 +136,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5754923321094154089
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557349846305590797}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

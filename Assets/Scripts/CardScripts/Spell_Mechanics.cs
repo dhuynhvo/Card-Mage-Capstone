@@ -21,6 +21,12 @@ public class Spell_Mechanics : MonoBehaviour
 
     }
 
+    private IEnumerator LateStart()
+    {
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
+    }
+
     private void SpellMovement()
     {
         rb.velocity = transform.up * info.speed;
@@ -28,9 +34,14 @@ public class Spell_Mechanics : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy" && info.DeactivateOnHit)
+        if(collision.gameObject.tag == "Enemy")
         {
             gameObject.SetActive(false);
+        }
+
+        else if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
+        { 
+            StartCoroutine(LateStart());
         }
     }
 }

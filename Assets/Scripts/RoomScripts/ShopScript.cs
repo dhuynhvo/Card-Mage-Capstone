@@ -47,6 +47,12 @@ public class ShopScript : MonoBehaviour
                 player.GetComponent<Player_Currency>().money -= priceOfCard;
                 var randPosition = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
                 GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position + randPosition, Quaternion.Euler(90, 0, 0));
+                Debug.Log("PURCHASE SUCCESSFUL");
+            }
+
+            else
+            {
+                Debug.Log("PURCHASE FAILED");
             }
         }
     }

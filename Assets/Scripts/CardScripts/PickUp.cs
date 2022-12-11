@@ -49,11 +49,11 @@ public class PickUp : MonoBehaviour
                 PlayerCardPool.CardNames.Add(cardName);
             }
 
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Player")
         {
