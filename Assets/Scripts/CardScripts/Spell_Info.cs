@@ -12,6 +12,7 @@ public class Spell_Info : MonoBehaviour
     public float ActiveDuration;
     public int SpellPrice;
     public bool DeactivateOnHit = true;
+    public Sprite CardSprite;
     public string[] SpellAttributes;
 }
 

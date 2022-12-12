@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6905680652924906834
+--- !u!1 &558235411438155045
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,77 +8,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6905680652924906926}
-  - component: {fileID: 4347856453144905362}
-  - component: {fileID: 2340718392962946854}
-  - component: {fileID: 4121747204218634523}
-  - component: {fileID: 9080037032120504769}
-  - component: {fileID: 5406603527056000054}
+  - component: {fileID: 8958069604370764804}
+  - component: {fileID: 2052944774551728466}
+  - component: {fileID: 1743053545166510613}
+  - component: {fileID: 8917414440524280391}
+  - component: {fileID: -5771564360705877641}
+  - component: {fileID: -1708932247594598485}
   m_Layer: 0
-  m_Name: ArcaneBolt
-  m_TagString: Spell
+  m_Name: ArcaneBolt Card
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6905680652924906926
+--- !u!4 &8958069604370764804
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905680652924906834}
+  m_GameObject: {fileID: 558235411438155045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5657856, y: 0.5, z: 18.710453}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4347856453144905362
+--- !u!114 &2052944774551728466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905680652924906834}
+  m_GameObject: {fileID: 558235411438155045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a2063c09941f844acfbddbd9c95592, type: 3}
+  m_Script: {fileID: 11500000, guid: 439fde1a8f891384680b146fc058ee02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpellName: ArcaneBolt
-  damage: 14
-  speed: 7
-  cooldown: 0.2
-  CooldownTimer: 0
-  ActiveDuration: 2
-  SpellPrice: 20
-  DeactivateOnHit: 1
-  CardSprite: {fileID: 21300000, guid: 0be26ad699230ac4598d2598334e9afa, type: 3}
-  SpellAttributes:
-  - Arcane
-  - Projectile
---- !u!114 &2340718392962946854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905680652924906834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce4815ce44437443b4193c4258a06df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!212 &4121747204218634523
+  spell: {fileID: 6905680652924906834, guid: 5bb007640f7536a47afb02cdff865bc9, type: 3}
+  SpellInfo: {fileID: 4347856453144905362, guid: 5bb007640f7536a47afb02cdff865bc9, type: 3}
+--- !u!212 &1743053545166510613
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905680652924906834}
+  m_GameObject: {fileID: 558235411438155045}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -113,7 +91,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b570e056c010483439484ac447f4ac9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0be26ad699230ac4598d2598334e9afa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,32 +102,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &9080037032120504769
+--- !u!114 &8917414440524280391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558235411438155045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9295fb2e225852d40911d47774f3ece2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCardPool: {fileID: 0}
+  thisID: 0
+--- !u!65 &-5771564360705877641
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905680652924906834}
+  m_GameObject: {fileID: 558235411438155045}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 5, y: 5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5406603527056000054
+--- !u!54 &-1708932247594598485
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905680652924906834}
+  m_GameObject: {fileID: 558235411438155045}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
