@@ -23,6 +23,7 @@ public class Play_Card : MonoBehaviour
     private bool BasicOn;
     private bool CRStarted;
     Spell_Info info;
+    //private float HandCooldown;
 
     void Start()
     {

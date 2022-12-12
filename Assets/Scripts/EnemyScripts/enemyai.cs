@@ -23,8 +23,9 @@ public class enemyai : MonoBehaviour
         }
     }
 
-    private void OnCollisonStay(Collision other){
-        if(other.gameObject.tag == "Player"){
+    /*private void OnCollisonStay(Collision other){
+        if(other.gameObject.tag == "Player" && EM.NotDead)
+        {
             if(attackSpeed<=canAttack){
                 other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackSpeed);
                 canAttack = 0f;
@@ -33,7 +34,7 @@ public class enemyai : MonoBehaviour
                 canAttack += Time.deltaTime;
             }
         }
-    }
+    }*/
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Player"){
             target = other.transform;

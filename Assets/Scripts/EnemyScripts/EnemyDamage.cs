@@ -6,11 +6,14 @@ public class EnemyDamage : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     public int damage = 1;
-    
+    [SerializeField]
+    private Enemy_Mechanics EM;
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject player;
+        EM = gameObject.GetComponent<Enemy_Mechanics>();
         player = GameObject.FindWithTag("Player");
         if(player == null){
             Debug.LogError("Player is not found!");
@@ -29,12 +32,10 @@ public class EnemyDamage : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.tag == "Player")
+
+        if(collision.gameObject.tag == "Player" && EM.NotDead)
         {
-            if(collision.gameObject.tag == "Player")
-            {
-                playerHealth.TakeDamage(damage);
-            }
+            playerHealth.TakeDamage(damage);
         }
     }
 }
