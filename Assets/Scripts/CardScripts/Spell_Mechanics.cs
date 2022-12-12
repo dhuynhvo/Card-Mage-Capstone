@@ -38,7 +38,7 @@ public class Spell_Mechanics : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        else if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
+        else if(collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
         {
             gameObject.SetActive(false);
             //StartCoroutine(LateStart());

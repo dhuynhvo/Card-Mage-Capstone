@@ -26,7 +26,7 @@ public class Deck : MonoBehaviour
     [SerializeField]
     public bool LoadingDeck = false;
     [SerializeField]
-    private string CurrentDeckName = "LITERALLY JUST FIRE";
+    private string CurrentDeckName = "Base";
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class Deck : MonoBehaviour
         PopDeck();
     }
 
-    public void LoadDeck(string nameOfDeck = "LITERALLY JUST FIRE")
+    public void LoadDeck(string nameOfDeck = "Base")
     {
         PlayerHand.EmptyHand();
 
