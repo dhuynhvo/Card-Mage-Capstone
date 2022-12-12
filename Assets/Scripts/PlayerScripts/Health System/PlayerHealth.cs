@@ -6,14 +6,22 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float health = 0f;
     [SerializeField] private float maxHealth = 100f;
+    [SerializeField]
+    private HealthBar bar;
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        bar.SetMaxHealth(maxHealth);
     }
     
     void Awake(){
         gameObject.SetActive(true);
+    }
+
+    private void Update()
+    {
+        bar.SetHealth(health);
     }
 
     // Update is called once per frame

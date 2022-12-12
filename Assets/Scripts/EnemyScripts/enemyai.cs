@@ -9,9 +9,15 @@ public class enemyai : MonoBehaviour
     [SerializeField] private float attackSpeed = 1f;
     private float canAttack;
     private Transform target;
+    [SerializeField]
+    private Enemy_Mechanics EM;
 
+    private void Start()
+    {
+        EM = gameObject.GetComponent<Enemy_Mechanics>();
+    }
     private void Update() {
-        if (target != null){
+        if (target != null && EM.NotDead){
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }

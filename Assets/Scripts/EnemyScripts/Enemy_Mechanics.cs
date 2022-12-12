@@ -12,7 +12,7 @@ public class Enemy_Mechanics : MonoBehaviour
     [SerializeField]
     Sprite DeadSprite;
     Enemy_Info info;
-    private bool NotDead;
+    public bool NotDead;
     public int thisID;
     [SerializeField]
     private float CopperMoneyChance;
@@ -44,6 +44,7 @@ public class Enemy_Mechanics : MonoBehaviour
     {
         if (info.health <= 0 && NotDead)
         {
+            gameObject.transform.Rotate(new Vector3(0, 0, 90), Space.Self);
             GameEvents.current.DropCard_E(thisID);
             DropMoneyOnDeath();
             sprite.sprite = DeadSprite;

@@ -165,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardPool: {fileID: 11400000, guid: c7b4d07a7ff848644b2b6ef03844b0d8, type: 2}
   DeadSprite: {fileID: 21300000, guid: c6523f1e3860bf241957e5994cc37eb5, type: 3}
+  NotDead: 0
   thisID: 0
   CopperMoneyChance: 50
   SilverMoneyChance: 30
@@ -186,6 +187,7 @@ MonoBehaviour:
   speed: 1
   attackDamage: 10
   attackSpeed: 1
+  EM: {fileID: 2531800505239158647}
 --- !u!136 &7686530453400202544
 CapsuleCollider:
   m_ObjectHideFlags: 0
