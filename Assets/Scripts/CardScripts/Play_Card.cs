@@ -23,10 +23,11 @@ public class Play_Card : MonoBehaviour
     private bool BasicOn;
     private bool CRStarted;
     Spell_Info info;
-    //private float HandCooldown;
+    private bool NotSpamming;
 
     void Start()
     {
+        NotSpamming = true;
         CardQueue = new List<GameObject>(new GameObject[MaxCardsInQueue]);
         StartCoroutine(GetOutQueue());
         InstBasic();
@@ -44,6 +45,12 @@ public class Play_Card : MonoBehaviour
     {
         GetOutQueue();
         BasicCooldown(); //This is semihardcoded, a coroutine would work better but this is a scratchy fix
+    }
+
+    private IEnumerator SpamTimer()
+    {
+        yield return new WaitForSeconds(.5f);
+        NotSpamming = true;
     }
 
     public void InstBasic()
@@ -87,36 +94,45 @@ public class Play_Card : MonoBehaviour
 
         if (PlayerHand.HandEmptyCheck() && AnyKeyDown(binds) && count == 0)
         {
+            NotSpamming = true;
             PlayerDeck.GraveIndex = 0;
             PlayerDeck.DeckReload();
         }
 
-        else if (Input.GetKeyDown(Card1Bind) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue)
+        else if (Input.GetKeyDown(Card1Bind) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
         {
+            NotSpamming = false;
+            StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[0].name);
             GameObject newSpell_0 = Instantiate(PlayerHand.CardsInHand[0], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_0;
             PlayerHand.CardsInHand[0] = null;
         }
 
-        else if (Input.GetKeyDown(Card2Bind) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue)
+        else if (Input.GetKeyDown(Card2Bind) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
         {
+            NotSpamming = false;
+            StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[1].name);
             GameObject newSpell_1 = Instantiate(PlayerHand.CardsInHand[1], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_1;
             PlayerHand.CardsInHand[1] = null;
         }
 
-        else if (Input.GetKeyDown(Card3Bind) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue)
+        else if (Input.GetKeyDown(Card3Bind) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
         {
+            NotSpamming = false;
+            StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[2].name);
             GameObject newSpell_2 = Instantiate(PlayerHand.CardsInHand[2], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_2;
             PlayerHand.CardsInHand[2] = null;
         }
 
-        else if (Input.GetKeyDown(Card4Bind) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue)
+        else if (Input.GetKeyDown(Card4Bind) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
         {
+            NotSpamming = false;
+            StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[3].name);
             GameObject newSpell_3 = Instantiate(PlayerHand.CardsInHand[3], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_3;
