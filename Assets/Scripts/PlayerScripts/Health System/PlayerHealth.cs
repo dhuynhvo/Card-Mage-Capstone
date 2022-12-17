@@ -1,3 +1,6 @@
+//Author: Abida Mim and Grant Davis
+//player health script
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
