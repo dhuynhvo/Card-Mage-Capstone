@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Worked on by Abida
+// Based on previously existing code
+
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider; // serializedfield private variable
@@ -10,6 +13,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+            // if volume already exists
         if (!PlayerPrefs.HasKey("musicVol"))
         {
             PlayerPrefs.SetFloat("musicVol", 1);
@@ -19,18 +23,21 @@ public class SoundManager : MonoBehaviour
             Load();
         }
     }
-
+    
+        // saves volume changes
     public void ChangeVolume()
     {
         AudioListener.volume = volumeSlider.value;
         Save();
     }
 
+        // gets existing volume
     private void Load()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVol");
     }
 
+        // saves volume across multiple scenes
     private void Save()
     {
         PlayerPrefs.SetFloat("musicVol", volumeSlider.value);

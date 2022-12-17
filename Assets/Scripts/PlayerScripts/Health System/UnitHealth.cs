@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Worked on by Abida
+// uses outside sources as basis
+
+    // makes health applicable on different units
 public class UnitHealth
 {
     int currentHealth;
     int currentMaxHealth;
 
+        // creates health for unit
     public int Health
     {
         get
@@ -19,6 +24,7 @@ public class UnitHealth
         }
     }
 
+        // sets a max health
     public int MaxHealth
     {
         get
@@ -31,12 +37,14 @@ public class UnitHealth
         }
     }
 
+        // sets health
     public UnitHealth(int health, int maxHealth)
     {
         currentHealth = health;
         currentMaxHealth = maxHealth;
     }
 
+        // takes away health from bar
     public void DmgUnit(int dmgAmount)
     {
         if(currentHealth > 0)
@@ -45,6 +53,8 @@ public class UnitHealth
         }
     }
 
+        // adds health back to bar
+        // has not been fully integrated
     public void HealUnit(int healAmount)
     {
         if (currentHealth < currentMaxHealth)

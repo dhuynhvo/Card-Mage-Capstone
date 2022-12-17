@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Worked on by Abida
+// used online sources for basis
+        // keeps volume outside of scene
 public class BGSound : MonoBehaviour
 {
 

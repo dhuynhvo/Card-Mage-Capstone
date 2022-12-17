@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Worked on by Abida
+// recommended by youtube video to implement
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager

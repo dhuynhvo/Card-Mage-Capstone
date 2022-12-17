@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Worked on by Grant and Abida
 
 public class ExitGame : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ExitGame : MonoBehaviour
     }
 
            // exits game when user presses "esc"
+           // commented out line causes error on other's pcs
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

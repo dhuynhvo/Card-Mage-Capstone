@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 
+// Worked on by Abida
+// takes aspects of multiple online sources
+
 public class Brightness : MonoBehaviour
 {
     public Slider brightnessSlider;
@@ -11,6 +14,7 @@ public class Brightness : MonoBehaviour
     public PostProcessLayer layer;
     AutoExposure exposure;
 
+        // change brightness slider
     // Start is called before the first frame update
     void Start()
     {
