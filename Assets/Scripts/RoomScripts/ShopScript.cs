@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// implemented by Robert Bothne & Dan Huynhvo
 public class ShopScript : MonoBehaviour
 {
     [SerializeField]
