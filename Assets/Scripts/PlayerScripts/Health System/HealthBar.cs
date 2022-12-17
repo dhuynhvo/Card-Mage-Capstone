@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+    // creates slider
 public class HealthBar : MonoBehaviour
 {
     [SerializeField]
@@ -15,6 +16,7 @@ public class HealthBar : MonoBehaviour
         
     }
 
+    // slider max
     public void SetMaxHealth(float maxHealth)
     {
         healthSlider.maxValue = maxHealth;

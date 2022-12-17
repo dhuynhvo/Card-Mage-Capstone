@@ -1,9 +1,9 @@
-//Author: Abida Mim and Grant Davis
-//player health script
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+// Worked on by Abida Mim
+// uses outside websites as reference
 
 public class PlayerHealth : MonoBehaviour
 {
