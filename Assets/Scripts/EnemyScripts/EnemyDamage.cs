@@ -1,3 +1,7 @@
+//Author: Grant Davis
+//Enemy Damage
+//Multiple tutorials were used during development of this code
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

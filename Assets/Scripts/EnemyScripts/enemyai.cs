@@ -1,3 +1,7 @@
+//Author: Grant Davis
+//AI Pathfinding script
+//Multiple tutorials were used during development of this code
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +9,8 @@ using UnityEngine;
 public class enemyai : MonoBehaviour
 {
     public float speed = 3f;
-    [SerializeField] private float attackDamage = 10f;
-    [SerializeField] private float attackSpeed = 1f;
+    //[SerializeField] private float attackDamage = 10f;
+    //[SerializeField] private float attackSpeed = 1f;
     private float canAttack;
     private Transform target;
     [SerializeField]

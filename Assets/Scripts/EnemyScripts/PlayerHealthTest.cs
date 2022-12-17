@@ -1,3 +1,5 @@
+//Grant Davis
+//Unused code that is reimplement in player script
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
