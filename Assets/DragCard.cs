@@ -8,9 +8,31 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 {
     public Transform DragParent;
     public Image image;
+    public GameObject SelectedCard;
+    public bool IsSelected;
+    public string DeleteButton;
+
+    public void OnMouseDown()
+    {
+        
+        if (IsSelected == false)
+        {
+            SelectedCard = gameObject;
+            IsSelected = true;
+            image.color = new Color32(100, 100, 100, 255);
+        }
+
+        else if (IsSelected == true)
+        {
+            SelectedCard = gameObject;
+            IsSelected = false;
+            image.color = new Color32(255, 255, 255, 255);
+        };
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        IsSelected = true;
         DragParent = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
@@ -28,15 +50,14 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         image.raycastTarget = true;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(IsSelected == true && Input.GetKeyDown(KeyCode.E))
+        {
+            //gameObject.GetComponent<Connected_Spell>().spell = null;
+            //gameObject.GetComponent<Connected_Spell>().SpellInfo = null;
+            //gameObject.GetComponent<Image>().sprite = 
+            Destroy(gameObject);
+        };
     }
 }

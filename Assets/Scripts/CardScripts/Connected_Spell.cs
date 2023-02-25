@@ -13,6 +13,10 @@ public class Connected_Spell : MonoBehaviour
 
     private void Start()
     {
-        SpellInfo = spell.GetComponent<Spell_Info>();
+        if(spell != null)
+        {
+            SpellInfo = spell.GetComponent<Spell_Info>();
+        };
+        
     }
 }

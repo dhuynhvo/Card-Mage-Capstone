@@ -15,6 +15,8 @@ public class Pause_Screen : MonoBehaviour
     [SerializeField]
     private GameObject ChangeDeckScreen;
     [SerializeField]
+    private GameObject DeckBuilderScreen;
+    [SerializeField]
     private Deck PlayerDeck;
     [SerializeField]
     private Premade_Decks[] stash;
@@ -52,6 +54,8 @@ public class Pause_Screen : MonoBehaviour
             else if(paused)
             {
                 PauseScreen.SetActive(false);
+                ChangeDeckScreen.SetActive(false);
+                DeckBuilderScreen.SetActive(false);
                 Time.timeScale = 1f;
                 paused = !paused;
             }
@@ -75,10 +79,18 @@ public class Pause_Screen : MonoBehaviour
         ChangeDeckScreen.SetActive(true);
     }
 
+    public void DeckBuilderPauseScreen()
+    {
+        PauseScreen.SetActive(false);
+        ChangeDeckScreen.SetActive(false);
+        DeckBuilderScreen.SetActive(true);
+    }
+
     public void BackToPause()
     {
         PauseScreen.SetActive(true);
         ChangeDeckScreen.SetActive(false);
+        DeckBuilderScreen.SetActive(false);
     }
 
     public void ChangeDeck(string deckName)
@@ -104,5 +116,34 @@ public class Pause_Screen : MonoBehaviour
     {
         PlayerDeck.LoadDeck(stash[2].DeckName);
         BackToPause();
+    }
+
+    public void ChoseDeck4()
+    {
+        PlayerDeck.LoadDeck(stash[3].DeckName);
+        BackToPause();
+    }
+
+    public void SaveDeck()
+    {
+        gameObject.GetComponent<Deck>().DeckStash[3].cards.Clear();
+        gameObject.GetComponent<Deck>().DeckStash[3].BasicSpell = null;
+
+        //Debug.Log(DeckBuilderScreen.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject);
+
+        for (int i = 0; i < 20; i++)
+        {
+            if(DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.childCount > 0)
+            {
+                gameObject.GetComponent<Deck>().DeckStash[3].cards.Add(DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Connected_Spell>().spell);
+            }
+            
+        }
+
+        if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.childCount > 0)
+        {
+            gameObject.GetComponent<Deck>().DeckStash[3].BasicSpell = DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.GetChild(0).GetComponent<Connected_Spell>().spell;
+        }
+            
     }
 }

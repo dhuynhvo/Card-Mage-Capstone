@@ -26,7 +26,7 @@ public class Deck : MonoBehaviour
     [SerializeField]
     public Premade_Decks[] DeckStash;
     [SerializeField]
-    private Premade_Decks CurrentDeck;
+    public Premade_Decks CurrentDeck;
     [SerializeField]
     public bool LoadingDeck = false;
     [SerializeField]
