@@ -1,4 +1,4 @@
-//Dan Huynhvo
+//Dan Huynhvo, Abida Mim
 //UNR
 //CS 425
 
@@ -16,6 +16,8 @@ public class Pause_Screen : MonoBehaviour
     private GameObject ChangeDeckScreen;
     [SerializeField]
     private GameObject DeckBuilderScreen;
+    [SerializeField]
+    private GameObject StatsScreen;
     [SerializeField]
     private Deck PlayerDeck;
     [SerializeField]
@@ -56,6 +58,7 @@ public class Pause_Screen : MonoBehaviour
                 PauseScreen.SetActive(false);
                 ChangeDeckScreen.SetActive(false);
                 DeckBuilderScreen.SetActive(false);
+                StatsScreen.SetActive(false);
                 Time.timeScale = 1f;
                 paused = !paused;
             }
@@ -77,6 +80,12 @@ public class Pause_Screen : MonoBehaviour
     {
         PauseScreen.SetActive(false);
         ChangeDeckScreen.SetActive(true);
+    }
+
+    public void ChangeStatsScreen()
+    {
+        PauseScreen.SetActive(false);
+        StatsScreen.SetActive(true);
     }
 
     public void DeckBuilderPauseScreen()
