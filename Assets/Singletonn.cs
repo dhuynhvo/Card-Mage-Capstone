@@ -28,17 +28,18 @@ public class Singletonn : MonoBehaviour
     }
 
     // checks if instance already exists, and deletes if it does
-    private void Awake()
+    private void Update()
     {
 
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+          //  Destroy(this);
         }
 
         else
         {
             Instance = this;
+
             MoneyText.text = info.money.ToString();
             SteveText.text = info.SteveMoney.ToString();
             EnemiesText.text = stats.enemies.ToString();
