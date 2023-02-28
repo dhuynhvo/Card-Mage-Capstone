@@ -1,12 +1,16 @@
+// Dan Hyunhvo and Abida Mim
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+    // Increments enemy deaths and time
 public class Stats_Events : MonoBehaviour
 {
-
+        // connects to scriptable object
     public Stats_Info info;
-    // Start is called before the first frame update
+
+           // sets enemy death and time to 0
     void Start()
     {
         GameEvents.current.OnEnemyDeath += IncrementEnemies;
@@ -19,13 +23,13 @@ public class Stats_Events : MonoBehaviour
         IncrementTime();
     }
 
-    // Update is called once per frame
-
+        // adds when enemy is killed
     public void IncrementEnemies(int ID)
     {
         info.enemies++;
     }
 
+        // time goes up
     public void IncrementTime()
     {
         info.TimeSpent += Time.deltaTime;

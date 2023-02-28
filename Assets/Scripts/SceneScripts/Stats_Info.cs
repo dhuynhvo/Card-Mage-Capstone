@@ -1,7 +1,10 @@
+// Dan Hyunhvo, Abida Mim
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+    // creates scriptable object for stats data
 [CreateAssetMenu(fileName = "Stats_Data", menuName = "ScriptableObjects/Stats_Infa", order = 2)]
 public class Stats_Info : ScriptableObject
 {

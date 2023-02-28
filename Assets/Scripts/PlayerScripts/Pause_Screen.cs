@@ -75,6 +75,15 @@ public class Pause_Screen : MonoBehaviour
             paused = !paused;
         }
     }
+    public void ResumeGameFromStats()
+    {
+        if (paused)
+        {
+            StatsScreen.SetActive(false);
+            Time.timeScale = 1f;
+            paused = !paused;
+        }
+    }
 
     public void ChangeDeckPauseScreen()
     {
@@ -100,6 +109,12 @@ public class Pause_Screen : MonoBehaviour
         PauseScreen.SetActive(true);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
+    }
+
+    public void StatsToPause()
+    {
+        PauseScreen.SetActive(true);
+        StatsScreen.SetActive(false);
     }
 
     public void ChangeDeck(string deckName)
