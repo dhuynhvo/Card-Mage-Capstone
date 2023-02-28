@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Singleton : MonoBehaviour
+public class Singletonn : MonoBehaviour
 {
     [SerializeField]
     private Text MoneyText;
@@ -14,7 +14,7 @@ public class Singleton : MonoBehaviour
     [SerializeField]
     private Player_Currency cash;
 
-    public static Singleton Instance
+    public static Singletonn Instance
     {
         get;
         private set;

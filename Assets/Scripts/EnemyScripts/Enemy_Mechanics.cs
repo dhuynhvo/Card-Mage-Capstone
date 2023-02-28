@@ -108,11 +108,6 @@ public class Enemy_Mechanics : MonoBehaviour
         }
     }
 
-    private void IncrementEnemyDeath()
-    {
-        
-    }
-
     private void OnDestroy()
     {
         GameEvents.current.OnEnemyDeath -= DropCardOnDeath;

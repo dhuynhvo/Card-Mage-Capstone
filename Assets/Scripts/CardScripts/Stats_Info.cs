@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Stats_Data", menuName = "ScriptableObjects/StatsInfo", order = 1)]
+[CreateAssetMenu(fileName = "Stats_Data", menuName = "ScriptableObjects/Stats_Info", order = 1)]
 public class NumEnemies : ScriptableObject
 {
 
     [SerializeField]
-    public string NumEnemies;
+    public int enemies = 0;
     [SerializeField]
     public string TimeSpent;
     [SerializeField]
     public string Currency;
+
 }
