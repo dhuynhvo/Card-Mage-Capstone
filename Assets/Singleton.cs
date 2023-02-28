@@ -3,9 +3,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Singleton : MonoBehaviour
 {
+    [SerializeField]
+    private Text MoneyText;
+    [SerializeField]
+    private Text SteveText;
+    [SerializeField]
+    private Player_Currency cash;
+
     public static Singleton Instance
     {
         get;
@@ -24,6 +32,8 @@ public class Singleton : MonoBehaviour
         else
         {
             Instance = this;
+            MoneyText.text = cash.money.ToString();
+            SteveText.text = cash.Steves.SteveMoney.ToString();
         }
     }
 }
