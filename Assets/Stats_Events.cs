@@ -10,6 +10,14 @@ public class Stats_Events : MonoBehaviour
     void Start()
     {
         GameEvents.current.OnEnemyDeath += IncrementEnemies;
+        info.enemies = 0;
+        info.TimeSpent = 0;
+    }
+
+    void Update()
+    {
+        IncrementTime();
+
     }
 
     // Update is called once per frame
@@ -17,5 +25,10 @@ public class Stats_Events : MonoBehaviour
     public void IncrementEnemies(int ID)
     {
         info.enemies++;
+    }
+
+    public void IncrementTime()
+    {
+        info.TimeSpent += Time.deltaTime;
     }
 }

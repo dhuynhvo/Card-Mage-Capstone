@@ -9,8 +9,8 @@ public class Stats_Info : ScriptableObject
     [SerializeField]
     public int enemies = 0;
     [SerializeField]
-    public string TimeSpent;
+    public float TimeSpent;
     [SerializeField]
-    public string Currency;
+    public int Currency;
 
 }
