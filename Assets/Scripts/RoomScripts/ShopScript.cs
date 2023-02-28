@@ -42,9 +42,9 @@ public class ShopScript : MonoBehaviour
             int randCard = Random.Range(0, CardPool.cards.Count);
             int priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
 
-            if (priceOfCard < player.GetComponent<Player_Currency>().money)
+            if (priceOfCard < player.GetComponent<Player_Currency>().Steves.money)
             {
-                player.GetComponent<Player_Currency>().money -= priceOfCard;
+                player.GetComponent<Player_Currency>().Steves.money -= priceOfCard;
                 var randPosition = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
                 GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position + randPosition, Quaternion.Euler(90, 0, 0));
                 Debug.Log("PURCHASE SUCCESSFUL");

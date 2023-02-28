@@ -24,7 +24,7 @@ public class Currency_Info : MonoBehaviour
         {
             if(gameObject.tag != "SteveMoney")
             {
-                player.GetComponent<Player_Currency>().money += worth;
+                player.GetComponent<Player_Currency>().Steves.money += worth;
             }
 
             else if(gameObject.tag == "SteveMoney")

@@ -19,7 +19,7 @@ public class Display_Currency : MonoBehaviour
 
     private void DisplayMoney()
     {
-        MoneyText.text = cash.money.ToString();
+        MoneyText.text = cash.Steves.money.ToString();
         SteveText.text = cash.Steves.SteveMoney.ToString();
     }
 }

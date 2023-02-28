@@ -17,7 +17,6 @@ public class Stats_Events : MonoBehaviour
     void Update()
     {
         IncrementTime();
-
     }
 
     // Update is called once per frame

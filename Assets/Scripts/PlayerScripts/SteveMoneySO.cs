@@ -11,5 +11,5 @@ using UnityEngine;
 public class SteveMoneySO : ScriptableObject
 {
     public int SteveMoney;
-
+    public int money;
 }
