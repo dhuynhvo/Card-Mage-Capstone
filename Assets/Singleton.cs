@@ -8,11 +8,18 @@ using UnityEngine.UI;
 public class Singletonn : MonoBehaviour
 {
     [SerializeField]
+    private SteveMoneySO info;
+    [SerializeField]
+    private Stats_Info stats;
+    [SerializeField]
     private Text MoneyText;
     [SerializeField]
     private Text SteveText;
     [SerializeField]
-    private Player_Currency cash;
+    private Text TimeText;
+    [SerializeField]
+    private Text EnemiesText;
+    
 
     public static Singletonn Instance
     {
@@ -32,8 +39,10 @@ public class Singletonn : MonoBehaviour
         else
         {
             Instance = this;
-            MoneyText.text = cash.money.ToString();
-            SteveText.text = cash.Steves.SteveMoney.ToString();
+            MoneyText.text = info.money.ToString();
+            SteveText.text = info.SteveMoney.ToString();
+            EnemiesText.text = stats.enemies.ToString();
+            TimeText.text = stats.TimeSpent.ToString();
         }
     }
 }
