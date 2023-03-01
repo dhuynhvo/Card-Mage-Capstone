@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2368858046075902099}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemySoldier
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 7917737608807324406}
   - component: {fileID: 3338996237194397145}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemySoldierModel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,8 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  attackDamage: 10
-  attackSpeed: 1
   EM: {fileID: 2531800505239158647}
 --- !u!136 &7686530453400202544
 CapsuleCollider:
@@ -245,3 +243,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 2718087455318675683, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
   damage: 1
+  EM: {fileID: 0}
