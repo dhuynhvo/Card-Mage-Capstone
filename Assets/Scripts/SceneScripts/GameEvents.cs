@@ -15,6 +15,7 @@ public class GameEvents : MonoBehaviour
     public event Action<int> OnEnemyDeath;
     public event Action<int, GameObject> OnShopBuy;
     public event Action<int> NearDroppedCard;
+    public event Action<int, bool> MoneyIncrement;
     public event Action DeathIncrement;
 
     public void DropCard_E(int ID)
@@ -43,6 +44,13 @@ public class GameEvents : MonoBehaviour
         if (DeathIncrement != null)
         {
             DeathIncrement();
+        }
+    }
+    public void MoneyGained(int value, bool stevent)
+    {
+        if (MoneyIncrement != null)
+        {
+            MoneyIncrement(value, stevent);
         }
     }
 }

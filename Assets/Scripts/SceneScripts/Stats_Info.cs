@@ -15,5 +15,7 @@ public class Stats_Info : ScriptableObject
     public float TimeSpent;
     [SerializeField]
     public int Currency;
+    [SerializeField]
+    public int Steves;
 
 }

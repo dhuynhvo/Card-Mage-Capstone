@@ -24,11 +24,13 @@ public class Currency_Info : MonoBehaviour
         {
             if(gameObject.tag != "SteveMoney")
             {
+                GameEvents.current.MoneyGained(worth, false);
                 player.GetComponent<Player_Currency>().Steves.money += worth;
             }
 
             else if(gameObject.tag == "SteveMoney")
             {
+                GameEvents.current.MoneyGained(worth, true);
                 player.GetComponent<Player_Currency>().Steves.SteveMoney += worth;
             }
             Destroy(gameObject);

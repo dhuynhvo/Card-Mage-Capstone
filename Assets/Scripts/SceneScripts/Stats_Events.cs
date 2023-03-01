@@ -14,6 +14,7 @@ public class Stats_Events : MonoBehaviour
     void Start()
     {
         GameEvents.current.OnEnemyDeath += IncrementEnemies;
+        GameEvents.current.MoneyIncrement += IncrementMoney;
         info.enemies = 0;
         info.TimeSpent = 0;
     }
@@ -33,5 +34,18 @@ public class Stats_Events : MonoBehaviour
     public void IncrementTime()
     {
         info.TimeSpent += Time.deltaTime;
+    }
+
+    public void IncrementMoney(int value, bool isSteve)
+    {
+        if(isSteve)
+        {
+            info.Steves++;
+        }
+
+        else
+        {
+            info.Currency += value;
+        };
     }
 }
