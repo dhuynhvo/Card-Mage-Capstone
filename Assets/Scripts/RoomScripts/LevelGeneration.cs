@@ -38,7 +38,7 @@ public class LevelGeneration : MonoBehaviour
     public LayerMask room;
     public LayerMask Pose;
     private Collider[] poseDetection;
-
+    bool quit = false;
 
 
 
@@ -47,7 +47,27 @@ public class LevelGeneration : MonoBehaviour
         
         generatelevel();
         //build navmesh at runtime
+        StartCoroutine(waiter(1));
         //surface.BuildNavMesh();
+    }
+
+    IEnumerator waiter(float waitTime){
+        float counter = 0;
+
+        while (counter < waitTime)
+        {
+            //Increment Timer until counter >= waitTime
+            counter += Time.deltaTime;
+            Debug.Log("We have waited for: " + counter + " seconds");
+            if (quit)
+            {
+                //Quit function
+                yield break;
+            }
+            //Wait for a frame so that Unity doesn't freeze
+            yield return null;
+        }
+        surface.BuildNavMesh();
     }
 
     void generatelevel()
