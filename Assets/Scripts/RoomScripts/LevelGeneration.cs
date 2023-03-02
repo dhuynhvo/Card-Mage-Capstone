@@ -9,6 +9,9 @@ using Random = UnityEngine.Random;
 //So uhh, Works by generating a path of traversal from top to bottom, with random left or right decisions. After this Path is made leftover nodes
 // generate their own rooms, these dont neccesarily have to be connected. To add unique rooms, manage the prefabs and change spawn nodes and make clusters.
 // Implemented by Robert Bothne based on  ROGUE LIKE RANDOM LEVEL GENERATION - INTERMEDIATE C#/UNITY TUTORIAL  by blackthornprod
+
+using UnityEngine.AI;
+
 public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
@@ -17,6 +20,7 @@ public class LevelGeneration : MonoBehaviour
     public GameObject[] rooms;//index 0 = LR, index 1 = LRB, index 2 = LRT, index 3 = LRBT
     public GameObject[] bossRooms; //index 0 = BOSS
     public Transform[] poses;
+    public NavMeshSurface surface; //surface for navmesh
 
     private int direction; //direction to move by offset
     public float moveAmount; //offset for spawning
@@ -39,6 +43,14 @@ public class LevelGeneration : MonoBehaviour
 
 
     private void Start()
+    {
+        
+        generatelevel();
+        //build navmesh at runtime
+        //surface.BuildNavMesh();
+    }
+
+    void generatelevel()
     {
         randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
@@ -63,10 +75,13 @@ public class LevelGeneration : MonoBehaviour
         Destroy(poseDetection[0].gameObject);
         direction = Random.Range(1, 6);
     }
-
     // Update is called once per frame
     private void Update()
     {
+        updategen();
+    }
+
+    void updategen(){
         if (timeBetweenRoom <= 0 && stopGen == false)
         {
             Move();
@@ -226,6 +241,6 @@ public class LevelGeneration : MonoBehaviour
                     }
                 }
             }
-        }
+        } surface.BuildNavMesh();
     }
 }
