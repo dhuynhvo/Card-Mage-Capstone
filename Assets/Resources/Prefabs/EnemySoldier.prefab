@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDistance: 4
+  idleTimeMin: 2
+  idleTimeMax: 5
 --- !u!1 &7580512124864550198
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168b721bb012cff4fa1563669f65db50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   EM: {fileID: 2531800505239158647}
 --- !u!136 &7686530453400202544
 CapsuleCollider:

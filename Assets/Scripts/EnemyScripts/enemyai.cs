@@ -26,19 +26,6 @@ public class enemyai : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }
     }
-
-    /*private void OnCollisonStay(Collision other){
-        if(other.gameObject.tag == "Player" && EM.NotDead)
-        {
-            if(attackSpeed<=canAttack){
-                other.gameObject.GetComponent<PlayerHealth>().UpdateHealth(-attackSpeed);
-                canAttack = 0f;
-            }
-            else{
-                canAttack += Time.deltaTime;
-            }
-        }
-    }*/
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Player"){
             target = other.transform;
