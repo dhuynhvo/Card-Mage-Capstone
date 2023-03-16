@@ -11354,6 +11354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!114 &1158893705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16675,6 +16676,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1623093373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2049558500532570872, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+  m_PrefabInstance: {fileID: 4111835783000134640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623093377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623093373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8e494f4118ef940887a694d3d53450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -1.0216267
+      outSlope: -1.0216267
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0249939
+      value: -0.047161102
+      inSlope: -1.0216267
+      outSlope: -1.0216267
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 0.2
 --- !u!1 &1627918038
 GameObject:
   m_ObjectHideFlags: 0
@@ -23148,6 +23192,10 @@ PrefabInstance:
       propertyPath: DefeatText
       value: 
       objectReference: {fileID: 1931149552}
+    - target: {fileID: 2718087455318675683, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1623093373}
     - target: {fileID: 2718087455318675683, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: DefeatScreen
       value: 

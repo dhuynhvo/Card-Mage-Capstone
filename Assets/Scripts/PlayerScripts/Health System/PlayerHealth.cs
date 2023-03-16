@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField]
     private HealthBar bar;
+    [SerializeField] private GameObject mainCamera;
     [SerializeField]
     private GameObject DefeatScreen;
     [SerializeField]
@@ -48,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
         };
 
         health -= mod;
-
+        mainCamera.GetComponent<shaker>().start = true;
         if(!IsAlive)
         {
             Time.timeScale = 0f;
@@ -63,6 +64,7 @@ public class PlayerHealth : MonoBehaviour
         
         if(health > maxHealth){
             health = maxHealth;
+            
         }
         else if(health <= 0f){
             health = 0f;
