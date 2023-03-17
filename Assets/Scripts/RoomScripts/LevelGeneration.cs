@@ -47,8 +47,7 @@ public class LevelGeneration : MonoBehaviour
         
         generatelevel();
         //build navmesh at runtime
-        StartCoroutine(waiter(1));
-        //surface.BuildNavMesh();
+        StartCoroutine(waiter(1.5f));
     }
 
     IEnumerator waiter(float waitTime){
@@ -66,6 +65,10 @@ public class LevelGeneration : MonoBehaviour
             }
             //Wait for a frame so that Unity doesn't freeze
             yield return null;
+        }
+        foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("Tile"))
+        {
+            fooObj.transform.parent = GameObject.Find("Background").transform;
         }
         surface.BuildNavMesh();
     }
@@ -249,7 +252,6 @@ public class LevelGeneration : MonoBehaviour
                 roomDetection.GetComponent<RoomType>().RoomDestruction();// destroy a room
                 int randBoss = Random.Range(0, bossRooms.Length);
                 Instantiate(bossRooms[randBoss], transform.position, Quaternion.identity); //make a boss room with a top hole in case path is obstructed horizontal.
-                
                 foreach (Transform Pose in poses) //fill out the rest of the map
                 {
                     if (Pose != null)
@@ -261,6 +263,7 @@ public class LevelGeneration : MonoBehaviour
                     }
                 }
             }
-        } surface.BuildNavMesh();
+        }
+
     }
 }
