@@ -10,7 +10,6 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField]
     private Slider healthSlider;
-    [SerializeField] private shaker cam;
     private void Start()
     {
         
