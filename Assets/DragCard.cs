@@ -4,35 +4,49 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public Transform DragParent;
     public Image image;
     public GameObject SelectedCard;
     public bool IsSelected;
     public string DeleteButton;
+    public GameObject SlotHolder;
+    public GameObject card;
 
-    public void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
-        if (IsSelected == false)
+        if (eventData.button == PointerEventData.InputButton.Right)
         {
-            SelectedCard = gameObject;
-            IsSelected = true;
-            image.color = new Color32(100, 100, 100, 255);
+            if (gameObject.transform.parent.gameObject.tag != "Storage")
+            {
+                Destroy(gameObject);
+            }
         }
 
-        else if (IsSelected == true)
+        else
         {
-            SelectedCard = gameObject;
-            IsSelected = false;
-            image.color = new Color32(255, 255, 255, 255);
+            if (gameObject.transform.parent.gameObject.tag == "Storage")
+            {
+                SlotHolder = gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.GetChild(0).gameObject;
+
+                for (int i = 0; i < SlotHolder.transform.childCount; i++)
+                {
+                    if (SlotHolder.transform.GetChild(i).gameObject.transform.childCount == 0)
+                    {
+                        GameObject newCardSlot = Instantiate(card, new Vector3(0, 0, 0), Quaternion.identity, SlotHolder.transform.GetChild(i).gameObject.transform);
+                        newCardSlot.GetComponent<Connected_Spell>().spell = gameObject.GetComponent<Connected_Spell>().spell;
+                        newCardSlot.GetComponent<Connected_Spell>().SpellInfo = gameObject.GetComponent<Connected_Spell>().SpellInfo;
+                        newCardSlot.GetComponent<Image>().sprite = gameObject.GetComponent<Image>().sprite;
+                        return;
+                    }
+                }
+            }
         };
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        IsSelected = true;
         DragParent = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();

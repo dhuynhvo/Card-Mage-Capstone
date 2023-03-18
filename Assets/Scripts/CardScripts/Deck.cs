@@ -46,7 +46,7 @@ public class Deck : MonoBehaviour
     {
         PlayerHand.EmptyHand();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < DeckStash.Count(); i++)
         {
             if(DeckStash[i].DeckName == nameOfDeck)
             {

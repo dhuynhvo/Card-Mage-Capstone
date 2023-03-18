@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2332708535115456404}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 360, y: 360}
+  m_CellSize: {x: 180, y: 200}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -122,6 +122,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2332708535115456405}
     m_Modifications:
+    - target: {fileID: 3377290887504826816, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 3377290887504826820, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
     - target: {fileID: 3377290887504826820, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_Name
       value: Card
@@ -144,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_AnchorMin.x
@@ -152,15 +156,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -172,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -192,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -142.5
       objectReference: {fileID: 0}
     - target: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -212,6 +216,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
+--- !u!1 &6726429683736559996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3377290887504826820, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}
+  m_PrefabInstance: {fileID: 8324789578714140856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &513814298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726429683736559996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 180, y: 200, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!224 &6726429683736559997 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3377290887504826821, guid: 2f877d02b40379a41af598e0fcda0be8, type: 3}

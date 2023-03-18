@@ -71,7 +71,7 @@ public class Play_Card : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && !BasicOn)
         {
-            Debug.Log("Basic Played");
+            //Debug.Log("Basic Played");
             newBasic.SetActive(true);
             BasicOn = true;
         }

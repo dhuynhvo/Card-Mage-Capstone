@@ -74,7 +74,6 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator ShowDefeatScreen(float fadeinDuration)
     {
         float currentTime = 0;
-        float output_start = 0;
         while (currentTime < fadeinDuration)
         {
             float output = 0 + ((1 - 0) / (fadeinDuration - 0)) * (currentTime - 0);

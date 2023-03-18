@@ -170,10 +170,10 @@ public class Pause_Screen : MonoBehaviour
             
         }
 
-        if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.childCount > 0)
-        {
-            gameObject.GetComponent<Deck>().DeckStash[3].BasicSpell = DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.GetChild(0).GetComponent<Connected_Spell>().spell;
-        }
+        //if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.childCount > 0)
+        //{
+        //    gameObject.GetComponent<Deck>().DeckStash[3].BasicSpell = DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.GetChild(0).GetComponent<Connected_Spell>().spell;
+        //}
             
     }
 }
