@@ -14,22 +14,31 @@ public class Brightness : MonoBehaviour
     public PostProcessLayer layer;
     AutoExposure exposure;
 
-        // change brightness slider
+    [SerializeField]
+    public BrightnessObject bright_value;
+
+    // change brightness slider
     // Start is called before the first frame update
     void Start()
     {
-        brightness.TryGetSettings(out exposure); 
+        
+        brightness.TryGetSettings(out exposure);
+        brightnessSlider.value = bright_value.brightnessSliderValue; 
+
     }
 
     public void AdjustBrightness(float value)
     {
         if(value != 0)
         {
-            exposure.keyValue.value = value;
+            brightnessSlider.value = exposure.keyValue.value = value;
+            bright_value.brightnessSliderValue = brightnessSlider.value;
+            
         }
         else
         {
             exposure.keyValue.value = 0.5f;
+
         }
     }
 }

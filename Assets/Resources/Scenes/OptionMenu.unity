@@ -375,6 +375,7 @@ MonoBehaviour:
   brightnessSlider: {fileID: 948093562}
   brightness: {fileID: 11400000, guid: 1e2109bce1f786442874fae177ddf49a, type: 2}
   layer: {fileID: 1098942686}
+  bright_value: {fileID: 11400000, guid: daded2a3e8864874e91a9220d18164d4, type: 2}
 --- !u!114 &153566761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,7 +1065,6 @@ GameObject:
   m_Component:
   - component: {fileID: 948093559}
   - component: {fileID: 948093562}
-  - component: {fileID: 948093561}
   m_Layer: 5
   m_Name: Brightness Slider
   m_TagString: Untagged
@@ -1095,19 +1095,6 @@ RectTransform:
   m_AnchoredPosition: {x: 46, y: -112}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &948093561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948093558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb6ebdb90a860d4dbaaf2ac0bb9627c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 948093562}
 --- !u!114 &948093562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,7 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1153,9 +1140,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1066582954}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 4
+  m_MaxValue: 5
   m_WholeNumbers: 0
-  m_Value: 2
+  m_Value: 2.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1259,7 +1246,7 @@ GameObject:
   - component: {fileID: 1098942684}
   - component: {fileID: 1098942683}
   - component: {fileID: 1098942686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1305,7 +1292,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 479
+    m_Bits: 991
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1962,7 +1949,7 @@ GameObject:
   - component: {fileID: 1892513617}
   - component: {fileID: 1892513615}
   - component: {fileID: 1892513616}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
