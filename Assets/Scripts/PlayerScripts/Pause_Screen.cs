@@ -117,6 +117,12 @@ public class Pause_Screen : MonoBehaviour
         StatsScreen.SetActive(false);
     }
 
+    public void ChangeDeckToResume()
+    {
+        PauseScreen.SetActive(false);
+        ChangeDeckScreen.SetActive(false);
+    }
+
     public void ChangeDeck(string deckName)
     {
         PlayerDeck.LoadDeck(deckName);
