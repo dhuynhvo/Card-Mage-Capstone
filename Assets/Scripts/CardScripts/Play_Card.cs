@@ -42,13 +42,13 @@ public class Play_Card : MonoBehaviour
         count = CardQueue.Count(x => x != null);
         PlayCard();
         PushQueueforward();
-        BasicBehavior();
+        //BasicBehavior();
     }
 
     private void FixedUpdate()
     {
         GetOutQueue();
-        BasicCooldown(); //This is semihardcoded, a coroutine would work better but this is a scratchy fix
+        //BasicCooldown(); //This is semihardcoded, a coroutine would work better but this is a scratchy fix
     }
 
     private IEnumerator SpamTimer()
@@ -103,7 +103,7 @@ public class Play_Card : MonoBehaviour
             PlayerDeck.DeckReload();
         }
 
-        else if (Input.GetKeyDown(Card1Bind) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
         {
             NotSpamming = false;
             StartCoroutine(SpamTimer());
@@ -113,7 +113,7 @@ public class Play_Card : MonoBehaviour
             PlayerHand.CardsInHand[0] = null;
         }
 
-        else if (Input.GetKeyDown(Card2Bind) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
         {
             NotSpamming = false;
             StartCoroutine(SpamTimer());
@@ -123,7 +123,7 @@ public class Play_Card : MonoBehaviour
             PlayerHand.CardsInHand[1] = null;
         }
 
-        else if (Input.GetKeyDown(Card3Bind) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
         {
             NotSpamming = false;
             StartCoroutine(SpamTimer());
@@ -133,7 +133,7 @@ public class Play_Card : MonoBehaviour
             PlayerHand.CardsInHand[2] = null;
         }
 
-        else if (Input.GetKeyDown(Card4Bind) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
         {
             NotSpamming = false;
             StartCoroutine(SpamTimer());
