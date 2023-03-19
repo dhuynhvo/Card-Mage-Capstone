@@ -40,13 +40,12 @@ public class Spell_Mechanics : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else if(collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
         {
-            //gameObject.SetActive(false);
-            //StartCoroutine(LateStart());
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }
