@@ -118,11 +118,22 @@ public class Deck : MonoBehaviour
         }
     }
 
+    public void ClearGrave()
+    {
+        for (int i = 0; i < Graveyard.Count; i++)
+        {
+            Destroy(Graveyard[i]);
+        }
+    }
+
     public void DeckReload()
     {
         for (int i = 0; i <= DeckLimit; i++)
         {
-            Cards[i] = Resources.Load<GameObject>("Prefabs/" + Graveyard[i].GetComponent<Spell_Info>().SpellName);
+            if(Graveyard[i] != null)
+            {
+                Cards[i] = Resources.Load<GameObject>("Prefabs/" + Graveyard[i].GetComponent<Spell_Info>().SpellName);
+            }
         }
 
         for (int i = 0; i <= DeckLimit; i++)

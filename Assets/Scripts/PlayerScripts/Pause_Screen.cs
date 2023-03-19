@@ -132,42 +132,69 @@ public class Pause_Screen : MonoBehaviour
     //It's hardcoded because i'm very sleepy, if anyone finds this remind me to fix it please -Dan
     public void ChoseDeck1()
     {
+        PlayerDeck.ClearGrave();
         PlayerDeck.LoadDeck(stash[0].DeckName);
         BackToPause();
     }
 
     public void ChoseDeck2()
     {
+        PlayerDeck.ClearGrave();
         PlayerDeck.LoadDeck(stash[1].DeckName);
         BackToPause();
     }
 
     public void ChoseDeck3()
     {
+        PlayerDeck.ClearGrave();
         PlayerDeck.LoadDeck(stash[2].DeckName);
         BackToPause();
     }
 
     public void ChoseDeck4()
     {
+        PlayerDeck.ClearGrave();
         PlayerDeck.LoadDeck(stash[3].DeckName);
         BackToPause();
     }
 
     public void SaveDeck()
     {
-        gameObject.GetComponent<Deck>().DeckStash[3].cards.Clear();
-        gameObject.GetComponent<Deck>().DeckStash[3].BasicSpell = null;
+        int index = 0;
+        for (int i = 0; i < 20; i++)
+        {
+            if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.childCount > 0)
+            {
+                //gameObject.GetComponent<Deck>().DeckStash[3].cards.Add(DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Connected_Spell>().spell);
+                gameObject.GetComponent<Deck>().DeckStash[3].cards[i] = DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Connected_Spell>().spell;
+            }
 
-        //Debug.Log(DeckBuilderScreen.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject);
+            else
+            {
+                gameObject.GetComponent<Deck>().DeckStash[3].cards[i] = null;
+            }
+            
+        }
 
         for (int i = 0; i < 20; i++)
         {
-            if(DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.childCount > 0)
+            if (gameObject.GetComponent<Deck>().DeckStash[3].cards[i] == null && i != 19)
             {
-                gameObject.GetComponent<Deck>().DeckStash[3].cards.Add(DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Connected_Spell>().spell);
+                index = i + 1;
+                if (index < 20)
+                {
+                    while (index < 20 && gameObject.GetComponent<Deck>().DeckStash[3].cards[index] == null)
+                    {
+                        index++;
+                    }
+                }
+                    
+                if (index < 20)
+                {
+                    gameObject.GetComponent<Deck>().DeckStash[3].cards[i] = gameObject.GetComponent<Deck>().DeckStash[3].cards[index];
+                    gameObject.GetComponent<Deck>().DeckStash[3].cards[index] = null;
+                }
             }
-            
         }
 
         //if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.childCount > 0)

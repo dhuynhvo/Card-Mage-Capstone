@@ -13,7 +13,7 @@ public class Load_Deck : MonoBehaviour
     private GameObject[] CardSlots;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         for (int i = 0; i < 20; i++)
         {
@@ -34,9 +34,12 @@ public class Load_Deck : MonoBehaviour
     {
         for(int i = 0; i < CurrentDeck.cards.Count; i++)
         {
-            CardSlots[i].transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().spell = CurrentDeck.cards[i];
-            CardSlots[i].transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().SpellInfo = CurrentDeck.cards[i].GetComponent<Spell_Info>();
-            CardSlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = CurrentDeck.cards[i].GetComponent<Spell_Info>().CardSprite;
+            if (CurrentDeck.cards[i] != null)
+            {
+                CardSlots[i].transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().spell = CurrentDeck.cards[i];
+                CardSlots[i].transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().SpellInfo = CurrentDeck.cards[i].GetComponent<Spell_Info>();
+                CardSlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = CurrentDeck.cards[i].GetComponent<Spell_Info>().CardSprite;
+            }
         };
 
         //CardSlots[20].transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().spell = CurrentDeck.BasicSpell;
