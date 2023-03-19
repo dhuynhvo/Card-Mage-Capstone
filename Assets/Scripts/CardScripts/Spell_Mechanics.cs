@@ -25,9 +25,9 @@ public class Spell_Mechanics : MonoBehaviour
 
     }
 
-    private IEnumerator LateStart()
+    private IEnumerator LateStart(float delayTime)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(delayTime);
         gameObject.SetActive(false);
     }
 
@@ -38,15 +38,26 @@ public class Spell_Mechanics : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
+            SpawnAOE();
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else if(collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
         {
+            SpawnAOE();
             gameObject.SetActive(false);
             Destroy(gameObject);
+        }
+    }
+
+    private void SpawnAOE()
+    {
+        if (info.IsAOE == true)
+        {
+            GameObject aoe = Instantiate(info.AOE, transform.position, transform.rotation) as GameObject;
+            Destroy(aoe, info.AOETime);
         }
     }
 }
