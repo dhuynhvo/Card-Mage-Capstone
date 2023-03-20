@@ -96,8 +96,9 @@ public class Play_Card : MonoBehaviour
     public void PlayCard()
     {
 
-        if (PlayerHand.HandEmptyCheck() && AnyKeyDown(binds) && count == 0)
+        if (PlayerHand.HandEmptyCheck() && count == 0)
         {
+            Debug.Log("TEST");
             NotSpamming = true;
             PlayerDeck.GraveIndex = 0;
             PlayerDeck.DeckReload();

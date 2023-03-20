@@ -42,13 +42,13 @@ public class Spell_Mechanics : MonoBehaviour
         {
             SpawnAOE();
             gameObject.SetActive(false);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else if(collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
         {
             SpawnAOE();
             gameObject.SetActive(false);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
