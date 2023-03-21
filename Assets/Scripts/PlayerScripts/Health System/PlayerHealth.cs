@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float health = 0f;
+    [SerializeField] public float health = 0f;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField]
     private HealthBar bar;

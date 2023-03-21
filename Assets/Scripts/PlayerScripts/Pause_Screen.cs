@@ -194,11 +194,11 @@ public class Pause_Screen : MonoBehaviour
                     gameObject.GetComponent<Deck>().DeckStash[3].cards[i] = gameObject.GetComponent<Deck>().DeckStash[3].cards[index];
                     gameObject.GetComponent<Deck>().DeckStash[3].cards[index] = null;
                 }
-
                 else
                 {
                     index = 19;
                 }
+
             }
         }
 
