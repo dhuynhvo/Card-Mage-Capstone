@@ -22,10 +22,10 @@ public class EnemyShooting : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
         Debug.Log(distance);
 
-        if (distance < 4)
+        if (distance < 6)
         {
             timer += Time.deltaTime;
-            if(timer > 4)
+            if(timer > 3)
             {
                     timer = 0;
                     shoot();

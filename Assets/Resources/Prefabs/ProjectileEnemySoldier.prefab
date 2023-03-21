@@ -148,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051179799094749589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 168b721bb012cff4fa1563669f65db50, type: 3}
   m_Name: 
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051179799094749589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f85bdad5b8b2c0b43b59ffc0507102b0, type: 3}
   m_Name: 
@@ -238,7 +238,6 @@ GameObject:
   - component: {fileID: 6168802712143406128}
   - component: {fileID: 7929899838983338798}
   - component: {fileID: 4633816245630101772}
-  - component: {fileID: 5944328078909344798}
   m_Layer: 0
   m_Name: ProjectileEnemySoldier
   m_TagString: Enemy
@@ -297,23 +296,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0778162ddc2ccb94d950b3a085d94a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDistance: 4
+  enemyDistance: 1
   idleTimeMin: 2
   idleTimeMax: 5
---- !u!114 &5944328078909344798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6168802712143406140}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3aee30fee0c5794d82d3703567a80f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 6473339645184763728, guid: 55d432de83924d748a94ffc8d7572d7d, type: 3}
-  bulletPos: {fileID: 1031026892029380002}
 --- !u!1 &6237006289103894359
 GameObject:
   m_ObjectHideFlags: 0
