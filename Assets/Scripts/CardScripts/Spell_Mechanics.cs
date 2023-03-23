@@ -15,6 +15,7 @@ public class Spell_Mechanics : MonoBehaviour
     {
         info = gameObject.GetComponent<Spell_Info>();
         rb = gameObject.GetComponent<Rigidbody>();
+        DeactivateOnTime();
     }
 
     // Update is called once per frame
@@ -41,17 +42,27 @@ public class Spell_Mechanics : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             SpawnAOE();
-            gameObject.SetActive(false);
+            StartCoroutine(LateStart(info.ActiveDuration));
+            //gameObject.SetActive(false);
 
             //Destroy(gameObject);
         }
         else if(collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
         {
             SpawnAOE();
-            gameObject.SetActive(false);
+            StartCoroutine(LateStart(info.ActiveDuration));
+            //gameObject.SetActive(false);
 
             //Destroy(gameObject);
 
+        }
+    }
+
+    private void DeactivateOnTime()
+    {
+        if (info.DeactivateOnHit == false)
+        {
+            StartCoroutine(LateStart(info.ActiveDuration));
         }
     }
 

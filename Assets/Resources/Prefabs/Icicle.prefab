@@ -50,12 +50,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellName: Icicle
   damage: 10
+  AOEdamage: 0
   speed: 10
   cooldown: 0.5
   CooldownTimer: 0
-  ActiveDuration: 2
+  ActiveDuration: 0
   SpellPrice: 50
-  DeactivateOnHit: 0
+  DeactivateOnHit: 1
+  IsAOE: 0
+  AOE: {fileID: 0}
+  AOETime: 0
   CardSprite: {fileID: 21300000, guid: 4d0656edea0c34e499dcc803dc110c12, type: 3}
   SpellAttributes:
   - Ice
