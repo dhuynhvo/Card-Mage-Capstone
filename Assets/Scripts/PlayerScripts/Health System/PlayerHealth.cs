@@ -49,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
         };
 
         health -= mod;
+        AudioManager.instance.Play("PlayerDamaged");
         mainCamera.GetComponent<shaker>().start = true;
         if(!IsAlive)
         {
