@@ -154,7 +154,6 @@ public class Play_Card : MonoBehaviour
     }
     private void audioDeterminer(string spellName)
     {
-        Debug.Log(spellName);
         switch (spellName)
         {
             case "Icicle":
@@ -170,7 +169,7 @@ public class Play_Card : MonoBehaviour
                 AudioManager.instance.Play("WaterCubePlayerSpell");
                 break;
             case "LightningCone":
-                // code block
+                //AudioManager.instance.Play("LightningConePlayerSpell");
                 break;
             default:
                 // code block
