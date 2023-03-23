@@ -18426,6 +18426,114 @@ MonoBehaviour:
   objects:
   - {fileID: 9168807269015710304, guid: 2f4923b8d25461e4d943b05547065bf4, type: 3}
   - {fileID: 9168807269015710304, guid: 2f4923b8d25461e4d943b05547065bf4, type: 3}
+--- !u!1 &1743151684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1743151686}
+  - component: {fileID: 1743151685}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1743151685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743151684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d1fdd86e93c2b4aab4733582a99c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 0a37b317cf2bde44aa764367d8932038, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.571
+    pitch: 0.96
+    loop: 0
+    source: {fileID: 0}
+  - name: LevelComplete
+    clip: {fileID: 0}
+    mixer: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDamaged
+    clip: {fileID: 8300000, guid: 4d25cf72275ef8e49bb448c5913de181, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.379
+    pitch: 1.75
+    loop: 0
+    source: {fileID: 0}
+  - name: IciclePlayerSpell
+    clip: {fileID: 8300000, guid: 0af5771bf5bac57489a909e38278d68a, type: 3}
+    mixer: {fileID: 0}
+    volume: 1
+    pitch: 1.02
+    loop: 0
+    source: {fileID: 0}
+  - name: FireCubePlayerSpell
+    clip: {fileID: 8300000, guid: d17aecf716728714d82530b60cf1d1c7, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.401
+    pitch: 0.53
+    loop: 0
+    source: {fileID: 0}
+  - name: ArcaneCubePlayerSpell
+    clip: {fileID: 8300000, guid: d17aecf716728714d82530b60cf1d1c7, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.401
+    pitch: 0.53
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyProjectile
+    clip: {fileID: 8300000, guid: d17aecf716728714d82530b60cf1d1c7, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.401
+    pitch: 0.53
+    loop: 0
+    source: {fileID: 0}
+  - name: ArcaneBoltPlayerSpell
+    clip: {fileID: 8300000, guid: d17aecf716728714d82530b60cf1d1c7, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.401
+    pitch: 0.53
+    loop: 0
+    source: {fileID: 0}
+  - name: WaterCubePlayerSpell
+    clip: {fileID: 8300000, guid: 1acf235be5b8880469575e77e075a829, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.313
+    pitch: 1.02
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &1743151686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743151684}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.486776, y: -2.4381418, z: 24.610147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1749141426
 GameObject:
   m_ObjectHideFlags: 0
