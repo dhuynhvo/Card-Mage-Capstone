@@ -108,37 +108,41 @@ public class Play_Card : MonoBehaviour
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[0].name);
+            audioDeterminer(PlayerHand.CardsInHand[0].name);
             GameObject newSpell_0 = Instantiate(PlayerHand.CardsInHand[0], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_0;
             PlayerHand.CardsInHand[0] = null;
         }
 
-        else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
         {
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[1].name);
+            audioDeterminer(PlayerHand.CardsInHand[1].name);
             GameObject newSpell_1 = Instantiate(PlayerHand.CardsInHand[1], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_1;
             PlayerHand.CardsInHand[1] = null;
         }
 
-        else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
         {
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[2].name);
+            audioDeterminer(PlayerHand.CardsInHand[2].name);
             GameObject newSpell_2 = Instantiate(PlayerHand.CardsInHand[2], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_2;
             PlayerHand.CardsInHand[2] = null;
         }
 
-        else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
         {
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[3].name);
             GameObject newSpell_3 = Instantiate(PlayerHand.CardsInHand[3], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
+            audioDeterminer(PlayerHand.CardsInHand[3].name);
             CardQueue[0] = newSpell_3;
             PlayerHand.CardsInHand[3] = null;
         }
@@ -148,6 +152,33 @@ public class Play_Card : MonoBehaviour
             Debug.Log("That hand slot is empty");
         }
     }
+    private void audioDeterminer(string spellName)
+    {
+        Debug.Log(spellName);
+        switch (spellName)
+        {
+            case "Icicle":
+                AudioManager.instance.Play("IciclePlayerSpell");
+                break;
+            case "ArcaneBolt":
+                // code block
+                break;
+            case "FireCube":
+                // code block
+                break;
+            case "WaterCube":
+                AudioManager.instance.Play("WaterCubePlayerSpell");
+                break;
+            case "LightningCone":
+                // code block
+                break;
+            default:
+                // code block
+                break;
+        }
+    }
+
+
 
     public bool AnyKeyDown(IEnumerable<string> keys)
     {

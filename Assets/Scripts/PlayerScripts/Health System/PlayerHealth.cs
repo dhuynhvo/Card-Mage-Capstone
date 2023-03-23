@@ -56,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
             Time.timeScale = 0f;
             DefeatScreen.SetActive(true);
             DefeatText.SetActive(true);
+            AudioManager.instance.Play("GameOver"); 
             StartCoroutine(ShowDefeatScreen(5));
         }
     }
