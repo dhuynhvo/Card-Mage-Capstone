@@ -35,6 +35,7 @@ public class PickUp : MonoBehaviour
             if (PlayerCardPool.CardNames.Count == 0)
             {
                 PlayerCardPool.CardNames.Add(cardName);
+
                 return;
             }
 
@@ -63,6 +64,7 @@ public class PickUp : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             GameEvents.current.PickUpCard_E(thisID);
+            AudioManager.instance.Play("PickupCardPlayerEvent");
         }
     }
 

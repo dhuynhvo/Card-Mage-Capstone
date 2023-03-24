@@ -192,16 +192,19 @@ public class Play_Card : MonoBehaviour
                 AudioManager.instance.Play("IciclePlayerSpell");
                 break;
             case "ArcaneBolt":
-                // code block
+                AudioManager.instance.Play("ArcaneBoltPlayerSpell");
                 break;
             case "FireCube":
-                // code block
+                AudioManager.instance.Play("FireCubePlayerSpell");
                 break;
             case "WaterCube":
                 AudioManager.instance.Play("WaterCubePlayerSpell");
                 break;
             case "LightningCone":
                 //AudioManager.instance.Play("LightningConePlayerSpell");
+                break;
+            case "ArcaneCube":
+                AudioManager.instance.Play("ArcaneCubePlayerSpell");
                 break;
             default:
                 // code block
