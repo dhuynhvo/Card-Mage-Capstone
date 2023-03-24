@@ -73,7 +73,7 @@ public class Deck : MonoBehaviour
         if (Cards[0] == null)
         { 
 
-            while (Cards[CardIndex] != null && CardIndex < DeckLimit && DoneIndexing != true)
+            while (Cards[CardIndex] != null && CardIndex <= DeckLimit && DoneIndexing != true)
             {
                 CardIndex++;
                 if (CardIndex >= DeckLimit)
@@ -141,5 +141,7 @@ public class Deck : MonoBehaviour
             Destroy(Graveyard[i], 1f);
             Graveyard[i] = null;
         }
+
+
     }
 }

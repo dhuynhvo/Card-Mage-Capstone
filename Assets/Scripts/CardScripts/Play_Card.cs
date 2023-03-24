@@ -93,14 +93,30 @@ public class Play_Card : MonoBehaviour
             }
         }
     }
+
+    public bool EmptyQueue()
+    {
+        for (int i = 0; i < MaxCardsInQueue; i++)
+        {
+            if (CardQueue[i] != null)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
     public void PlayCard()
     {
 
-        if (PlayerHand.HandEmptyCheck() && count == 0)
+        if (PlayerHand.HandEmptyCheck() && count == 0 && EmptyQueue())
         {
             NotSpamming = true;
-            PlayerDeck.GraveIndex = 0;
+            //PlayerDeck.GraveIndex = 0;
             PlayerDeck.DeckReload();
+            PlayerHand.FillHand();
         }
 
         else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
@@ -112,6 +128,10 @@ public class Play_Card : MonoBehaviour
             GameObject newSpell_0 = Instantiate(PlayerHand.CardsInHand[0], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_0;
             PlayerHand.CardsInHand[0] = null;
+            if (PlayerDeck.Cards[0] != null)
+            {
+                PlayerHand.FillHand();
+            };
         }
 
         else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
@@ -123,6 +143,10 @@ public class Play_Card : MonoBehaviour
             GameObject newSpell_1 = Instantiate(PlayerHand.CardsInHand[1], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_1;
             PlayerHand.CardsInHand[1] = null;
+            if (PlayerDeck.Cards[0] != null)
+            {
+                PlayerHand.FillHand();
+            };
         }
 
         else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
@@ -134,6 +158,10 @@ public class Play_Card : MonoBehaviour
             GameObject newSpell_2 = Instantiate(PlayerHand.CardsInHand[2], SpellSpawnArea.transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             CardQueue[0] = newSpell_2;
             PlayerHand.CardsInHand[2] = null;
+            if (PlayerDeck.Cards[0] != null)
+            {
+                PlayerHand.FillHand();
+            };
         }
 
         else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
@@ -145,6 +173,10 @@ public class Play_Card : MonoBehaviour
             audioDeterminer(PlayerHand.CardsInHand[3].name);
             CardQueue[0] = newSpell_3;
             PlayerHand.CardsInHand[3] = null;
+            if (PlayerDeck.Cards[0] != null)
+            {
+                PlayerHand.FillHand();
+            };
         }
 
         else if (!PlayerHand.HandEmptyCheck() && AnyKeyDown(binds))
