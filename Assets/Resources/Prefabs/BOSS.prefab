@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 8928567346473581801}
   - component: {fileID: 4644797043707950141}
   - component: {fileID: 9083485820881842104}
+  - component: {fileID: 3725692676705307912}
   m_Layer: 0
   m_Name: BossModel
   m_TagString: Enemy
@@ -178,14 +179,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6347856571958737835}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 168b721bb012cff4fa1563669f65db50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  attackDamage: 10
-  attackSpeed: 1
   EM: {fileID: 1299778131758043626}
 --- !u!136 &8928567346473581801
 CapsuleCollider:
@@ -215,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 2718087455318675683, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
   damage: 2
+  EM: {fileID: 0}
 --- !u!54 &9083485820881842104
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -231,3 +231,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3725692676705307912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347856571958737835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6aa945ab269d24f92459fea82de24f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  nodes: []
