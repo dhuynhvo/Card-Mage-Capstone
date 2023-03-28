@@ -12,13 +12,13 @@ public class EnemyBulletScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
 
-    Vector3 direction = player.transform.position - transform.position;
-    rb.velocity = direction.normalized * force;
+        Vector3 direction = player.transform.position - transform.position;
+        rb.velocity = direction.normalized * force;
 
-    float rot = Mathf.Atan2(-direction.y, -direction.x)* Mathf.Rad2Deg;
-    transform.rotation = Quaternion.Euler(90, 90, rot + 0);
+        float rot = Mathf.Atan2(-direction.y, -direction.x)* Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(90, 90, rot + 0);
     }
 
     // Update is called once per frame
@@ -39,5 +39,11 @@ public class EnemyBulletScript : MonoBehaviour
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage(5);
             Destroy(gameObject);
         }
+        else if(other.gameObject.tag != "Spell" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Ground" && gameObject.activeSelf)
+        {
+            Destroy(gameObject);
+        }
     }
+    
+
 }

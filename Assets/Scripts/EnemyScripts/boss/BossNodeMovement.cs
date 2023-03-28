@@ -27,20 +27,11 @@ public class BossNodeMovement : MonoBehaviour
             // Move to the next node
             currentNode = (currentNode + 1) % nodes.Length;
 
-            // If we've reached a corner node, wait for 5 seconds before moving to the next node
-            if (currentNode == 1 || currentNode == 3) {
-                StartCoroutine(WaitForDelay(5f));
-            }
-
             // If we've reached the last node, shuffle the order of the nodes
             if (currentNode == 0) {
                 ShuffleNodes();
             }
         }
-    }
-
-    IEnumerator WaitForDelay(float delayTime) {
-        yield return new WaitForSeconds(delayTime);
     }
 
     void ShuffleNodes() {
