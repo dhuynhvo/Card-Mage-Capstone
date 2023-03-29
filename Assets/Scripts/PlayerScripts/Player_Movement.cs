@@ -16,7 +16,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField]
     private Vector3 MoveDir;
     [SerializeField]
-    private float PlayerSpeed, DashSpeed;
+    public float PlayerSpeed, DashSpeed;
     [SerializeField]
     private GameObject PlayerAvatar;
     [SerializeField]
