@@ -11,14 +11,14 @@ public class BossNodeMovement : MonoBehaviour
     public Transform bulletSpawnPoint;
     public float bulletSpeed = 10f;
     public float bulletStormCooldown = 1f;
+    public float stopTimeAtNode = 3f; // The duration the boss will stop at each node
+    public int bulletStormsPerNode = 3; // The number of bullet storms at each node
     private int currentNode = 0;
-    private float timeSinceLastBulletStorm = 0f;
-    public float minBulletStormInterval = 3f;
-    public float maxBulletStormInterval = 6f;
-    private float nextBulletStormTime;
+    private float timeSinceLastShot;
+    private bool isMoving = true; // Indicates if the boss is moving or stopped
+    private int bulletStormCounter = 0; // Counts the number of bullet storms at the current node
 
-    void Start()
-    {
+    void Start() {
         // Find the positions of the nodes
         nodes = new Transform[5];
         nodes[0] = GameObject.Find("node1").transform;
@@ -27,37 +27,45 @@ public class BossNodeMovement : MonoBehaviour
         nodes[3] = GameObject.Find("node4").transform;
         nodes[4] = GameObject.Find("node5").transform;
 
-        // Initialize the next bullet storm time
-        nextBulletStormTime = Time.time + UnityEngine.Random.Range(minBulletStormInterval, maxBulletStormInterval);
-
         bulletSpawnPoint.SetParent(transform);
     }
 
-    void Update()
-    {
-        // Move towards the current node
-        transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
-
-        // Check if we've reached the current node
-        if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f)
+    void Update() {
+        if (isMoving)
         {
-            // Move to the next node
-            currentNode = (currentNode + 1) % nodes.Length;
+            // Move towards the current node
+            transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
 
-            // If we've reached the last node, shuffle the order of the nodes
-            if (currentNode == 0)
-            {
-                ShuffleNodes();
+            // Check if we've reached the current node
+            if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f) {
+                // Stop moving and start shooting bullet storms
+                isMoving = false;
+                StartCoroutine(ShootBulletStormsAtNode());
             }
         }
-        // Check if it's time for the next bullet storm
-        if (Time.time >= nextBulletStormTime)
+    }
+
+    IEnumerator ShootBulletStormsAtNode() {
+        // Shoot bullet storms multiple times
+        for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
         {
             ShootBulletStorm();
-
-            // Set the next bullet storm time
-            nextBulletStormTime = Time.time + UnityEngine.Random.Range(minBulletStormInterval, maxBulletStormInterval);
+            yield return new WaitForSeconds(bulletStormCooldown);
         }
+
+        // Wait for a few seconds before moving to the next node
+        yield return new WaitForSeconds(stopTimeAtNode);
+
+        // Move to the next node
+        currentNode = (currentNode + 1) % nodes.Length;
+
+        // If we've reached the last node, shuffle the order of the nodes
+        if (currentNode == 0) {
+            ShuffleNodes();
+        }
+
+        // Start moving again
+        isMoving = true;
     }
 
     void ShuffleNodes()
