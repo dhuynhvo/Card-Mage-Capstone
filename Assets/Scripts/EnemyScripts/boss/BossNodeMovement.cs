@@ -13,10 +13,12 @@ public class BossNodeMovement : MonoBehaviour
     public float bulletStormCooldown = 1f;
     public float stopTimeAtNode = 3f; // The duration the boss will stop at each node
     public int bulletStormsPerNode = 3; // The number of bullet storms at each node
+    public float playerDetectionRange = 7f; // The range at which the boss detects the player
     private int currentNode = 0;
     private float timeSinceLastShot;
     private bool isMoving = true; // Indicates if the boss is moving or stopped
     private int bulletStormCounter = 0; // Counts the number of bullet storms at the current node
+    private GameObject player; // Reference to the player
 
     void Start() {
         // Find the positions of the nodes
@@ -27,20 +29,28 @@ public class BossNodeMovement : MonoBehaviour
         nodes[3] = GameObject.Find("node4").transform;
         nodes[4] = GameObject.Find("node5").transform;
 
+         // Get the player reference
+        player = GameObject.FindGameObjectWithTag("Player");
+
         bulletSpawnPoint.SetParent(transform);
     }
 
     void Update() {
-        if (isMoving)
+        // Check if the player is within the detection range
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer <= playerDetectionRange)
         {
-            // Move towards the current node
-            transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
+            if (isMoving)
+            {
+                // Move towards the current node
+                transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
 
-            // Check if we've reached the current node
-            if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f) {
-                // Stop moving and start shooting bullet storms
-                isMoving = false;
-                StartCoroutine(ShootBulletStormsAtNode());
+                // Check if we've reached the current node
+                if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f) {
+                    // Stop moving and start shooting bullet storms
+                    isMoving = false;
+                    StartCoroutine(ShootBulletStormsAtNode());
+                }
             }
         }
     }

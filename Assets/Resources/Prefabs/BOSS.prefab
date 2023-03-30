@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6aa945ab269d24f92459fea82de24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
   nodes:
   - {fileID: 0}
   - {fileID: 0}
@@ -308,6 +309,6 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 6358006553550984152}
   bulletSpeed: 12
   bulletStormCooldown: 0
-  minBulletStormInterval: 1
-  maxBulletStormInterval: 5
-  navAgent: {fileID: 0}
+  stopTimeAtNode: 3
+  bulletStormsPerNode: 3
+  playerDetectionRange: 3
