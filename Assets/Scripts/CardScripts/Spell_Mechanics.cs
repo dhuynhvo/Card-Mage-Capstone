@@ -10,6 +10,7 @@ public class Spell_Mechanics : MonoBehaviour
 {
     Spell_Info info;
     Rigidbody rb;
+    public Animator anim;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class Spell_Mechanics : MonoBehaviour
     private IEnumerator LateStart(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+        anim.SetBool("hit", false);
         gameObject.SetActive(false);
     }
 
@@ -41,7 +43,8 @@ public class Spell_Mechanics : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            SpawnAOE();
+            //SpawnAOE();
+            anim.SetBool("hit", true);
             StartCoroutine(LateStart(info.ActiveDuration));
             //gameObject.SetActive(false);
 
@@ -49,7 +52,8 @@ public class Spell_Mechanics : MonoBehaviour
         }
         else if(collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
         {
-            SpawnAOE();
+            //SpawnAOE();
+            anim.SetBool("hit", true);
             StartCoroutine(LateStart(info.ActiveDuration));
             //gameObject.SetActive(false);
 
