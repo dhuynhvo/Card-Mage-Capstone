@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6557349846305590797
+--- !u!1 &954796987597814875
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,81 +8,107 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6557349846305591025}
-  - component: {fileID: -5151214799384336947}
-  - component: {fileID: -6580212070969101191}
-  - component: {fileID: 4460505611859714628}
-  - component: {fileID: -371757436646788450}
-  - component: {fileID: 5754923321094154089}
+  - component: {fileID: 3846314130086530514}
+  - component: {fileID: 1721604460674968353}
+  - component: {fileID: 127091938759588230}
+  - component: {fileID: 5923638793017920540}
+  - component: {fileID: 1636516841141945939}
   m_Layer: 0
-  m_Name: FireCube
-  m_TagString: Spell
+  m_Name: FireCube Sprite
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6557349846305591025
+--- !u!4 &3846314130086530514
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557349846305590797}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 954796987597814875}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 6557349846305591025}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5151214799384336947
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!95 &1721604460674968353
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954796987597814875}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ea29b9b02d089d4792059bb3088ef79, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &127091938759588230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557349846305590797}
+  m_GameObject: {fileID: 954796987597814875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a2063c09941f844acfbddbd9c95592, type: 3}
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpellName: FireCube
-  damage: 5
-  AOEdamage: 3
-  speed: 2
-  cooldown: 0.3
-  CooldownTimer: 0
-  ActiveDuration: 0
-  SpellPrice: 20
-  DeactivateOnHit: 1
-  IsAOE: 1
-  AOE: {fileID: 5454988455266336819, guid: b50ec30ccd7a99c488776fbf91d0e0fe, type: 3}
-  AOETime: 0.3
-  CardSprite: {fileID: 21300000, guid: d00f6e48b2fda2b4c9ccd48751dfb41c, type: 3}
-  SpellAttributes:
-  - Fire
-  - Projectile
---- !u!114 &-6580212070969101191
+  m_Library:
+  - m_Name: Cast
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: beee7453139405b4cbd95359f02304e5, type: 3}
+    - m_Name: Entry_0
+      m_Hash: 0
+      m_Sprite: {fileID: 21300002, guid: beee7453139405b4cbd95359f02304e5, type: 3}
+    - m_Name: Entry_1
+      m_Hash: 0
+      m_Sprite: {fileID: 21300004, guid: beee7453139405b4cbd95359f02304e5, type: 3}
+    - m_Name: Entry_2
+      m_Hash: 0
+      m_Sprite: {fileID: 21300006, guid: beee7453139405b4cbd95359f02304e5, type: 3}
+  - m_Name: AOE
+    m_Hash: 0
+    m_CategoryList: []
+  m_SpriteLibraryAsset: {fileID: 0}
+--- !u!114 &5923638793017920540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557349846305590797}
+  m_GameObject: {fileID: 954796987597814875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce4815ce44437443b4193c4258a06df, type: 3}
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &4460505611859714628
+  m_CategoryHash: 0.000000016075674
+  m_labelHash: 3.991422e-13
+  m_SpriteKey: 0.0000075656217
+--- !u!212 &1636516841141945939
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557349846305590797}
+  m_GameObject: {fileID: 954796987597814875}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -117,17 +143,94 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b2ab8443fb449f342a6bac6c5b3e7a60, type: 3}
+  m_Sprite: {fileID: 21300000, guid: beee7453139405b4cbd95359f02304e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6557349846305590797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6557349846305591025}
+  - component: {fileID: -5151214799384336947}
+  - component: {fileID: -6580212070969101191}
+  - component: {fileID: -371757436646788450}
+  - component: {fileID: 5754923321094154089}
+  m_Layer: 0
+  m_Name: FireCube
+  m_TagString: Spell
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6557349846305591025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557349846305590797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3846314130086530514}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5151214799384336947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557349846305590797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a2063c09941f844acfbddbd9c95592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpellName: FireCube
+  damage: 5
+  AOEdamage: 3
+  speed: 3
+  cooldown: 0.3
+  CooldownTimer: 0
+  ActiveDuration: 0
+  SpellPrice: 20
+  DeactivateOnHit: 1
+  IsAOE: 1
+  AOE: {fileID: 5454988455266336819, guid: b50ec30ccd7a99c488776fbf91d0e0fe, type: 3}
+  AOETime: 0.3
+  CardSprite: {fileID: 21300000, guid: d00f6e48b2fda2b4c9ccd48751dfb41c, type: 3}
+  SpellAttributes:
+  - Fire
+  - Projectile
+--- !u!114 &-6580212070969101191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557349846305590797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4815ce44437443b4193c4258a06df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1721604460674968353}
 --- !u!65 &-371757436646788450
 BoxCollider:
   m_ObjectHideFlags: 0
