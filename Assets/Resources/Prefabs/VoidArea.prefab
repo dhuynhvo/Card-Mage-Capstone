@@ -54,7 +54,7 @@ MonoBehaviour:
   speed: 0
   cooldown: 1.2
   CooldownTimer: 0
-  ActiveDuration: 1.2
+  ActiveDuration: 0.8
   SpellPrice: 20
   DeactivateOnHit: 1
   IsAOE: 0
@@ -88,7 +88,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 1}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &343328878038174520
 Rigidbody:
