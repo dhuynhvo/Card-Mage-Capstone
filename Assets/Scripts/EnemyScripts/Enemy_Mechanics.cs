@@ -77,8 +77,6 @@ public class Enemy_Mechanics : MonoBehaviour
         float randChanceS;
         float randChanceG;
         float randChanceSteve;
-        float range = 2;
-        Vector3 offset;
         for(int i = 0; i < 10; i++)
         {
             randChanceC = Random.Range(0, 100);

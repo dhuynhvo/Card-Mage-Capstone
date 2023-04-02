@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8048007792890665000}
   - component: {fileID: 3587511939845725903}
   - component: {fileID: 343328878038174520}
+  - component: {fileID: 7708209442470714268}
   m_Layer: 0
   m_Name: VoidArea
   m_TagString: Spell
@@ -49,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellName: VoidArea
-  damage: 10
+  damage: 0
   AOEdamage: 0
   speed: 0
   cooldown: 1.2
@@ -106,6 +107,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &7708209442470714268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161442169143501404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a63e99acb44f6468240b0dc03a3e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 0}
+  SapNumber: 5
+  SpellInfo: {fileID: 8330835639104883100}
+  SapDamage: 0.5
 --- !u!1 &5070553192565411850
 GameObject:
   m_ObjectHideFlags: 0

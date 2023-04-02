@@ -12,6 +12,9 @@ public class Enemy_Info : MonoBehaviour
     public float health;
     [SerializeField]
     public float DropChance;
+    [SerializeField]
+    public bool SappingHealth;
+
 
     void Start()
     {
@@ -43,6 +46,15 @@ public class Enemy_Info : MonoBehaviour
         {
             health -= collision.gameObject.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
         }
+    }
+
+    public IEnumerator SapHealth(int SapNumber, float ActiveDuration, float SapDamage)
+    {
+        for (int i = 0; i < SapNumber; i++)
+        {
+            yield return new WaitForSeconds(ActiveDuration / SapNumber - 1);
+            health -= SapDamage;
+        };
     }
 
 
