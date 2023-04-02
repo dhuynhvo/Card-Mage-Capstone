@@ -47,13 +47,13 @@ public class BossLock : MonoBehaviour
             GameObject other = GameObject.FindGameObjectWithTag("BossRoom");
             Debug.Log("ZOOMING");
 
-            float moveRate = 1f;
-           // myCamera.transform.position = Vector3.Lerp(myCamera.transform.position, other.transform.position + new Vector3(0, 35, 0), Time.deltaTime * moveRate);
+            float moveRate = .3f;
+            myCamera.transform.position = Vector3.Lerp(myCamera.transform.position, other.transform.position + new Vector3(0, 35, -7.5f), Time.deltaTime * moveRate);
             float cameraZoom = 4.5f;
             float cameraZoomDifference = cameraZoom - myCamera.orthographicSize;
-            float cameraZoomSpeed = 2f;
+            float cameraZoomSpeed = .7f;
             myCamera.orthographicSize += cameraZoomDifference * cameraZoomSpeed *Time.deltaTime;
-            this.transform.position = other.transform.position + new Vector3(0, 35, 0);
+            //this.transform.position = other.transform.position + new Vector3(0, 35, 0);
             if (myCamera.orthographicSize > 3.8f)
             {
                 inBossRoom = false;
@@ -66,11 +66,9 @@ public class BossLock : MonoBehaviour
         if (inBossRoom2 == true)
         {
             Debug.Log("HOLDING ON BOSS");
-            float moveRate = 2f;
+            float moveRate = 1f;
 
-            other = GameObject.FindGameObjectWithTag("Boss");
-           // new Vector3(0, 0, 0);
-            //goal.position.x = josh.position.x + (mark.position.x - josh.position.x) / 2;
+            other = GameObject.FindGameObjectWithTag("Player");
             myCamera.transform.position = Vector3.Lerp(myCamera.transform.position, other.transform.position  + new Vector3(0, 35, 0), Time.deltaTime * moveRate);
 
         }
