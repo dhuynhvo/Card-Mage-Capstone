@@ -14,6 +14,8 @@ using UnityEngine.AI;
 
 public class LevelGeneration : MonoBehaviour
 {
+    //[SerializeField]
+    //public GameObject Boss;
     public Transform[] startingPositions;
     public Transform playerLoc;
     public GameObject[] spawnRooms;//index 0 = LeftTop, index 1 = RightToP, index 2 = spawnCenter
@@ -252,6 +254,8 @@ public class LevelGeneration : MonoBehaviour
                 roomDetection.GetComponent<RoomType>().RoomDestruction();// destroy a room
                 int randBoss = Random.Range(0, bossRooms.Length);
                 Instantiate(bossRooms[randBoss], transform.position, Quaternion.identity); //make a boss room with a top hole in case path is obstructed horizontal.
+                //GameObject bossPoint = GameObject.Find("BossSpawn");
+                //Boss.transform.position = bossPoint.transform.position;
                 foreach (Transform Pose in poses) //fill out the rest of the map
                 {
                     if (Pose != null)

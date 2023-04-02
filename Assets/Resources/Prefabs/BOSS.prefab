@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3725692676705307912}
   m_Layer: 0
   m_Name: BossModel
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6aa945ab269d24f92459fea82de24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Boss: {fileID: 0}
   speed: 5
   nodes:
   - {fileID: 0}
@@ -312,3 +313,4 @@ MonoBehaviour:
   stopTimeAtNode: 3
   bulletStormsPerNode: 3
   playerDetectionRange: 3
+  player: {fileID: 0}

@@ -18,7 +18,6 @@ public class BossNodeMovement : MonoBehaviour
     private float timeSinceLastShot;
     private bool isMoving = true; // Indicates if the boss is moving or stopped
     private int bulletStormCounter = 0; // Counts the number of bullet storms at the current node
-    private GameObject player; // Reference to the player
 
     void Start() {
         // Find the positions of the nodes
@@ -30,14 +29,14 @@ public class BossNodeMovement : MonoBehaviour
         nodes[4] = GameObject.Find("node5").transform;
 
          // Get the player reference
-        player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         bulletSpawnPoint.SetParent(transform);
     }
 
     void Update() {
         // Check if the player is within the detection range
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position,transform.position);
         if (distanceToPlayer <= playerDetectionRange)
         {
             if (isMoving)
