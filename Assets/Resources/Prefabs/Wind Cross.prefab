@@ -50,12 +50,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellName: Wind Cross
   damage: 3
+  AOEdamage: 0
   speed: 0
   cooldown: 0.5
   CooldownTimer: 0
   ActiveDuration: 0.5
   SpellPrice: 10
   DeactivateOnHit: 0
+  IsAOE: 0
+  AOE: {fileID: 0}
+  AOETime: 0
   CardSprite: {fileID: 21300000, guid: 9389c55ed6e014c4e805b0ede6ba93be, type: 3}
   SpellAttributes:
   - Air
@@ -73,6 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce4815ce44437443b4193c4258a06df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!212 &4460505611859714628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133,7 +138,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6557349846305590797}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

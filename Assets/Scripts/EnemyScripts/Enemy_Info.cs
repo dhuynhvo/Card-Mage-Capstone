@@ -32,5 +32,18 @@ public class Enemy_Info : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Spell_Info>())
+        {
+            health -= collision.gameObject.GetComponent<Spell_Info>().damage;
+        }
+
+        else if (collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Connected_Spell>())
+        {
+            health -= collision.gameObject.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
+        }
+    }
+
 
 }

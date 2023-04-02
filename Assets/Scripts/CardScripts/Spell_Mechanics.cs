@@ -62,6 +62,29 @@ public class Spell_Mechanics : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            SpawnAOE();
+            //anim.SetBool("hit", true);
+            StartCoroutine(LateStart(info.ActiveDuration));
+            //gameObject.SetActive(false);
+
+            //Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
+        {
+            SpawnAOE();
+            //anim.SetBool("hit", true);
+            StartCoroutine(LateStart(info.ActiveDuration));
+            //gameObject.SetActive(false);
+
+            //Destroy(gameObject);
+
+        }
+    }
+
     private void DeactivateOnTime()
     {
         if (info.DeactivateOnHit == false)
