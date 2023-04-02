@@ -55,5 +55,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemyBolt
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5769605521727082528, guid: 1622d6b3cc88dbe449c5da73b75eb8d0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1622d6b3cc88dbe449c5da73b75eb8d0, type: 3}
+--- !u!1 &7972882081869791165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6244185418654520370, guid: 1622d6b3cc88dbe449c5da73b75eb8d0, type: 3}
+  m_PrefabInstance: {fileID: 4035950449801522063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2986030018777282312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972882081869791165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3ec4332f349ae46ae3d8bc533f7b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2049558500584079581, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+  force: 3
