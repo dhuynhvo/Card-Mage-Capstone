@@ -6,6 +6,7 @@ public class Lightning_Cone : MonoBehaviour
 {
     public Player_Movement playerMove;
     public Rigidbody playerRB;
+    public Transform SpellSpawn;
     float speed;
     float dashSpeed;
 
@@ -15,10 +16,20 @@ public class Lightning_Cone : MonoBehaviour
         dashSpeed = 3f;
     }
 
+    void Update()
+    {
+        if(SpellSpawn != null)
+        {
+            transform.position = SpellSpawn.position + transform.up;
+            transform.rotation = SpellSpawn.rotation;
+        }
+    }
+
     void OnEnable()
     {
         playerMove = GameObject.Find("Player").GetComponent<Player_Movement>();
         playerRB = GameObject.Find("Player").GetComponent<Rigidbody>();
+        SpellSpawn = GameObject.Find("Player").transform.GetChild(3);
         playerRB.constraints = RigidbodyConstraints.FreezeAll;
         playerMove.PlayerSpeed = 0;
         playerMove.DashSpeed = 0;

@@ -107,6 +107,8 @@ public class Play_Card : MonoBehaviour
         return true;
     }
 
+    //public Vector3 SpellSpawnPoint()
+
 
     public void PlayCard()
     {
@@ -200,11 +202,11 @@ public class Play_Card : MonoBehaviour
             case "WaterCube":
                 AudioManager.instance.Play("WaterCubePlayerSpell");
                 break;
-            case "LightningCone":
-                //AudioManager.instance.Play("LightningConePlayerSpell");
-                break;
             case "ArcaneCube":
                 AudioManager.instance.Play("ArcaneCubePlayerSpell");
+                break;
+            case "LightningCone":
+                AudioManager.instance.Play("LightningConePlayerSpell");
                 break;
             default:
                 // code block
