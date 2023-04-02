@@ -80,6 +80,6 @@ public class BossLock : MonoBehaviour
     void Update()
     {
         HandleZoom();
-       // HandleHold();
+        HandleHold();
     }
 }

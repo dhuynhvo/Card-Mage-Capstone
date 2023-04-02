@@ -38,7 +38,7 @@ public class BossBullet : MonoBehaviour
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage(5);
             Destroy(gameObject);
         }
-        else if (other.gameObject.tag != "Spell" && other.gameObject.tag != "Boss" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Ground" && gameObject.activeSelf)
+        else if (other.gameObject.tag != "Spell" && other.gameObject.tag != "Boss" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "BossRoom"  && other.gameObject.tag != "Ground" && gameObject.activeSelf)
         {
             Destroy(gameObject);
         }
