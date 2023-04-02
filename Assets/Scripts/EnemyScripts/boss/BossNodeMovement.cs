@@ -35,59 +35,69 @@ public class BossNodeMovement : MonoBehaviour
     }
 
     void Update() {
-        // Check if the player is within the detection range
-        float distanceToPlayer = Vector3.Distance(transform.position,transform.position);
-        if (distanceToPlayer <= playerDetectionRange)
+    // Check if the player is within the detection range
+    Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+    float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
+    if (distanceToPlayer <= playerDetectionRange)
+    {
+        if (isMoving)
         {
-            if (isMoving)
-            {
-                // Move towards the current node
-                transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
+            // Move towards the current node
+            transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
 
-                // Check if we've reached the current node
-                if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f) {
-                    // Stop moving and start shooting bullet storms
-                    isMoving = false;
-                    StartCoroutine(ShootBulletStormsAtNode());
-                }
+            // Check if we've reached the current node
+            if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f) {
+                // Stop moving and start shooting bullet storms
+                isMoving = false;
+                StartCoroutine(ShootBulletStormsAtNode());
             }
         }
     }
 
-    IEnumerator ShootBulletStormsAtNode() {
-        // Shoot bullet storms multiple times
-        for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
-        {
-            ShootBulletStorm();
-            yield return new WaitForSeconds(bulletStormCooldown);
-        }
-
-        // Wait for a few seconds before moving to the next node
-        yield return new WaitForSeconds(stopTimeAtNode);
-
-        // Move to the next node
-        currentNode = (currentNode + 1) % nodes.Length;
-
-        // If we've reached the last node, shuffle the order of the nodes
-        if (currentNode == 0) {
-            ShuffleNodes();
-        }
-
-        // Start moving again
-        isMoving = true;
+    // Update the player detection range based on the current node
+    if (currentNode == 0) {
+        playerDetectionRange = 3f;
+    } else {
+        playerDetectionRange = 15f;
     }
+}
 
-    void ShuffleNodes()
+IEnumerator ShootBulletStormsAtNode() {
+    // Shoot bullet storms multiple times
+    for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
     {
-        // Shuffle the order of the nodes randomly
-        for (int i = 0; i < nodes.Length; i++)
-        {
-            int randomIndex = UnityEngine.Random.Range(i, nodes.Length);
-            Transform temp = nodes[i];
-            nodes[i] = nodes[randomIndex];
-            nodes[randomIndex] = temp;
-        }
+        ShootBulletStorm();
+        yield return new WaitForSeconds(bulletStormCooldown);
     }
+
+    // Wait for a few seconds before moving to the next node
+    yield return new WaitForSeconds(stopTimeAtNode);
+
+    if (currentNode == 0) {
+        // If we're at node 0, shuffle the order of the nodes randomly
+        ShuffleNodes();
+        // Set the current node to a random node other than node 0
+        currentNode = UnityEngine.Random.Range(1, nodes.Length);
+    } else {
+        // Otherwise, return to node 0
+        currentNode = 0;
+    }
+
+    // Start moving again
+    isMoving = true;
+}
+
+void ShuffleNodes()
+{
+    // Shuffle the order of the nodes randomly, excluding the first node
+    for (int i = 1; i < nodes.Length; i++)
+    {
+        int randomIndex = UnityEngine.Random.Range(i, nodes.Length);
+        Transform temp = nodes[i];
+        nodes[i] = nodes[randomIndex];
+        nodes[randomIndex] = temp;
+    }
+}
 
     void ShootBulletStorm()
     {
