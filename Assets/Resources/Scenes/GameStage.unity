@@ -24024,11 +24024,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049558500584079583, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: DashSpeed
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2049558500584079583, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: PlayerSpeed
-      value: 2.5
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049558500584079583, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: DashCooldown
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2617361372658682657, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: Steves
@@ -24042,6 +24046,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1158893704}
+    - target: {fileID: 2693524500158665533, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2693524500158665533, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_IsTrigger
       value: 0

@@ -12,8 +12,8 @@ public class Lightning_Cone : MonoBehaviour
 
     void Start()
     {
-        speed = 2.5f;
-        dashSpeed = 3f;
+        speed = 15f;
+        dashSpeed = 1.5f;
     }
 
     void Update()
