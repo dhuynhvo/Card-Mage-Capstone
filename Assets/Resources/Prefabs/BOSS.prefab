@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4644797043707950141}
   - component: {fileID: 9083485820881842104}
   - component: {fileID: 3725692676705307912}
+  - component: {fileID: 4080517265656778483}
   m_Layer: 0
   m_Name: BossModel
   m_TagString: Boss
@@ -313,3 +314,16 @@ MonoBehaviour:
   stopTimeAtNode: 3
   bulletStormsPerNode: 3
   playerDetectionRange: 1
+--- !u!114 &4080517265656778483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347856571958737835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6053f382ccfb045a378210817c8ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 5721157028857499796}

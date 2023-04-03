@@ -51,7 +51,7 @@ public class Spell_Mechanics : MonoBehaviour
             //Destroy(gameObject);
         }
         else if (collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && collision.gameObject.tag != "MainCamera" && collision.gameObject.tag != "Money" &&
-            collision.gameObject.tag != "Card" && gameObject.activeSelf)
+            collision.gameObject.tag != "Card" && collision.gameObject.tag != "BossRoom" && gameObject.activeSelf)
         {
             SpawnAOE();
             //anim.SetBool("hit", true);
@@ -75,7 +75,7 @@ public class Spell_Mechanics : MonoBehaviour
             //Destroy(gameObject);
         }
         else if (collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && collision.gameObject.tag != "MainCamera" && collision.gameObject.tag != "Money" &&
-            collision.gameObject.tag != "Card" && gameObject.activeSelf)
+            collision.gameObject.tag != "Card" && collision.gameObject.tag != "BossRoom" && gameObject.activeSelf)
         {
             SpawnAOE();
             //anim.SetBool("hit", true);
