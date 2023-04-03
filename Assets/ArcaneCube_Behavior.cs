@@ -24,7 +24,7 @@ public class ArcaneCube_Behavior : MonoBehaviour
             // Get Angle in Degrees
             float AngleDeg = (180 / Mathf.PI) * AngleRad;
             // Rotate Object
-            this.transform.rotation = Quaternion.Euler(90, 0, AngleDeg-90);
+            this.transform.rotation = Quaternion.Euler(90, 0, AngleDeg - 90);
         }
     }
 }
