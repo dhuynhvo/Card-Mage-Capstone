@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   DropChance: 10
+  SappingHealth: 0
 --- !u!114 &2837450856491450558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +229,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &4158011387988836367
 MonoBehaviour:
@@ -359,6 +360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0778162ddc2ccb94d950b3a085d94a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
   enemyDistance: 1
   idleTimeMin: 2
   idleTimeMax: 5
+  baseSpeed: 0

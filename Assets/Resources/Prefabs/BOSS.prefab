@@ -139,7 +139,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6071415, y: 2.26594, z: 1}
-  m_Center: {x: 0.10663986, y: 0.033167824, z: -1.7803685e-16}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &5830828336295425041
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   DropChance: 100
+  SappingHealth: 0
 --- !u!114 &1299778131758043626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +285,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &3725692676705307912
 MonoBehaviour:
