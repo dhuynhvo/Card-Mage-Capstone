@@ -15,7 +15,6 @@ public class Arcane_Bolt_Behavior : MonoBehaviour
         {
             Instantiate(bolt, transform.position, Quaternion.Euler(90, 0, -transform.localEulerAngles.y + offset));
             offset += 15;
-            //Debug.Log(transform.localEulerAngles.y);
         }
     }
 
