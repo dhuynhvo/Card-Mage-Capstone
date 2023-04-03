@@ -50,7 +50,7 @@ public class Spell_Mechanics : MonoBehaviour
 
             //Destroy(gameObject);
         }
-        else if(collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
+        else if(collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && collision.gameObject.tag != "MainCamera" && gameObject.activeSelf)
         {
             SpawnAOE();
             //anim.SetBool("hit", true);
@@ -73,7 +73,7 @@ public class Spell_Mechanics : MonoBehaviour
 
             //Destroy(gameObject);
         }
-        else if (collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && gameObject.activeSelf)
+        else if (collision.gameObject.tag != "Spell" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ground" && collision.gameObject.tag != "MainCamera" && gameObject.activeSelf)
         {
             SpawnAOE();
             //anim.SetBool("hit", true);
