@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 public class NavMeshPathing : MonoBehaviour
 {
-    NavMeshAgent enemy;
+    public NavMeshAgent enemy;
     GameObject player;
 
     public float enemyDistance = 1.0f;
     public float idleTimeMin = 2.0f;
     public float idleTimeMax = 5.0f;
+    public float baseSpeed;
     private float idleTime;
     private bool isIdle;
     private Vector3 idlePosition;
@@ -22,6 +23,7 @@ public class NavMeshPathing : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         isIdle = false;
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
+        baseSpeed = enemy.speed;
     }
 
     // Update is called once per frame
@@ -75,5 +77,11 @@ public class NavMeshPathing : MonoBehaviour
     {
         // Set the player as the priority target
         player = target.gameObject;
+    }
+
+    public IEnumerator ResetSpeedForEnemy(float b, NavMeshAgent agent, float ActiveDuration)
+    {
+        yield return new WaitForSeconds(ActiveDuration - .1f);
+        enemy.speed = b;
     }
 }

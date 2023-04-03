@@ -45,7 +45,7 @@ public class BossLock : MonoBehaviour
         if (inBossRoom == true)
         {
             GameObject other = GameObject.FindGameObjectWithTag("BossRoom");
-            Debug.Log("ZOOMING");
+            //Debug.Log("ZOOMING");
 
             float moveRate = .3f;
             myCamera.transform.position = Vector3.Lerp(myCamera.transform.position, other.transform.position + new Vector3(0, 35, -7.5f), Time.deltaTime * moveRate);
@@ -65,7 +65,7 @@ public class BossLock : MonoBehaviour
     {
         if (inBossRoom2 == true)
         {
-            Debug.Log("HOLDING ON BOSS");
+            //Debug.Log("HOLDING ON BOSS");
             float moveRate = 1f;
 
             other = GameObject.FindGameObjectWithTag("Player");
