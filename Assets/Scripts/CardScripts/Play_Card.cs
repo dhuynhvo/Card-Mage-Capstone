@@ -181,7 +181,7 @@ public class Play_Card : MonoBehaviour
         {
             NotSpamming = true;
             //PlayerDeck.GraveIndex = 0;
-            PlayerDeck.DeckReload();
+            //PlayerDeck.DeckReload();
             PlayerHand.FillHand();
         }
 
@@ -193,6 +193,7 @@ public class Play_Card : MonoBehaviour
             Debug.Log("Played: " + PlayerHand.CardsInHand[0].name);
             audioDeterminer(PlayerHand.CardsInHand[0].name);
             GameObject newSpell_0 = Instantiate(PlayerHand.CardsInHand[0], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
+            PlayerDeck.CheckEmptyDeck();
             CardQueue[0] = newSpell_0;
             PlayerHand.CardsInHand[0] = null;
             if (PlayerDeck.Cards[0] != null)
@@ -210,6 +211,7 @@ public class Play_Card : MonoBehaviour
             Debug.Log("Played: " + PlayerHand.CardsInHand[1].name);
             audioDeterminer(PlayerHand.CardsInHand[1].name);
             GameObject newSpell_1 = Instantiate(PlayerHand.CardsInHand[1], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
+            PlayerDeck.CheckEmptyDeck();
             CardQueue[0] = newSpell_1;
             PlayerHand.CardsInHand[1] = null;
             if (PlayerDeck.Cards[0] != null)
@@ -227,6 +229,7 @@ public class Play_Card : MonoBehaviour
             Debug.Log("Played: " + PlayerHand.CardsInHand[2].name);
             audioDeterminer(PlayerHand.CardsInHand[2].name);
             GameObject newSpell_2 = Instantiate(PlayerHand.CardsInHand[2], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
+            PlayerDeck.CheckEmptyDeck();
             CardQueue[0] = newSpell_2;
             PlayerHand.CardsInHand[2] = null;
             if (PlayerDeck.Cards[0] != null)
@@ -244,6 +247,7 @@ public class Play_Card : MonoBehaviour
             Debug.Log("Played: " + PlayerHand.CardsInHand[3].name);
             GameObject newSpell_3 = Instantiate(PlayerHand.CardsInHand[3], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             audioDeterminer(PlayerHand.CardsInHand[3].name);
+            PlayerDeck.CheckEmptyDeck();
             CardQueue[0] = newSpell_3;
             PlayerHand.CardsInHand[3] = null;
             if (PlayerDeck.Cards[0] != null)

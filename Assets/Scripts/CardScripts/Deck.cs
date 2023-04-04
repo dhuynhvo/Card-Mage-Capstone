@@ -31,6 +31,9 @@ public class Deck : MonoBehaviour
     public bool LoadingDeck = false;
     [SerializeField]
     private string CurrentDeckName = "Base";
+    [SerializeField]
+    private bool PushingDeck;
+
 
     private void Awake()
     {
@@ -40,6 +43,49 @@ public class Deck : MonoBehaviour
     void Update()
     {
         PopDeck();
+        CheckDeckZero();
+    }
+
+    public void Shuffle()
+    {
+        int index = 0;
+        while (Cards[index] != null)
+        {
+            index++;
+        }
+
+        for (int i = 0; i < index; i++)
+        {
+            GameObject temp = Cards[i];
+            int randomIndex = Random.Range(i, index);
+            Cards[i] = Cards[randomIndex];
+            Cards[randomIndex] = temp;
+        }
+    }
+
+    public void CheckDeckZero()
+    {
+        if (Cards[0] == null && PushingDeck == false)
+        {
+            PushingDeck = true;
+            PushCards();
+        }
+    }
+
+    public void CheckEmptyDeck()
+    {
+        for(int i = 0; i < Cards.Count; i++)
+        {
+            if (Cards[i] != null)
+            {
+                return;
+            }
+
+        }
+        GraveIndex = 0;
+        DeckReload();
+        PushCards();
+        Shuffle();
     }
 
     public void LoadDeck(string nameOfDeck = "Base")
@@ -141,7 +187,28 @@ public class Deck : MonoBehaviour
             Destroy(Graveyard[i], 1f);
             Graveyard[i] = null;
         }
+    }
 
+    public void PushCards()
+    {
+        List<GameObject> tempCards = new List<GameObject>();
 
+        for(int i = 0; i < Cards.Count; i++)
+        {
+            if (Cards[i] != null)
+            {
+                tempCards.Append(Cards[i]);
+            }
+        }
+
+        for (int i = 0; i < tempCards.Count; i++)
+        {
+            Debug.Log(i + "Testing");
+            Cards[i] = tempCards[i];
+        }
+
+        tempCards.Clear();
+
+        PushingDeck = false;
     }
 }
