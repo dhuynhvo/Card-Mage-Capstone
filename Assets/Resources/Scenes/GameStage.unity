@@ -19789,6 +19789,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2049558498879427907, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
   m_PrefabInstance: {fileID: 4111835783000134640}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1871560426 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2049558498879427909, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+  m_PrefabInstance: {fileID: 4111835783000134640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1871560429
 Animator:
   serializedVersion: 4
@@ -22973,7 +22978,7 @@ PrefabInstance:
     - target: {fileID: 2049558498879427909, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 808530589, guid: 19cf0a7e5df97f54f9fc7f73f6e9dd94, type: 3}
+      objectReference: {fileID: 459368074, guid: d39736bcdbfe90946bc92117958cd9ba, type: 3}
     - target: {fileID: 2049558499896436104, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -23118,6 +23123,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2049558500584079583, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1871560429}
+    - target: {fileID: 2049558500584079583, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1871560426}
     - target: {fileID: 2049558500584079583, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: DashSpeed
       value: 1.5

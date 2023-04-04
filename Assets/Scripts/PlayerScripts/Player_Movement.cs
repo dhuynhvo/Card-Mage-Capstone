@@ -31,6 +31,11 @@ public class Player_Movement : MonoBehaviour
     GameObject DashSphere;
     [SerializeField]
     private bool IsDashing = false;
+    [SerializeField]
+    private Animator anim;
+    [SerializeField]
+    private SpriteRenderer sprite;
+
 
 
 
@@ -48,8 +53,15 @@ public class Player_Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveDir = Vector3.zero;
-        if(IsDashing)
+        
+        if(MoveDir == Vector3.right || MoveDir == Vector3.left)
+        {
+            anim.SetBool("RR", true);
+            anim.SetBool("RU", false);
+            anim.SetBool("RD", false);
+        }
+
+        if (IsDashing)
         {
             DashTimer++;
             if(DashTimer >= DashCooldown)
@@ -95,6 +107,9 @@ public class Player_Movement : MonoBehaviour
 
         else if (Input.GetKey(UpKey))
         {
+            anim.SetBool("RU", true);
+            anim.SetBool("RD", false);
+            anim.SetBool("RR", false);
             MoveDir = Vector3.forward;
             //rb.MovePosition(transform.position + Vector3.forward * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 0, 0);
@@ -103,6 +118,9 @@ public class Player_Movement : MonoBehaviour
 
         else if (Input.GetKey(DownKey))
         {
+            anim.SetBool("RD", true);
+            anim.SetBool("RR", false);
+            anim.SetBool("RU", false);
             MoveDir = Vector3.back;
             //rb.MovePosition(transform.position + Vector3.back * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 180, 0);
@@ -111,6 +129,7 @@ public class Player_Movement : MonoBehaviour
 
         else if (Input.GetKey(LeftKey))
         {
+            sprite.flipX = true;
             MoveDir = Vector3.left;
             //rb.MovePosition(transform.position + Vector3.left * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 270, 0);
@@ -118,11 +137,21 @@ public class Player_Movement : MonoBehaviour
         }
         else if (Input.GetKey(RightKey))
         {
+            sprite.flipX = false;
             MoveDir = Vector3.right;
             //rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 90, 0);
             FacingWhat = "r";
         }
+
+        else
+        {
+            MoveDir = Vector3.zero;
+            sprite.flipX = false;
+            anim.SetBool("RD", false);
+            anim.SetBool("RR", false);
+            anim.SetBool("RU", false);
+        };
         
         if(Input.GetKeyDown(Dash) && (!IsDashing))
         {
