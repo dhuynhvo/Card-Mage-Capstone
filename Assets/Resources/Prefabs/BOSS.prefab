@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1293836708726666754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.891138, y: 0.5, z: 3.8171422}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 935802675789427664}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfde6356f48f884780f1ef92fb15bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
+  health: 100
   DropChance: 100
   SappingHealth: 0
 --- !u!114 &1299778131758043626
@@ -230,6 +230,7 @@ MonoBehaviour:
   GoldMoneyChance: 100
   SteveMoneyChance: 100
   MoneyRefArray: []
+  navMeshAgent: {fileID: 0}
 --- !u!114 &1303745128760607102
 MonoBehaviour:
   m_ObjectHideFlags: 0
