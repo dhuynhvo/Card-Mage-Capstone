@@ -28,9 +28,13 @@ public class Enemy_Mechanics : MonoBehaviour
     private float SteveMoneyChance; ///Steve is a currency lol//
     [SerializeField]
     private GameObject[] MoneyRefArray;
+    [SerializeField]
+    private UnityEngine.AI.NavMeshAgent navMeshAgent;
+
     void Start()
     {
-        
+        // Get the NavMeshAgent component from the parent game object
+        navMeshAgent = transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>();
         thisID = gameObject.GetInstanceID();
         GameEvents.current.OnEnemyDeath += DropCardOnDeath;
         sprite = gameObject.GetComponent<SpriteRenderer>();
@@ -48,6 +52,8 @@ public class Enemy_Mechanics : MonoBehaviour
     {
         if (info.health <= 0 && NotDead)
         {
+            // Stop the NavMeshAgent from moving
+            navMeshAgent.enabled = false;
             gameObject.transform.Rotate(new Vector3(0, 0, 90), Space.Self);
             GameEvents.current.DropCard_E(thisID);
             DropMoneyOnDeath();

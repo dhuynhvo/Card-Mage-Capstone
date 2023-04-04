@@ -173,6 +173,7 @@ MonoBehaviour:
   GoldMoneyChance: 10
   SteveMoneyChance: 5
   MoneyRefArray: []
+  navMeshAgent: {fileID: 7929899838983338798}
 --- !u!114 &6469772744888915642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0778162ddc2ccb94d950b3a085d94a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 7929899838983338798}
   enemyDistance: 1
   idleTimeMin: 2
   idleTimeMax: 5

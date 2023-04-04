@@ -653,6 +653,8 @@ MonoBehaviour:
   PauseButton: Cancel
   PauseScreen: {fileID: 0}
   ChangeDeckScreen: {fileID: 0}
+  DeckBuilderScreen: {fileID: 0}
+  StatsScreen: {fileID: 0}
   PlayerDeck: {fileID: 2049558500584079569}
   stash:
   - {fileID: 0}
@@ -747,6 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3b625a3573f15459e238eb8fa8e317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
 --- !u!114 &4825850998861117365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,7 +776,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffa7eb4236d8d34e910bc76c81d18be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   maxHealth: 100
+  bar: {fileID: 0}
+  mainCamera: {fileID: 0}
+  DefeatScreen: {fileID: 0}
+  DefeatText: {fileID: 0}
+  _FadeInCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4111835781257705991
 GameObject:
   m_ObjectHideFlags: 0

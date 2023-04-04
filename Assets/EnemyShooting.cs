@@ -8,17 +8,22 @@ public class EnemyShooting : MonoBehaviour
     public Transform bulletPos;
     private float timer;
     private GameObject player;
+    private Enemy_Info ei;
     
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        ei = GetComponent<Enemy_Info>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(ei.health <= 0)
+        {
+            return;
+        }
         float distance = Vector3.Distance(transform.position, player.transform.position);
         //Debug.Log(distance);
 
