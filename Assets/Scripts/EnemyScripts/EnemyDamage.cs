@@ -10,8 +10,10 @@ public class EnemyDamage : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     public int damage = 1;
+    public float damageDelay = 1f; // delay time in seconds
     [SerializeField]
     private Enemy_Mechanics EM;
+    private bool canDamage = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +27,6 @@ public class EnemyDamage : MonoBehaviour
         else{
             playerHealth = player.GetComponent<PlayerHealth>();
         }
-      
-        //playerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -37,9 +37,17 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision){
 
-        if(collision.gameObject.tag == "Player" && EM.NotDead)
+        if(collision.gameObject.tag == "Player" && EM.NotDead && canDamage)
         {
-            playerHealth.TakeDamage(damage);
+            StartCoroutine(DoDamage());
         }
+    }
+
+    IEnumerator DoDamage()
+    {
+        canDamage = false;
+        playerHealth.TakeDamage(damage);
+        yield return new WaitForSeconds(damageDelay);
+        canDamage = true;
     }
 }
