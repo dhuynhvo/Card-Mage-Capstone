@@ -13,7 +13,11 @@ public class Player_Currency : MonoBehaviour
 
     public void Start()
     {
-        Steves.money = 0;
-        Steves.SteveMoney = 0;
+        if(Steves != null)
+        {
+            Steves.money = 0;
+            Steves.SteveMoney = 0;
+        }
+
     }
 }
