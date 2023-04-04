@@ -165,6 +165,14 @@ public class Play_Card : MonoBehaviour
         }
     }
 
+    public void SetAttackBoolsToFalse()
+    {
+        anim.SetBool("AR", false);
+        anim.SetBool("AL", false);
+        anim.SetBool("AD", false);
+        anim.SetBool("AU", false);
+    }
+
 
     public void PlayCard()
     {
@@ -179,7 +187,7 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
         {
-            AttackAnim();
+            //AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[0].name);
@@ -191,11 +199,12 @@ public class Play_Card : MonoBehaviour
             {
                 PlayerHand.FillHand();
             };
+            //SetAttackBoolsToFalse();
         }
 
         else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
         {
-            AttackAnim();
+            //AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[1].name);
@@ -207,11 +216,12 @@ public class Play_Card : MonoBehaviour
             {
                 PlayerHand.FillHand();
             };
+            //SetAttackBoolsToFalse();
         }
 
         else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
         {
-            AttackAnim();
+            //AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[2].name);
@@ -223,11 +233,12 @@ public class Play_Card : MonoBehaviour
             {
                 PlayerHand.FillHand();
             };
+            //SetAttackBoolsToFalse();
         }
 
         else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
         {
-            AttackAnim();
+            //AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[3].name);
@@ -239,6 +250,7 @@ public class Play_Card : MonoBehaviour
             {
                 PlayerHand.FillHand();
             };
+            //SetAttackBoolsToFalse();
         }
 
         else if (!PlayerHand.HandEmptyCheck() && AnyKeyDown(binds))
