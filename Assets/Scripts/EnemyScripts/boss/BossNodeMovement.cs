@@ -9,7 +9,7 @@ public class BossNodeMovement : MonoBehaviour
     public Transform[] nodes;
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
-    public float bulletSpeed = 10f;
+    public float bulletSpeed = 7f;
     public float bulletStormCooldown = 1f;
     public float stopTimeAtNode = 3f; // The duration the boss will stop at each node
     public int bulletStormsPerNode = 3; // The number of bullet storms at each node
@@ -56,7 +56,7 @@ public class BossNodeMovement : MonoBehaviour
 
     // Update the player detection range based on the current node
     if (currentNode == 0) {
-        playerDetectionRange = 3f;
+        playerDetectionRange = 5f;
     } else {
         playerDetectionRange = 15f;
     }
