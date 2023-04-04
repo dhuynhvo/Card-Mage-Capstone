@@ -118,59 +118,42 @@ public class Play_Card : MonoBehaviour
         float angle = SpellSpawnArea.transform.rotation.eulerAngles.y;
         if (angle > 45 && angle < 135)
         {
-            anim.SetBool("AR", true);
-            anim.SetBool("AL", false);
-            anim.SetBool("AD", false);
-            anim.SetBool("AU", false);
+            anim.SetTrigger("AR");
+            sprite.flipX = false;
         }
 
         else if(angle > 135 && angle < 225)
         {
-            anim.SetBool("AR", false);
-            anim.SetBool("AL", false);
-            anim.SetBool("AD", true);
-            anim.SetBool("AU", false);
+            anim.SetTrigger("AD");
         }
 
         else if (angle > 225 && angle < 315)
         {
-            anim.SetBool("AR", false);
-            anim.SetBool("AL", true);
-            anim.SetBool("AD", false);
-            anim.SetBool("AU", false);
+            anim.SetTrigger("AR");
+            sprite.flipX = true;
         }
 
         else if ((angle > 315 && angle < 360) || (angle > 0 && angle < 45))
         {
-            anim.SetBool("AR", false);
-            anim.SetBool("AL", false);
-            anim.SetBool("AD", false);
-            anim.SetBool("AU", true);
+            anim.SetTrigger("AU");
         }
 
         else if(angle == 45 || angle == 135)
         {
-            anim.SetBool("AR", true);
-            anim.SetBool("AL", false);
-            anim.SetBool("AD", false);
-            anim.SetBool("AU", false);
+            anim.SetTrigger("AR");
+            sprite.flipX = false;
         }
 
         else if (angle == 225 || angle == 315)
         {
-            anim.SetBool("AR", false);
-            anim.SetBool("AL", true);
-            anim.SetBool("AD", false);
-            anim.SetBool("AU", false);
+            anim.SetTrigger("AR");
+            sprite.flipX = true;
         }
     }
 
     public void SetAttackBoolsToFalse()
     {
-        anim.SetBool("AR", false);
-        anim.SetBool("AL", false);
-        anim.SetBool("AD", false);
-        anim.SetBool("AU", false);
+        return;
     }
 
 
@@ -187,7 +170,7 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
         {
-            //AttackAnim();
+            AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             audioDeterminer(PlayerHand.CardsInHand[0].name);

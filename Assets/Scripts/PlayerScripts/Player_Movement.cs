@@ -147,7 +147,7 @@ public class Player_Movement : MonoBehaviour
         else
         {
             MoveDir = Vector3.zero;
-            sprite.flipX = false;
+            //sprite.flipX = false;
             anim.SetBool("RD", false);
             anim.SetBool("RR", false);
             anim.SetBool("RU", false);
