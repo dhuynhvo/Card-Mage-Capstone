@@ -39,7 +39,8 @@ public class EnemyBulletScript : MonoBehaviour
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage(5);
             Destroy(gameObject);
         }
-        else if(other.gameObject.tag == "Spell" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Ground" && gameObject.activeSelf)
+        else if (other.gameObject.tag != "Spell" && other.gameObject.tag != "Boss" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Ground" && other.gameObject.tag != "MainCamera" && other.gameObject.tag != "Money" &&
+            other.gameObject.tag != "Card" && other.gameObject.tag != "BossRoom" && gameObject.activeSelf)
         {
             Destroy(gameObject);
         }
