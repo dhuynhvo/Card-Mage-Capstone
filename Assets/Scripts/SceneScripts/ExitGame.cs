@@ -14,15 +14,6 @@ public class ExitGame : MonoBehaviour
 
            // exits game when user presses "esc"
            // commented out line causes error on other's pcs
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-            //UnityEditor.EditorApplication.isPlaying = false; // closes playing screen
-            Debug.Log("Game exited with esc press");
-        }
-    }
        
         // exits game with button press
     public void Exit()
