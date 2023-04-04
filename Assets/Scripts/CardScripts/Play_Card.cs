@@ -28,6 +28,9 @@ public class Play_Card : MonoBehaviour
     private bool CRStarted;
     Spell_Info info;
     private bool NotSpamming;
+    private Animator anim;
+    [SerializeField]
+    private SpriteRenderer sprite;
 
     void Start()
     {
@@ -109,6 +112,58 @@ public class Play_Card : MonoBehaviour
 
     //public Vector3 SpellSpawnPoint()
 
+    public void AttackAnim()
+    {
+        float angle = SpellSpawnArea.transform.rotation.eulerAngles.y;
+        if (angle > 45 && angle < 135)
+        {
+            anim.SetBool("AR", true);
+            anim.SetBool("AL", false);
+            anim.SetBool("AD", false);
+            anim.SetBool("AU", false);
+        }
+
+        else if(angle > 135 && angle < 225)
+        {
+            anim.SetBool("AR", false);
+            anim.SetBool("AL", false);
+            anim.SetBool("AD", true);
+            anim.SetBool("AU", false);
+        }
+
+        else if (angle > 225 && angle < 315)
+        {
+            anim.SetBool("AR", false);
+            anim.SetBool("AL", true);
+            anim.SetBool("AD", false);
+            anim.SetBool("AU", false);
+        }
+
+        else if ((angle > 315 && angle < 360) || (angle > 0 && angle < 45))
+        {
+            anim.SetBool("AR", false);
+            anim.SetBool("AL", false);
+            anim.SetBool("AD", false);
+            anim.SetBool("AU", true);
+        }
+
+        else if(angle == 45 || angle == 135)
+        {
+            anim.SetBool("AR", true);
+            anim.SetBool("AL", false);
+            anim.SetBool("AD", false);
+            anim.SetBool("AU", false);
+        }
+
+        else if (angle == 225 || angle == 315)
+        {
+            anim.SetBool("AR", false);
+            anim.SetBool("AL", true);
+            anim.SetBool("AD", false);
+            anim.SetBool("AU", false);
+        }
+    }
+
 
     public void PlayCard()
     {
@@ -123,6 +178,7 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
         {
+            AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[0].name);
@@ -138,6 +194,7 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
         {
+            AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[1].name);
@@ -153,6 +210,7 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
         {
+            AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[2].name);
@@ -168,6 +226,7 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
         {
+            AttackAnim();
             NotSpamming = false;
             StartCoroutine(SpamTimer());
             Debug.Log("Played: " + PlayerHand.CardsInHand[3].name);
