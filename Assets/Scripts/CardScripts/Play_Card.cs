@@ -28,6 +28,7 @@ public class Play_Card : MonoBehaviour
     private bool CRStarted;
     Spell_Info info;
     private bool NotSpamming;
+    [SerializeField]
     private Animator anim;
     [SerializeField]
     private SpriteRenderer sprite;
