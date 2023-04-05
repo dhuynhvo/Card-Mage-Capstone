@@ -52,6 +52,51 @@ public class Player_Movement : MonoBehaviour
         SE = new Vector3(1, 0, -1).normalized;
     }
 
+    public void RollAnim()
+    {
+        if (MoveDir == Vector3.right)
+        {
+            sprite.flipX = false;
+            anim.SetTrigger("DR");
+        }
+
+        else if(MoveDir == Vector3.left)
+        {
+            sprite.flipX = true;
+            anim.SetTrigger("DR");
+        }
+
+        else if(MoveDir == Vector3.forward)
+        {
+            sprite.flipX = false;
+            anim.SetTrigger("DU");
+        }
+
+        else if(MoveDir == Vector3.back)
+        {
+            sprite.flipX = false;
+            anim.SetTrigger("DD");
+        }
+
+        else if(MoveDir == NW)
+        {
+            sprite.flipX = true;
+            anim.SetTrigger("DU");
+        }
+
+        else if (MoveDir == NE)
+        {
+            sprite.flipX = false;
+            anim.SetTrigger("DU");
+        }
+
+        else if(MoveDir == SW || MoveDir == SE)
+        {
+            sprite.flipX = false;
+            anim.SetTrigger("DD");
+        }
+    }
+
 
     void FixedUpdate()
     {
@@ -168,6 +213,7 @@ public class Player_Movement : MonoBehaviour
             Vector3 dash = DashDirection(FacingWhat);
             if (dash == NW || dash == NE || dash == SW || dash == SE)
             {
+                RollAnim();
                 rb.velocity = MoveDir * PlayerSpeed * DashSpeed;
                 IsDashing = true;
                 DashSphere.SetActive(true);
@@ -175,6 +221,7 @@ public class Player_Movement : MonoBehaviour
 
             else
             {
+                RollAnim();
                 rb.velocity = MoveDir * PlayerSpeed * DashSpeed;
                 IsDashing = true;
                 DashSphere.SetActive(true);
