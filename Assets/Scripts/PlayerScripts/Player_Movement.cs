@@ -35,6 +35,8 @@ public class Player_Movement : MonoBehaviour
     private Animator anim;
     [SerializeField]
     private SpriteRenderer sprite;
+    [SerializeField]
+    private Play_Card attacking;
 
 
 
@@ -129,7 +131,11 @@ public class Player_Movement : MonoBehaviour
 
         else if (Input.GetKey(LeftKey))
         {
-            sprite.flipX = true;
+            if(attacking.NotSpamming == true)
+            {
+                sprite.flipX = true;
+            }
+            
             MoveDir = Vector3.left;
             //rb.MovePosition(transform.position + Vector3.left * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 270, 0);
@@ -137,7 +143,11 @@ public class Player_Movement : MonoBehaviour
         }
         else if (Input.GetKey(RightKey))
         {
-            sprite.flipX = false;
+            if (attacking.NotSpamming == true)
+            {
+                sprite.flipX = false;
+            }
+
             MoveDir = Vector3.right;
             //rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 90, 0);

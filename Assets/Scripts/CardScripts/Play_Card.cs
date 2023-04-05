@@ -27,7 +27,7 @@ public class Play_Card : MonoBehaviour
     private bool BasicOn;
     private bool CRStarted;
     Spell_Info info;
-    private bool NotSpamming;
+    public bool NotSpamming;
     [SerializeField]
     private Animator anim;
     [SerializeField]
@@ -170,8 +170,9 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
         {
-            AttackAnim();
+            
             NotSpamming = false;
+            AttackAnim();
             StartCoroutine(SpamTimer());
             audioDeterminer(PlayerHand.CardsInHand[0].name);
             GameObject newSpell_0 = Instantiate(PlayerHand.CardsInHand[0], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
