@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5106600991882071071}
   m_Layer: 0
   m_Name: EarthWall
-  m_TagString: Spell
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4287936876414404649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.054, y: 0.91, z: 14.96}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellName: EarthWall
-  damage: 0
+  damage: 10
   AOEdamage: 0
   speed: 0
   cooldown: 0.5
@@ -151,7 +151,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 5}
+  m_Size: {x: 1, y: 1, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6925087834772140775
 Rigidbody:
