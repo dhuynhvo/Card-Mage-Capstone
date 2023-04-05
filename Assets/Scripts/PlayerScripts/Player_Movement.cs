@@ -115,7 +115,7 @@ public class Player_Movement : MonoBehaviour
             {
                 DashTimer = 0;
                 IsDashing = false;
-                DashSphere.SetActive(false);
+                //DashSphere.SetActive(false);
             }
         }
         //rigid body add force
@@ -216,7 +216,7 @@ public class Player_Movement : MonoBehaviour
                 RollAnim();
                 rb.velocity = MoveDir * PlayerSpeed * DashSpeed;
                 IsDashing = true;
-                DashSphere.SetActive(true);
+                //DashSphere.SetActive(true);
             }
 
             else
@@ -224,7 +224,7 @@ public class Player_Movement : MonoBehaviour
                 RollAnim();
                 rb.velocity = MoveDir * PlayerSpeed * DashSpeed;
                 IsDashing = true;
-                DashSphere.SetActive(true);
+                //DashSphere.SetActive(true);
             }
         }
         
