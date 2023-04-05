@@ -15,6 +15,7 @@ public class BossLock : MonoBehaviour
     public GameObject tile;
     public GameObject other;
     public GameObject BossHPBar;
+    public bool BarHasStarted;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,12 @@ public class BossLock : MonoBehaviour
         if (other.gameObject.tag == "BossRoom")
         {
             Debug.Log("HELLEELLELEL");
-            BossHPBar.SetActive(true);
+            if(BarHasStarted == false)
+            {
+                BossHPBar.SetActive(true);
+                BarHasStarted = true;
+            }
+            
             inBossRoom = true;
             LockTheRoom();
             
