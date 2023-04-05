@@ -11,6 +11,7 @@ public class BossDeathEvents : MonoBehaviour
     public GameObject WinScreen;
     public GameObject WinText;
     [SerializeField] private AnimationCurve _FadeInCurve;
+    public GameObject BossBar;
 
     void Start()
     {
@@ -20,8 +21,14 @@ public class BossDeathEvents : MonoBehaviour
     void Update()
     {
 
+        if(info != null)
+        {
+            BossBar.GetComponent<Boss_Hp_Bar>().BossHP = info;
+        }
+
         if (info != null && info.health <= 0 && HasWon == false)
         {
+            BossBar.SetActive(false);
             HasWon= true;
             WinScreen.SetActive(true);
             WinText.SetActive(true);
