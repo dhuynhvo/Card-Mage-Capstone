@@ -11,6 +11,8 @@ public class Currency_Info : MonoBehaviour
 {
     [SerializeField]
     private int worth;
+    [SerializeField]
+    private Rigidbody rb;
 
     private void Start()
     {
@@ -20,6 +22,13 @@ public class Currency_Info : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         GameObject player = collision.gameObject;
+
+        if(collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Untagged")
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        }
+
         if(player.tag == "Player")
         {
             if(gameObject.tag != "SteveMoney")
