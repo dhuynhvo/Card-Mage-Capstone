@@ -49,6 +49,7 @@ public class Enemy_Mechanics : MonoBehaviour
         MoneyRefArray[1] = Resources.Load<GameObject>("Prefabs/TeefSilver");
         MoneyRefArray[2] = Resources.Load<GameObject>("Prefabs/TeefGold");
         MoneyRefArray[3] = Resources.Load<GameObject>("Prefabs/TeefSteve");
+        transform.parent.transform.position = new Vector3(transform.parent.transform.position.x, 1f, transform.parent.transform.position.z);
     }
 
     // Update is called once per frame
