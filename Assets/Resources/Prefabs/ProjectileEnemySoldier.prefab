@@ -152,7 +152,6 @@ MonoBehaviour:
   health: 10
   DropChance: 10
   SappingHealth: 0
-  anim: {fileID: 0}
 --- !u!114 &6225911546187809748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,9 +235,6 @@ MonoBehaviour:
   damage: 0
   damageDelay: 1
   EM: {fileID: 0}
-  anim: {fileID: 0}
-  knockbackForce: 1
-  enemyKnockbackForce: 1
 --- !u!114 &6071041067814832647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 6168802712143406140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 1, z: 0.4}
+  m_LocalScale: {x: 0.35, y: 1, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5229804315422269934}

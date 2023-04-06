@@ -7,6 +7,6 @@ public class Earthwall_Behavior : MonoBehaviour
     void Start()
     {
         transform.position = GameObject.Find("Spell Spawn").transform.position;
-        transform.position = new Vector3(transform.position.x, 1, transform.position.z) + transform.up;
+        transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z) + transform.up;
     }
 }
