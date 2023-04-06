@@ -57,6 +57,7 @@ public class ShopScript : MonoBehaviour
         {
             Debug.Log("PURCHASE ATTTEMPTED");
             GameEvents.current.DropCard_S(thisID, collision.gameObject);
+            
             //Destroy(gameObject);
         }
     }
@@ -74,7 +75,7 @@ public class ShopScript : MonoBehaviour
                 var randPosition = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
                 GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position + randPosition, Quaternion.Euler(90, 0, 0));
                 Debug.Log("PURCHASE SUCCESSFUL");
-
+                gameObject.SetActive(false);
             }
 
             else
