@@ -209,6 +209,7 @@ MonoBehaviour:
   health: 75
   DropChance: 100
   SappingHealth: 0
+  anim: {fileID: 0}
 --- !u!114 &1299778131758043626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +232,7 @@ MonoBehaviour:
   SteveMoneyChance: 100
   MoneyRefArray: []
   navMeshAgent: {fileID: 0}
+  fadeDuration: 2
 --- !u!114 &1303745128760607102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 2718087455318675683, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
   damage: 1
+  damageDelay: 1
   EM: {fileID: 0}
+  anim: {fileID: 0}
+  ignoreCollisionDuration: 0.5
 --- !u!54 &9083485820881842104
 Rigidbody:
   m_ObjectHideFlags: 0

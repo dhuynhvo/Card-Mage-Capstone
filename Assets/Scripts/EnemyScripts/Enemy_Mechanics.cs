@@ -66,6 +66,7 @@ public class Enemy_Mechanics : MonoBehaviour
             {
                 rb.isKinematic = true;
             }
+            //Disable Collision
             Collider col = GetComponent<Collider>();
             if (col != null)
             {

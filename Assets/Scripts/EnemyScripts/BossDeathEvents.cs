@@ -15,7 +15,7 @@ public class BossDeathEvents : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     void Update()

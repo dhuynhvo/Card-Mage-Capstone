@@ -18,6 +18,7 @@ public class BossNodeMovement : MonoBehaviour
     private float timeSinceLastShot;
     private bool isMoving = true; // Indicates if the boss is moving or stopped
     private int bulletStormCounter = 0; // Counts the number of bullet storms at the current node
+    private Animator anim;
 
     void Start() {
         // Find the positions of the nodes
@@ -32,6 +33,8 @@ public class BossNodeMovement : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         bulletSpawnPoint.SetParent(transform);
+        // Get the reference to the Animator component
+        anim = GetComponent<Animator>();
     }
 
     void Update() {
@@ -42,6 +45,7 @@ public class BossNodeMovement : MonoBehaviour
     {
         if (isMoving)
         {
+            anim.SetBool("Walk", isMoving);
             // Move towards the current node
             transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
 
@@ -49,6 +53,7 @@ public class BossNodeMovement : MonoBehaviour
             if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f) {
                 // Stop moving and start shooting bullet storms
                 isMoving = false;
+                anim.SetBool("Walk", isMoving);
                 StartCoroutine(ShootBulletStormsAtNode());
             }
         }

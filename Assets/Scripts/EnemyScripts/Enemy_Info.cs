@@ -14,11 +14,8 @@ public class Enemy_Info : MonoBehaviour
     public float DropChance;
     [SerializeField]
     public bool SappingHealth;
-    [SerializeField]
     private Animator anim;
     
-
-
     void Start()
     {
         anim = GetComponent<Animator>();
