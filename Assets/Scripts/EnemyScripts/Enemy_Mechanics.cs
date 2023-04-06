@@ -36,7 +36,7 @@ public class Enemy_Mechanics : MonoBehaviour
     private bool hasDroppedCard = false;
 
     void Start()
-    {
+    {   
         // Get the NavMeshAgent component from the parent game object
         navMeshAgent = transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>();
         thisID = gameObject.GetInstanceID();
@@ -54,6 +54,7 @@ public class Enemy_Mechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (info.health <= 0 && NotDead)
         {   
             // Stop the NavMeshAgent from moving

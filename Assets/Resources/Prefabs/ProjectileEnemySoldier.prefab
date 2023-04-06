@@ -175,6 +175,7 @@ MonoBehaviour:
   SteveMoneyChance: 5
   MoneyRefArray: []
   navMeshAgent: {fileID: 7929899838983338798}
+  fadeDuration: 2
 --- !u!114 &6469772744888915642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,16 +227,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051179799094749589}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f85bdad5b8b2c0b43b59ffc0507102b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 2718087455318675683, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-  damage: 1
+  damage: 0
   damageDelay: 1
   EM: {fileID: 0}
   anim: {fileID: 0}
+  knockbackForce: 1
+  enemyKnockbackForce: 1
 --- !u!114 &6071041067814832647
 MonoBehaviour:
   m_ObjectHideFlags: 0
