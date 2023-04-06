@@ -15,6 +15,10 @@ public class NavMeshPathing : MonoBehaviour
     private float idleTime;
     private bool isIdle;
     private Vector3 idlePosition;
+    [SerializeField]
+    private Animator anim;
+    
+    private bool facingRight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +28,8 @@ public class NavMeshPathing : MonoBehaviour
         isIdle = false;
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
         baseSpeed = enemy.speed;
+        anim = GetComponent<Animator>();
+    
     }
 
     // Update is called once per frame
@@ -57,6 +63,36 @@ public class NavMeshPathing : MonoBehaviour
                 }
             }
         }
+        // Set walk animation state
+        if (enemy.velocity.magnitude > 0.1f)
+        {
+            anim.SetBool("Walk", true);
+        }
+        else
+        {
+            anim.SetBool("Walk", false);
+        }
+            
+        // Flip enemy model based on movement direction
+        if (enemy.remainingDistance > enemy.stoppingDistance)
+        {
+            if (enemy.destination.x > transform.position.x && !facingRight)
+            {
+                Flip();
+            }
+            else if (enemy.destination.x < transform.position.x && facingRight)
+            {
+                Flip();
+            }
+        }
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 newScale = transform.localScale;
+        newScale.x *= -1;
+        transform.localScale = newScale;
     }
 
     private void OnDrawGizmos()

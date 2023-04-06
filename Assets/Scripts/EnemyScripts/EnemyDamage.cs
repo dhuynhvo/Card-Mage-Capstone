@@ -14,6 +14,8 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField]
     private Enemy_Mechanics EM;
     private bool canDamage = true;
+    [SerializeField]
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class EnemyDamage : MonoBehaviour
         else{
             playerHealth = player.GetComponent<PlayerHealth>();
         }
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -46,8 +49,10 @@ public class EnemyDamage : MonoBehaviour
     IEnumerator DoDamage()
     {
         canDamage = false;
+        anim.SetBool("Attack", true); // Set the attack animation state
         playerHealth.TakeDamage(damage);
         yield return new WaitForSeconds(damageDelay);
+        anim.SetBool("Attack", false); // Reset the attack animation state
         canDamage = true;
     }
 }

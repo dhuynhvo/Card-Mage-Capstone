@@ -9,12 +9,15 @@ public class EnemyShooting : MonoBehaviour
     private float timer;
     private GameObject player;
     private Enemy_Info ei;
-    
+    [SerializeField]
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         ei = GetComponent<Enemy_Info>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class EnemyShooting : MonoBehaviour
             if(timer > 3)
             {
                     timer = 0;
-                    shoot();
+                    StartCoroutine(ShootWithAnimation());
             } 
         }
     }
@@ -41,5 +44,13 @@ public class EnemyShooting : MonoBehaviour
     void shoot(){
         Instantiate(bullet, transform.position, Quaternion.identity);
         AudioManager.instance.Play("EnemyProjectile");
+    }
+    IEnumerator ShootWithAnimation()
+    {
+        anim.SetBool("Attack", true);
+        yield return new WaitForSeconds(0.5f); // Adjust this value based on the time in the animation when the bullet should be fired
+        shoot();
+        yield return new WaitForSeconds(0.5f); // Adjust this value based on the remaining time of the animation
+        anim.SetBool("Attack", false);
     }
 }

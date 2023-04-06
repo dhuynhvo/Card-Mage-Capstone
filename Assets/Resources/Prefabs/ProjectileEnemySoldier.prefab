@@ -152,6 +152,7 @@ MonoBehaviour:
   health: 10
   DropChance: 10
   SappingHealth: 0
+  anim: {fileID: 0}
 --- !u!114 &6225911546187809748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 2718087455318675683, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
   damage: 1
+  damageDelay: 1
   EM: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &6071041067814832647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7972882081869791165, guid: 55d432de83924d748a94ffc8d7572d7d, type: 3}
   bulletPos: {fileID: 962510545050395229}
+  anim: {fileID: 0}
 --- !u!95 &491901647654881778
 Animator:
   serializedVersion: 4
@@ -337,7 +341,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7929899838983338798}
-  enemyDistance: 1
+  enemyDistance: 0
   idleTimeMin: 2
   idleTimeMax: 5
   baseSpeed: 0
+  anim: {fileID: 0}

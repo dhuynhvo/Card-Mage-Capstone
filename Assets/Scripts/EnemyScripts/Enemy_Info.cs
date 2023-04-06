@@ -14,11 +14,14 @@ public class Enemy_Info : MonoBehaviour
     public float DropChance;
     [SerializeField]
     public bool SappingHealth;
+    [SerializeField]
+    private Animator anim;
+    
 
 
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,11 +30,13 @@ public class Enemy_Info : MonoBehaviour
         if(collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Spell_Info>())
         {
             health -= collision.gameObject.GetComponent<Spell_Info>().damage;
+            StartCoroutine(PlayDamageAnimation());
         }
 
         else if(collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Connected_Spell>())
         {
             health -= collision.gameObject.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
+            StartCoroutine(PlayDamageAnimation());
         }
     }
 
@@ -40,11 +45,13 @@ public class Enemy_Info : MonoBehaviour
         if (collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Spell_Info>())
         {
             health -= collision.gameObject.GetComponent<Spell_Info>().damage;
+            StartCoroutine(PlayDamageAnimation());
         }
 
         else if (collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Connected_Spell>())
         {
             health -= collision.gameObject.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
+            StartCoroutine(PlayDamageAnimation());
         }
     }
 
@@ -54,7 +61,16 @@ public class Enemy_Info : MonoBehaviour
         {
             yield return new WaitForSeconds(ActiveDuration / SapNumber - 1);
             health -= SapDamage;
+            StartCoroutine(PlayDamageAnimation());
         };
+    }
+    
+    private IEnumerator PlayDamageAnimation()
+    {
+        anim.SetBool("Damage", true);
+        // Assuming damage animation length is 0.5 seconds, adjust if necessary
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("Damage", false);
     }
 
 

@@ -54,10 +54,10 @@ public class Enemy_Mechanics : MonoBehaviour
         {
             // Stop the NavMeshAgent from moving
             navMeshAgent.enabled = false;
-            gameObject.transform.Rotate(new Vector3(0, 0, 90), Space.Self);
+            //gameObject.transform.Rotate(new Vector3(0, 0, 90), Space.Self);
             GameEvents.current.DropCard_E(thisID);
             DropMoneyOnDeath();
-            sprite.sprite = DeadSprite;
+            //sprite.sprite = DeadSprite;
             Destroy(transform.parent.gameObject, 1f);
             NotDead = false;
         }
