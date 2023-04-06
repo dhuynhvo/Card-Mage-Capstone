@@ -268,6 +268,9 @@ public class Play_Card : MonoBehaviour
             case "VoidArea":
                 AudioManager.instance.Play("VoidAreaPlayerSpell");
                 break;
+            case "EarthWall":
+                AudioManager.instance.Play("EarthWallPlayerSpell");
+                break;
             default:
                 // code block
                 break;
