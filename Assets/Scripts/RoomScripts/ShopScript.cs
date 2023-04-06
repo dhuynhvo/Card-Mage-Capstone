@@ -18,6 +18,9 @@ public class ShopScript : MonoBehaviour
     int priceOfCard;
     public TMP_Text price;
     public int CardNumber;
+    public SpriteRenderer sprite;
+    public GameObject CardSprite;
+    public GameObject PriceObject;
 
 
     // Start is called before the first frame update
@@ -27,22 +30,17 @@ public class ShopScript : MonoBehaviour
         GameEvents.current.OnShopBuy += Current_OnShopBuy;
         if(CardNumber == 1) //Hard Coded until i find a better solution to overlapping cards
         {
-            randCard = Random.Range(0, 3);
+            randCard = Random.Range(0, 4);
         }
 
         else if (CardNumber == 2)
         {
-            randCard = Random.Range(3, 5);
-        }
-
-        else if (CardNumber == 3)
-        {
-            randCard = Random.Range(5, 7);
+            randCard = Random.Range(4, 8);
         }
 
         priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
         price.text = priceOfCard.ToString();
-        GetComponent<SpriteRenderer>().sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+        sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
     }
     private void ShopErr()
     {
@@ -64,7 +62,10 @@ public class ShopScript : MonoBehaviour
 
     public void Current_OnShopBuy(int ID, GameObject player)
     {
-        if(thisID == ID)
+        Debug.Log("TEST1");
+        Debug.Log("ID: " + ID);
+        Debug.Log("thisID: " + thisID);
+        if (thisID == ID)
         {
             //int randCard = Random.Range(0, CardPool.cards.Count);
             //int priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
@@ -72,10 +73,22 @@ public class ShopScript : MonoBehaviour
             if (priceOfCard < player.GetComponent<Player_Currency>().Steves.money)
             {
                 player.GetComponent<Player_Currency>().Steves.money -= priceOfCard;
-                var randPosition = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
+                var randPosition = new Vector3(0, 0, 0);
+                if (CardNumber == 1)
+                {
+                    randPosition = new Vector3(-1.5f, 0, 0);
+                }
+
+                else if (CardNumber == 2)
+                {
+                    randPosition = new Vector3(1.5f, 0, 0);
+                }
+
                 GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position + randPosition, Quaternion.Euler(90, 0, 0));
                 Debug.Log("PURCHASE SUCCESSFUL");
                 gameObject.SetActive(false);
+                CardSprite.SetActive(false);
+                PriceObject.SetActive(false);
             }
 
             else
