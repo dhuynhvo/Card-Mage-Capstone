@@ -13,10 +13,26 @@ public class Currency_Info : MonoBehaviour
     private int worth;
     [SerializeField]
     private Rigidbody rb;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private Transform player;
 
     private void Start()
     {
         Destroy(gameObject, 20f);
+        player = GameObject.Find("Player").transform;
+        speed = 1;
+    }
+
+    private void Update()
+    {
+        if(player != null)
+        {
+            var step = speed * Time.deltaTime; // calculate distance to move
+            speed += Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
