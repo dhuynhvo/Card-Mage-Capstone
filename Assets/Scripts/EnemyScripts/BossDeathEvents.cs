@@ -30,9 +30,11 @@ public class BossDeathEvents : MonoBehaviour
         {
             BossBar.SetActive(false);
             HasWon= true;
-            WinScreen.SetActive(true);
-            WinText.SetActive(true);
-            StartCoroutine(ShowWinScreen(5));
+            //WinScreen.SetActive(true);
+            //WinText.SetActive(true);
+            //StartCoroutine(ShowWinScreen(5));
+
+
         }
 
     }
