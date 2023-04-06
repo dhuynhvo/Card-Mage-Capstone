@@ -30,6 +30,10 @@ public class Enemy_Mechanics : MonoBehaviour
     private GameObject[] MoneyRefArray;
     [SerializeField]
     private UnityEngine.AI.NavMeshAgent navMeshAgent;
+    [SerializeField]
+    public float fadeDuration = 2f;
+    private bool hasDroppedMoney = false;
+    private bool hasDroppedCard = false;
 
     void Start()
     {
@@ -51,15 +55,41 @@ public class Enemy_Mechanics : MonoBehaviour
     void Update()
     {
         if (info.health <= 0 && NotDead)
-        {
+        {   
             // Stop the NavMeshAgent from moving
             navMeshAgent.enabled = false;
-            //gameObject.transform.Rotate(new Vector3(0, 0, 90), Space.Self);
-            GameEvents.current.DropCard_E(thisID);
-            DropMoneyOnDeath();
+
+            //Disable RigidBody
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true;
+            }
+            Collider col = GetComponent<Collider>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
+
+            //Drop Card
+            if (!hasDroppedCard)
+            {
+                GameEvents.current.DropCard_E(thisID);
+                DropMoneyOnDeath();
+                hasDroppedCard = true;
+            }
+            //Drop Money
+            if (!hasDroppedMoney)
+            {
+                DropMoneyOnDeath();
+                hasDroppedMoney = true;
+            }
+            //FadeOut and Die
+            FadeOut();
             //sprite.sprite = DeadSprite;
-            Destroy(transform.parent.gameObject, 1f);
-            NotDead = false;
+            //Destroy(transform.parent.gameObject, 1f);
+            
+            
         }
     }
 
@@ -127,5 +157,29 @@ public class Enemy_Mechanics : MonoBehaviour
     {
         GameEvents.current.OnEnemyDeath -= DropCardOnDeath;
     }
+    public void FadeOut()
+    {
+        StartCoroutine(FadeOutCoroutine());
+    }
 
+    private IEnumerator FadeOutCoroutine()
+    {
+        Renderer enemyRenderer = GetComponent<Renderer>();
+        Material enemyMaterial = enemyRenderer.material;
+        Color initialColor = enemyMaterial.color;
+        Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0); // Target color with 0 alpha (transparent)
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / fadeDuration;
+            enemyMaterial.color = Color.Lerp(initialColor, targetColor, t);
+            yield return null;
+        }
+
+        // Optional: Destroy the enemy GameObject after the fade-out
+        Destroy(gameObject);
+    }
 }
