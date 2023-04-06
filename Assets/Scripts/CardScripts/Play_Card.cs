@@ -265,6 +265,9 @@ public class Play_Card : MonoBehaviour
             case "LightningCone":
                 AudioManager.instance.Play("LightningConePlayerSpell");
                 break;
+            case "VoidArea":
+                AudioManager.instance.Play("VoidAreaPlayerSpell");
+                break;
             default:
                 // code block
                 break;
