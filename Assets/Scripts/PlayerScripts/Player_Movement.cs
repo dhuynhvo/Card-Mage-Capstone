@@ -81,19 +81,25 @@ public class Player_Movement : MonoBehaviour
         else if(MoveDir == NW)
         {
             sprite.flipX = true;
-            anim.SetTrigger("DU");
+            anim.SetTrigger("DUD");
         }
 
         else if (MoveDir == NE)
         {
             sprite.flipX = false;
-            anim.SetTrigger("DU");
+            anim.SetTrigger("DUD");
         }
 
-        else if(MoveDir == SW || MoveDir == SE)
+        else if(MoveDir == SW)
+        {
+            sprite.flipX = true;
+            anim.SetTrigger("DDD");
+        }
+
+        else if (MoveDir == SE)
         {
             sprite.flipX = false;
-            anim.SetTrigger("DD");
+            anim.SetTrigger("DDD");
         }
     }
 
