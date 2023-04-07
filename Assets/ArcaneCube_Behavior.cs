@@ -6,6 +6,7 @@ public class ArcaneCube_Behavior : MonoBehaviour
 {
     public Transform target;
     public Vector3 targetNoZ;
+    public bool setToBoss;
     public Rigidbody rb;
     public float rotateSpeed = 200f;
 
@@ -16,9 +17,8 @@ public class ArcaneCube_Behavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(target != null)
+        if(target != null && target.gameObject.tag == "Enemy")
         {
-
             // Get Angle in Radians
             float AngleRad = Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.z - transform.position.z);
             // Get Angle in Degrees
@@ -34,11 +34,13 @@ public class ArcaneCube_Behavior : MonoBehaviour
                 this.transform.rotation = Quaternion.Euler(90, 0, -AngleDeg);
             }
             
+        }
 
-            //Vector3 LookPos = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
-            //gameObject.transform.LookAt(LookPos);
-
-
+        else if (target != null && target.gameObject.tag == "Boss")
+        {
+            var speed = GetComponent<Spell_Info>().speed;
+            var step = speed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }
     }
 }

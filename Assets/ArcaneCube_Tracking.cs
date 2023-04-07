@@ -10,14 +10,9 @@ public class ArcaneCube_Tracking : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if(cube.target == null && collision.gameObject.tag == "Enemy")
+        if(cube.target == null && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss"))
         {
             cube.target = collision.gameObject.transform;
         }
-
-        //else if(cube.target == null && collision.gameObject.tag == "Boss")
-        //{
-        //    cube.target = collision.gameObject.transform.parent.transform;
-        //}
     }
 }

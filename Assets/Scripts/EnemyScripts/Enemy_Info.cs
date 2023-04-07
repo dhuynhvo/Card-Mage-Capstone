@@ -56,10 +56,12 @@ public class Enemy_Info : MonoBehaviour
     {
         for (int i = 0; i < SapNumber; i++)
         {
+            //Debug.Log("Sapping HP");
             yield return new WaitForSeconds(ActiveDuration / SapNumber - 1);
             health -= SapDamage;
             StartCoroutine(PlayDamageAnimation());
         };
+        SappingHealth = false;
     }
     
     private IEnumerator PlayDamageAnimation()

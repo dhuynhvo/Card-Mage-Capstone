@@ -146,13 +146,13 @@ public class Enemy_Mechanics : MonoBehaviour
                 G.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);
             }
 
-            if (randChanceSteve < SteveMoneyChance)
-            {
-                //offset = new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
-                Vector3 m_NewForce = new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
-                GameObject Steve = Instantiate(MoneyRefArray[3], transform.position, Quaternion.Euler(90, 0, 0));
-                Steve.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);
-            }
+            //if (randChanceSteve < SteveMoneyChance)
+            //{
+             //   //offset = new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
+            //    Vector3 m_NewForce = new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
+            //    GameObject Steve = Instantiate(MoneyRefArray[3], transform.position, Quaternion.Euler(90, 0, 0));
+            //    Steve.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);
+            //}
         }
     }
 
