@@ -20,7 +20,7 @@ public class Void_Area_Behavior : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == "Enemy" && collision.gameObject.tag != "Untagged" && collision.gameObject.GetComponent<Enemy_Info>().SappingHealth != true)
+        if(collision.gameObject.tag == "Boss" || collision.gameObject.tag == "Enemy" && collision.gameObject.tag != "Untagged" && collision.gameObject.GetComponent<Enemy_Info>().SappingHealth != true)
         {
             info = collision.gameObject.GetComponent<Enemy_Info>();
             speed = collision.gameObject.transform.parent.gameObject.GetComponent<NavMeshAgent>();
