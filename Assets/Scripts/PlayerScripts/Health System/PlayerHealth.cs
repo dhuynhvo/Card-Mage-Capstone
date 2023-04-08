@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private GameObject DefeatText;
     [SerializeField] private AnimationCurve _FadeInCurve;
+
+    public float DefenceBuff;
     public bool IsAlive 
     {
         get { return health > 0; }
@@ -29,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = maxHealth;
         bar.SetMaxHealth(maxHealth);
+        DefenceBuff = 1f;
     }
     
     void Awake(){
@@ -48,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
             return;
         };
 
-        health -= mod;
+        health -= mod / DefenceBuff; ;
         AudioManager.instance.Play("PlayerDamaged");
         mainCamera.GetComponent<shaker>().start = true;
         if(!IsAlive)
