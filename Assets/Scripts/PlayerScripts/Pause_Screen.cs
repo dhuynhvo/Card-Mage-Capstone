@@ -163,7 +163,7 @@ public class Pause_Screen : MonoBehaviour
         int index = 0;
         for (int i = 0; i < 20; i++)
         {
-            if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.childCount > 0)
+            if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.childCount > 0 && !DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).GetChild(0).GetComponent<Spell_Info>())
             {
                 //gameObject.GetComponent<Deck>().DeckStash[3].cards.Add(DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Connected_Spell>().spell);
                 gameObject.GetComponent<Deck>().DeckStash[3].cards[i] = DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.GetChild(0).GetComponent<Connected_Spell>().spell;

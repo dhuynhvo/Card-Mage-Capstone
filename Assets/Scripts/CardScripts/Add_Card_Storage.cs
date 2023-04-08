@@ -12,8 +12,6 @@ public class Add_Card_Storage : MonoBehaviour
     private GameObject card;
     [SerializeField]
 
-
-
     public void addCardsToStorage()
     {
         while (transform.childCount > 0)
@@ -29,9 +27,12 @@ public class Add_Card_Storage : MonoBehaviour
             GameObject newCardSlot = Instantiate(card, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
 
             newCardSlot.tag = "Storage";
+            //newCardSlot.transform.GetChild(0).tag = "Storage";
             newCardSlot.transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().spell = Card.GetComponent<Connected_Spell>().spell;
             newCardSlot.transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().SpellInfo = Card.GetComponent<Connected_Spell>().SpellInfo;
             newCardSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Card.GetComponent<SpriteRenderer>().sprite;
+
+            newCardSlot.GetComponent<Inventory_Slot>().startSpell = Card;
         };
     }
 }

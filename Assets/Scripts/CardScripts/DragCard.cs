@@ -13,6 +13,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public string DeleteButton;
     public GameObject SlotHolder;
     public GameObject card;
+    public Sprite EmptySprite;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -20,7 +21,9 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             if (gameObject.transform.parent.gameObject.tag != "Storage")
             {
-                Destroy(gameObject);
+                GetComponent<Connected_Spell>().spell = null;
+                GetComponent<Connected_Spell>().SpellInfo = null;
+                GetComponent<Image>().sprite = EmptySprite;
             }
         }
 

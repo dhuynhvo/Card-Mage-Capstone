@@ -20,7 +20,7 @@ public class Load_Deck : MonoBehaviour
             CardSlots[i] = gameObject.transform.GetChild(0).transform.GetChild(i).gameObject;
         }
 
-        CurrentDeck = deck.CurrentDeck;
+        CurrentDeck = deck.DeckStash[3];
         LoadDeckBuilder(CurrentDeck, CardSlots);
     }
 
