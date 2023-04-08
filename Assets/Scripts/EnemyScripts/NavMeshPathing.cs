@@ -43,7 +43,10 @@ public class NavMeshPathing : MonoBehaviour
         if (distance < enemyDistance)
         {
             // Follow the player
-            enemy.SetDestination(player.transform.position);
+            if(enemy.isOnNavMesh)
+            {
+                enemy.SetDestination(player.transform.position);
+            }
             isIdle = false;
         }
         else
@@ -52,7 +55,10 @@ public class NavMeshPathing : MonoBehaviour
             {
                 // Start idle movement
                 idlePosition = GetRandomPoint(transform.position, 5.0f, NavMesh.AllAreas);
-                enemy.SetDestination(idlePosition);
+                if(enemy.isOnNavMesh)
+                {
+                    enemy.SetDestination(idlePosition);
+                }
                 isIdle = true;
                 idleTime = Random.Range(idleTimeMin, idleTimeMax);
             }
@@ -84,7 +90,8 @@ public class NavMeshPathing : MonoBehaviour
         }
             
         // Flip enemy model based on movement direction
-        if (enemy.remainingDistance > enemy.stoppingDistance)
+
+        if (enemy.isOnNavMesh == true && enemy.remainingDistance > enemy.stoppingDistance)
         {
             if (enemy.destination.x > transform.position.x && !facingRight)
             {

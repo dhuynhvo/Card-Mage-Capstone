@@ -28,14 +28,15 @@ public class ShopScript : MonoBehaviour
     {
         thisID = gameObject.GetInstanceID();
         GameEvents.current.OnShopBuy += Current_OnShopBuy;
+        int q = CardPool.cards.Count / 2;
         if(CardNumber == 1) //Hard Coded until i find a better solution to overlapping cards
         {
-            randCard = Random.Range(0, 4);
+            randCard = Random.Range(0, q);
         }
 
         else if (CardNumber == 2)
         {
-            randCard = Random.Range(4, 8);
+            randCard = Random.Range(q+1, CardPool.cards.Count);
         }
 
         priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
