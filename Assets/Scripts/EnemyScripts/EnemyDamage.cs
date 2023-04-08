@@ -13,6 +13,7 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField]
     private Enemy_Mechanics EM;
     private bool canDamage = true;
+    [SerializeField]
     private Animator anim;
 
     // Start is called before the first frame update
