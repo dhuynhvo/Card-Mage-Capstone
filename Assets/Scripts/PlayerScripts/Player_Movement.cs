@@ -38,6 +38,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField]
     private Play_Card attacking;
 
+    public float SpeedBuff;
 
 
 
@@ -50,6 +51,7 @@ public class Player_Movement : MonoBehaviour
         NE = new Vector3(1, 0, 1).normalized;
         SW = new Vector3(-1, 0, -1).normalized;
         SE = new Vector3(1, 0, -1).normalized;
+        SpeedBuff = 1f;
     }
 
     public void RollAnim()
@@ -220,7 +222,7 @@ public class Player_Movement : MonoBehaviour
             if (dash == NW || dash == NE || dash == SW || dash == SE)
             {
                 RollAnim();
-                rb.velocity = MoveDir * PlayerSpeed * DashSpeed;
+                rb.velocity = MoveDir * PlayerSpeed * DashSpeed * SpeedBuff;
                 IsDashing = true;
                 //DashSphere.SetActive(true);
             }
@@ -228,7 +230,7 @@ public class Player_Movement : MonoBehaviour
             else
             {
                 RollAnim();
-                rb.velocity = MoveDir * PlayerSpeed * DashSpeed;
+                rb.velocity = MoveDir * PlayerSpeed * DashSpeed * SpeedBuff;
                 IsDashing = true;
                 //DashSphere.SetActive(true);
             }
@@ -236,7 +238,7 @@ public class Player_Movement : MonoBehaviour
         
         if(!IsDashing)
         {
-            rb.velocity = MoveDir * PlayerSpeed;
+            rb.velocity = MoveDir * PlayerSpeed * SpeedBuff;
         }
 
        // rb.AddForce(MoveDir*PlayerSpeed, ForceMode.VelocityChange);
