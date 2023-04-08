@@ -28,7 +28,7 @@ public class NavMeshPathing : MonoBehaviour
         isIdle = false;
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
         baseSpeed = enemy.speed;
-        anim = GetComponent<Animator>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
     
     }
 
