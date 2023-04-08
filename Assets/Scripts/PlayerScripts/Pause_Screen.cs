@@ -22,6 +22,8 @@ public class Pause_Screen : MonoBehaviour
     private Deck PlayerDeck;
     [SerializeField]
     private Premade_Decks[] stash;
+    [SerializeField]
+    private Play_Card queue;
     private bool paused = false;
 
     private void Start()
@@ -132,28 +134,36 @@ public class Pause_Screen : MonoBehaviour
     //It's hardcoded because i'm very sleepy, if anyone finds this remind me to fix it please -Dan
     public void ChoseDeck1()
     {
+        queue.ClearQueue();
         PlayerDeck.ClearGrave();
+        PlayerDeck.GraveIndex = 0;
         PlayerDeck.LoadDeck(stash[0].DeckName);
         BackToPause();
     }
 
     public void ChoseDeck2()
     {
+        queue.ClearQueue();
         PlayerDeck.ClearGrave();
+        PlayerDeck.GraveIndex = 0;
         PlayerDeck.LoadDeck(stash[1].DeckName);
         BackToPause();
     }
 
     public void ChoseDeck3()
     {
+        queue.ClearQueue();
         PlayerDeck.ClearGrave();
+        PlayerDeck.GraveIndex = 0;
         PlayerDeck.LoadDeck(stash[2].DeckName);
         BackToPause();
     }
 
     public void ChoseDeck4()
     {
+        queue.ClearQueue();
         PlayerDeck.ClearGrave();
+        PlayerDeck.GraveIndex = 0;
         PlayerDeck.LoadDeck(stash[3].DeckName);
         BackToPause();
     }

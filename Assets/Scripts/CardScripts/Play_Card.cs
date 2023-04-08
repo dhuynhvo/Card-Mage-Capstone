@@ -169,7 +169,7 @@ public class Play_Card : MonoBehaviour
             PlayerHand.FillHand();
         }
 
-        else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
             
             NotSpamming = false;
@@ -187,7 +187,7 @@ public class Play_Card : MonoBehaviour
             //SetAttackBoolsToFalse();
         }
 
-        else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
             //AttackAnim();
             NotSpamming = false;
@@ -204,7 +204,7 @@ public class Play_Card : MonoBehaviour
             //SetAttackBoolsToFalse();
         }
 
-        else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
             //AttackAnim();
             NotSpamming = false;
@@ -221,7 +221,7 @@ public class Play_Card : MonoBehaviour
             //SetAttackBoolsToFalse();
         }
 
-        else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming)
+        else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
             //AttackAnim();
             NotSpamming = false;
@@ -346,6 +346,14 @@ public class Play_Card : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(1f);
+        }
+    }
+
+    public void ClearQueue()
+    {
+        for (int i = MaxCardsInQueue - 1; i > 0; i--)
+        {
+            CardQueue[i] = null;
         }
     }
 

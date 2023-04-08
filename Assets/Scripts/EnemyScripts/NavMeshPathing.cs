@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class NavMeshPathing : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class NavMeshPathing : MonoBehaviour
     private Vector3 idlePosition;
     [SerializeField]
     private Animator anim;
-    
+    SpriteRenderer sprite;
+
+
     private bool facingRight = true;
 
     // Start is called before the first frame update
@@ -29,7 +32,7 @@ public class NavMeshPathing : MonoBehaviour
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
         baseSpeed = enemy.speed;
         anim = transform.GetChild(0).GetComponent<Animator>();
-    
+        sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -66,11 +69,18 @@ public class NavMeshPathing : MonoBehaviour
         // Set walk animation state
         if (enemy.velocity.magnitude > 0.1f)
         {
-            anim.SetBool("Walk", true);
+            if(anim != null)
+            {
+                anim.SetBool("Walk", true);
+            }
+            
         }
         else
         {
-            anim.SetBool("Walk", false);
+            if(anim != null)
+            {
+                anim.SetBool("Walk", false);
+            }
         }
             
         // Flip enemy model based on movement direction
@@ -91,7 +101,8 @@ public class NavMeshPathing : MonoBehaviour
     {
         facingRight = !facingRight;
         Vector3 newScale = transform.localScale;
-        newScale.x *= -1;
+        sprite.flipX = !sprite.flipX;
+        //newScale.x *= -1;
         transform.localScale = newScale;
     }
 
