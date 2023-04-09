@@ -193,8 +193,8 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
-            //AttackAnim();
             NotSpamming = false;
+            AttackAnim();
             StartCoroutine(SpamTimer());
             audioDeterminer(PlayerHand.CardsInHand[1].name);
             GameObject newSpell_1 = Instantiate(PlayerHand.CardsInHand[1], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
@@ -211,8 +211,8 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
-            //AttackAnim();
             NotSpamming = false;
+            AttackAnim();
             StartCoroutine(SpamTimer());
             audioDeterminer(PlayerHand.CardsInHand[2].name);
             GameObject newSpell_2 = Instantiate(PlayerHand.CardsInHand[2], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
@@ -229,8 +229,8 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetMouseButtonDown(1) && PlayerHand.CardsInHand[3] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
-            //AttackAnim();
             NotSpamming = false;
+            AttackAnim();
             StartCoroutine(SpamTimer());
             GameObject newSpell_3 = Instantiate(PlayerHand.CardsInHand[3], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             newSpell_3.GetComponent<Spell_Info>().damage = newSpell_3.GetComponent<Spell_Info>().damage * AttackBuff;

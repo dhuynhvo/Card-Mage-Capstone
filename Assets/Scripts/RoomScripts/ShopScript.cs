@@ -63,9 +63,6 @@ public class ShopScript : MonoBehaviour
 
     public void Current_OnShopBuy(int ID, GameObject player)
     {
-        Debug.Log("TEST1");
-        Debug.Log("ID: " + ID);
-        Debug.Log("thisID: " + thisID);
         if (thisID == ID)
         {
             //int randCard = Random.Range(0, CardPool.cards.Count);
