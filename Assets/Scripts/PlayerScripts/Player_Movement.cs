@@ -105,15 +105,94 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-
+    void SwitchRunAnimations(string direction)
+    {
+        switch (direction)
+        {
+            case "NW":
+                anim.SetBool("RR", false);
+                anim.SetBool("RU", false);
+                anim.SetBool("RD", false);
+                anim.SetBool("RNW", true);
+                anim.SetBool("RNE", false);
+                anim.SetBool("RSW", false);
+                anim.SetBool("RSE", false);
+                break;
+            case "NE":
+                anim.SetBool("RR", false);
+                anim.SetBool("RU", false);
+                anim.SetBool("RD", false);
+                anim.SetBool("RNW", false);
+                anim.SetBool("RNE", true);
+                anim.SetBool("RSW", false);
+                anim.SetBool("RSE", false);
+                break;
+            case "SW":
+                anim.SetBool("RR", false);
+                anim.SetBool("RU", false);
+                anim.SetBool("RD", false);
+                anim.SetBool("RNW", false);
+                anim.SetBool("RNE", false);
+                anim.SetBool("RSW", true);
+                anim.SetBool("RSE", false);
+                break;
+            case "SE":
+                anim.SetBool("RR", false);
+                anim.SetBool("RU", false);
+                anim.SetBool("RD", false);
+                anim.SetBool("RNW", false);
+                anim.SetBool("RNE", false);
+                anim.SetBool("RSW", false);
+                anim.SetBool("RSE", true);
+                break;
+            case "U":
+                anim.SetBool("RR", false);
+                anim.SetBool("RU", true);
+                anim.SetBool("RD", false);
+                anim.SetBool("RNW", false);
+                anim.SetBool("RNE", false);
+                anim.SetBool("RSW", false);
+                anim.SetBool("RSE", false);
+                break;
+            case "D":
+                anim.SetBool("RR", false);
+                anim.SetBool("RU", false);
+                anim.SetBool("RD", true);
+                anim.SetBool("RNW", false);
+                anim.SetBool("RNE", false);
+                anim.SetBool("RSW", false);
+                anim.SetBool("RSE", false);
+                break;
+            case "L":
+                anim.SetBool("RR", true);
+                anim.SetBool("RU", false);
+                anim.SetBool("RD", false);
+                anim.SetBool("RNW", false);
+                anim.SetBool("RNE", false);
+                anim.SetBool("RSW", false);
+                anim.SetBool("RSE", false);
+                break;
+            case "R":
+                anim.SetBool("RR", true);
+                anim.SetBool("RU", false);
+                anim.SetBool("RD", false);
+                anim.SetBool("RNW", false);
+                anim.SetBool("RNE", false);
+                anim.SetBool("RSW", false);
+                anim.SetBool("RSE", false);
+                break;
+            default:
+                // code block
+                break;
+        }
+    }
+    
     void FixedUpdate()
     {
         
         if(MoveDir == Vector3.right || MoveDir == Vector3.left)
         {
-            anim.SetBool("RR", true);
-            anim.SetBool("RU", false);
-            anim.SetBool("RD", false);
+            SwitchRunAnimations("R");
         }
 
         if (IsDashing)
@@ -130,6 +209,11 @@ public class Player_Movement : MonoBehaviour
         if(Input.GetKey(UpKey) && Input.GetKey(LeftKey))
         {
             MoveDir = NW;
+            if (attacking.NotSpamming == true)
+            {
+                sprite.flipX = true;
+            }
+            SwitchRunAnimations("NW");
             //rb.moveposition(transform.position + nw * time.deltatime * playerspeed * .7f);
             //playeravatar.transform.rotation = quaternion.euler(90, -45, 0);
             FacingWhat = "ul";
@@ -138,7 +222,11 @@ public class Player_Movement : MonoBehaviour
         else if (Input.GetKey(UpKey) && Input.GetKey(RightKey))
         {
             MoveDir = NE;
-
+            if (attacking.NotSpamming == true)
+            {
+                sprite.flipX = false;
+            }
+            SwitchRunAnimations("NE");
             //rb.MovePosition(transform.position + NE * Time.deltaTime * PlayerSpeed * .7f);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 45, 0);
             FacingWhat = "ur";
@@ -147,6 +235,11 @@ public class Player_Movement : MonoBehaviour
         else if (Input.GetKey(DownKey) && Input.GetKey(LeftKey))
         {
             MoveDir = SW;
+            if (attacking.NotSpamming == true)
+            {
+                sprite.flipX = true;
+            }
+            SwitchRunAnimations("SW");
             //rb.MovePosition(transform.position + SW * Time.deltaTime * PlayerSpeed * .7f);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, -135, 0);
             FacingWhat = "dl";
@@ -155,6 +248,11 @@ public class Player_Movement : MonoBehaviour
         else if (Input.GetKey(DownKey) && Input.GetKey(RightKey))
         {
             MoveDir = SE;
+            if (attacking.NotSpamming == true)
+            {
+                sprite.flipX = false;
+            }
+            SwitchRunAnimations("SE");
             //rb.MovePosition(transform.position + SE * Time.deltaTime * PlayerSpeed * .7f);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 135, 0);
             FacingWhat = "dr";
@@ -162,10 +260,8 @@ public class Player_Movement : MonoBehaviour
 
         else if (Input.GetKey(UpKey))
         {
-            anim.SetBool("RU", true);
-            anim.SetBool("RD", false);
-            anim.SetBool("RR", false);
             MoveDir = Vector3.forward;
+            SwitchRunAnimations("U");
             //rb.MovePosition(transform.position + Vector3.forward * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 0, 0);
             FacingWhat = "u";
@@ -173,10 +269,8 @@ public class Player_Movement : MonoBehaviour
 
         else if (Input.GetKey(DownKey))
         {
-            anim.SetBool("RD", true);
-            anim.SetBool("RR", false);
-            anim.SetBool("RU", false);
             MoveDir = Vector3.back;
+            SwitchRunAnimations("D");
             //rb.MovePosition(transform.position + Vector3.back * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 180, 0);
             FacingWhat = "d";
@@ -190,6 +284,7 @@ public class Player_Movement : MonoBehaviour
             }
             
             MoveDir = Vector3.left;
+            SwitchRunAnimations("R");
             //rb.MovePosition(transform.position + Vector3.left * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 270, 0);
             FacingWhat = "l";
@@ -202,6 +297,7 @@ public class Player_Movement : MonoBehaviour
             }
 
             MoveDir = Vector3.right;
+            SwitchRunAnimations("R");
             //rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * PlayerSpeed);
             //PlayerAvatar.transform.rotation = Quaternion.Euler(90, 90, 0);
             FacingWhat = "r";
@@ -211,9 +307,13 @@ public class Player_Movement : MonoBehaviour
         {
             MoveDir = Vector3.zero;
             //sprite.flipX = false;
-            anim.SetBool("RD", false);
             anim.SetBool("RR", false);
             anim.SetBool("RU", false);
+            anim.SetBool("RD", false);
+            anim.SetBool("RNW", false);
+            anim.SetBool("RNE", false);
+            anim.SetBool("RSW", false);
+            anim.SetBool("RSE", false);
         };
         
         if(Input.GetKeyDown(Dash) && (!IsDashing))
