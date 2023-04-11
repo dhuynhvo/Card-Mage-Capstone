@@ -30,6 +30,7 @@ Transform:
   m_Children:
   - {fileID: 1286793067483000539}
   - {fileID: 4517520881941406776}
+  - {fileID: 4622473808822842609}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,6 +97,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1198214706, guid: bccb19406a52ebe4a85cfbe58d1e2fde, type: 3}
+    - target: {fileID: 5150438778956978239, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315877923805905815, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8006954305354736411, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1
@@ -103,6 +112,14 @@ PrefabInstance:
     - target: {fileID: 9168807269015710304, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
       propertyPath: m_Name
       value: AcidPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168807269015710304, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215761574474314764, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
@@ -217,4 +234,66 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4316721394415786201, guid: d852d8f18c0440e4fb283167a4c1459b, type: 3}
   m_PrefabInstance: {fileID: 3040924010230134274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8954062032645944075
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3279764466644717669}
+    m_Modifications:
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168807269015710304, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_Name
+      value: AcidPool (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+--- !u!4 &4622473808822842609 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+  m_PrefabInstance: {fileID: 8954062032645944075}
   m_PrefabAsset: {fileID: 0}

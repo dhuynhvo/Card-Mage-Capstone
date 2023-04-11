@@ -24184,6 +24184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8e494f4118ef940887a694d3d53450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableds: 1
   start: 0
   curve:
     serializedVersion: 2
@@ -33258,7 +33259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049558498879427906, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2049558498879427909, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_FlipX
@@ -33272,6 +33273,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1159635249, guid: 9019524d7a4c68d47aa12ec91041c8ce, type: 3}
+    - target: {fileID: 2049558498879427909, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049558498879427909, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1481409407
+      objectReference: {fileID: 0}
     - target: {fileID: 2049558499896436104, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -33382,7 +33391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049558500584079580, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.16
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 2049558500584079580, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_LocalScale.y
@@ -33390,7 +33399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049558500584079580, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.16
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 2049558500584079580, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_LocalPosition.x

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class shaker : MonoBehaviour
 {
+    public bool enableds = true;
     public bool start = false;
     public AnimationCurve curve;
     public float duration = 1f;
@@ -12,11 +13,15 @@ public class shaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (start)
+        if (enableds == true)
         {
-            start = false;
-            StartCoroutine(Shaking());
+            if (start)
+            {
+                start = false;
+                StartCoroutine(Shaking());
+            }
         }
+        
     }
     IEnumerator Shaking()
     {
