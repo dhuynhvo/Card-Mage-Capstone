@@ -87,6 +87,8 @@ public class BossNodeMovement : MonoBehaviour
     }
 
 IEnumerator ShootBulletStormsAtNode() {
+    // Rotate the boss to face the player
+    FacePlayer();
     // Shoot bullet storms multiple times
     for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
     {
@@ -142,6 +144,20 @@ void ShuffleNodes()
 
             // Destroy the bullet after a certain time to prevent memory issues
             Destroy(bullet, 5f);
+        }
+    }
+    private void FacePlayer()
+    {
+        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        float direction = playerPosition.x - transform.position.x;
+
+        if (direction > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (direction < 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
     }
 }
