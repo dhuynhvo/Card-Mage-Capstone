@@ -52,7 +52,7 @@ public class SpellSpawn_Rotate : MonoBehaviour
         float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
 
         //Ta Daaa
-        transform.rotation = Quaternion.Euler(new Vector3(90f, 0f, angle + 95));
+        transform.rotation = Quaternion.Euler(new Vector3(90f, 0f, angle + 90));
     }
 
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
