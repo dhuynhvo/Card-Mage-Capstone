@@ -197,7 +197,7 @@ public class Player_Movement : MonoBehaviour
 
         if (IsDashing)
         {
-            DashTimer++;
+            DashTimer += Time.fixedDeltaTime;
             if(DashTimer >= DashCooldown)
             {
                 DashTimer = 0;
