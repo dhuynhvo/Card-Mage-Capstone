@@ -39,33 +39,52 @@ public class BossNodeMovement : MonoBehaviour
 
     void Update() {
     // Check if the player is within the detection range
-    Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-    float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
-    if (distanceToPlayer <= playerDetectionRange)
-    {
-        if (isMoving)
+        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
+        if (distanceToPlayer <= playerDetectionRange)
         {
-            anim.SetBool("Walk", isMoving);
-            // Move towards the current node
-            transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
-
-            // Check if we've reached the current node
-            if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f) {
-                // Stop moving and start shooting bullet storms
-                isMoving = false;
+            if (isMoving)
+            {
                 anim.SetBool("Walk", isMoving);
-                StartCoroutine(ShootBulletStormsAtNode());
+                // Move towards the current node
+                Vector3 direction = nodes[currentNode].position - transform.position;
+                Flip(direction.x);
+                transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
+
+                // Check if we've reached the current node
+                if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f)
+                {
+                    // Stop moving and start shooting bullet storms
+                    isMoving = false;
+                    anim.SetBool("Walk", isMoving);
+                    StartCoroutine(ShootBulletStormsAtNode());
+                }
             }
+        }
+
+        // Update the player detection range based on the current node
+        if (currentNode == 0)
+        {
+            playerDetectionRange = 5f;
+        }
+        else
+        {
+            playerDetectionRange = 15f;
         }
     }
 
-    // Update the player detection range based on the current node
-    if (currentNode == 0) {
-        playerDetectionRange = 5f;
-    } else {
-        playerDetectionRange = 15f;
+    // Add this new method to flip the boss based on its movement direction
+    private void Flip(float direction)
+    {
+        if (direction > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (direction < 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
-}
 
 IEnumerator ShootBulletStormsAtNode() {
     // Shoot bullet storms multiple times

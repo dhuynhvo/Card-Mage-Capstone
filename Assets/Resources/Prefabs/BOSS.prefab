@@ -41,7 +41,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293836708726666754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -209,7 +209,6 @@ MonoBehaviour:
   health: 75
   DropChance: 100
   SappingHealth: 0
-  anim: {fileID: 0}
 --- !u!114 &1299778131758043626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +277,6 @@ MonoBehaviour:
   damageDelay: 1
   EM: {fileID: 0}
   anim: {fileID: 0}
-  ignoreCollisionDuration: 0.5
 --- !u!54 &9083485820881842104
 Rigidbody:
   m_ObjectHideFlags: 0
