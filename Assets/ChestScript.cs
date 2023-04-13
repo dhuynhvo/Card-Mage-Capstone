@@ -26,7 +26,7 @@ public class ChestScript : MonoBehaviour
     void Start()
     {
         thisID = gameObject.GetInstanceID();
-        GameEvents.current.OnShopBuy += Current_OnShopBuy;
+        GameEvents.current.OnShopBuy += Current_OnChestBuy;
         int q = CardPool.cards.Count / 2;
         if (CardNumber == 1) //Hard Coded until i find a better solution to overlapping cards
         {
@@ -39,7 +39,7 @@ public class ChestScript : MonoBehaviour
         }
 
         priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
-        sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+        //sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
     }
     private void ChestErr()
     {
@@ -59,7 +59,7 @@ public class ChestScript : MonoBehaviour
         }
     }
 
-    public void Current_OnShopBuy(int ID, GameObject player)
+    public void Current_OnChestBuy(int ID, GameObject player)
     {
         if (thisID == ID)
         {
@@ -78,13 +78,13 @@ public class ChestScript : MonoBehaviour
             GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position + randPosition, Quaternion.Euler(90, 0, 0));
             Debug.Log("PURCHASE SUCCESSFUL");
             gameObject.SetActive(false);
-            CardSprite.SetActive(false);
+            //CardSprite.SetActive(false);
             PriceObject.SetActive(false);
         }
     }
 
     public void OnDestroy()
     {
-        GameEvents.current.OnShopBuy -= Current_OnShopBuy;
+        GameEvents.current.OnShopBuy -= Current_OnChestBuy;
     }
 }
