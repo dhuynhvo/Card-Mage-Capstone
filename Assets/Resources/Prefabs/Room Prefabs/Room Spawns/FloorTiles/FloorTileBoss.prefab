@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8993019567243449463}
   - component: {fileID: 5843394824946813260}
   - component: {fileID: 4198206710481638385}
+  - component: {fileID: 7059070252474056078}
   m_Layer: 0
   m_Name: FloorTileBoss
   m_TagString: Untagged
@@ -43,7 +44,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5864646022643405659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a9320d27d11a7d438506b53b929bde8, type: 3}
   m_Name: 
@@ -117,3 +118,18 @@ MonoBehaviour:
   - {fileID: 9168807269015710304, guid: 287a1b49b4d729941a21f54447d05729, type: 3}
   - {fileID: 9168807269015710304, guid: 86d2493ba9f1e5047a1e0f8544d8eb4b, type: 3}
   - {fileID: 9168807269015710304, guid: 5d1144b47eb8a2b44acfd01d96cd878c, type: 3}
+--- !u!114 &7059070252474056078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864646022643405659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47fed694f3b71449bafb6431b249a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 9168807269015710304, guid: e31b04ed0b0b04b4a9523914decdc1b4, type: 3}
+  - {fileID: 9168807269015710304, guid: 03ed4b68e3833124b91fb0e91063472a, type: 3}
