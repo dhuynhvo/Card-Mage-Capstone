@@ -40,10 +40,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465140299120420407}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.26903057, y: 15, z: 1.7815914}
+  m_Size: {x: 0.26903057, y: 30, z: 1.7815914}
   m_Center: {x: -0.48587942, y: 8.30033, z: 0.6835871}
 --- !u!1 &4015411862255080292
 GameObject:
@@ -85,10 +85,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4015411862255080292}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.26903057, y: 15, z: 1.7815914}
+  m_Size: {x: 0.26903057, y: 30, z: 1.7815914}
   m_Center: {x: -0.48587942, y: 8.30033, z: 0.6835871}
 --- !u!1 &4019934816629703349
 GameObject:
@@ -184,6 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2125330107598496630}
   - component: {fileID: 7789505602148257026}
+  - component: {fileID: 7111306785431737769}
   m_Layer: 0
   m_Name: BossTeleporterCollider
   m_TagString: Untagged
@@ -214,11 +215,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5758350218787882548}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.69901276, y: 15, z: 0.6206398}
+  m_Size: {x: 0.69901276, y: 30, z: 0.6206398}
   m_Center: {x: -0.02149868, y: 8.30033, z: 0.4814949}
+--- !u!114 &7111306785431737769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758350218787882548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3784475c092ef54e8de1904370c57d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossRoomTeleport: {fileID: 0}
 --- !u!1 &7222187309826415950
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,10 +403,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8339092376107586795}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.75921154, y: 15, z: 1.0764198}
+  m_Size: {x: 0.75921154, y: 30, z: 1.0764198}
   m_Center: {x: -0.02579832, y: 8.30033, z: 1.2597637}
 --- !u!1 &8666763612951228222
 GameObject:
