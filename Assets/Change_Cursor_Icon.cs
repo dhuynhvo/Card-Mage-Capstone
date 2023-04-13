@@ -8,8 +8,8 @@ public class Change_Cursor_Icon : MonoBehaviour
     private Vector2 CursorHotspot;
     void Start()
     {
-        CursorHotspot = new Vector2(CursorIcon.width / 2, CursorIcon.height / 2);
-        Cursor.SetCursor(CursorIcon, CursorHotspot, CursorMode.Auto);
+        //CursorHotspot = new Vector2(CursorIcon.width / 2, CursorIcon.height / 2);
+        //Cursor.SetCursor(CursorIcon, CursorHotspot, CursorMode.Auto);
     }
 
 }
