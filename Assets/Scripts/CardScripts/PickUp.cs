@@ -74,6 +74,21 @@ public class PickUp : MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Untagged")
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            GameEvents.current.PickUpCard_E(thisID);
+            AudioManager.instance.Play("PickupCardPlayerEvent");
+        }
+    }
+
     public void OnDestroy()
     {
         GameEvents.current.NearDroppedCard -= PickUpCard;
