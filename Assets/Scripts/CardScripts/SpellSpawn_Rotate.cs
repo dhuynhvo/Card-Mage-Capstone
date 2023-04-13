@@ -31,28 +31,26 @@ public class SpellSpawn_Rotate : MonoBehaviour
 
     void rotater()
     {
-        float positionXRatio = Input.mousePosition.x / Screen.width;
-        float positionYRatio = Input.mousePosition.y / Screen.height;
+        //float positionXRatio = Input.mousePosition.x / Screen.width;
+        //float positionYRatio = Input.mousePosition.y / Screen.height;
 
-        Vector3 spritePivot = PlayerAvatar.position; //location of pivot point
-        Vector3 mouseToPoint = new Vector3(positionXRatio - .5f, 0, positionYRatio -.5f); //If anyone could explain why this works that would be great actually
-        mouseToPoint.Normalize();
+        //Vector3 spritePivot = PlayerAvatar.position; //location of pivot point
+        //Vector3 mouseToPoint = new Vector3(positionXRatio - .5f, 0, positionYRatio -.5f); //If anyone could explain why this works that would be great actually
+        //mouseToPoint.Normalize();
 
-        transform.position = spritePivot + mouseToPoint * radius;
+        //transform.position = spritePivot + mouseToPoint * radius;
 
         ///////////////////////////////////////////////////////////
 
-        //Get the Screen positions of the object
-        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(PlayerAvatar.transform.position);
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 35f;
 
-        //Get the Screen position of the mouse
-        Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
 
-        //Get the angle between the points
-        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-
-        //Ta Daaa
-        transform.rotation = Quaternion.Euler(new Vector3(90f, 0f, angle + 90));
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(90, 0, angle - 90));
     }
 
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
