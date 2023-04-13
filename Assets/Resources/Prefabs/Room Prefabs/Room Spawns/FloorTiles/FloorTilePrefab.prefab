@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8993019567243449463}
   - component: {fileID: 5843394824946813260}
   - component: {fileID: 5645565096119756673}
+  - component: {fileID: 2443796378609531815}
   m_Layer: 0
   m_Name: FloorTilePrefab
   m_TagString: Untagged
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5864646022643405659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a9320d27d11a7d438506b53b929bde8, type: 3}
   m_Name: 
@@ -171,3 +172,28 @@ MonoBehaviour:
   - {fileID: 9168807269015710304, guid: e43d7f13f27c25645a4d56fcc5092eb6, type: 3}
   - {fileID: 9168807269015710304, guid: e43d7f13f27c25645a4d56fcc5092eb6, type: 3}
   - {fileID: 9168807269015710304, guid: e43d7f13f27c25645a4d56fcc5092eb6, type: 3}
+--- !u!114 &2443796378609531815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864646022643405659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47fed694f3b71449bafb6431b249a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 9168807269015710304, guid: e43d7f13f27c25645a4d56fcc5092eb6, type: 3}
+  - {fileID: 9168807269015710304, guid: 287a1b49b4d729941a21f54447d05729, type: 3}
+  - {fileID: 9168807269015710304, guid: 86d2493ba9f1e5047a1e0f8544d8eb4b, type: 3}
+  - {fileID: 9168807269015710304, guid: 5d1144b47eb8a2b44acfd01d96cd878c, type: 3}
+  - {fileID: 9168807269015710304, guid: 5369dc59fc3cfc646885c46353e8908e, type: 3}
+  - {fileID: 9168807269015710304, guid: 119b9fc9415cdd5458cc496fcf5cd558, type: 3}
+  - {fileID: 9168807269015710304, guid: 23daea5bcdbc58a46af33c6cae71a3bf, type: 3}
+  - {fileID: 9168807269015710304, guid: 6a0ef8bfdc3e88a41b4c853f02c27cdf, type: 3}
+  - {fileID: 9168807269015710304, guid: b56abc6f732e66349aa41f05d8d95bbf, type: 3}
+  - {fileID: 9168807269015710304, guid: db3eb947e16fc424288d1e7003b0edbb, type: 3}
+  - {fileID: 9168807269015710304, guid: ff55f3ad3ea8bc34ea673ac0ed3eb8fb, type: 3}
+  - {fileID: 9168807269015710304, guid: eaad0ef4b55c0b34682d04605053d2fd, type: 3}
