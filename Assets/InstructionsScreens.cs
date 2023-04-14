@@ -10,8 +10,12 @@ public class InstructionsScreens : MonoBehaviour
     public GameObject Screen2;
     [SerializeField]
     public GameObject Screen3;
-
-
+    [SerializeField]
+    public GameObject Screen4;
+    [SerializeField]
+    public GameObject Screen5;
+    [SerializeField]
+    public GameObject Screen6;
 
     public void ChangeScreens1to2()
     {
@@ -23,5 +27,23 @@ public class InstructionsScreens : MonoBehaviour
     {
         Screen2.SetActive(false);
         Screen3.SetActive(true);
+    }
+
+    public void ChangeScreens3to4()
+    {
+        Screen3.SetActive(false);
+        Screen4.SetActive(true);
+    }
+
+    public void ChangeScreens4to5()
+    {
+        Screen4.SetActive(false);
+        Screen5.SetActive(true);
+    }
+
+    public void ChangeScreens5to6()
+    {
+        Screen5.SetActive(false);
+        Screen6.SetActive(true);
     }
 }
