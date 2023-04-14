@@ -7,6 +7,8 @@ public class EnemyShooting : MonoBehaviour
     public GameObject bullet;
     public Transform bulletPos;
     private float timer;
+    public float cooldown;
+    public float enemyRange;
     private GameObject player;
     private Enemy_Info ei;
     [SerializeField]
@@ -30,10 +32,10 @@ public class EnemyShooting : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
         //Debug.Log(distance);
 
-        if (distance < 6)
+        if (distance < enemyRange)
         {
             timer += Time.deltaTime;
-            if(timer > 3)
+            if(timer > cooldown)
             {
                     timer = 0;
                     StartCoroutine(ShootWithAnimation());
