@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
     public int AddKeys = 0;
     [SerializeField] private string currentState = "closed_end";
     public bool ChangeDoorState = false;
-    public Animator animator = null;
+    //public Animator animator = null;
 
     void Start()
     {
@@ -117,7 +117,7 @@ public class Door : MonoBehaviour
             audio_source.Play();
         }
         ChangeDoorState = false;
-        animator.Play(currentState);
+       // animator.Play(currentState);
 
     }
     void EndAnimation()
@@ -132,7 +132,7 @@ public class Door : MonoBehaviour
             currentState = "close_end";
             GetComponent<BoxCollider2D>().enabled = true;
         }
-        animator.Play(currentState);
+       // animator.Play(currentState);
 
     }
     private void Door_lock()
