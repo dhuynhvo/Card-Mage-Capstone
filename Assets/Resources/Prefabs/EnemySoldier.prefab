@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 1965974438871517069}
     - target: {fileID: 4633816245630101772, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: baseSpeed
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4633816245630101772, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: idleTimeMax
@@ -121,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4633816245630101772, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: enemyDistance
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5229804315422269934, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_LocalScale.x
@@ -244,8 +244,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929899838983338798, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929899838983338798, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929899838983338798, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
+      propertyPath: m_Acceleration
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929899838983338798, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
