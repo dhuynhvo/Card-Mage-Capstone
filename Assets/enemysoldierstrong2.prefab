@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 1330054883949350200}
   m_Layer: 0
   m_Name: enemysoldierstrong2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -547,8 +547,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7972882081869791165, guid: bcba234dc5b58284ca81a530ca4dd68f, type: 3}
   bulletPos: {fileID: 7017699278224551923}
-  cooldown: 2
+  cooldown: 3
   enemyRange: 6
   anim: {fileID: 0}
-  shootDuration: 1
-  firerate: 0.1
+  shootDuration: 1.2
+  firerate: 0.15
