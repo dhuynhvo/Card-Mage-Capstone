@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3279764466644717669}
   m_Layer: 0
   m_Name: AcidPool
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,31 +128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4351995160113104890, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
   m_PrefabInstance: {fileID: 203807420529779650}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9020964692611848142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9215761574474314764, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
-  m_PrefabInstance: {fileID: 203807420529779650}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1519774513109737112
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9020964692611848142}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cbd48593333f7584caf06fe08febf5da, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3040924010230134274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,16 +189,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4316721394415786202, guid: d852d8f18c0440e4fb283167a4c1459b, type: 3}
       propertyPath: objects.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316721394415786202, guid: d852d8f18c0440e4fb283167a4c1459b, type: 3}
       propertyPath: objects.Array.data[0]
       value: 
-      objectReference: {fileID: 2443870068126461631, guid: b5a60e1161a4bee4aac557869afaaed0, type: 3}
+      objectReference: {fileID: 4943399412711592934, guid: da86213bb88a2534da3d927f42b07574, type: 3}
     - target: {fileID: 4316721394415786202, guid: d852d8f18c0440e4fb283167a4c1459b, type: 3}
       propertyPath: objects.Array.data[1]
       value: 
-      objectReference: {fileID: 8611761440589623529, guid: 3ebaa5b7c89a3b941a24087ade892333, type: 3}
+      objectReference: {fileID: 4943399412711592934, guid: da86213bb88a2534da3d927f42b07574, type: 3}
     - target: {fileID: 4316721394415786202, guid: d852d8f18c0440e4fb283167a4c1459b, type: 3}
       propertyPath: objects.Array.data[2]
       value: 
@@ -289,6 +264,10 @@ PrefabInstance:
     - target: {fileID: 9168807269015710304, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
       propertyPath: m_Name
       value: AcidPool (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168807269015710304, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e558bcb3ae14248899caf3dc6b352f, type: 3}

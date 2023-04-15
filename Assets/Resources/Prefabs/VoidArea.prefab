@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161442169143501404}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9115001818079519107}
@@ -55,7 +55,7 @@ MonoBehaviour:
   speed: 0
   cooldown: 3
   CooldownTimer: 0
-  ActiveDuration: 1.5
+  ActiveDuration: 1
   SpellPrice: 500
   DeactivateOnHit: 0
   IsAOE: 0
@@ -218,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 237051171, guid: 95f12d78658ce594e98253d48d071398, type: 3}
+  m_Sprite: {fileID: -469631020, guid: 24c1acbc29c22fd4eb9e9e39181cb48e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
