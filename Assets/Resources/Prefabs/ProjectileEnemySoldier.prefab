@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 6562410783106316666}
   - component: {fileID: 6071041067814832647}
   - component: {fileID: 491901647654881778}
+  - component: {fileID: 7027510891358784617}
   m_Layer: 0
   m_Name: ProjectileEnemySoldierModel
   m_TagString: Enemy
@@ -243,7 +244,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051179799094749589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3aee30fee0c5794d82d3703567a80f7, type: 3}
   m_Name: 
@@ -273,6 +274,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7027510891358784617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051179799094749589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caaab84be86b00a4182bffb2f1afc5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7972882081869791165, guid: 55d432de83924d748a94ffc8d7572d7d, type: 3}
+  bulletPos: {fileID: 962510545050395229}
+  cooldown: 2
+  enemyRange: 7
+  anim: {fileID: 0}
+  shootDuration: 0.2
+  firerate: 0.05
 --- !u!1 &6168802712143406140
 GameObject:
   m_ObjectHideFlags: 0
