@@ -16,6 +16,8 @@ public class InstructionsScreens : MonoBehaviour
     public GameObject Screen5;
     [SerializeField]
     public GameObject Screen6;
+    [SerializeField]
+    public GameObject Screen7;
 
     public void ChangeScreens1to2()
     {
@@ -45,5 +47,11 @@ public class InstructionsScreens : MonoBehaviour
     {
         Screen5.SetActive(false);
         Screen6.SetActive(true);
+    }
+
+    public void ChangeScreens6to7()
+    {
+        Screen6.SetActive(false);
+        Screen7.SetActive(true);
     }
 }
