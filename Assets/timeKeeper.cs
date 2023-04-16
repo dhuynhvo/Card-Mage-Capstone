@@ -35,7 +35,7 @@ public class timeKeeper : MonoBehaviour
         {
             Instance = this;
 
-            TimeText.text = stats.TimeSpent.ToString("#.##");
+            TimeText.text = stats.TimeSpent.ToString("#.#");
 
         }
     }
