@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Black_Screen_Fade : MonoBehaviour
@@ -20,7 +21,7 @@ public class Black_Screen_Fade : MonoBehaviour
         
     }
 
-    public IEnumerator FadeToBlack(float fadeinDuration)
+    public IEnumerator FadeToBlack(float fadeinDuration, bool ReloadScene = false)
     {
         Time.timeScale = 0f;
         float currentTime = 0;
@@ -33,9 +34,20 @@ public class Black_Screen_Fade : MonoBehaviour
             //BlackText.GetComponent<Text>().color = new Color(170, 0, 0, t);
             yield return null;
         }
-        GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        //BlackText.GetComponent<Text>().color = new Color(170, 0, 0, 1);
-        Time.timeScale = 1f;
+        if (ReloadScene == true)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("GameStage");
+        }
+
+        if(ReloadScene == false)
+        {
+            GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            Time.timeScale = 1f;
+        }
+
+
+
         //yield return new WaitForSeconds(3f);
         //BlackScreen.SetActive(false);
         //DefeatText.SetActive(false);

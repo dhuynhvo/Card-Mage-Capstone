@@ -12,6 +12,7 @@ public class BossDeathEvents : MonoBehaviour
     public GameObject WinText;
     [SerializeField] private AnimationCurve _FadeInCurve;
     public GameObject BossBar;
+    public GameObject NextRoom;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class BossDeathEvents : MonoBehaviour
         {
             BossBar.SetActive(false);
             HasWon= true;
+            NextRoom.SetActive(true);
             //WinScreen.SetActive(true);
             //WinText.SetActive(true);
             //StartCoroutine(ShowWinScreen(5));
