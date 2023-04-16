@@ -9,7 +9,7 @@ public class NavMeshPathing : MonoBehaviour
     public NavMeshAgent enemy;
     GameObject player;
 
-    public float enemyDistance = 1.0f;
+    public float enemyDistance = 5.0f;
     public float idleTimeMin = 2.0f;
     public float idleTimeMax = 5.0f;
     public float baseSpeed;

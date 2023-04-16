@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 593958165543394885, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 795728397094519466, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: health
       value: 15
@@ -25,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 4801227835787818748, guid: baefba98fdd8cfd4f87d3b8125747288, type: 3}
     - target: {fileID: 1775921088562079317, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_Mass
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1775921088562079317, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_UseGravity
@@ -33,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775921088562079317, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_AngularDrag
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1775921088562079317, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_Constraints
@@ -41,11 +45,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775921088562079317, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2051179799094749589, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_Name
       value: EnemySoldierModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051179799094749589, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2299131648006689171, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_Height
@@ -117,11 +125,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4633816245630101772, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: idleTimeMin
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4633816245630101772, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: enemyDistance
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078354336543595624, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5229804315422269934, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_LocalScale.x
@@ -195,6 +207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySoldier
       objectReference: {fileID: 0}
+    - target: {fileID: 6168802712143406140, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6225911546187809748, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: navMeshAgent
       value: 
@@ -257,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7929899838983338798, guid: a2b25052f5bab9a49b958d30c8838c38, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

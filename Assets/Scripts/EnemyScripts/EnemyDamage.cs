@@ -12,7 +12,7 @@ public class EnemyDamage : MonoBehaviour
     public float damageDelay = 1f; // delay time in seconds
     [SerializeField]
     private Enemy_Mechanics EM;
-    private bool canDamage = true;
+    public bool canDamage = true;
     [SerializeField]
     private Animator anim;
 
@@ -45,30 +45,37 @@ public class EnemyDamage : MonoBehaviour
         }
     }
 
-    IEnumerator DoDamage()
+    public IEnumerator DoDamage()
+{
+    canDamage = false;
+    anim.SetBool("Attack", true); // Set the attack animation state
+    playerHealth.TakeDamage(damage);
+
+    // Disable rigidbody and collision
+    Rigidbody rb = GetComponent<Rigidbody>();
+    if (rb != null)
     {
-        canDamage = false;
-        anim.SetBool("Attack", true); // Set the attack animation state
-        playerHealth.TakeDamage(damage);
+        rb.isKinematic = true;
+    }
+    Collider col = GetComponent<Collider>();
+    if (col != null)
+    {
+        col.enabled = false;
+    }
 
-        // Ignore collision logic
-        Collider playerCollider = playerHealth.GetComponent<Collider>();
-        Collider enemyCollider = GetComponent<Collider>();
+    yield return new WaitForSeconds(damageDelay);
 
-        if (playerCollider != null && enemyCollider != null)
-        {
-            Physics.IgnoreCollision(playerCollider, enemyCollider, true);
-        }
+    // Re-enable rigidbody and collision
+    if (rb != null)
+    {
+        rb.isKinematic = false;
+    }
+    if (col != null)
+    {
+        col.enabled = true;
+    }
 
-        yield return new WaitForSeconds(damageDelay);
-
-        // Re-enable the collision after the attack
-        if (playerCollider != null && enemyCollider != null)
-        {
-            Physics.IgnoreCollision(playerCollider, enemyCollider, false);
-        }
-
-        anim.SetBool("Attack", false); // Reset the attack animation state
-        canDamage = true;
+    anim.SetBool("Attack", false); // Reset the attack animation state
+    canDamage = true;
     }
 }
