@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Smoke_Form_Behavior : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Smoke_Form_Behavior : MonoBehaviour
         int Smoke = LayerMask.NameToLayer("SmokeForm");
         Player = GameObject.Find("Player");
         Player.layer = Smoke;
+        Player.transform.GetChild(1).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, .2f);
         //SmokeForm = Player.GetComponent<SphereCollider>();
         //NormalForm = Player.GetComponent<CapsuleCollider>();
         //SmokeForm.enabled = true;
@@ -28,6 +30,7 @@ public class Smoke_Form_Behavior : MonoBehaviour
     private void OnDisable()
     {
         int Playerr = LayerMask.NameToLayer("Player");
+        Player.transform.GetChild(1).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1f);
         //SmokeForm.enabled = false;
         //NormalForm.enabled = true;
         Player.layer = Playerr;
