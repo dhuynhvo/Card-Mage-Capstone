@@ -21,6 +21,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private AnimationCurve _FadeInCurve;
     [SerializeField]
     private float HitCooldown;
+    [SerializeField]
+    private Sprite_Flash Flash;
     private bool RecentlyHit;
     
 
@@ -33,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Flash = gameObject.transform.GetChild(1).GetComponent<Sprite_Flash>();
         health = maxHealth;
         bar.SetMaxHealth(maxHealth);
         DefenceBuff = 1f;
@@ -67,6 +70,7 @@ public class PlayerHealth : MonoBehaviour
             AudioManager.instance.Play("PlayerDamaged");
             mainCamera.GetComponent<shaker>().start = true;
             RecentlyHit = true;
+            Flash.Flash();
             StartCoroutine(ResetRecentlyHit(HitCooldown));
         }
         if(!IsAlive)

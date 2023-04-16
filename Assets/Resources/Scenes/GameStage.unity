@@ -30328,6 +30328,20 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2049558498879427906, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
   m_PrefabInstance: {fileID: 4111835783000134640}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1871560433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871560424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8497bd0de7e0c33469d3ff5da14d6549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 43d59b5c638b0664db55f3a4e4d130ef, type: 2}
+  duration: 0.3
 --- !u!1 &1872281926
 GameObject:
   m_ObjectHideFlags: 0
@@ -34994,6 +35008,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1481409407
       objectReference: {fileID: 0}
+    - target: {fileID: 2049558498879427909, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2049558499896436104, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
