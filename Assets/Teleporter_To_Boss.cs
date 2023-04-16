@@ -46,7 +46,7 @@ public class Teleporter_To_Boss : MonoBehaviour
             //BlackText.GetComponent<Text>().color = new Color(170, 0, 0, t);
             yield return null;
         }
-        player.transform.position = new Vector3(BossRoomTeleport.transform.position.x, 1f, BossRoomTeleport.transform.position.z);
+        player.transform.position = new Vector3(BossRoomTeleport.transform.position.x, player.transform.position.y, BossRoomTeleport.transform.position.z);
         BlackScreen.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         //BlackText.GetComponent<Text>().color = new Color(170, 0, 0, 1);
         Time.timeScale = 1f;
