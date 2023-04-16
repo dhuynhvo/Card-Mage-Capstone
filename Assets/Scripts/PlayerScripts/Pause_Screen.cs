@@ -9,6 +9,8 @@ using UnityEngine;
 public class Pause_Screen : MonoBehaviour
 {
     [SerializeField]
+    private Black_Screen_Fade StartFade;
+    [SerializeField]
     private string PauseButton;
     [SerializeField]
     private GameObject PauseScreen;
@@ -28,6 +30,7 @@ public class Pause_Screen : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(StartFade.FadeFromBlack(5f));
         for(int i = 0; i < stash.Length; i++)
         {
             stash[i] = gameObject.GetComponent<Deck>().DeckStash[i];
