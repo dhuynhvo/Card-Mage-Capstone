@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using UnityEngine;
 
 public class EnemyShootingRed : MonoBehaviour
@@ -8,8 +9,10 @@ public class EnemyShootingRed : MonoBehaviour
     public Transform bulletPos;
     private float timer;
     public float cooldown;
+    private bool firstStrike;
     public float initialAttack;
     public float enemyRange;
+    
     private GameObject player;
     private Enemy_Info ei;
     [SerializeField]
@@ -38,7 +41,14 @@ public class EnemyShootingRed : MonoBehaviour
         if (distance < enemyRange)
         {
             timer += Time.deltaTime;
-            if (timer > cooldown)
+            if (timer > initialAttack && firstStrike == true)
+            {
+                firstStrike = false;
+                timer = 0;
+                StartCoroutine(ShootWithAnimation());
+
+            }
+            if (timer > cooldown && firstStrike==false)
             {
                 timer = 0;
                 StartCoroutine(ShootWithAnimation());
