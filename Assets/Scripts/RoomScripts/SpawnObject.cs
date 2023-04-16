@@ -11,16 +11,21 @@ public class SpawnObject : MonoBehaviour
     public GameObject[] objects;
     void Start()
     {
-        int rand = Random.Range(0, objects.Length);
+        //int rand = Random.Range(0, objects.Length);
         //if (objects[rand].name == "Tile" || objects[rand].name == "HTBL" || objects[rand].name == "HTBR" || objects[rand].name == "HTTL" || objects[rand].name == "HTTR")
         //{
         //    GameObject instance = (GameObject)Instantiate(objects[rand], transform.position, Quaternion.identity);
         //    instance.transform.parent = GameObject.Find("Background").transform;
         //}
-        //else
+        if (objects.Length > 0)
         {
+            int rand = Random.Range(0, objects.Length);
             GameObject instance = (GameObject)Instantiate(objects[rand], transform.position, Quaternion.identity);
             instance.transform.parent = transform;
+        }
+        else
+        {
+            Debug.Log("The objects array is empty.");
         }
         
         //child                      parent
