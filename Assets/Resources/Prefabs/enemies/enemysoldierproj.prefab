@@ -343,7 +343,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5673946, y: 0.94655186, z: 0.20000005}
+  m_Size: {x: 0.5673946, y: 0.94655186, z: 5}
   m_Center: {x: 0.003653448, y: 0.18181896, z: -0.000000013004704}
 --- !u!212 &8699962494664567681
 SpriteRenderer:
@@ -549,6 +549,7 @@ MonoBehaviour:
   bullet: {fileID: 7972882081869791165, guid: bcba234dc5b58284ca81a530ca4dd68f, type: 3}
   bulletPos: {fileID: 7017699278224551923}
   cooldown: 3
+  initialAttack: 0
   enemyRange: 5
   anim: {fileID: 0}
   shootDuration: 1.2

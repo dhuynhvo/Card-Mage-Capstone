@@ -8,6 +8,7 @@ public class EnemyShootingRed : MonoBehaviour
     public Transform bulletPos;
     private float timer;
     public float cooldown;
+    public float initialAttack;
     public float enemyRange;
     private GameObject player;
     private Enemy_Info ei;
