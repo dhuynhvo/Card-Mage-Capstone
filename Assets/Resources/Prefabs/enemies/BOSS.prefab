@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293836708726666766}
   - component: {fileID: 7091781476226146664}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BOSS
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6358006553550984152}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: projectilePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 3725692676705307912}
   - component: {fileID: 4080517265656778483}
   - component: {fileID: 3909617566460543875}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BossModel
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -277,6 +277,7 @@ MonoBehaviour:
   damage: 1
   damageDelay: 1
   EM: {fileID: 0}
+  canDamage: 1
   anim: {fileID: 0}
 --- !u!54 &9083485820881842104
 Rigidbody:
