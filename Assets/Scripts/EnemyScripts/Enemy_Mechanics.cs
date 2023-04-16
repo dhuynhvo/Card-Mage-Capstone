@@ -45,10 +45,10 @@ public class Enemy_Mechanics : MonoBehaviour
         info = gameObject.GetComponent<Enemy_Info>();
         NotDead = true;
         MoneyRefArray = new GameObject[4];
-        MoneyRefArray[0] = Resources.Load<GameObject>("Prefabs/TeefCopper");
-        MoneyRefArray[1] = Resources.Load<GameObject>("Prefabs/TeefSilver");
-        MoneyRefArray[2] = Resources.Load<GameObject>("Prefabs/TeefGold");
-        MoneyRefArray[3] = Resources.Load<GameObject>("Prefabs/TeefSteve");
+        MoneyRefArray[0] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefCopper");
+        MoneyRefArray[1] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefSilver");
+        MoneyRefArray[2] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefGold");
+        MoneyRefArray[3] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefSteve");
         transform.parent.transform.position = new Vector3(transform.parent.transform.position.x, 1f, transform.parent.transform.position.z);
     }
 

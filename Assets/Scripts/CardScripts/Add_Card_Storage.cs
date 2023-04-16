@@ -21,7 +21,7 @@ public class Add_Card_Storage : MonoBehaviour
 
         for (int i = 0; i < CardStorage.CardNames.Count; i++)
         {
-            string cardToLoad = "Prefabs/" + CardStorage.CardNames[i] + " Card";
+            string cardToLoad = "Prefabs/cards/" + CardStorage.CardNames[i] + " Card";
             GameObject Card = Resources.Load<GameObject>(cardToLoad);
             
             GameObject newCardSlot = Instantiate(card, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);

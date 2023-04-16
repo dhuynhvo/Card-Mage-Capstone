@@ -178,7 +178,7 @@ public class Deck : MonoBehaviour
         {
             if(Graveyard[i] != null)
             {
-                Cards[i] = Resources.Load<GameObject>("Prefabs/" + Graveyard[i].GetComponent<Spell_Info>().SpellName);
+                Cards[i] = Resources.Load<GameObject>("Prefabs/Spells/" + Graveyard[i].GetComponent<Spell_Info>().SpellName);
             }
         }
 
