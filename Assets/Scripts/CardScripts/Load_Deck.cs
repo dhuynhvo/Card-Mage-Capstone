@@ -41,9 +41,5 @@ public class Load_Deck : MonoBehaviour
                 CardSlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = CurrentDeck.cards[i].GetComponent<Spell_Info>().CardSprite;
             }
         };
-
-        //CardSlots[20].transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().spell = CurrentDeck.BasicSpell;
-        //CardSlots[20].transform.GetChild(0).gameObject.GetComponent<Connected_Spell>().SpellInfo = CurrentDeck.BasicSpell.GetComponent<Spell_Info>();
-        //CardSlots[20].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = CurrentDeck.BasicSpell.GetComponent<Spell_Info>().CardSprite;
     }
 }

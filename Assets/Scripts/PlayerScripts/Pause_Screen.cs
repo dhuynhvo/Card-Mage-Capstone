@@ -174,7 +174,8 @@ public class Pause_Screen : MonoBehaviour
     public void SaveDeck()
     {
         int index = 0;
-        for (int i = 0; i < 20; i++)
+        int cardCount = gameObject.GetComponent<Deck>().DeckStash[3].cards.Count;
+        for (int i = 0; i < cardCount; i++)
         {
             if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).transform.childCount > 0 && !DeckBuilderScreen.transform.GetChild(0).transform.GetChild(i).GetChild(0).GetComponent<Spell_Info>())
             {
@@ -189,36 +190,29 @@ public class Pause_Screen : MonoBehaviour
             
         }
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < cardCount; i++)
         {
             if (gameObject.GetComponent<Deck>().DeckStash[3].cards[i] == null && i != 19)
             {
                 index = i + 1;
-                if (index < 20)
+                if (index < cardCount)
                 {
-                    while (index < 20 && gameObject.GetComponent<Deck>().DeckStash[3].cards[index] == null)
+                    while (index < cardCount && gameObject.GetComponent<Deck>().DeckStash[3].cards[index] == null)
                     {
                         index++;
                     }
                 }
                     
-                if (index < 20)
+                if (index < cardCount)
                 {
                     gameObject.GetComponent<Deck>().DeckStash[3].cards[i] = gameObject.GetComponent<Deck>().DeckStash[3].cards[index];
                     gameObject.GetComponent<Deck>().DeckStash[3].cards[index] = null;
                 }
                 else
                 {
-                    index = 19;
+                    index = cardCount - 1;
                 }
-
             }
-        }
-
-        //if (DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.childCount > 0)
-        //{
-        //    gameObject.GetComponent<Deck>().DeckStash[3].BasicSpell = DeckBuilderScreen.transform.GetChild(0).transform.GetChild(20).transform.GetChild(0).GetComponent<Connected_Spell>().spell;
-        //}
-            
+        }   
     }
 }
