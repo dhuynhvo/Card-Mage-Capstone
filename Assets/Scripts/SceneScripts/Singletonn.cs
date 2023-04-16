@@ -45,7 +45,7 @@ public class Singletonn : MonoBehaviour
             Instance = this;
 
             MoneyText.text = info.money.ToString();
-            SteveText.text = info.SteveMoney.ToString();
+            //SteveText.text = info.SteveMoney.ToString();
 
             EnemiesText.text = stats.enemies.ToString();
             TimeText.text = stats.TimeSpent.ToString("#.## seconds");
