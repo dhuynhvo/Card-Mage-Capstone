@@ -19,6 +19,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private GameObject DefeatText;
     [SerializeField] private AnimationCurve _FadeInCurve;
+    [SerializeField]
+    private float HitCooldown;
+    private bool RecentlyHit;
+    
 
     public float DefenceBuff;
     public bool IsAlive 
@@ -43,7 +47,13 @@ public class PlayerHealth : MonoBehaviour
         bar.SetHealth(health);
     }
 
-    // Update is called once per frame
+    private IEnumerator ResetRecentlyHit(float HitTimer)
+    {
+        yield return new WaitForSeconds(HitTimer);
+        RecentlyHit = false;
+    }
+
+
     public void TakeDamage(float mod)
     {
         if (!IsAlive)
@@ -51,9 +61,14 @@ public class PlayerHealth : MonoBehaviour
             return;
         };
 
-        health -= mod / DefenceBuff; ;
-        AudioManager.instance.Play("PlayerDamaged");
-        mainCamera.GetComponent<shaker>().start = true;
+        if(!RecentlyHit)
+        {
+            health -= mod / DefenceBuff; ;
+            AudioManager.instance.Play("PlayerDamaged");
+            mainCamera.GetComponent<shaker>().start = true;
+            RecentlyHit = true;
+            StartCoroutine(ResetRecentlyHit(HitCooldown));
+        }
         if(!IsAlive)
         {
             Time.timeScale = 0f;
