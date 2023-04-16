@@ -12,7 +12,7 @@ public class timeKeeper : MonoBehaviour
     private Stats_Info stats;
 
     [SerializeField]
-    private Text TimeText;
+    private Text TimeSeconds;
 
     // creates basis
     public static timeKeeper Instance
@@ -33,9 +33,15 @@ public class timeKeeper : MonoBehaviour
         // otherwise sets serialized field values to be printed
         else
         {
+            float dividedMinutes = 0;
+            float dividedSeconds = 0;
+
             Instance = this;
 
-            TimeText.text = stats.TimeSpent.ToString("#.#");
+            dividedMinutes = Mathf.Floor(stats.TimeSpent / 60f);
+            dividedSeconds = Mathf.Floor(stats.TimeSpent % 60f);
+
+            TimeSeconds.text = string.Format("{0:00}:{1:00}", dividedMinutes, dividedSeconds);
 
         }
     }

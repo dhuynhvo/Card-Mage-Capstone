@@ -19,7 +19,7 @@ public class Singletonn : MonoBehaviour
     [SerializeField]
     private Text SteveText;
     [SerializeField]
-    private Text TimeText;
+    private Text TimeSeconds;
     [SerializeField]
     private Text EnemiesText;
     
@@ -48,7 +48,14 @@ public class Singletonn : MonoBehaviour
             //SteveText.text = info.SteveMoney.ToString();
 
             EnemiesText.text = stats.enemies.ToString();
-            TimeText.text = stats.TimeSpent.ToString("#.## seconds");
+
+            float dividedMinutes = 0;
+            float dividedSeconds = 0;
+
+            dividedMinutes = Mathf.Floor(stats.TimeSpent / 60f);
+            dividedSeconds = Mathf.Floor(stats.TimeSpent % 60f);
+
+            TimeSeconds.text = string.Format("{0:00}:{1:00}", dividedMinutes, dividedSeconds);
 
         }
     }
