@@ -13,7 +13,7 @@ public class EnemyBulletScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
-
+        transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
         Vector3 direction = player.transform.position - transform.position;
         rb.velocity = direction.normalized * force;
 
@@ -25,9 +25,11 @@ public class EnemyBulletScript : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 10)
+        if(timer > 30)
         {
+            Debug.Log("timed out proj");
             Destroy(gameObject);
+            
         }
             
     }
@@ -42,6 +44,7 @@ public class EnemyBulletScript : MonoBehaviour
         else if (other.gameObject.tag != "Boss" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Ground" && other.gameObject.tag != "MainCamera" && other.gameObject.tag != "Money" && other.gameObject.tag != "Spell" &&
             other.gameObject.tag != "Card" && other.gameObject.tag != "BossRoom" && gameObject.activeSelf)
         {
+            Debug.Log(other);
             Destroy(gameObject);
         }
     }
