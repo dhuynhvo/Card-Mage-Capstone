@@ -6,6 +6,7 @@ public class BossBullet : MonoBehaviour
 {
     public GameObject player;
     private Rigidbody rb;
+    public float bulletDamage;
     public float force;
     private float timer;
     // Start is called before the first frame update
@@ -36,7 +37,7 @@ public class BossBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(5);
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
         else if (other.gameObject.tag != "Spell" && other.gameObject.tag != "Boss" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "BossRoom"  && other.gameObject.tag != "Ground" && gameObject.activeSelf)

@@ -84,7 +84,8 @@ public class PlayerHealth : MonoBehaviour
             Time.timeScale = 0f;
             DefeatScreen.SetActive(true);
             DefeatText.SetActive(true);
-            AudioManager.instance.Play("GameOver"); 
+            AudioManager.instance.Play("GameOver");
+            mainCamera.GetComponent<shaker>().enabled = false;
             StartCoroutine(ShowDefeatScreen(5));
         }
     }
@@ -107,7 +108,8 @@ public class PlayerHealth : MonoBehaviour
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-
+        //mainCamera.GetComponent<shaker>().enabled = false;
+        // GetComponent<shaker>().enabled = false;
         float currentTime = 0;
         while (currentTime < fadeinDuration)
         {
