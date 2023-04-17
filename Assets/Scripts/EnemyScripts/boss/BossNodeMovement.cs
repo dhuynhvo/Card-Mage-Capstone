@@ -8,6 +8,7 @@ public class BossNodeMovement : MonoBehaviour
     public float speed = 5f;
     public Transform[] nodes;
     public GameObject bulletPrefab;
+    public GameObject bulletSingle;
     public Transform bulletSpawnPoint;
     public float bulletSpeed = 7f;
     public float bulletStormCooldown = 1f;
@@ -89,7 +90,9 @@ public class BossNodeMovement : MonoBehaviour
 IEnumerator ShootBulletStormsAtNode() {
     // Rotate the boss to face the player
     FacePlayer();
-    // Shoot bullet storms multiple times
+        // Shoot bullet storms multiple times
+        //StartCoroutine(ShootWithAnimation());
+        //shoot();
     for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
     {
         ShootBulletStorm();
@@ -108,9 +111,9 @@ IEnumerator ShootBulletStormsAtNode() {
         // Otherwise, return to node 0
         currentNode = 0;
     }
-
-    // Start moving again
-    isMoving = true;
+       // shoot();
+        // Start moving again
+        isMoving = true;
 }
 
 void ShuffleNodes()
@@ -159,5 +162,10 @@ void ShuffleNodes()
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
+    }
+    void shoot()
+    {
+        Instantiate(bulletSingle, transform.position, Quaternion.identity);
+        AudioManager.instance.Play("BossBigProjectile");
     }
 }
