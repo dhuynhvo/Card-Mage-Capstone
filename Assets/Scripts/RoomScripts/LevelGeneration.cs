@@ -72,6 +72,10 @@ public class LevelGeneration : MonoBehaviour
         {
             fooObj.transform.parent = GameObject.Find("Background").transform;
         }
+        foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            fooObj.transform.position = new Vector3(fooObj.transform.position.x, 1f, fooObj.transform.position.z);
+        }
         surface.BuildNavMesh();
     }
 
