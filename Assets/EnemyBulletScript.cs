@@ -24,6 +24,7 @@ public class EnemyBulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y,timer);
         timer += Time.deltaTime;
         if(timer > 30)
         {
