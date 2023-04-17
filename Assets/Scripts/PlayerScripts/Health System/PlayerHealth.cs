@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // Worked on by Abida Mim
-// uses outside websites as reference
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -24,7 +23,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private Sprite_Flash Flash;
     private bool RecentlyHit;
-    
+    [SerializeField]
+    private GameObject CurrencyUI;
+    [SerializeField]
+    private GameObject HandUI;
+    [SerializeField]
+    private GameObject TimerUI;
+    [SerializeField]
+    private GameObject HealthUI;
 
     public float DefenceBuff;
     public bool IsAlive 
@@ -97,6 +103,11 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator ShowDefeatScreen(float fadeinDuration)
     {
+        CurrencyUI.SetActive(false);
+        HandUI.SetActive(false);
+        HealthUI.SetActive(false);
+        TimerUI.SetActive(false);
+
         float currentTime = 0;
         while (currentTime < fadeinDuration)
         {
