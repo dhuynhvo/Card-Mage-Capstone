@@ -14,15 +14,16 @@ public class BossNodeMovement : MonoBehaviour
     public float bulletStormCooldown = 1f;
     public float stopTimeAtNode = 3f; // The duration the boss will stop at each node
     public int bulletStormsPerNode = 3; // The number of bullet storms at each node
-    public float playerDetectionRange = 7f; // The range at which the boss detects the player
+    public float playerDetectionRange = 4f; // The range at which the boss detects the player
     private int currentNode = 0;
     private float timeSinceLastShot;
     private bool isMoving = true; // Indicates if the boss is moving or stopped
     private int bulletStormCounter = 0; // Counts the number of bullet storms at the current node
     private Animator anim;
+    private bool isEngaged = false; // Indicates if the boss has engaged in a fight
 
-    void Start() {
-        // Find the positions of the nodes
+    void Start()
+    {
         nodes = new Transform[5];
         nodes[0] = GameObject.Find("node1").transform;
         nodes[1] = GameObject.Find("node2").transform;
@@ -30,51 +31,40 @@ public class BossNodeMovement : MonoBehaviour
         nodes[3] = GameObject.Find("node4").transform;
         nodes[4] = GameObject.Find("node5").transform;
 
-         // Get the player reference
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         bulletSpawnPoint.SetParent(transform);
-        // Get the reference to the Animator component
         anim = GetComponent<Animator>();
     }
 
-    void Update() {
-    // Check if the player is within the detection range
+    void Update()
+    {
         Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
         if (distanceToPlayer <= playerDetectionRange)
         {
+            isEngaged = true;
+        }
+
+        if (isEngaged)
+        {
             if (isMoving)
             {
                 anim.SetBool("Walk", isMoving);
-                // Move towards the current node
                 Vector3 direction = nodes[currentNode].position - transform.position;
                 Flip(direction.x);
                 transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
 
-                // Check if we've reached the current node
                 if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f)
                 {
-                    // Stop moving and start shooting bullet storms
                     isMoving = false;
                     anim.SetBool("Walk", isMoving);
                     StartCoroutine(ShootBulletStormsAtNode());
                 }
             }
         }
-
-        // Update the player detection range based on the current node
-        if (currentNode == 0)
-        {
-            playerDetectionRange = 5f;
-        }
-        else
-        {
-            playerDetectionRange = 15f;
-        }
     }
 
-    // Add this new method to flip the boss based on its movement direction
     private void Flip(float direction)
     {
         if (direction > 0)
@@ -87,46 +77,46 @@ public class BossNodeMovement : MonoBehaviour
         }
     }
 
-IEnumerator ShootBulletStormsAtNode() {
-    // Rotate the boss to face the player
-    FacePlayer();
-        // Shoot bullet storms multiple times
-        //StartCoroutine(ShootWithAnimation());
-        //shoot();
-    for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
+    IEnumerator ShootBulletStormsAtNode() {
+        // Rotate the boss to face the player
+        FacePlayer();
+            // Shoot bullet storms multiple times
+            //StartCoroutine(ShootWithAnimation());
+            //shoot();
+        for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
+        {
+            ShootBulletStorm();
+            yield return new WaitForSeconds(bulletStormCooldown);
+        }
+
+        // Wait for a few seconds before moving to the next node
+        yield return new WaitForSeconds(stopTimeAtNode);
+
+        if (currentNode == 0) {
+            // If we're at node 0, shuffle the order of the nodes randomly
+            ShuffleNodes();
+            // Set the current node to a random node other than node 0
+            currentNode = UnityEngine.Random.Range(1, nodes.Length);
+        } else {
+            // Otherwise, return to node 0
+            currentNode = 0;
+        }
+        // shoot();
+            // Start moving again
+            isMoving = true;
+    }
+
+    void ShuffleNodes()
     {
-        ShootBulletStorm();
-        yield return new WaitForSeconds(bulletStormCooldown);
+        // Shuffle the order of the nodes randomly, excluding the first node
+        for (int i = 1; i < nodes.Length; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(i, nodes.Length);
+            Transform temp = nodes[i];
+            nodes[i] = nodes[randomIndex];
+            nodes[randomIndex] = temp;
+        }
     }
-
-    // Wait for a few seconds before moving to the next node
-    yield return new WaitForSeconds(stopTimeAtNode);
-
-    if (currentNode == 0) {
-        // If we're at node 0, shuffle the order of the nodes randomly
-        ShuffleNodes();
-        // Set the current node to a random node other than node 0
-        currentNode = UnityEngine.Random.Range(1, nodes.Length);
-    } else {
-        // Otherwise, return to node 0
-        currentNode = 0;
-    }
-       // shoot();
-        // Start moving again
-        isMoving = true;
-}
-
-void ShuffleNodes()
-{
-    // Shuffle the order of the nodes randomly, excluding the first node
-    for (int i = 1; i < nodes.Length; i++)
-    {
-        int randomIndex = UnityEngine.Random.Range(i, nodes.Length);
-        Transform temp = nodes[i];
-        nodes[i] = nodes[randomIndex];
-        nodes[randomIndex] = temp;
-    }
-}
 
     void ShootBulletStorm()
     {
