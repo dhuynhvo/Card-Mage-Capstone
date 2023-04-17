@@ -22,7 +22,7 @@ public class Currency_Info : MonoBehaviour
     {
         Destroy(gameObject, 20f);
         player = GameObject.Find("Player").transform;
-        speed = 1;
+        speed = 5;
     }
 
     private void Update()
