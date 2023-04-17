@@ -77,33 +77,42 @@ public class BossNodeMovement : MonoBehaviour
         }
     }
 
-    IEnumerator ShootBulletStormsAtNode() {
+    IEnumerator ShootBulletStormsAtNode()
+    {
         // Rotate the boss to face the player
         FacePlayer();
-            // Shoot bullet storms multiple times
-            //StartCoroutine(ShootWithAnimation());
-            //shoot();
+        yield return StartCoroutine(ShootSingleBulletWithDelay());
         for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
         {
+            // Shoot bullet storms multiple times
             ShootBulletStorm();
+            //yield return StartCoroutine(ShootSingleBulletWithDelay());
             yield return new WaitForSeconds(bulletStormCooldown);
         }
 
         // Wait for a few seconds before moving to the next node
         yield return new WaitForSeconds(stopTimeAtNode);
 
-        if (currentNode == 0) {
+        if (currentNode == 0)
+        {
             // If we're at node 0, shuffle the order of the nodes randomly
             ShuffleNodes();
             // Set the current node to a random node other than node 0
             currentNode = UnityEngine.Random.Range(1, nodes.Length);
-        } else {
+        }
+        else
+        {
             // Otherwise, return to node 0
             currentNode = 0;
         }
-        // shoot();
-            // Start moving again
-            isMoving = true;
+        // Start moving again
+        isMoving = true;
+    }
+
+    IEnumerator ShootSingleBulletWithDelay()
+    {
+        shoot();
+        yield return new WaitForSeconds(0.5f);
     }
 
     void ShuffleNodes()
@@ -155,7 +164,8 @@ public class BossNodeMovement : MonoBehaviour
     }
     void shoot()
     {
-        Instantiate(bulletSingle, transform.position, Quaternion.identity);
+        GameObject bullet2 = Instantiate(bulletSingle, transform.position, Quaternion.identity);
         AudioManager.instance.Play("BossBigProjectile");
+        // Destroy the bullet after a certain time to prevent memory issues
     }
 }
