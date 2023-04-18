@@ -27,6 +27,14 @@ public class Pause_Screen : MonoBehaviour
     [SerializeField]
     private Play_Card queue;
     private bool paused = false;
+    [SerializeField]
+    private GameObject CurrencyUI;
+    [SerializeField]
+    private GameObject HandUI;
+    [SerializeField]
+    private GameObject TimerUI;
+    [SerializeField]
+    private GameObject HealthUI;
 
     private void Start()
     {
@@ -53,6 +61,11 @@ public class Pause_Screen : MonoBehaviour
         {
             if(!paused)
             {
+                CurrencyUI.SetActive(false);
+                HandUI.SetActive(false);
+                HealthUI.SetActive(false);
+                TimerUI.SetActive(false);
+
                 PauseScreen.SetActive(true);
                 Time.timeScale = 0f;
                 paused = !paused;
@@ -92,18 +105,34 @@ public class Pause_Screen : MonoBehaviour
 
     public void ChangeDeckPauseScreen()
     {
+        CurrencyUI.SetActive(false);
+        HandUI.SetActive(false);
+        HealthUI.SetActive(false);
+        TimerUI.SetActive(false);
+
         PauseScreen.SetActive(false);
         ChangeDeckScreen.SetActive(true);
+
     }
 
     public void ChangeStatsScreen()
     {
+        CurrencyUI.SetActive(false);
+        HandUI.SetActive(false);
+        HealthUI.SetActive(false);
+        TimerUI.SetActive(false);
+
         PauseScreen.SetActive(false);
         StatsScreen.SetActive(true);
     }
 
     public void DeckBuilderPauseScreen()
     {
+        CurrencyUI.SetActive(false);
+        HandUI.SetActive(false);
+        HealthUI.SetActive(false);
+        TimerUI.SetActive(false);
+
         PauseScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(true);
@@ -111,6 +140,11 @@ public class Pause_Screen : MonoBehaviour
 
     public void BackToPause()
     {
+        CurrencyUI.SetActive(false);
+        HandUI.SetActive(false);
+        HealthUI.SetActive(false);
+        TimerUI.SetActive(false);
+
         PauseScreen.SetActive(true);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
@@ -118,12 +152,22 @@ public class Pause_Screen : MonoBehaviour
 
     public void StatsToPause()
     {
+        CurrencyUI.SetActive(false);
+        HandUI.SetActive(false);
+        HealthUI.SetActive(false);
+        TimerUI.SetActive(false);
+
         PauseScreen.SetActive(true);
         StatsScreen.SetActive(false);
     }
 
     public void ChangeDeckToResume()
     {
+        CurrencyUI.SetActive(false);
+        HandUI.SetActive(false);
+        HealthUI.SetActive(false);
+        TimerUI.SetActive(false);
+
         PauseScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
     }
