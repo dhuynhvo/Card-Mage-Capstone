@@ -1,6 +1,12 @@
 //Author: Grant Davis
-//AI Pathfinding script
-//Multiple tutorials were used during development of this code
+//CS 426 Senior Project: Card Mage
+//enemyai.cs
+
+//AI Pathfinding script (NOT USED)
+//Multiple tutorials were used during development of this code:
+
+//Unused code used in early testing of game. 
+//Discarded due to decision to implement a Navigation Mesh for enemy movement.
 
 using System.Collections;
 using System.Collections.Generic;

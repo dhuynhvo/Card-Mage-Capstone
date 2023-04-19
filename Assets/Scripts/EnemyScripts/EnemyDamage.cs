@@ -1,5 +1,6 @@
 //Author: Grant Davis
-//Enemy Damage
+//CS 426 Senior Project: Card Mage
+//EnemyDamage.cs
 
 using System.Collections;
 using System.Collections.Generic;
@@ -51,28 +52,19 @@ public class EnemyDamage : MonoBehaviour
     anim.SetBool("Attack", true); // Set the attack animation state
     playerHealth.TakeDamage(damage);
 
-    // Disable rigidbody and collision
-    Rigidbody rb = GetComponent<Rigidbody>();
-    if (rb != null)
-    {
-        rb.isKinematic = true;
-    }
+    //Disable collision
     Collider col = GetComponent<Collider>();
     if (col != null)
     {
-        col.enabled = false;
+        col.isTrigger = true; // Set collider as trigger to allow player to walk through
     }
 
     yield return new WaitForSeconds(damageDelay);
 
-    // Re-enable rigidbody and collision
-    if (rb != null)
-    {
-        rb.isKinematic = false;
-    }
+    // Re-enable collision
     if (col != null)
     {
-        col.enabled = true;
+        col.isTrigger = false; // Reset collider to its original state
     }
 
     anim.SetBool("Attack", false); // Reset the attack animation state

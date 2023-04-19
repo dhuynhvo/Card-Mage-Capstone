@@ -29,16 +29,16 @@ public class Enemy_Mechanics : MonoBehaviour
     [SerializeField]
     private GameObject[] MoneyRefArray;
     [SerializeField]
-    private UnityEngine.AI.NavMeshAgent navMeshAgent;
-    [SerializeField]
-    public float fadeDuration = 2f;
     private bool hasDroppedMoney = false;
     private bool hasDroppedCard = false;
 
+    [SerializeField] //Navigation used in Update() to turn to false on death
+    private UnityEngine.AI.NavMeshAgent navMeshAgent;
+    [SerializeField] //Time it takes for fade effect to occur
+    public float fadeDuration = 2f;
+
     void Start()
     {   
-        // Get the NavMeshAgent component from the parent game object
-        navMeshAgent = transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>();
         thisID = gameObject.GetInstanceID();
         GameEvents.current.OnEnemyDeath += DropCardOnDeath;
         sprite = gameObject.GetComponent<SpriteRenderer>();
@@ -50,6 +50,8 @@ public class Enemy_Mechanics : MonoBehaviour
         MoneyRefArray[2] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefGold");
         MoneyRefArray[3] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefSteve");
         transform.parent.transform.position = new Vector3(transform.parent.transform.position.x, 1f, transform.parent.transform.position.z);
+        // Get the NavMeshAgent component from the parent game object -Grant Davis--
+        navMeshAgent = transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -58,9 +60,9 @@ public class Enemy_Mechanics : MonoBehaviour
         
         if (info.health <= 0 && NotDead)
         {   
-            // Stop the NavMeshAgent from moving
+            //OnDeath Events for Dead Enemies---------------
+            //Stop the NavMeshAgent from moving -Grant Davis
             navMeshAgent.enabled = false;
-
             //Disable RigidBody
             Rigidbody rb = GetComponent<Rigidbody>();
             if (rb != null)
@@ -73,6 +75,9 @@ public class Enemy_Mechanics : MonoBehaviour
             {
                 col.enabled = false;
             }
+            //FadeOut and Die
+            FadeOut();
+            //----------------------------------------------
 
             //Drop Card
             if (!hasDroppedCard)
@@ -87,12 +92,9 @@ public class Enemy_Mechanics : MonoBehaviour
                 DropMoneyOnDeath();
                 hasDroppedMoney = true;
             }
-            //FadeOut and Die
-            FadeOut();
+
             //sprite.sprite = DeadSprite;
             //Destroy(transform.parent.gameObject, 1f);
-            
-            
         }
     }
 
@@ -160,11 +162,14 @@ public class Enemy_Mechanics : MonoBehaviour
     {
         GameEvents.current.OnEnemyDeath -= DropCardOnDeath;
     }
+
+    //FadeOut calls Coroutine -Grant Davis
     public void FadeOut()
     {
         StartCoroutine(FadeOutCoroutine());
     }
 
+    //Change color of enemy and fade out effect, enemy object is destroy here -Grant Davis
     private IEnumerator FadeOutCoroutine()
     {
         Renderer enemyRenderer = GetComponent<Renderer>();
@@ -181,7 +186,6 @@ public class Enemy_Mechanics : MonoBehaviour
             enemyMaterial.color = Color.Lerp(initialColor, targetColor, t);
             yield return null;
         }
-
         // Optional: Destroy the enemy GameObject after the fade-out
         Destroy(gameObject);
     }

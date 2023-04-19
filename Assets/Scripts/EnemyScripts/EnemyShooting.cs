@@ -1,3 +1,7 @@
+//Author: Grant Davis
+//CS 426 Senior Project: Card Mage
+//EnemyShooting.cs
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +13,10 @@ public class EnemyShooting : MonoBehaviour
     private float timer;
     public float cooldown;
     public float enemyRange;
+    
     private GameObject player;
     private Enemy_Info ei;
+
     [SerializeField]
     private Animator anim;
 

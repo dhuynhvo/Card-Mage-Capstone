@@ -1,5 +1,6 @@
 //Author: Grant Davis
 //CS 426 Senior Project
+//BossNodeMovement.cs
 
 using System;
 using System.Collections;
@@ -8,8 +9,12 @@ using UnityEngine;
 
 public class BossNodeMovement : MonoBehaviour
 {
+    // Boss movement variables
     public float speed = 5f;
     public Transform[] nodes;
+    private int currentNode = 0;
+    private bool isMoving = true; // Indicates if the boss is moving or stopped
+    // Bullet storm variables
     public GameObject bulletPrefab;
     public GameObject bulletSingle;
     public Transform bulletSpawnPoint;
@@ -17,23 +22,21 @@ public class BossNodeMovement : MonoBehaviour
     public float bulletStormCooldown = 1f;
     public float stopTimeAtNode = 3f; // The duration the boss will stop at each node
     public int bulletStormsPerNode = 3; // The number of bullet storms at each node
+    // Player detection and engagement variables
     public float playerDetectionRange = 4f; // The range at which the boss detects the player
-    private int currentNode = 0;
-    private float timeSinceLastShot;
-    private bool isMoving = true; // Indicates if the boss is moving or stopped
-    private int bulletStormCounter = 0; // Counts the number of bullet storms at the current node
-    private Animator anim;
     private bool isEngaged = false; // Indicates if the boss has engaged in a fight
-
+    // Animation variable
+    private Animator anim;
+    // Boss health and phase control
+    private Enemy_Info enemyInfo;
+    private bool isSecondPhase = false;
     // Phase 2 variables
     public int numberOfBulletsPhase2 = 16;
     public float damagePhase2 = 1.5f;
-    private bool isSecondPhase = false;
-
-    private Enemy_Info enemyInfo;
 
     void Start()
     {
+        // Initialize nodes array and find node game objects
         nodes = new Transform[5];
         nodes[0] = GameObject.Find("node1").transform;
         nodes[1] = GameObject.Find("node2").transform;
@@ -41,47 +44,56 @@ public class BossNodeMovement : MonoBehaviour
         nodes[3] = GameObject.Find("node4").transform;
         nodes[4] = GameObject.Find("node5").transform;
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
+        // Set bullet spawn point as a child of the boss
         bulletSpawnPoint.SetParent(transform);
+
+        // Get the animator component
         anim = GetComponent<Animator>();
 
+        // Get the enemy information component
         enemyInfo = GetComponent<Enemy_Info>();
     }
 
     void Update()
     {
-        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
-        if (distanceToPlayer <= playerDetectionRange)
-        {
-            isEngaged = true;
-        }
+    // Check if the player is within the detection range
+    Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+    float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
+    if (distanceToPlayer <= playerDetectionRange)
+    {
+        isEngaged = true;
+    }
 
-        if (isEngaged)
+    // If engaged, move between nodes and shoot bullet storms
+    if (isEngaged)
+    {
+        if (isMoving)
         {
-            if (isMoving)
+            // Move the boss towards the current node
+            anim.SetBool("Walk", isMoving);
+            Vector3 direction = nodes[currentNode].position - transform.position;
+            Flip(direction.x);
+            transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
+
+            // If the boss has reached the node, stop and shoot bullet storms
+            if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f)
             {
+                isMoving = false;
                 anim.SetBool("Walk", isMoving);
-                Vector3 direction = nodes[currentNode].position - transform.position;
-                Flip(direction.x);
-                transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
-
-                if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f)
-                {
-                    isMoving = false;
-                    anim.SetBool("Walk", isMoving);
-                    StartCoroutine(ShootBulletStormsAtNode());
-                }
+                StartCoroutine(ShootBulletStormsAtNode());
             }
-        }
-
-        if (!isSecondPhase && enemyInfo.health <= enemyInfo.maxHealth * 0.5f)
-        {
-            EnterSecondPhase();
         }
     }
 
+    // If the boss health is below 50%, enter the second phase
+    if (!isSecondPhase && enemyInfo.health <= enemyInfo.maxHealth * 0.5f)
+        {
+        EnterSecondPhase();
+        }
+    }
+
+
+    // Flip the boss to face the correct direction based on movement
     private void Flip(float direction)
     {
         if (direction > 0)
@@ -98,12 +110,14 @@ public class BossNodeMovement : MonoBehaviour
     {
         // Rotate the boss to face the player
         FacePlayer();
+
+        // Shoot single bullet and wait for a delay
         yield return StartCoroutine(ShootSingleBulletWithDelay());
-        for (bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
+
+        // Perform multiple bullet storms at the current node
+        for (int bulletStormCounter = 0; bulletStormCounter < bulletStormsPerNode; bulletStormCounter++)
         {
-            // Shoot bullet storms multiple times
             ShootBulletStorm();
-            //yield return StartCoroutine(ShootSingleBulletWithDelay());
             yield return new WaitForSeconds(bulletStormCooldown);
         }
 
@@ -112,8 +126,9 @@ public class BossNodeMovement : MonoBehaviour
 
         if (currentNode == 0)
         {
-            // If we're at node 0, shuffle the order of the nodes randomly
+            // If at node 0, shuffle the order of the nodes randomly
             ShuffleNodes();
+
             // Set the current node to a random node other than node 0
             currentNode = UnityEngine.Random.Range(1, nodes.Length);
         }
@@ -122,6 +137,7 @@ public class BossNodeMovement : MonoBehaviour
             // Otherwise, return to node 0
             currentNode = 0;
         }
+
         // Start moving again
         isMoving = true;
     }
@@ -165,6 +181,7 @@ public class BossNodeMovement : MonoBehaviour
             Destroy(bullet, 5f);
         }
     }
+
     private void FacePlayer()
     {
         Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -179,11 +196,14 @@ public class BossNodeMovement : MonoBehaviour
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
     }
+
     void shoot()
     {
         GameObject bullet2 = Instantiate(bulletSingle, transform.position, Quaternion.identity);
         AudioManager.instance.Play("BossBigProjectile");
+
         // Destroy the bullet after a certain time to prevent memory issues
+        Destroy(bullet2, 5f);
     }
 
     private void EnterSecondPhase()
@@ -194,6 +214,6 @@ public class BossNodeMovement : MonoBehaviour
         // Double the number of bullet storms per node in the second phase
         bulletStormsPerNode *= 2;
 
-        // If you want to change other stats, you can update them here as well
+        // other stats
     }
 }

@@ -1,3 +1,7 @@
+//Author: Grant Davis
+//CS 426 Senior Project: Card Mage
+//EnemyProjectile.cs
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,7 @@
+//Author: Robert
+//CS 426 Senior Project: Card Mage
+//EnemyShootingRed.cs
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ExceptionServices;

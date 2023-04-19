@@ -1,3 +1,5 @@
+// Author: Grant Davis
+// CS 426 Senior Project
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +11,7 @@ public class NavMeshPathing : MonoBehaviour
     public NavMeshAgent enemy;
     GameObject player;
 
+    // Enemy behavior variables
     public float enemyDistance = 5.0f;
     public float idleTimeMin = 2.0f;
     public float idleTimeMax = 5.0f;
@@ -16,11 +19,13 @@ public class NavMeshPathing : MonoBehaviour
     private float idleTime;
     private bool isIdle;
     private Vector3 idlePosition;
+
+    // Animator and sprite variables
     [SerializeField]
     private Animator anim;
     SpriteRenderer sprite;
 
-
+    // Direction control variable
     private bool facingRight = true;
 
     // Start is called before the first frame update
@@ -28,9 +33,11 @@ public class NavMeshPathing : MonoBehaviour
     {
         enemy = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
+
         isIdle = false;
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
         baseSpeed = enemy.speed;
+        
         anim = transform.GetChild(0).GetComponent<Animator>();
         sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }

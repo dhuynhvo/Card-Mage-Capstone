@@ -66,10 +66,11 @@ public class Enemy_Info : MonoBehaviour
         SappingHealth = false;
     }
     
+    //Play Damage Animation for enemies -Grant Davis
     private IEnumerator PlayDamageAnimation()
     {
         anim.SetBool("Damage", true);
-        // Assuming damage animation length is 0.5 seconds, adjust if necessary
+        //Damage animation timer (change if needed)
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("Damage", false);
     }
