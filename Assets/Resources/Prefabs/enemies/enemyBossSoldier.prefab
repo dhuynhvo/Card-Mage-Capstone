@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 4069228613050058665}
   - component: {fileID: 7704519333354603612}
   - component: {fileID: 8451863122887102908}
+  - component: {fileID: 5755370478316893907}
   m_Layer: 10
   m_Name: ProjectileEnemySoldierModel
   m_TagString: Enemy
@@ -412,8 +413,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  maxHealth: 0
   DropChance: 10
   SappingHealth: 0
+  damageSound: {fileID: 8300000, guid: 075f6cb8e6a13404793cc9e2d56d8401, type: 3}
+  deathSound: {fileID: 8300000, guid: 075f6cb8e6a13404793cc9e2d56d8401, type: 3}
 --- !u!114 &4205948510783803002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +439,7 @@ MonoBehaviour:
   GoldMoneyChance: 10
   SteveMoneyChance: 5
   MoneyRefArray: []
+  hasDroppedMoney: 0
   navMeshAgent: {fileID: 158980112004052608}
   fadeDuration: 2
 --- !u!114 &3886930259593304852
@@ -556,6 +561,21 @@ MonoBehaviour:
   anim: {fileID: 7704519333354603612}
   shootDuration: 2
   firerate: 0.4
+--- !u!114 &5755370478316893907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092730325293261883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0e24315f5edbf4fb6dd6c6d0bec354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageSound: {fileID: 8300000, guid: 075f6cb8e6a13404793cc9e2d56d8401, type: 3}
+  deathSound: {fileID: 8300000, guid: 075f6cb8e6a13404793cc9e2d56d8401, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1001 &1693673859261744908
 PrefabInstance:
   m_ObjectHideFlags: 0

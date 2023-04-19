@@ -1,4 +1,4 @@
-//Dan Huynhvo
+//Dan Huynhvo and Grant Davis
 //UNR
 //CS 425
 
@@ -16,11 +16,33 @@ public class Enemy_Info : MonoBehaviour
     [SerializeField]
     public bool SappingHealth;
     private Animator anim;
-    
+
+    // Add damage and death sounds to Enemy_Info
+    [SerializeField]
+    private AudioClip damageSound;
+    [SerializeField]
+    private AudioClip deathSound;
+
+    //reference to SlimeSound
+    private SlimeSound slimeSound;
+    private bool isTakingDamage;
+    private const string DamageAnimationName = "Damage";    
+
     void Start()
     {
         anim = GetComponent<Animator>();
         maxHealth = health;
+        isTakingDamage = false;
+
+        // Get reference to SlimeSound
+        slimeSound = GetComponent<SlimeSound>();
+
+        // Assign damage and death sounds
+        if (slimeSound != null)
+        {
+            slimeSound.damageSound = damageSound;
+            slimeSound.deathSound = deathSound;
+        }
     }
 
     // Update is called once per frame
@@ -66,14 +88,18 @@ public class Enemy_Info : MonoBehaviour
         SappingHealth = false;
     }
     
-    //Play Damage Animation for enemies -Grant Davis
     private IEnumerator PlayDamageAnimation()
     {
-        anim.SetBool("Damage", true);
-        //Damage animation timer (change if needed)
-        yield return new WaitForSeconds(0.5f);
-        anim.SetBool("Damage", false);
+        // Check if the damage animation is already playing
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(DamageAnimationName))
+        {
+            anim.SetBool("Damage", true);
+
+            // Play damage sound
+            slimeSound.PlaySound(slimeSound.damageSound);
+
+            yield return new WaitForSeconds(0.5f);
+            anim.SetBool("Damage", false);
+        }
     }
-
-
 }

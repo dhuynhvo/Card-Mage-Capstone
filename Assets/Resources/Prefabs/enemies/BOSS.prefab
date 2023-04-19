@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4080517265656778483}
   - component: {fileID: 3909617566460543875}
   - component: {fileID: 7605129204640382223}
+  - component: {fileID: 6585367581263967093}
   m_Layer: 10
   m_Name: BossModel
   m_TagString: Boss
@@ -210,8 +211,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
+  maxHealth: 0
   DropChance: 100
   SappingHealth: 0
+  damageSound: {fileID: 8300000, guid: 3d3197147f04d9141907eef38644e5ef, type: 3}
+  deathSound: {fileID: 8300000, guid: 075f6cb8e6a13404793cc9e2d56d8401, type: 3}
 --- !u!114 &1299778131758043626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +237,7 @@ MonoBehaviour:
   GoldMoneyChance: 100
   SteveMoneyChance: 100
   MoneyRefArray: []
+  hasDroppedMoney: 0
   navMeshAgent: {fileID: 0}
   fadeDuration: 2
 --- !u!114 &1303745128760607102
@@ -324,6 +329,8 @@ MonoBehaviour:
   stopTimeAtNode: 1
   bulletStormsPerNode: 4
   playerDetectionRange: 4
+  numberOfBulletsPhase2: 16
+  damagePhase2: 1.5
 --- !u!114 &4080517265656778483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +384,21 @@ MonoBehaviour:
   anim: {fileID: 0}
   shootDuration: 0.5
   firerate: 0.3
+--- !u!114 &6585367581263967093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347856571958737835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0e24315f5edbf4fb6dd6c6d0bec354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageSound: {fileID: 8300000, guid: 3d3197147f04d9141907eef38644e5ef, type: 3}
+  deathSound: {fileID: 8300000, guid: 075f6cb8e6a13404793cc9e2d56d8401, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1001 &103767720903031641
 PrefabInstance:
   m_ObjectHideFlags: 0
