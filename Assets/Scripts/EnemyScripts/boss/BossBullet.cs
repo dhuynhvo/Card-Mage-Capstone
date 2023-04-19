@@ -16,15 +16,16 @@ public class BossBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        // Use the bullet's forward direction for velocity instead of player direction
-        Vector3 direction = transform.forward;
-        rb.velocity = direction * force;
-        transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
-        // No rotation calculation is needed since we are not aiming at the player
-        float rot = Mathf.Atan2(-direction.y, -direction.x)* Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(90, 90, rot + 0);
+    rb = GetComponent<Rigidbody>();
+    player = GameObject.FindGameObjectWithTag("Player");
+    // Use the bullet's forward direction for velocity instead of player direction
+    Vector3 direction = transform.forward;
+    rb.velocity = direction * force;
+    transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+
+    // Calculate the rotation based on the bullet's forward direction
+    float rot = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
+    transform.rotation = Quaternion.Euler(90, 90, rot+ 90);
     }
 
     // Update is called once per frame
