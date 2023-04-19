@@ -1,3 +1,6 @@
+//Author: Grant Davis
+//CS 426 Senior Project
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +25,13 @@ public class BossNodeMovement : MonoBehaviour
     private Animator anim;
     private bool isEngaged = false; // Indicates if the boss has engaged in a fight
 
+    // Phase 2 variables
+    public int numberOfBulletsPhase2 = 16;
+    public float damagePhase2 = 1.5f;
+    private bool isSecondPhase = false;
+
+    private Enemy_Info enemyInfo;
+
     void Start()
     {
         nodes = new Transform[5];
@@ -35,6 +45,8 @@ public class BossNodeMovement : MonoBehaviour
 
         bulletSpawnPoint.SetParent(transform);
         anim = GetComponent<Animator>();
+
+        enemyInfo = GetComponent<Enemy_Info>();
     }
 
     void Update()
@@ -62,6 +74,11 @@ public class BossNodeMovement : MonoBehaviour
                     StartCoroutine(ShootBulletStormsAtNode());
                 }
             }
+        }
+
+        if (!isSecondPhase && enemyInfo.health <= enemyInfo.maxHealth * 0.5f)
+        {
+            EnterSecondPhase();
         }
     }
 
@@ -167,5 +184,16 @@ public class BossNodeMovement : MonoBehaviour
         GameObject bullet2 = Instantiate(bulletSingle, transform.position, Quaternion.identity);
         AudioManager.instance.Play("BossBigProjectile");
         // Destroy the bullet after a certain time to prevent memory issues
+    }
+
+    private void EnterSecondPhase()
+    {
+        isSecondPhase = true;
+        bulletSpeed *= damagePhase2;
+
+        // Double the number of bullet storms per node in the second phase
+        bulletStormsPerNode *= 2;
+
+        // If you want to change other stats, you can update them here as well
     }
 }

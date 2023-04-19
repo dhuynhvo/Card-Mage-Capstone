@@ -10,6 +10,7 @@ public class Enemy_Info : MonoBehaviour
 {
     [SerializeField]
     public float health;
+    public float maxHealth;
     [SerializeField]
     public float DropChance;
     [SerializeField]
@@ -19,6 +20,7 @@ public class Enemy_Info : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        maxHealth = health;
     }
 
     // Update is called once per frame
