@@ -1,6 +1,4 @@
-//Dan Huynhvo, Abida Mim
-//UNR
-//CS 425
+// Worked on by Dan Huynhvo and Abida Mim
 
 using System.Collections;
 using System.Collections.Generic;
@@ -73,10 +71,7 @@ public class Pause_Screen : MonoBehaviour
 
             else if(paused)
             {
-                PauseScreen.SetActive(false);
-                ChangeDeckScreen.SetActive(false);
-                DeckBuilderScreen.SetActive(false);
-                StatsScreen.SetActive(false);
+
                 Time.timeScale = 1f;
                 paused = !paused;
             }
@@ -88,6 +83,11 @@ public class Pause_Screen : MonoBehaviour
     {
         if(paused)
         {
+            CurrencyUI.SetActive(true);
+            HandUI.SetActive(true);
+            HealthUI.SetActive(true);
+            TimerUI.SetActive(true);
+
             PauseScreen.SetActive(false);
             Time.timeScale = 1f;
             paused = !paused;
@@ -97,6 +97,11 @@ public class Pause_Screen : MonoBehaviour
     {
         if (paused)
         {
+            CurrencyUI.SetActive(true);
+            HandUI.SetActive(true);
+            HealthUI.SetActive(true);
+            TimerUI.SetActive(true);
+
             StatsScreen.SetActive(false);
             Time.timeScale = 1f;
             paused = !paused;
@@ -161,12 +166,34 @@ public class Pause_Screen : MonoBehaviour
         StatsScreen.SetActive(false);
     }
 
+    public void DeckBuilderToResume()
+    {
+        CurrencyUI.SetActive(true);
+        HandUI.SetActive(true);
+        HealthUI.SetActive(true);
+        TimerUI.SetActive(true);
+
+        PauseScreen.SetActive(false);
+        ChangeDeckScreen.SetActive(false);
+        DeckBuilderScreen.SetActive(false);
+    }
+
+    public void ResumeFromPause()
+    {
+        CurrencyUI.SetActive(true);
+        HandUI.SetActive(true);
+        HealthUI.SetActive(true);
+        TimerUI.SetActive(true);
+
+        PauseScreen.SetActive(false);
+    }
+
     public void ChangeDeckToResume()
     {
-        CurrencyUI.SetActive(false);
-        HandUI.SetActive(false);
-        HealthUI.SetActive(false);
-        TimerUI.SetActive(false);
+        CurrencyUI.SetActive(true);
+        HandUI.SetActive(true);
+        HealthUI.SetActive(true);
+        TimerUI.SetActive(true);
 
         PauseScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
@@ -175,6 +202,11 @@ public class Pause_Screen : MonoBehaviour
     public void ChangeDeck(string deckName)
     {
         PlayerDeck.LoadDeck(deckName);
+
+        CurrencyUI.SetActive(true);
+        HandUI.SetActive(true);
+        HealthUI.SetActive(true);
+        TimerUI.SetActive(true);
     }
 
 
