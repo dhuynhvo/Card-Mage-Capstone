@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Worked on by Abida
 // used online sources for basis
@@ -27,4 +28,5 @@ public class BGSound : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
+
 }
