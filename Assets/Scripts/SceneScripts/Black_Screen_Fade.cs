@@ -8,6 +8,7 @@ public class Black_Screen_Fade : MonoBehaviour
 {
     [SerializeField]
     private AnimationCurve _FadeInCurve;
+    public Level_Counter Counter;
 
     // Start is called before the first frame update
     void Start()
@@ -37,10 +38,11 @@ public class Black_Screen_Fade : MonoBehaviour
         if (ReloadScene == true)
         {
             Time.timeScale = 1f;
+            Counter.Level += 1;
             SceneManager.LoadScene("GameStage");
         }
 
-        if(ReloadScene == false)
+        if (ReloadScene == false)
         {
             GetComponent<Image>().color = new Color(0, 0, 0, 0);
             Time.timeScale = 1f;

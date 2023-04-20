@@ -7,6 +7,7 @@ public class New_Level : MonoBehaviour
 {
     public Black_Screen_Fade BlackScreen;
     public float duration;
+    public Level_Counter Counter;
 
     public void OnCollisionEnter(Collision collision)
     {
