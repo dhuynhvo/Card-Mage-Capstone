@@ -181,9 +181,9 @@ public class Play_Card : MonoBehaviour
             audioDeterminer(PlayerHand.CardsInHand[0].name);
             GameObject newSpell_0 = Instantiate(PlayerHand.CardsInHand[0], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             newSpell_0.GetComponent<Spell_Info>().damage = newSpell_0.GetComponent<Spell_Info>().damage * AttackBuff;
-            PlayerDeck.CheckEmptyDeck();
             PlayerDeck.GraveTheCard(newSpell_0, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[0] = null;
+            PlayerDeck.CheckEmptyDeck();
             if (PlayerDeck.Cards[0] != null)
             {
                 PlayerHand.FillHand();
@@ -199,9 +199,9 @@ public class Play_Card : MonoBehaviour
             audioDeterminer(PlayerHand.CardsInHand[1].name);
             GameObject newSpell_1 = Instantiate(PlayerHand.CardsInHand[1], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             newSpell_1.GetComponent<Spell_Info>().damage = newSpell_1.GetComponent<Spell_Info>().damage * AttackBuff;
-            PlayerDeck.CheckEmptyDeck();
             PlayerDeck.GraveTheCard(newSpell_1, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[1] = null;
+            PlayerDeck.CheckEmptyDeck();
             if (PlayerDeck.Cards[0] != null)
             {
                 PlayerHand.FillHand();
@@ -217,9 +217,9 @@ public class Play_Card : MonoBehaviour
             audioDeterminer(PlayerHand.CardsInHand[2].name);
             GameObject newSpell_2 = Instantiate(PlayerHand.CardsInHand[2], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             newSpell_2.GetComponent<Spell_Info>().damage = newSpell_2.GetComponent<Spell_Info>().damage * AttackBuff;
-            PlayerDeck.CheckEmptyDeck();
             PlayerDeck.GraveTheCard(newSpell_2, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[2] = null;
+            PlayerDeck.CheckEmptyDeck();
             if (PlayerDeck.Cards[0] != null)
             {
                 PlayerHand.FillHand();
@@ -235,9 +235,9 @@ public class Play_Card : MonoBehaviour
             GameObject newSpell_3 = Instantiate(PlayerHand.CardsInHand[3], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             newSpell_3.GetComponent<Spell_Info>().damage = newSpell_3.GetComponent<Spell_Info>().damage * AttackBuff;
             audioDeterminer(PlayerHand.CardsInHand[3].name);
-            PlayerDeck.CheckEmptyDeck();
             PlayerDeck.GraveTheCard(newSpell_3, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[3] = null;
+            PlayerDeck.CheckEmptyDeck();
             if (PlayerDeck.Cards[0] != null)
             {
                 PlayerHand.FillHand();

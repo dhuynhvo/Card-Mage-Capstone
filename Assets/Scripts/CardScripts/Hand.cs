@@ -32,7 +32,7 @@ public class Hand : MonoBehaviour
     public void FillHand()
     {
         //if (PlayerDeck.Cards[0] != null && !HandFullCheck())
-        if (!HandFullCheck()) //unsure why the behavior works without the Player.Deck.Cards != null
+        if (!HandFullCheck() && PlayerDeck.InitDeck == true) //unsure why the behavior works without the Player.Deck.Cards != null
         {
             for (int i = 0; i < MaxHandLength; i++)
             {

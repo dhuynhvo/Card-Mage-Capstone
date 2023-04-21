@@ -16,11 +16,7 @@ public class Deck : MonoBehaviour
     [SerializeField]
     private Hand PlayerHand;
     [SerializeField]
-    private bool DoneIndexing = false;
-    [SerializeField]
     private int DeckLimit; //The max number - 1 accounting for 0
-    [SerializeField]
-    private int CardIndex = 1;
     [SerializeField]
     public int GraveIndex = 0;
     [SerializeField]
@@ -33,6 +29,7 @@ public class Deck : MonoBehaviour
     private string CurrentDeckName = "Base";
     [SerializeField]
     private bool PushingDeck;
+    public bool InitDeck;
 
 
     private void Awake()
@@ -40,9 +37,15 @@ public class Deck : MonoBehaviour
         LoadDeck();
     }
 
+    private void Start()
+    {
+        PushCards();
+        Shuffle();
+        InitDeck = true;
+    }
+
     void Update()
     {
-        PopDeck();
         CheckDeckZero();
     }
 
@@ -114,43 +117,6 @@ public class Deck : MonoBehaviour
         LoadingDeck = false;
     }
 
-    public void PopDeck()
-    {
-        if (Cards[0] == null)
-        { 
-
-            while (Cards[CardIndex] != null && CardIndex <= DeckLimit && DoneIndexing != true)
-            {
-                CardIndex++;
-                if (CardIndex >= DeckLimit)
-                {
-                    DoneIndexing = true;
-                }
-                else if (Cards[CardIndex] == null)
-                {
-                    DoneIndexing = true;
-                }
-            }
-
-            if (DoneIndexing == true)
-            {
-                for (int i = 0; i < CardIndex; i++)
-                {
-                    Cards[i] = Cards[i + 1];
-                }
-
-                if (CardIndex == DeckLimit)
-                {
-                    Cards[CardIndex] = null;
-                }
-
-                DoneIndexing = false;
-                CardIndex = 1;
-            }
-
-        }
-    }
-
     public void GraveTheCard(GameObject card, ref int GravePosition)
     {
         Graveyard[GravePosition] = card;
@@ -206,12 +172,13 @@ public class Deck : MonoBehaviour
     public void PushCards()
     {
         List<GameObject> tempCards = new List<GameObject>();
-
-        for(int i = 0; i < Cards.Count; i++)
+        
+        for (int i = 0; i < Cards.Count; i++)
         {
             if (Cards[i] != null)
             {
-                tempCards.Append(Cards[i]);
+                tempCards.Add(Cards[i]);
+                Cards[i] = null;
             }
         }
 
