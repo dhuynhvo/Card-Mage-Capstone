@@ -5,6 +5,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 
 public class Play_Card : MonoBehaviour
@@ -40,6 +41,8 @@ public class Play_Card : MonoBehaviour
     private int MaxCreativity;
     [SerializeField]
     private string LastButton;
+    [SerializeField]
+    private Text CreativityText;
 
     public float AttackBuff;
 
@@ -189,6 +192,7 @@ public class Play_Card : MonoBehaviour
         Debug.Log("Creativity" + CreativityCounter);
         LastButton = button;
         Creativity = CreativityCounter / 10;
+        CreativityText.text = "Creativity: " + CreativityCounter.ToString();
     }
 
 
