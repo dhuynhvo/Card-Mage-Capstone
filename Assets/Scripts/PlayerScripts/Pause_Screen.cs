@@ -63,17 +63,27 @@ public class Pause_Screen : MonoBehaviour
                 HandUI.SetActive(false);
                 HealthUI.SetActive(false);
                 TimerUI.SetActive(false);
+                StatsScreen.SetActive(false);
+                ChangeDeckScreen.SetActive(false);
+                DeckBuilderScreen.SetActive(false);
 
                 PauseScreen.SetActive(true);
                 Time.timeScale = 0f;
-                paused = !paused;
+                paused = true;
             }
 
             else if(paused)
             {
-
+                PauseScreen.SetActive(false);
+                CurrencyUI.SetActive(false);
+                HandUI.SetActive(false);
+                HealthUI.SetActive(false);
+                TimerUI.SetActive(false);
+                StatsScreen.SetActive(false);
+                ChangeDeckScreen.SetActive(false);
+                DeckBuilderScreen.SetActive(false);
                 Time.timeScale = 1f;
-                paused = !paused;
+                paused = false;
             }
         }
 
@@ -90,7 +100,7 @@ public class Pause_Screen : MonoBehaviour
 
             PauseScreen.SetActive(false);
             Time.timeScale = 1f;
-            paused = !paused;
+            paused = false;
         }
     }
     public void ResumeGameFromStats()
@@ -104,109 +114,136 @@ public class Pause_Screen : MonoBehaviour
 
             StatsScreen.SetActive(false);
             Time.timeScale = 1f;
-            paused = !paused;
+            paused = false;
         }
     }
 
     public void ChangeDeckPauseScreen()
     {
+        PauseScreen.SetActive(false);
         CurrencyUI.SetActive(false);
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-
-        PauseScreen.SetActive(false);
+        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(true);
+        DeckBuilderScreen.SetActive(false);
+        Time.timeScale = 0f;
+        paused = true;
 
     }
 
     public void ChangeStatsScreen()
     {
+        PauseScreen.SetActive(false);
         CurrencyUI.SetActive(false);
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-
-        PauseScreen.SetActive(false);
         StatsScreen.SetActive(true);
+        ChangeDeckScreen.SetActive(false);
+        DeckBuilderScreen.SetActive(false);
+        Time.timeScale = 0f;
+        paused = true;
     }
 
     public void DeckBuilderPauseScreen()
     {
+        PauseScreen.SetActive(false);
         CurrencyUI.SetActive(false);
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-
-        PauseScreen.SetActive(false);
+        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(true);
+        Time.timeScale = 0f;
+        paused = true;
     }
 
     public void BackToPause()
     {
+        PauseScreen.SetActive(true);
         CurrencyUI.SetActive(false);
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-
-        PauseScreen.SetActive(true);
+        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
+        Time.timeScale = 0f;
+        paused = true;
     }
 
     public void StatsToPause()
     {
+        PauseScreen.SetActive(true);
         CurrencyUI.SetActive(false);
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-
-        PauseScreen.SetActive(true);
         StatsScreen.SetActive(false);
+        ChangeDeckScreen.SetActive(false);
+        DeckBuilderScreen.SetActive(false);
+        Time.timeScale = 0f;
+        paused = true;
     }
 
     public void DeckBuilderToResume()
     {
+        PauseScreen.SetActive(false);
         CurrencyUI.SetActive(true);
         HandUI.SetActive(true);
         HealthUI.SetActive(true);
         TimerUI.SetActive(true);
-
-        PauseScreen.SetActive(false);
+        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
+        Time.timeScale = 1f;
+        paused = false;
     }
 
     public void ResumeFromPause()
     {
+        PauseScreen.SetActive(false);
         CurrencyUI.SetActive(true);
         HandUI.SetActive(true);
         HealthUI.SetActive(true);
         TimerUI.SetActive(true);
-
-        PauseScreen.SetActive(false);
+        StatsScreen.SetActive(false);
+        ChangeDeckScreen.SetActive(false);
+        DeckBuilderScreen.SetActive(false);
+        Time.timeScale = 1f;
+        paused = false;
     }
 
     public void ChangeDeckToResume()
     {
+        PauseScreen.SetActive(false);
         CurrencyUI.SetActive(true);
         HandUI.SetActive(true);
         HealthUI.SetActive(true);
         TimerUI.SetActive(true);
-
-        PauseScreen.SetActive(false);
+        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
+        DeckBuilderScreen.SetActive(false);
+        Time.timeScale = 1f;
+        paused = false;
     }
 
     public void ChangeDeck(string deckName)
     {
         PlayerDeck.LoadDeck(deckName);
-
-        CurrencyUI.SetActive(true);
-        HandUI.SetActive(true);
-        HealthUI.SetActive(true);
-        TimerUI.SetActive(true);
+        PauseScreen.SetActive(false);
+        CurrencyUI.SetActive(false);
+        HandUI.SetActive(false);
+        HealthUI.SetActive(false);
+        TimerUI.SetActive(false);
+        StatsScreen.SetActive(false);
+        ChangeDeckScreen.SetActive(false);
+        DeckBuilderScreen.SetActive(false);
+        Time.timeScale = 0f;
+        paused = true;
     }
 
 
