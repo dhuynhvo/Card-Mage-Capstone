@@ -13,6 +13,7 @@ public class trapscript : MonoBehaviour
     bool isArmed = false; // whether or not the trap is currently armed
     float disarmTime; // time at which the trap should be disarmed
     float nextDamageTime; // time at which the trap can deal damage again
+    public AudioClip TrapNoise;
 
     void OnTriggerEnter(Collider other)
     {
@@ -28,6 +29,9 @@ public class trapscript : MonoBehaviour
     {
         isArmed = true;
         animator.SetBool("IsActive", true);
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
+        audio.clip = TrapNoise;
+        audio.Play();
         disarmTime = Time.time + disarmDelay; // set the time at which the trap should be disarmed
     }
 
