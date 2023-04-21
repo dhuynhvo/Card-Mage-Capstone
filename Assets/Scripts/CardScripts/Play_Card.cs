@@ -182,7 +182,7 @@ public class Play_Card : MonoBehaviour
             GameObject newSpell_0 = Instantiate(PlayerHand.CardsInHand[0], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             newSpell_0.GetComponent<Spell_Info>().damage = newSpell_0.GetComponent<Spell_Info>().damage * AttackBuff;
             PlayerDeck.CheckEmptyDeck();
-            CardQueue[0] = newSpell_0;
+            PlayerDeck.GraveTheCard(newSpell_0, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[0] = null;
             if (PlayerDeck.Cards[0] != null)
             {
@@ -200,7 +200,7 @@ public class Play_Card : MonoBehaviour
             GameObject newSpell_1 = Instantiate(PlayerHand.CardsInHand[1], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             newSpell_1.GetComponent<Spell_Info>().damage = newSpell_1.GetComponent<Spell_Info>().damage * AttackBuff;
             PlayerDeck.CheckEmptyDeck();
-            CardQueue[0] = newSpell_1;
+            PlayerDeck.GraveTheCard(newSpell_1, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[1] = null;
             if (PlayerDeck.Cards[0] != null)
             {
@@ -218,7 +218,7 @@ public class Play_Card : MonoBehaviour
             GameObject newSpell_2 = Instantiate(PlayerHand.CardsInHand[2], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
             newSpell_2.GetComponent<Spell_Info>().damage = newSpell_2.GetComponent<Spell_Info>().damage * AttackBuff;
             PlayerDeck.CheckEmptyDeck();
-            CardQueue[0] = newSpell_2;
+            PlayerDeck.GraveTheCard(newSpell_2, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[2] = null;
             if (PlayerDeck.Cards[0] != null)
             {
@@ -236,7 +236,7 @@ public class Play_Card : MonoBehaviour
             newSpell_3.GetComponent<Spell_Info>().damage = newSpell_3.GetComponent<Spell_Info>().damage * AttackBuff;
             audioDeterminer(PlayerHand.CardsInHand[3].name);
             PlayerDeck.CheckEmptyDeck();
-            CardQueue[0] = newSpell_3;
+            PlayerDeck.GraveTheCard(newSpell_3, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[3] = null;
             if (PlayerDeck.Cards[0] != null)
             {

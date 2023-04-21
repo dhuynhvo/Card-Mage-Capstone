@@ -174,12 +174,26 @@ public class Deck : MonoBehaviour
 
     public void DeckReload()
     {
+        List<GameObject> tempCards = new List<GameObject>();
         for (int i = 0; i <= DeckLimit; i++)
         {
             if(Graveyard[i] != null)
             {
-                Cards[i] = Resources.Load<GameObject>("Prefabs/Spells/" + Graveyard[i].GetComponent<Spell_Info>().SpellName);
+                tempCards.Add(Resources.Load<GameObject>("Prefabs/Spells/" + Graveyard[i].GetComponent<Spell_Info>().SpellName));
             }
+        }
+
+        for (int i = 0; i < tempCards.Count; i++)
+        {
+            GameObject temp = tempCards[i];
+            int randomIndex = Random.Range(i, tempCards.Count);
+            tempCards[i] = tempCards[randomIndex];
+            tempCards[randomIndex] = temp;
+        }
+
+        for (int i = 0; i < tempCards.Count; i++)
+        {
+            Cards[i] = tempCards[i];
         }
 
         for (int i = 0; i <= DeckLimit; i++)
