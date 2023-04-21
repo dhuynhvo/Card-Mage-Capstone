@@ -24758,6 +24758,7 @@ MonoBehaviour:
   other: {fileID: 0}
   BossHPBar: {fileID: 2050981804}
   BarHasStarted: 0
+  BossMusic: {fileID: 8300000, guid: 24571e3f2cc5a73449e375f8e3d96c90, type: 3}
 --- !u!20 &1623093380 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2049558500532570874, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
@@ -34589,6 +34590,18 @@ PrefabInstance:
     - target: {fileID: 2049558500532570874, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: orthographic size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049558500532570874, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.11764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049558500532570874, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049558500532570874, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.043137256
       objectReference: {fileID: 0}
     - target: {fileID: 2049558500532570877, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
       propertyPath: m_LocalScale.x

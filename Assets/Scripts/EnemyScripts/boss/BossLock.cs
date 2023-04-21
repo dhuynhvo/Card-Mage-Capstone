@@ -16,6 +16,7 @@ public class BossLock : MonoBehaviour
     public GameObject other;
     public GameObject BossHPBar;
     public bool BarHasStarted;
+    public AudioClip BossMusic;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,9 @@ public class BossLock : MonoBehaviour
             
             inBossRoom = true;
             LockTheRoom();
-            
+            AudioSource audio = GameObject.Find("Audio").GetComponent<AudioSource>();
+            audio.clip = BossMusic;
+            audio.Play();
         }
     }
     
