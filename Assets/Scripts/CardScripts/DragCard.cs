@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
+public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler
 {
     public Transform DragParent;
     public Image image;
@@ -14,6 +14,14 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public GameObject SlotHolder;
     public GameObject card;
     public Sprite EmptySprite;
+    public Text CardText;
+    public Spell_Info info;
+
+    public void Start()
+    {
+        CardText = GameObject.Find("Spell Text").GetComponent<Text>();
+        info = gameObject.GetComponent<Connected_Spell>().SpellInfo;
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -65,6 +73,12 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         transform.SetParent(DragParent);
         image.raycastTarget = true;
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //If your mouse hovers over the GameObject with the script attached, output this message
+        Debug.Log("Mouse is over GameObject.");
+        CardText.text = info.SpellDesc;
     }
 
     void Update()
