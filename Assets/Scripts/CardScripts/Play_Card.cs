@@ -278,6 +278,22 @@ public class Play_Card : MonoBehaviour
             case "EarthWall":
                 AudioManager.instance.Play("EarthWallPlayerSpell");
                 break;
+            case "BlazeInfusion":
+                AudioManager.instance.Play("BlazeInfusionPlayerSpell");
+                break;
+            case "AquaTonic":
+                AudioManager.instance.Play("AquaTonicPlayerSpell");
+                break;
+            case "ManaShield":
+                AudioManager.instance.Play("ManaShieldPlayerSpell");
+                break;
+            case "ShockBoots":
+                AudioManager.instance.Play("ShockBootsPlayerSpell");
+                break;
+            case "SmokeForm":
+                AudioManager.instance.Play("SmokeFormPlayerSpell");
+                break;
+
             default:
                 // code block
                 break;
