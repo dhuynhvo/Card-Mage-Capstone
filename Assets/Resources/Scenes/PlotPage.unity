@@ -199,6 +199,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187597354}
   m_CullTransparentMesh: 1
+--- !u!1 &277150488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 277150490}
+  - component: {fileID: 277150489}
+  m_Layer: 0
+  m_Name: AutoScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &277150489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277150488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83634f04312e5314cb277b1c78ef77bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &277150490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277150488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 951.94727, y: 514.7299, z: -6.0930176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &287607965
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +339,7 @@ GameObject:
   - component: {fileID: 486253891}
   - component: {fileID: 486253890}
   m_Layer: 5
-  m_Name: Continue
+  m_Name: skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,7 +421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 495ec0f44f34e5549af6b40a4f0c33e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 283706b66d05995489351d98438baeb3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -552,6 +596,8 @@ PlayableDirector:
     value: {fileID: 805229110}
   - key: {fileID: 2404914558996868642, guid: 4e101af538bb143428237621e5d7c34e, type: 2}
     value: {fileID: 1020549281}
+  - key: {fileID: 5357171538379546861, guid: 4e101af538bb143428237621e5d7c34e, type: 2}
+    value: {fileID: 277150488}
   m_ExposedReferences:
     m_References:
     - 6e545969d3fb8fc4d9289c26210d8021: {fileID: 1921838714}
