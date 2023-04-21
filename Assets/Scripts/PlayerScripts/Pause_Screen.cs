@@ -36,6 +36,9 @@ public class Pause_Screen : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+        paused = false;
+
         StartCoroutine(StartFade.FadeFromBlack(5f));
         for(int i = 0; i < stash.Length; i++)
         {
