@@ -98,6 +98,9 @@ public class Pause_Screen : MonoBehaviour
             HealthUI.SetActive(true);
             TimerUI.SetActive(true);
 
+            StatsScreen.SetActive(false);
+            ChangeDeckScreen.SetActive(false);
+            DeckBuilderScreen.SetActive(false);
             PauseScreen.SetActive(false);
             Time.timeScale = 1f;
             paused = false;
@@ -112,6 +115,9 @@ public class Pause_Screen : MonoBehaviour
             HealthUI.SetActive(true);
             TimerUI.SetActive(true);
 
+            PauseScreen.SetActive(false);
+            ChangeDeckScreen.SetActive(false);
+            DeckBuilderScreen.SetActive(false);
             StatsScreen.SetActive(false);
             Time.timeScale = 1f;
             paused = false;

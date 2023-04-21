@@ -10,9 +10,9 @@ public class Change_Music : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioSource audio = GameObject.Find("Audio").GetComponent<AudioSource>();
-        if(audio != null)
+        if(GameObject.Find("Audio"))
         {
+            AudioSource audio = GameObject.Find("Audio").GetComponent<AudioSource>();
             audio.clip = BackgroundMusic;
             audio.Play();
         }
