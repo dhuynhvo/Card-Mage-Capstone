@@ -184,7 +184,6 @@ public class Deck : MonoBehaviour
 
         for (int i = 0; i < tempCards.Count; i++)
         {
-            Debug.Log(i + "Testing");
             Cards[i] = tempCards[i];
         }
 

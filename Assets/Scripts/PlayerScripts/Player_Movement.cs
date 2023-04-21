@@ -322,7 +322,7 @@ public class Player_Movement : MonoBehaviour
             if (dash == NW || dash == NE || dash == SW || dash == SE)
             {
                 RollAnim();
-                rb.velocity = MoveDir * PlayerSpeed * DashSpeed * SpeedBuff;
+                rb.velocity = MoveDir * PlayerSpeed * DashSpeed * SpeedBuff * (1 + attacking.Creativity);
                 IsDashing = true;
                 //DashSphere.SetActive(true);
             }
@@ -330,7 +330,7 @@ public class Player_Movement : MonoBehaviour
             else
             {
                 RollAnim();
-                rb.velocity = MoveDir * PlayerSpeed * DashSpeed * SpeedBuff;
+                rb.velocity = MoveDir * PlayerSpeed * DashSpeed * SpeedBuff * (1 + attacking.Creativity);
                 IsDashing = true;
                 //DashSphere.SetActive(true);
             }
@@ -338,7 +338,7 @@ public class Player_Movement : MonoBehaviour
         
         if(!IsDashing)
         {
-            rb.velocity = MoveDir * PlayerSpeed * SpeedBuff;
+            rb.velocity = MoveDir * PlayerSpeed * SpeedBuff * (1 + attacking.Creativity);
         }
 
        // rb.AddForce(MoveDir*PlayerSpeed, ForceMode.VelocityChange);

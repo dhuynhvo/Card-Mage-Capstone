@@ -32,6 +32,14 @@ public class Play_Card : MonoBehaviour
     private Animator anim;
     [SerializeField]
     private SpriteRenderer sprite;
+    [SerializeField]
+    public float Creativity;
+    [SerializeField]
+    private float CreativityCounter;
+    [SerializeField]
+    private int MaxCreativity;
+    [SerializeField]
+    private string LastButton;
 
     public float AttackBuff;
 
@@ -42,6 +50,8 @@ public class Play_Card : MonoBehaviour
         StartCoroutine(GetOutQueue());
         InstBasic();
         AttackBuff = 1;
+        Creativity = 0;
+        MaxCreativity = 5;
     }
 
     void Update()
@@ -60,7 +70,7 @@ public class Play_Card : MonoBehaviour
 
     private IEnumerator SpamTimer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f - Creativity);
         NotSpamming = true;
     }
 
@@ -160,6 +170,27 @@ public class Play_Card : MonoBehaviour
         return;
     }
 
+    public void SetCreativity(string button)
+    {
+        
+        if(button != LastButton)
+        {
+            if(CreativityCounter < MaxCreativity)
+            {
+                CreativityCounter++;
+            }
+        }
+        
+        else
+        {
+            CreativityCounter = 0;
+        }
+
+        Debug.Log("Creativity" + CreativityCounter);
+        LastButton = button;
+        Creativity = CreativityCounter / 10;
+    }
+
 
     public void PlayCard()
     {
@@ -174,13 +205,13 @@ public class Play_Card : MonoBehaviour
 
         else if (Input.GetMouseButtonDown(0) && PlayerHand.CardsInHand[0] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
-            
             NotSpamming = false;
             AttackAnim();
             StartCoroutine(SpamTimer());
             audioDeterminer(PlayerHand.CardsInHand[0].name);
             GameObject newSpell_0 = Instantiate(PlayerHand.CardsInHand[0], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
-            newSpell_0.GetComponent<Spell_Info>().damage = newSpell_0.GetComponent<Spell_Info>().damage * AttackBuff;
+            newSpell_0.GetComponent<Spell_Info>().damage = newSpell_0.GetComponent<Spell_Info>().damage * AttackBuff * (1 + Creativity);
+            SetCreativity("M1");
             PlayerDeck.GraveTheCard(newSpell_0, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[0] = null;
             PlayerDeck.CheckEmptyDeck();
@@ -188,7 +219,6 @@ public class Play_Card : MonoBehaviour
             {
                 PlayerHand.FillHand();
             };
-            //SetAttackBoolsToFalse();
         }
 
         else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
@@ -198,7 +228,8 @@ public class Play_Card : MonoBehaviour
             StartCoroutine(SpamTimer());
             audioDeterminer(PlayerHand.CardsInHand[1].name);
             GameObject newSpell_1 = Instantiate(PlayerHand.CardsInHand[1], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
-            newSpell_1.GetComponent<Spell_Info>().damage = newSpell_1.GetComponent<Spell_Info>().damage * AttackBuff;
+            newSpell_1.GetComponent<Spell_Info>().damage = newSpell_1.GetComponent<Spell_Info>().damage * AttackBuff * (1 + Creativity);
+            SetCreativity("Shift");
             PlayerDeck.GraveTheCard(newSpell_1, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[1] = null;
             PlayerDeck.CheckEmptyDeck();
@@ -206,7 +237,6 @@ public class Play_Card : MonoBehaviour
             {
                 PlayerHand.FillHand();
             };
-            //SetAttackBoolsToFalse();
         }
 
         else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
@@ -216,7 +246,8 @@ public class Play_Card : MonoBehaviour
             StartCoroutine(SpamTimer());
             audioDeterminer(PlayerHand.CardsInHand[2].name);
             GameObject newSpell_2 = Instantiate(PlayerHand.CardsInHand[2], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
-            newSpell_2.GetComponent<Spell_Info>().damage = newSpell_2.GetComponent<Spell_Info>().damage * AttackBuff;
+            newSpell_2.GetComponent<Spell_Info>().damage = newSpell_2.GetComponent<Spell_Info>().damage * AttackBuff * (1 + Creativity);
+            SetCreativity("F");
             PlayerDeck.GraveTheCard(newSpell_2, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[2] = null;
             PlayerDeck.CheckEmptyDeck();
@@ -233,7 +264,8 @@ public class Play_Card : MonoBehaviour
             AttackAnim();
             StartCoroutine(SpamTimer());
             GameObject newSpell_3 = Instantiate(PlayerHand.CardsInHand[3], transform.position, SpellSpawnArea.transform.rotation) as GameObject;
-            newSpell_3.GetComponent<Spell_Info>().damage = newSpell_3.GetComponent<Spell_Info>().damage * AttackBuff;
+            newSpell_3.GetComponent<Spell_Info>().damage = newSpell_3.GetComponent<Spell_Info>().damage * AttackBuff * (1 + Creativity);
+            SetCreativity("M2");
             audioDeterminer(PlayerHand.CardsInHand[3].name);
             PlayerDeck.GraveTheCard(newSpell_3, ref PlayerDeck.GraveIndex);
             PlayerHand.CardsInHand[3] = null;
