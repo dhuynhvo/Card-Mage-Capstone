@@ -40,6 +40,9 @@ public class trapscript : MonoBehaviour
         if (other.CompareTag("Player") && isArmed && Time.time >= nextDamageTime)
         {
             // if the player is still in the collider and the trap is armed and can deal damage again, deal damage
+            AudioSource audio = gameObject.GetComponent<AudioSource>();
+            audio.clip = TrapNoise;
+            audio.Play();
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             nextDamageTime = Time.time + damageDelay; // set the time at which the trap can deal damage again
         }
