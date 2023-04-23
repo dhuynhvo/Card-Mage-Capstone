@@ -10,9 +10,13 @@ public class timeKeeper : MonoBehaviour
 {
     [SerializeField]
     private Stats_Info stats;
+    [SerializeField]
+    private Level_Counter levels;
 
     [SerializeField]
     private Text TimeSeconds;
+    [SerializeField]
+    private Text LevelsText;
 
     // creates basis
     public static timeKeeper Instance
@@ -37,6 +41,8 @@ public class timeKeeper : MonoBehaviour
             float dividedSeconds = 0;
 
             Instance = this;
+
+            LevelsText.text = levels.Level.ToString();
 
             dividedMinutes = Mathf.Floor(stats.TimeSpent / 60f);
             dividedSeconds = Mathf.Floor(stats.TimeSpent % 60f);
