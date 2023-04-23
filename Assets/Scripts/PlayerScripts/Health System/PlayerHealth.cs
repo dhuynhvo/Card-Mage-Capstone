@@ -120,12 +120,12 @@ public class PlayerHealth : MonoBehaviour
             DefeatText.GetComponent<Text>().color = new Color(170, 0, 0, t);
             yield return null;
         }
-        DefeatScreen.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-        DefeatText.GetComponent<Text>().color = new Color(170, 0, 0, 1);
-        Time.timeScale = 1f;
-        yield return new WaitForSeconds(3f);
-        DefeatScreen.SetActive(false);
-        DefeatText.SetActive(false);
-        SceneManager.LoadScene("GameStage");
+        //DefeatScreen.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+        //DefeatText.GetComponent<Text>().color = new Color(170, 0, 0, 1);
+        //Time.timeScale = 1f;
+        //yield return new WaitForSeconds(3f);
+        //DefeatScreen.SetActive(false);
+        //DefeatText.SetActive(false);
+        //SceneManager.LoadScene("GameStage");
     }
 }
