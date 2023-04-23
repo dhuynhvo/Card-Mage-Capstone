@@ -13,6 +13,8 @@ public class Singletonn : MonoBehaviour
     private SteveMoneySO info;
     [SerializeField]
     private Stats_Info stats;
+    [SerializeField]
+    private Level_Counter levels;
 
     [SerializeField]
     private Text MoneyText;
@@ -22,8 +24,10 @@ public class Singletonn : MonoBehaviour
     private Text TimeSeconds;
     [SerializeField]
     private Text EnemiesText;
-    
-        // creates basis
+    [SerializeField]
+    private Text LevelsText;
+
+    // creates basis
     public static Singletonn Instance
     {
         get;
@@ -43,6 +47,8 @@ public class Singletonn : MonoBehaviour
         else
         {
             Instance = this;
+
+            LevelsText.text = levels.Level.ToString();
 
             MoneyText.text = info.money.ToString();
             //SteveText.text = info.SteveMoney.ToString();
