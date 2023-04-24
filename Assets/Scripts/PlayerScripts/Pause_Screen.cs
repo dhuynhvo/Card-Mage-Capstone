@@ -78,10 +78,10 @@ public class Pause_Screen : MonoBehaviour
             else if(paused)
             {
                 PauseScreen.SetActive(false);
-                CurrencyUI.SetActive(false);
-                HandUI.SetActive(false);
-                HealthUI.SetActive(false);
-                TimerUI.SetActive(false);
+                CurrencyUI.SetActive(true);
+                HandUI.SetActive(true);
+                HealthUI.SetActive(true);
+                TimerUI.SetActive(true);
                 StatsScreen.SetActive(false);
                 ChangeDeckScreen.SetActive(false);
                 DeckBuilderScreen.SetActive(false);
