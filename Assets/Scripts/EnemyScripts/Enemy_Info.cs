@@ -22,6 +22,8 @@ public class Enemy_Info : MonoBehaviour
     private AudioClip damageSound;
     [SerializeField]
     private AudioClip deathSound;
+    [SerializeField]
+    private Level_Counter levelCounter;
 
     //reference to SlimeSound
     private SlimeSound slimeSound;
@@ -43,6 +45,9 @@ public class Enemy_Info : MonoBehaviour
             slimeSound.damageSound = damageSound;
             slimeSound.deathSound = deathSound;
         }
+        // Update the enemy health based on the current level
+        health += levelCounter.Level;
+        maxHealth = health;
     }
 
     // Update is called once per frame

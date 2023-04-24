@@ -25,9 +25,6 @@ public class NavMeshPathing : MonoBehaviour
     private Animator anim;
     SpriteRenderer sprite;
 
-    [SerializeField]
-    private Level_Counter levelCounter;
-
     // Direction control variable
     private bool facingRight = true;
 
@@ -43,8 +40,6 @@ public class NavMeshPathing : MonoBehaviour
         
         anim = transform.GetChild(0).GetComponent<Animator>();
         sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        // Update the enemy speed based on the current level
-        enemy.speed = baseSpeed + levelCounter.Level;
     }
 
     // Update is called once per frame
