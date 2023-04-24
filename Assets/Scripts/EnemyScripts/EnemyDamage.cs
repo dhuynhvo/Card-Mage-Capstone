@@ -1,7 +1,3 @@
-//Author: Grant Davis
-//CS 426 Senior Project: Card Mage
-//EnemyDamage.cs
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,13 +5,17 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     public PlayerHealth playerHealth;
-    public int damage = 1;
+    public int baseDamage = 1;
     public float damageDelay = 1f; // delay time in seconds
     [SerializeField]
     private Enemy_Mechanics EM;
     public bool canDamage = true;
     [SerializeField]
     private Animator anim;
+    
+    // Add a reference to the Level_Counter ScriptableObject
+    [SerializeField]
+    private Level_Counter levelCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -47,27 +47,30 @@ public class EnemyDamage : MonoBehaviour
     }
 
     public IEnumerator DoDamage()
-{
-    canDamage = false;
-    anim.SetBool("Attack", true); // Set the attack animation state
-    playerHealth.TakeDamage(damage);
-
-    //Disable collision
-    Collider col = GetComponent<Collider>();
-    if (col != null)
     {
-        col.isTrigger = true; // Set collider as trigger to allow player to walk through
-    }
+        canDamage = false;
+        anim.SetBool("Attack", true); // Set the attack animation state
 
-    yield return new WaitForSeconds(damageDelay);
+        // Calculate damage based on the current level
+        int damage = baseDamage * levelCounter.Level;
+        playerHealth.TakeDamage(damage);
 
-    // Re-enable collision
-    if (col != null)
-    {
-        col.isTrigger = false; // Reset collider to its original state
-    }
+        // Disable collision
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.isTrigger = true; // Set collider as trigger to allow player to walk through
+        }
 
-    anim.SetBool("Attack", false); // Reset the attack animation state
-    canDamage = true;
+        yield return new WaitForSeconds(damageDelay);
+
+        // Re-enable collision
+        if (col != null)
+        {
+            col.isTrigger = false; // Reset collider to its original state
+        }
+
+        anim.SetBool("Attack", false); // Reset the attack animation state
+        canDamage = true;
     }
 }
