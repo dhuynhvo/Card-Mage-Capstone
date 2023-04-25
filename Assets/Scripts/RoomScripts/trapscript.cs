@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class trapscript : MonoBehaviour
 {
-    public int damage = 10; // amount of damage the trap deals
+    public int basedamage = 5; // amount of damage the trap deals
+    private int damage;
     public float armDelay = 1.0f; // delay in seconds before the trap becomes armed
     public float disarmDelay = 2.0f; // delay in seconds before the trap becomes disarmed after being armed
     public float damageDelay = 0.2f; // delay in seconds before the trap can deal damage again
@@ -14,6 +15,8 @@ public class trapscript : MonoBehaviour
     float disarmTime; // time at which the trap should be disarmed
     float nextDamageTime; // time at which the trap can deal damage again
     public AudioClip TrapNoise;
+    [SerializeField]
+    private Level_Counter levels;
 
     void OnTriggerEnter(Collider other)
     {
@@ -29,6 +32,7 @@ public class trapscript : MonoBehaviour
     {
         isArmed = true;
         animator.SetBool("IsActive", true);
+        damage = basedamage + levels.Level * 2;
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.clip = TrapNoise;
         audio.Play();

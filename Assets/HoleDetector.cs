@@ -4,9 +4,12 @@ using System.Collections.Generic;
 public class HoleDetector : MonoBehaviour
 {
     Camera myCamera;
-    public float damage = 10f;
+    public float basedamage = 10f;
+    private float damage;
     public Transform respawnPoint;
     public float freezeTime = 0.5f;
+    [SerializeField]
+    private Level_Counter levels;
     private void Start()
     {
         myCamera = Camera.main;
@@ -15,6 +18,7 @@ public class HoleDetector : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            damage = basedamage * levels.Level * 2;
             // Apply damage to player
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
 
