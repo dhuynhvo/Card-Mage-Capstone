@@ -10,9 +10,11 @@ public class HoleDetector : MonoBehaviour
     public float freezeTime = 0.5f;
     [SerializeField]
     private Level_Counter levels;
+    public GameObject player;
     private void Start()
     {
         myCamera = Camera.main;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -39,7 +41,11 @@ public class HoleDetector : MonoBehaviour
         {
             yield return 0;
         }
-        Time.timeScale = 1;
-        myCamera.GetComponent<shaker>().enabled = true;
+        if (player.GetComponent<PlayerHealth>().health > 0)
+        {
+            Time.timeScale = 1;
+            myCamera.GetComponent<shaker>().enabled = true;
+        }
+
     }
 }
