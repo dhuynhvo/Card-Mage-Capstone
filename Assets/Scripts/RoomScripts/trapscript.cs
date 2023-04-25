@@ -34,7 +34,12 @@ public class trapscript : MonoBehaviour
         audio.Play();
         disarmTime = Time.time + disarmDelay; // set the time at which the trap should be disarmed
     }
-
+    void playAudio()
+    {
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
+        audio.clip = TrapNoise;
+        audio.Play();
+    }
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && isArmed && Time.time >= nextDamageTime)
@@ -52,6 +57,8 @@ public class trapscript : MonoBehaviour
     {
         if (isArmed && Time.time >= disarmTime)
         {
+            Invoke("playAudio", 0);
+            
             // if the trap has been active for the specified time and hasn't dealt damage, disarm the trap
             isArmed = false;
             animator.SetBool("IsActive", false);
