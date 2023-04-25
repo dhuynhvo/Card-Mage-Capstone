@@ -34,6 +34,11 @@ public class Singletonn : MonoBehaviour
         private set;
     }
 
+    public void Start()
+    {
+        levels.Level = 1;
+    }
+
     // checks if instance already exists, and deletes if it does
     private void Update()
     {
