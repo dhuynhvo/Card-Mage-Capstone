@@ -33,6 +33,8 @@ public class BossNodeMovement : MonoBehaviour
     // Phase 2 variables
     public int numberOfBulletsPhase2 = 16;
     public float damagePhase2 = 1.5f;
+    [SerializeField]
+    private Level_Counter levels;
 
     void Start()
     {

@@ -10,13 +10,17 @@ public class BossBullet : MonoBehaviour
 {
     public GameObject player;
     private Rigidbody rb;
-    public float bulletDamage;
+    public float baseDamage;
+    private float bulletDamage;
     public float force;
     private float timer;
+    [SerializeField]
+    private Level_Counter levels;
     // Start is called before the first frame update
     void Start()
     {
-    rb = GetComponent<Rigidbody>();
+    
+        rb = GetComponent<Rigidbody>();
     player = GameObject.FindGameObjectWithTag("Player");
     // Use the bullet's forward direction for velocity instead of player direction
     Vector3 direction = transform.forward;
@@ -42,7 +46,12 @@ public class BossBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(bulletDamage);
+            float result = (float)levels.Level * .5f;//IMPORTANT: multiplies bullet damage * levels * damage mult
+            if (result < 1)
+            {
+                result = 1;
+            }
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(bulletDamage*result);
             Destroy(gameObject);
         }
         else if (other.gameObject.tag != "Spell" && other.gameObject.tag != "Boss" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "BossRoom"  && other.gameObject.tag != "Ground" && gameObject.activeSelf)
