@@ -7,7 +7,8 @@ public class trapscript : MonoBehaviour
 {
     public int basedamage = 5; // amount of damage the trap deals
     private int damage;
-    public float armDelay = 1.0f; // delay in seconds before the trap becomes armed
+    public float baseArmDelay = 1.0f; // delay in seconds before the trap becomes armed
+    private float armDelay;
     public float disarmDelay = 2.0f; // delay in seconds before the trap becomes disarmed after being armed
     public float damageDelay = 0.2f; // delay in seconds before the trap can deal damage again
     public Animator animator; // animator component for the trap
@@ -24,6 +25,7 @@ public class trapscript : MonoBehaviour
         {
             // if the player enters the collider and the trap isn't armed, arm the trap after the delay
             animator.SetBool("IsActive", false);
+            armDelay = baseArmDelay - (float)levels.Level / 5; //arms faster at higher levels.
             Invoke("ArmTrap", armDelay);
         }
     }

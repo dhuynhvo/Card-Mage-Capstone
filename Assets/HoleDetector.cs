@@ -20,7 +20,7 @@ public class HoleDetector : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            damage = basedamage * levels.Level * 2;
+            damage = basedamage + levels.Level * 2;
             // Apply damage to player
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
 
