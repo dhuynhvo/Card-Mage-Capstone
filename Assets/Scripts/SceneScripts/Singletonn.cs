@@ -36,7 +36,7 @@ public class Singletonn : MonoBehaviour
 
     public void Start()
     {
-        levels.Level = 1;
+        
     }
 
     // checks if instance already exists, and deletes if it does
