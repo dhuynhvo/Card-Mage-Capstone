@@ -3,9 +3,6 @@
 //EnemyShootingRed.cs
 
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class EnemyShootingRed : MonoBehaviour
