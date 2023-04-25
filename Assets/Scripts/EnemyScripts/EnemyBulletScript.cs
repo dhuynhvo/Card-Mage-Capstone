@@ -13,6 +13,8 @@ public class EnemyBulletScript : MonoBehaviour
     public float force;
     private float timer;
     public float bulletDamage;
+    [SerializeField]
+    private Level_Counter levels;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,13 @@ public class EnemyBulletScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(bulletDamage);
+
+            float result = (float)levels.Level * .5f;//IMPORTANT: multiplies bullet damage * levels * damage mult
+            if (result < 1)
+            {
+                result = 1;
+            }
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(bulletDamage*result);//IMPORTANT: multiplies bullet damage * levels * damage mult
             Destroy(gameObject);
         }
         else if (other.gameObject.tag != "Boss" && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Ground" && other.gameObject.tag != "MainCamera" && other.gameObject.tag != "Money" && other.gameObject.tag != "Spell" &&

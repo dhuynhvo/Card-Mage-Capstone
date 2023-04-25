@@ -5,10 +5,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class EnemyShootingRed : MonoBehaviour
 {
+    [SerializeField]
+    private Level_Counter levels;
+    public bool singleShot = false;
     public GameObject bullet;
     public Transform bulletPos;
     private float timer;
@@ -16,13 +20,14 @@ public class EnemyShootingRed : MonoBehaviour
     private bool firstStrike;
     public float initialAttack;
     public float enemyRange;
-    
+    float additionalDuration;
     private GameObject player;
     private Enemy_Info ei;
     [SerializeField]
     private Animator anim;
 
     public float shootDuration = 5f; // The duration for shooting
+    
     public float firerate = 0.3f; // The time between each shot
 
     // Start is called before the first frame update
@@ -31,6 +36,7 @@ public class EnemyShootingRed : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         ei = GetComponent<Enemy_Info>();
         anim = GetComponent<Animator>();
+        additionalDuration = (float)levels.Level / 7; //NOTE, IMPORTANT TO DIFFICULTY, HIGHER NUBMER MEANS LESS UBLLETS
     }
 
     // Update is called once per frame
@@ -52,7 +58,7 @@ public class EnemyShootingRed : MonoBehaviour
                 StartCoroutine(ShootWithAnimation());
 
             }
-            if (timer > cooldown && firstStrike==false)
+            if (timer > cooldown  && firstStrike==false)
             {
                 timer = 0;
                 StartCoroutine(ShootWithAnimation());
@@ -71,20 +77,25 @@ public class EnemyShootingRed : MonoBehaviour
         anim.SetBool("Attack", true);
         float durationTimer = 0;
         float fireTimer = 0;
-
-        while (durationTimer < shootDuration)
+        if (singleShot != true)
         {
-            if (fireTimer > firerate)
+            while (durationTimer < shootDuration + additionalDuration)
             {
-                shoot();
-                fireTimer = 0;
+                if (fireTimer > firerate)
+                {
+                    shoot();
+                    fireTimer = 0;
+                }
+
+                durationTimer += Time.deltaTime;
+                fireTimer += Time.deltaTime;
+                yield return null;
             }
-
-            durationTimer += Time.deltaTime;
-            fireTimer += Time.deltaTime;
-            yield return null;
         }
-
+        else
+        {
+            shoot();
+        }
         anim.SetBool("Attack", false);
     }
 }

@@ -152,6 +152,7 @@ MonoBehaviour:
   player: {fileID: 2049558500584079581, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
   force: 5
   bulletDamage: 0
+  levels: {fileID: 0}
 --- !u!1 &3519309152108011300
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +419,7 @@ MonoBehaviour:
   SappingHealth: 0
   damageSound: {fileID: 8300000, guid: 24d4b36d138d83f4ab30f3cd7fd9ec73, type: 3}
   deathSound: {fileID: 8300000, guid: 6aa19171d2b66154b8eac86f4bb48c6c, type: 3}
+  levelCounter: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}
 --- !u!114 &4205948510783803002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,11 +501,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 2718087455318675683, guid: c7e823d8a34e30e42901de0a8a8725ae, type: 3}
-  damage: 5
+  baseDamage: 1
   damageDelay: 1
   EM: {fileID: 0}
   canDamage: 1
   anim: {fileID: 0}
+  levelCounter: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}
 --- !u!114 &4069228613050058665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,13 +556,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caaab84be86b00a4182bffb2f1afc5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levels: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}
   bullet: {fileID: 7972882081869791165, guid: bcba234dc5b58284ca81a530ca4dd68f, type: 3}
   bulletPos: {fileID: 7017699278224551923}
   cooldown: 3
   initialAttack: 0
   enemyRange: 5
   anim: {fileID: 0}
-  shootDuration: 1.2
+  shootDuration: 0.8
   firerate: 0.15
 --- !u!114 &3979424968412570899
 MonoBehaviour:

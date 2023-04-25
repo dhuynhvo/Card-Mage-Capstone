@@ -46,7 +46,7 @@ public class Enemy_Info : MonoBehaviour
             slimeSound.deathSound = deathSound;
         }
         // Update the enemy health based on the current level
-        health += levelCounter.Level;
+        health += levelCounter.Level*2;
         maxHealth = health;
     }
 
