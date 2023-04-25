@@ -30,7 +30,11 @@ public class BossDeathEvents : MonoBehaviour
         if (info != null && info.health <= 0 && HasWon == false)
         {
             BossBar.SetActive(false);
-            HasWon= true;
+            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+            {
+                Destroy(enemy);
+            }
+            HasWon = true;
             NextRoom.SetActive(true);
             //WinScreen.SetActive(true);
             //WinText.SetActive(true);
