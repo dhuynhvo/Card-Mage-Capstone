@@ -43,6 +43,12 @@ public class Play_Card : MonoBehaviour
     private string LastButton;
     [SerializeField]
     private Text CreativityText;
+    [SerializeField]
+    private bool IsAttacking;
+    [SerializeField]
+    private float AttackTimer;
+    [SerializeField]
+    private float AttackCooldown;
 
     public float AttackBuff;
 
@@ -68,6 +74,17 @@ public class Play_Card : MonoBehaviour
     private void FixedUpdate()
     {
         GetOutQueue();
+        if (IsAttacking)
+        {
+            AttackTimer += Time.fixedDeltaTime;
+            if (AttackTimer >= AttackCooldown)
+            {
+                AttackTimer = 0;
+                IsAttacking = false;
+                anim.SetBool("NA", true);
+                //DashSphere.SetActive(false);
+            }
+        }
         //BasicCooldown(); //This is semihardcoded, a coroutine would work better but this is a scratchy fix
     }
 
@@ -132,6 +149,8 @@ public class Play_Card : MonoBehaviour
 
     public void AttackAnim()
     {
+        anim.SetBool("NA", false);
+        IsAttacking = true;
         float angle = SpellSpawnArea.transform.rotation.eulerAngles.y;
         if (angle > 45 && angle < 135)
         {

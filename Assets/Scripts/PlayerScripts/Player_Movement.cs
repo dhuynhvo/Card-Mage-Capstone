@@ -56,6 +56,8 @@ public class Player_Movement : MonoBehaviour
 
     public void RollAnim()
     {
+        anim.SetBool("ND", false);
+
         if (MoveDir == Vector3.right)
         {
             sprite.flipX = false;
@@ -202,6 +204,7 @@ public class Player_Movement : MonoBehaviour
             {
                 DashTimer = 0;
                 IsDashing = false;
+                anim.SetBool("ND", true);
                 //DashSphere.SetActive(false);
             }
         }
@@ -209,7 +212,7 @@ public class Player_Movement : MonoBehaviour
         if(Input.GetKey(UpKey) && Input.GetKey(LeftKey))
         {
             MoveDir = NW;
-            if (attacking.NotSpamming == true)
+            if (anim.GetBool("NA"))
             {
                 sprite.flipX = true;
             }
@@ -222,7 +225,7 @@ public class Player_Movement : MonoBehaviour
         else if (Input.GetKey(UpKey) && Input.GetKey(RightKey))
         {
             MoveDir = NE;
-            if (attacking.NotSpamming == true)
+            if (anim.GetBool("NA"))
             {
                 sprite.flipX = false;
             }
@@ -235,7 +238,7 @@ public class Player_Movement : MonoBehaviour
         else if (Input.GetKey(DownKey) && Input.GetKey(LeftKey))
         {
             MoveDir = SW;
-            if (attacking.NotSpamming == true)
+            if (anim.GetBool("NA"))
             {
                 sprite.flipX = true;
             }
@@ -248,7 +251,7 @@ public class Player_Movement : MonoBehaviour
         else if (Input.GetKey(DownKey) && Input.GetKey(RightKey))
         {
             MoveDir = SE;
-            if (attacking.NotSpamming == true)
+            if (anim.GetBool("NA"))
             {
                 sprite.flipX = false;
             }
@@ -278,7 +281,7 @@ public class Player_Movement : MonoBehaviour
 
         else if (Input.GetKey(LeftKey))
         {
-            if(attacking.NotSpamming == true)
+            if(anim.GetBool("NA"))
             {
                 sprite.flipX = true;
             }
@@ -291,7 +294,7 @@ public class Player_Movement : MonoBehaviour
         }
         else if (Input.GetKey(RightKey))
         {
-            if (attacking.NotSpamming == true)
+            if (anim.GetBool("NA"))
             {
                 sprite.flipX = false;
             }
