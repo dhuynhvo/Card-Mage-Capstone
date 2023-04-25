@@ -36,7 +36,7 @@ public class EnemyShootingRed : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         ei = GetComponent<Enemy_Info>();
         anim = GetComponent<Animator>();
-        additionalDuration = (float)levels.Level / 7; //NOTE, IMPORTANT TO DIFFICULTY, HIGHER NUBMER MEANS LESS UBLLETS
+        additionalDuration = (float)levels.Level / 7; //NOTE, IMPORTANT TO DIFFICULTY, HIGHER NUBMER LESS IMPACT
     }
 
     // Update is called once per frame
