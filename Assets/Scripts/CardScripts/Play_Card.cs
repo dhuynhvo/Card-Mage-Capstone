@@ -49,6 +49,8 @@ public class Play_Card : MonoBehaviour
     private float AttackTimer;
     [SerializeField]
     private float AttackCooldown;
+    [SerializeField]
+    private Creativity_Sprites CSprites;
 
     public float AttackBuff;
 
@@ -207,8 +209,7 @@ public class Play_Card : MonoBehaviour
         {
             CreativityCounter = 0;
         }
-
-        Debug.Log("Creativity" + CreativityCounter);
+        CSprites.SpriteOn(CreativityCounter);
         LastButton = button;
         Creativity = CreativityCounter / 10;
         CreativityText.text = "Creativity: " + CreativityCounter.ToString();
