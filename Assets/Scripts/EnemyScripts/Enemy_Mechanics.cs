@@ -106,7 +106,7 @@ public class Enemy_Mechanics : MonoBehaviour
             Vector3 m_NewForce = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
             int randCard = Random.Range(0, CardPool.cards.Count);
             
-            Vector3 newPosition = new Vector3(transform.position.x, 1f, transform.position.z);
+            Vector3 newPosition = new Vector3(transform.position.x, 4f, transform.position.z);
             
             GameObject Card = Instantiate(CardPool.cards[randCard], newPosition, Quaternion.Euler(90, 0, 0));
             Card.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);

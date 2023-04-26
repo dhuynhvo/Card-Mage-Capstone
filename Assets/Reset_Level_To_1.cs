@@ -10,4 +10,9 @@ public class Reset_Level_To_1 : MonoBehaviour
         levels.Level = 1;
     }
 
+    public void LevelTo1()
+    {
+        levels.Level = 1;
+    }
+
 }

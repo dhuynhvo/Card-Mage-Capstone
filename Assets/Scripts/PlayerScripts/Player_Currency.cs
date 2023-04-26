@@ -11,7 +11,7 @@ public class Player_Currency : MonoBehaviour
     public int money;
     public SteveMoneySO Steves;
 
-    public void Start()
+    public void SteveReset()
     {
         if(Steves != null)
         {

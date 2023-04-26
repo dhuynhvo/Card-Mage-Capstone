@@ -31,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
     private GameObject TimerUI;
     [SerializeField]
     private GameObject HealthUI;
+    [SerializeField]
+    private Player_Currency SteveMoney;
 
     public float DefenceBuff;
     public bool IsAlive 
@@ -104,6 +106,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator ShowDefeatScreen(float fadeinDuration)
     {
+        SteveMoney.SteveReset();
         CurrencyUI.SetActive(false);
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
