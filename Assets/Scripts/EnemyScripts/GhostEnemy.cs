@@ -18,6 +18,8 @@ public class GhostEnemy : MonoBehaviour
     private Vector3 idlePosition;
     private bool facingRight = true;
     public Ghost_Mechanics ghostMechanics;
+
+    private float initialY;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -27,14 +29,19 @@ public class GhostEnemy : MonoBehaviour
 
         isIdle = false;
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
+
+        initialY = transform.position.y;
     }
 
     void Update()
     {
         if (IsPlayerInRange(detectionRange))
         {
+            // Move the ghost enemy while keeping the Y position constant
             Vector3 direction = (player.position - transform.position).normalized;
+            direction.y = 34; // Set Y direction to 0
             transform.position += direction * moveSpeed * Time.deltaTime;
+            transform.position = new Vector3(transform.position.x, initialY, transform.position.z);
             isIdle = false;
         }
         else

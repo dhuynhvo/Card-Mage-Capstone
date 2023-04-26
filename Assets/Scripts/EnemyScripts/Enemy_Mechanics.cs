@@ -103,12 +103,13 @@ public class Enemy_Mechanics : MonoBehaviour
         float randChance = Random.Range(0f, 100f);
         if(randChance < info.DropChance && NotDead && thisID == ID)
         {
-            //var randPosition = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
             Vector3 m_NewForce = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
             int randCard = Random.Range(0, CardPool.cards.Count);
-            GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+            
+            Vector3 newPosition = new Vector3(transform.position.x, 1f, transform.position.z);
+            
+            GameObject Card = Instantiate(CardPool.cards[randCard], newPosition, Quaternion.Euler(90, 0, 0));
             Card.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);
-            //GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position + randPosition, Quaternion.Euler(90, 0, 0));
         }
     }
 
@@ -118,41 +119,40 @@ public class Enemy_Mechanics : MonoBehaviour
         float randChanceS;
         float randChanceG;
         float randChanceSteve;
-        for(int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++)
         {
             randChanceC = Random.Range(0, 100);
             randChanceS = Random.Range(0, 100);
             randChanceG = Random.Range(0, 100);
             randChanceSteve = Random.Range(0, 100);
+            
+            Vector3 newPosition = new Vector3(transform.position.x, 1f, transform.position.z);
+            
             if (randChanceC < CopperMoneyChance)
             {
-                //offset = new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
                 Vector3 m_NewForce = new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
-                GameObject C = Instantiate(MoneyRefArray[0], transform.position, Quaternion.Euler(90, 0, 0));
+                GameObject C = Instantiate(MoneyRefArray[0], newPosition, Quaternion.Euler(90, 0, 0));
                 C.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);
             }
 
             if (randChanceS < SilverMoneyChance)
             {
-                //offset = new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
                 Vector3 m_NewForce = new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
-                GameObject S = Instantiate(MoneyRefArray[1], transform.position, Quaternion.Euler(90, 0, 0));
+                GameObject S = Instantiate(MoneyRefArray[1], newPosition, Quaternion.Euler(90, 0, 0));
                 S.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);
             }
 
             if (randChanceG < GoldMoneyChance)
             {
-                //offset = new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
                 Vector3 m_NewForce = new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
-                GameObject G = Instantiate(MoneyRefArray[2], transform.position, Quaternion.Euler(90, 0, 0));
+                GameObject G = Instantiate(MoneyRefArray[2], newPosition, Quaternion.Euler(90, 0, 0));
                 G.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);
             }
 
             //if (randChanceSteve < SteveMoneyChance)
             //{
-             //   //offset = new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
             //    Vector3 m_NewForce = new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
-            //    GameObject Steve = Instantiate(MoneyRefArray[3], transform.position, Quaternion.Euler(90, 0, 0));
+            //    GameObject Steve = Instantiate(MoneyRefArray[3], newPosition, Quaternion.Euler(90, 0, 0));
             //    Steve.GetComponent<Rigidbody>().AddForce(m_NewForce, ForceMode.Impulse);
             //}
         }
