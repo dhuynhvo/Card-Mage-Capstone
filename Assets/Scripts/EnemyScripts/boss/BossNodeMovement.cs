@@ -54,6 +54,9 @@ public class BossNodeMovement : MonoBehaviour
 
         // Get the enemy information component
         enemyInfo = GetComponent<Enemy_Info>();
+
+        // Adjust boss variables based on the level
+        AdjustBossDifficulty(levels.Level);
     }
 
     void Update()
@@ -214,8 +217,15 @@ public class BossNodeMovement : MonoBehaviour
         bulletSpeed *= damagePhase2;
 
         // Double the number of bullet storms per node in the second phase
-        bulletStormsPerNode *= 2;
+        bulletStormsPerNode = Mathf.RoundToInt(bulletStormsPerNode * 1.5f);
 
         // other stats
+    }
+    private void AdjustBossDifficulty(int level)
+    {
+        // Adjust the boss variables based on the level
+        speed += 0.5f * (level - 1);
+        bulletSpeed += 0.5f * (level - 1);
+        bulletStormsPerNode += Mathf.FloorToInt(0.5f * (level - 1));
     }
 }
