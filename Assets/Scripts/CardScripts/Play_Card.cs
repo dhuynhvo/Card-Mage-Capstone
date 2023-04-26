@@ -244,7 +244,7 @@ public class Play_Card : MonoBehaviour
             };
         }
 
-        else if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
+        else if (Input.GetKeyDown(KeyCode.Q) && PlayerHand.CardsInHand[1] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
             NotSpamming = false;
             AttackAnim();
@@ -262,7 +262,7 @@ public class Play_Card : MonoBehaviour
             };
         }
 
-        else if (Input.GetKeyDown(KeyCode.F) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
+        else if (Input.GetKeyDown(KeyCode.E) && PlayerHand.CardsInHand[2] != null && count < MaxCardsInQueue && NotSpamming && Time.timeScale != 0)
         {
             NotSpamming = false;
             AttackAnim();
