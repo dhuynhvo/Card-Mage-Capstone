@@ -8,8 +8,6 @@ using UnityEngine;
 
 public class Enemy_Mechanics : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     SpriteRenderer sprite;
     [SerializeField]
     private Premade_Decks CardPool;
@@ -31,12 +29,12 @@ public class Enemy_Mechanics : MonoBehaviour
     [SerializeField]
     private bool hasDroppedMoney = false;
     private bool hasDroppedCard = false;
-
     [SerializeField] //Navigation used in Update() to turn to false on death
     private UnityEngine.AI.NavMeshAgent navMeshAgent;
     [SerializeField] //Time it takes for fade effect to occur
     public float fadeDuration = 2f;
-
+    
+    // Start is called before the first frame update
     void Start()
     {   
         thisID = gameObject.GetInstanceID();
@@ -50,19 +48,20 @@ public class Enemy_Mechanics : MonoBehaviour
         MoneyRefArray[2] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefGold");
         MoneyRefArray[3] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefSteve");
         transform.parent.transform.position = new Vector3(transform.parent.transform.position.x, 1f, transform.parent.transform.position.z);
-        // Get the NavMeshAgent component from the parent game object -Grant Davis--
+        // Get the NavMeshAgent component from the parent game object -Grant Davis-
         navMeshAgent = transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         if (info.health <= 0 && NotDead)
         {   
             //OnDeath Events for Dead Enemies---------------
             //Stop the NavMeshAgent from moving -Grant Davis
-            navMeshAgent.enabled = false;
+            if (navMeshAgent != null) {
+                navMeshAgent.enabled = false;
+            }   
             //Disable RigidBody
             Rigidbody rb = GetComponent<Rigidbody>();
             if (rb != null)

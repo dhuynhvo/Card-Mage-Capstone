@@ -1,3 +1,7 @@
+//Author: Grant Davis using Dan Huynhvo Enemy_Mechanics.cs as resource for this script.
+//UNR CS 426: Senior Project: Card Mage
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,30 +9,31 @@ using UnityEngine;
 public class Ghost_Mechanics : MonoBehaviour
 {
     SpriteRenderer sprite;
-    [SerializeField]
-    private Premade_Decks CardPool;
-    [SerializeField]
-    Sprite DeadSprite;
-    Enemy_Info info;
-    public bool NotDead;
+    //-----------Unused code----------------------------//
+    //[SerializeField] Sprite DeadSprite;
+    //--------Previous mechanic for dead enemy --------//
+    Enemy_Info info; 
+    public bool NotDead; //Check if player is alive.
     public int thisID;
-    [SerializeField]
-    private float CopperMoneyChance;
-    [SerializeField]
-    private float SilverMoneyChance;
-    [SerializeField]
-    private float GoldMoneyChance;
-    [SerializeField]
-    private float SteveMoneyChance; ///Steve is a currency lol//
-    [SerializeField]
-    private GameObject[] MoneyRefArray;
-    [SerializeField]
-    private bool hasDroppedMoney = false;
-    private bool hasDroppedCard = false;
+    //Money Drop Chance
+    [SerializeField] private float CopperMoneyChance;
+    [SerializeField] private float SilverMoneyChance;
+    [SerializeField] private float GoldMoneyChance;
+    [SerializeField] private float SteveMoneyChance; ///Steve is a currency lol//
+    [SerializeField] private GameObject[] MoneyRefArray;
+    [SerializeField] private bool hasDroppedMoney = false;
+    [SerializeField] private bool hasDroppedCard = false;
+    [SerializeField] private Premade_Decks CardPool;
+    [SerializeField] public float fadeDuration = 2f;
+    //Commented out for removal. Unused for this enemy -Grant Davis.........//
+    //[SerializeField] //Navigation used in Update() to turn to false on death
+    //private UnityEngine.AI.NavMeshAgent navMeshAgent;
+    //.......................................................................//
 
-    [SerializeField] //Time it takes for fade effect to occur
-    public float fadeDuration = 2f;
 
+    
+    
+    // Start is called before the first frame update
     void Start()
     {   
         thisID = gameObject.GetInstanceID();
@@ -42,17 +47,25 @@ public class Ghost_Mechanics : MonoBehaviour
         MoneyRefArray[2] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefGold");
         MoneyRefArray[3] = Resources.Load<GameObject>("Prefabs/Player and Collectibles/TeefSteve");
         transform.parent.transform.position = new Vector3(transform.parent.transform.position.x, 1f, transform.parent.transform.position.z);
+        // Get the NavMeshAgent component from the parent game object -Grant Davis- 
+        //navMeshAgent = transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
+
+    // Update is called once per frame
     void Update()
     {
-        
         if (info.health <= 0 && NotDead)
         {   
             //OnDeath Events for Dead Enemies---------------
             //FadeOut and Die
             FadeOut();
             //----------------------------------------------
-
+            //Disable Collision
+            Collider col = GetComponent<Collider>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
             //Drop Card
             if (!hasDroppedCard)
             {
