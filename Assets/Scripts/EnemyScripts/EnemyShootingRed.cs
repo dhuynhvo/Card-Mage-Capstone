@@ -1,4 +1,4 @@
-//Author: Robert
+//Author: Robert and Grant Davis
 //CS 426 Senior Project: Card Mage
 //EnemyShootingRed.cs
 
@@ -80,7 +80,11 @@ public class EnemyShootingRed : MonoBehaviour
             {
                 if (fireTimer > firerate)
                 {
-                    shoot();
+                    // Check if the enemy is alive before shooting
+                    if (ei.health > 0)
+                    {
+                        shoot();
+                    }
                     fireTimer = 0;
                 }
 
@@ -91,7 +95,11 @@ public class EnemyShootingRed : MonoBehaviour
         }
         else
         {
-            shoot();
+            // Check if the enemy is alive before shooting
+            if (ei.health > 0)
+            {
+                shoot();
+            }
         }
         anim.SetBool("Attack", false);
     }

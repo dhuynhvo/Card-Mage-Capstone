@@ -13,12 +13,10 @@ public class EnemyShooting : MonoBehaviour
     private float timer;
     public float cooldown;
     public float enemyRange;
-    
     private GameObject player;
     private Enemy_Info ei;
-
-    [SerializeField]
-    private Animator anim;
+    [SerializeField] private Animator anim;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()

@@ -44,8 +44,6 @@ GameObject:
   - component: {fileID: 1478341458001847855}
   - component: {fileID: 795728397094519466}
   - component: {fileID: 6225911546187809748}
-  - component: {fileID: 6469772744888915642}
-  - component: {fileID: 2299131648006689171}
   - component: {fileID: 1775921088562079317}
   - component: {fileID: 6562410783106316666}
   - component: {fileID: 6071041067814832647}
@@ -182,34 +180,6 @@ MonoBehaviour:
   hasDroppedMoney: 0
   navMeshAgent: {fileID: 7929899838983338798}
   fadeDuration: 2
---- !u!114 &6469772744888915642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051179799094749589}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168b721bb012cff4fa1563669f65db50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  EM: {fileID: 6225911546187809748}
---- !u!136 &2299131648006689171
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051179799094749589}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 0.3
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1775921088562079317
 Rigidbody:
   m_ObjectHideFlags: 0
