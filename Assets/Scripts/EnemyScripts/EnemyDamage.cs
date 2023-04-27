@@ -9,6 +9,7 @@ public class EnemyDamage : MonoBehaviour
     public float damageDelay = 1f; // delay time in seconds
     [SerializeField]
     private Enemy_Mechanics EM;
+    private Ghost_Mechanics GM;
     public bool canDamage = true;
     [SerializeField]
     private Animator anim;
@@ -41,6 +42,10 @@ public class EnemyDamage : MonoBehaviour
     private void OnCollisionEnter(Collision collision){
 
         if(collision.gameObject.tag == "Player" && EM.NotDead && canDamage)
+        {
+            StartCoroutine(DoDamage());
+        }
+        if(collision.gameObject.tag == "Player" && GM.NotDead && canDamage)
         {
             StartCoroutine(DoDamage());
         }

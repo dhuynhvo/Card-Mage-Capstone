@@ -454,8 +454,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 16.729319, z: 1}
+  m_Center: {x: 0, y: 0.40111256, z: 0}
 --- !u!114 &7235960389663705354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,6 +762,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2872216179348609383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239131648899052934}
+  - component: {fileID: 2613195749153584510}
+  - component: {fileID: 5138657001661746808}
+  m_Layer: 0
+  m_Name: Card2Collision (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1239131648899052934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872216179348609383}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5423599548789982187}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2613195749153584510
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872216179348609383}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 21.800396, z: 1}
+  m_Center: {x: 0, y: -1.606112, z: 0}
+--- !u!114 &5138657001661746808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872216179348609383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca353dd0b90cb7144a369093a4f1c17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropChance: 100
+  Cost: 0
+  CardPool: {fileID: 11400000, guid: c7b4d07a7ff848644b2b6ef03844b0d8, type: 2}
+  thisID: 0
+  price: {fileID: 8020781486911597840}
+  CardNumber: 2
+  sprite: {fileID: 8508895894903309838}
+  CardSprite: {fileID: 753420812521689338}
+  PriceObject: {fileID: 8676848982528639294}
 --- !u!1 &3205078477923667866
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,8 +873,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 21.800396, z: 1}
+  m_Center: {x: 0, y: -1.606112, z: 0}
 --- !u!114 &3729247409773639625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,6 +1066,7 @@ Transform:
   - {fileID: 6593949311239605392}
   - {fileID: 4775002514243482305}
   - {fileID: 4482538949969065538}
+  - {fileID: 1239131648899052934}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
