@@ -102,14 +102,11 @@ GameObject:
   - component: {fileID: 5830828336295425041}
   - component: {fileID: 5721157028857499796}
   - component: {fileID: 1299778131758043626}
-  - component: {fileID: 1303745128760607102}
-  - component: {fileID: 8928567346473581801}
   - component: {fileID: 4644797043707950141}
   - component: {fileID: 9083485820881842104}
   - component: {fileID: 3725692676705307912}
   - component: {fileID: 4080517265656778483}
   - component: {fileID: 3909617566460543875}
-  - component: {fileID: 7605129204640382223}
   - component: {fileID: 6585367581263967093}
   m_Layer: 10
   m_Name: BossModel
@@ -241,34 +238,6 @@ MonoBehaviour:
   hasDroppedMoney: 0
   navMeshAgent: {fileID: 0}
   fadeDuration: 2
---- !u!114 &1303745128760607102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6347856571958737835}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168b721bb012cff4fa1563669f65db50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.5
-  EM: {fileID: 1299778131758043626}
---- !u!136 &8928567346473581801
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6347856571958737835}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 1.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4644797043707950141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,13 +295,15 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6244185418654520370, guid: 1622d6b3cc88dbe449c5da73b75eb8d0, type: 3}
   bulletSingle: {fileID: 7972882081869791165, guid: 2e84868860523c14f897ca547f4dd40a, type: 3}
   bulletSpawnPoint: {fileID: 6358006553550984152}
-  bulletSpeed: 10
+  bulletSpeed: 5
   bulletStormCooldown: 0.35
   stopTimeAtNode: 1
   bulletStormsPerNode: 4
   playerDetectionRange: 4
-  numberOfBulletsPhase2: 16
-  damagePhase2: 1.5
+  numberOfBullets: 4
+  numberOfBulletsPhase2: 8
+  damagePhase2: 1.1
+  bulletSpeedatHalfHP: 10
   levels: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}
 --- !u!114 &4080517265656778483
 MonoBehaviour:
@@ -367,28 +338,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7605129204640382223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6347856571958737835}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caaab84be86b00a4182bffb2f1afc5fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels: {fileID: 0}
-  singleShot: 0
-  bullet: {fileID: 7972882081869791165, guid: 2e84868860523c14f897ca547f4dd40a, type: 3}
-  bulletPos: {fileID: 6358006553550984152}
-  cooldown: 5
-  initialAttack: 0
-  enemyRange: 8
-  anim: {fileID: 0}
-  shootDuration: 0.5
-  firerate: 0.3
 --- !u!114 &6585367581263967093
 MonoBehaviour:
   m_ObjectHideFlags: 0

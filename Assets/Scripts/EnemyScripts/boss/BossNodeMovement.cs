@@ -21,7 +21,7 @@ public class BossNodeMovement : MonoBehaviour
     public float bulletSpeed = 7f;
     public float bulletStormCooldown = 1f;
     public float stopTimeAtNode = 3f; // The duration the boss will stop at each node
-    public int bulletStormsPerNode = 3; // The number of bullet storms at each node
+    public float bulletStormsPerNode = 3f; // The number of bullet storms at each node
     // Player detection and engagement variables
     public float playerDetectionRange = 4f; // The range at which the boss detects the player
     private bool isEngaged = false; // Indicates if the boss has engaged in a fight
@@ -30,11 +30,16 @@ public class BossNodeMovement : MonoBehaviour
     // Boss health and phase control
     private Enemy_Info enemyInfo;
     private bool isSecondPhase = false;
+    // Phase 1 variables
+    [SerializeField] float numberOfBullets = 4;
     // Phase 2 variables
-    public int numberOfBulletsPhase2 = 16;
+    public float numberOfBulletsPhase2 = 8f;
     public float damagePhase2 = 1.5f;
-    [SerializeField]
-    private Level_Counter levels;
+    public float bulletSpeedatHalfHP = 10f;
+    [SerializeField] private Level_Counter levels;
+    public Color goldTint = new Color(1f, 0.84f, 0f); // Gold color
+    public float goldTintMultiplier = 0.1f; // The amount of gold tint to apply per level
+
 
     void Start()
     {
@@ -57,46 +62,62 @@ public class BossNodeMovement : MonoBehaviour
 
         // Adjust boss variables based on the level
         AdjustBossDifficulty(levels.Level);
+        SetBossColorByLevel(levels.Level);
     }
 
     void Update()
     {
-    // Check if the player is within the detection range
-    Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-    float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
-    if (distanceToPlayer <= playerDetectionRange)
-    {
-        isEngaged = true;
-    }
-
-    // If engaged, move between nodes and shoot bullet storms
-    if (isEngaged)
-    {
-        if (isMoving)
-        {
-            // Move the boss towards the current node
-            anim.SetBool("Walk", isMoving);
-            Vector3 direction = nodes[currentNode].position - transform.position;
-            Flip(direction.x);
-            transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
-
-            // If the boss has reached the node, stop and shoot bullet storms
-            if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f)
+        if (!IsDead())
             {
-                isMoving = false;
-                anim.SetBool("Walk", isMoving);
-                StartCoroutine(ShootBulletStormsAtNode());
+            // Check if the player is within the detection range
+            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+            float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
+            if (distanceToPlayer <= playerDetectionRange)
+            {
+                isEngaged = true;
+            }
+
+            // If engaged, move between nodes and shoot bullet storms
+            if (isEngaged)
+            {
+                if (isMoving)
+                {
+                    // Move the boss towards the current node
+                    anim.SetBool("Walk", isMoving);
+                    Vector3 direction = nodes[currentNode].position - transform.position;
+                    Flip(direction.x);
+                    transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, speed * Time.deltaTime);
+
+                    // If the boss has reached the node, stop and shoot bullet storms
+                    if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.1f)
+                    {
+                        isMoving = false;
+                        anim.SetBool("Walk", isMoving);
+                        StartCoroutine(ShootBulletStormsAtNode());
+                    }
+                }
+            }
+
+            // If the boss health is below 50%, enter the second phase
+            if (!isSecondPhase && enemyInfo.health <= enemyInfo.maxHealth * 0.5f)
+            {
+                EnterSecondPhase();
             }
         }
-    }
-
-    // If the boss health is below 50%, enter the second phase
-    if (!isSecondPhase && enemyInfo.health <= enemyInfo.maxHealth * 0.5f)
+        else
         {
-        EnterSecondPhase();
+            // Stop all animations and movement when the boss is dead
+            anim.SetBool("Walk", false);
+            isMoving = false;
         }
     }
 
+    private void SetBossColorByLevel(int level)
+    {
+        Renderer bossRenderer = GetComponent<Renderer>();
+        Color randomColor = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
+        bossRenderer.material.color = randomColor;
+    }
 
     // Flip the boss to face the correct direction based on movement
     private void Flip(float direction)
@@ -109,6 +130,16 @@ public class BossNodeMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
+    }
+    IEnumerator FlashFullGold()
+    {
+        Renderer bossRenderer = GetComponent<Renderer>();
+        Color originalColor = bossRenderer.material.color;
+
+        bossRenderer.material.color = goldTint;
+        yield return new WaitForSeconds(0.5f);
+
+        bossRenderer.material.color = originalColor;
     }
 
     IEnumerator ShootBulletStormsAtNode()
@@ -168,7 +199,6 @@ public class BossNodeMovement : MonoBehaviour
     void ShootBulletStorm()
     {
         // Set the number of bullets and angle between them
-        int numberOfBullets = 12;
         float angleBetweenBullets = 360f / numberOfBullets;
 
         for (int i = 0; i < numberOfBullets; i++)
@@ -213,19 +243,34 @@ public class BossNodeMovement : MonoBehaviour
 
     private void EnterSecondPhase()
     {
+        
         isSecondPhase = true;
         bulletSpeed *= damagePhase2;
+        StartCoroutine(FlashFullGold());
 
         // Double the number of bullet storms per node in the second phase
         bulletStormsPerNode = Mathf.RoundToInt(bulletStormsPerNode * 1.5f);
 
+        // Increase the number of bullets per bullet storm in the second phase
+        numberOfBullets = numberOfBulletsPhase2;
+
         // other stats
     }
+
     private void AdjustBossDifficulty(int level)
     {
         // Adjust the boss variables based on the level
         speed += 0.5f * (level - 1);
         bulletSpeed += 0.5f * (level - 1);
-        bulletStormsPerNode += Mathf.FloorToInt(0.5f * (level - 1));
+        bulletSpeedatHalfHP += 0.5f * (level - 1);
+        bulletStormsPerNode += 0.5f * (level - 1);
+        numberOfBullets += 1f * (level - 1);
+        numberOfBulletsPhase2 += 1f * (level - 1);
     }
+
+    private bool IsDead()
+    {
+        return enemyInfo.health <= 0;
+    }
+
 }
