@@ -29,12 +29,16 @@ public class Deck : MonoBehaviour
     private string CurrentDeckName = "Base";
     [SerializeField]
     private bool PushingDeck;
+    [SerializeField]
     public bool InitDeck;
+    [SerializeField]
+    private Premade_Decks StartDeck;
 
 
     private void Awake()
     {
-        LoadDeck();
+        StartDeck = Resources.Load<Premade_Decks>("Player_Card_Pool");
+        LoadDeck(StartDeck.DeckName);
     }
 
     private void Start()
@@ -52,7 +56,7 @@ public class Deck : MonoBehaviour
     public void Shuffle()
     {
         int index = 0;
-        while (Cards[index] != null)
+        while (Cards[index] != null && index < Cards.Count - 1)
         {
             index++;
         }

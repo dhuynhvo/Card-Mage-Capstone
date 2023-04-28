@@ -33,6 +33,8 @@ public class Pause_Screen : MonoBehaviour
     private GameObject TimerUI;
     [SerializeField]
     private GameObject HealthUI;
+    [SerializeField]
+    private Premade_Decks StartDeck;
 
     private void Start()
     {
@@ -263,6 +265,7 @@ public class Pause_Screen : MonoBehaviour
         PlayerDeck.ClearGrave();
         PlayerDeck.GraveIndex = 0;
         PlayerDeck.LoadDeck(stash[0].DeckName);
+        StartDeck.DeckName = stash[0].DeckName;
         BackToPause();
     }
 
@@ -272,6 +275,7 @@ public class Pause_Screen : MonoBehaviour
         PlayerDeck.ClearGrave();
         PlayerDeck.GraveIndex = 0;
         PlayerDeck.LoadDeck(stash[1].DeckName);
+        StartDeck.DeckName = stash[1].DeckName;
         BackToPause();
     }
 
@@ -281,6 +285,7 @@ public class Pause_Screen : MonoBehaviour
         PlayerDeck.ClearGrave();
         PlayerDeck.GraveIndex = 0;
         PlayerDeck.LoadDeck(stash[2].DeckName);
+        StartDeck.DeckName = stash[2].DeckName;
         BackToPause();
     }
 
@@ -290,6 +295,7 @@ public class Pause_Screen : MonoBehaviour
         PlayerDeck.ClearGrave();
         PlayerDeck.GraveIndex = 0;
         PlayerDeck.LoadDeck(stash[3].DeckName);
+        StartDeck.DeckName = stash[3].DeckName;
         BackToPause();
     }
 
