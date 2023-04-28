@@ -1012,6 +1012,7 @@ GameObject:
   - component: {fileID: 1259528863}
   - component: {fileID: 1259528865}
   - component: {fileID: 1259528866}
+  - component: {fileID: 1259528867}
   m_Layer: 0
   m_Name: SceneControl
   m_TagString: Untagged
@@ -1071,6 +1072,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}
+--- !u!114 &1259528867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259528862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64ff88b9a8dddb4d8e5c27cfe476f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drops: {fileID: 11400000, guid: c7b4d07a7ff848644b2b6ef03844b0d8, type: 2}
+  CardPool: {fileID: 11400000, guid: e84809bdac3d07b4fb3825e55a18eed3, type: 2}
+  StandardDrops:
+  - {fileID: 1664770982671801557, guid: 90f721f6445b55c46816f85fe3f1f21b, type: 3}
+  - {fileID: 558235411438155045, guid: a39574b98411fa04c935985476c363f9, type: 3}
+  - {fileID: 558235411438155045, guid: d2c934f586440704fb96703ec68b11ca, type: 3}
+  - {fileID: 4126209695671375339, guid: 75827872ad609ae4d8cb4492ed7b5d75, type: 3}
+  - {fileID: 2748165332221211222, guid: 903f8b443e3332945a87becda458cd29, type: 3}
+  - {fileID: 8554202272233715172, guid: ba1ffd5a3cc698a42977a2fca0e28720, type: 3}
+  - {fileID: 2241724882760251865, guid: 0347feeea5d677348a9ad33ca9becb90, type: 3}
+  - {fileID: 4276651294721375549, guid: ff38a31ee3b9baf4f98420cb82f88f05, type: 3}
+  - {fileID: 3297273678169667895, guid: a3be243f57a383f4eb354ce771efc593, type: 3}
+  - {fileID: 3710835505003753016, guid: f9e9b552a2aedd74fba8e2e0299d7312, type: 3}
+  StandardCardPool:
+  - FireCube
+  - WaterCube
+  - Icicle
 --- !u!1 &1302917570
 GameObject:
   m_ObjectHideFlags: 0

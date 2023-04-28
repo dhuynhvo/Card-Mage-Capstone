@@ -31341,6 +31341,7 @@ GameObject:
   - component: {fileID: 1887498412}
   - component: {fileID: 1887498414}
   - component: {fileID: 1887498415}
+  - component: {fileID: 1887498416}
   m_Layer: 0
   m_Name: Listener
   m_TagString: Untagged
@@ -31431,6 +31432,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BackgroundMusic: {fileID: 8300000, guid: 03cd20b4c2b293b4dac0ef144473f846, type: 3}
+--- !u!114 &1887498416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887498411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd015fff6b4cbf49b1c5f9a023d7e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drops: {fileID: 11400000, guid: c7b4d07a7ff848644b2b6ef03844b0d8, type: 2}
+  CardPool: {fileID: 11400000, guid: e84809bdac3d07b4fb3825e55a18eed3, type: 2}
 --- !u!1 &1888199217
 GameObject:
   m_ObjectHideFlags: 0

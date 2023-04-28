@@ -11,6 +11,7 @@ public class PickUp : MonoBehaviour
 {
     [SerializeField]
     private Premade_Decks PlayerCardPool;
+    public Remove_From_Drops Remover;
     public int thisID;
 
     void Start()
@@ -18,6 +19,7 @@ public class PickUp : MonoBehaviour
         thisID = gameObject.GetInstanceID();
         GameEvents.current.NearDroppedCard += PickUpCard;
         PlayerCardPool = Resources.Load<Premade_Decks>("Player_Card_Pool");
+        Remover = GameObject.Find("Listener").GetComponent<Remove_From_Drops>();
     }
 
     void Update()
@@ -35,7 +37,7 @@ public class PickUp : MonoBehaviour
             if (PlayerCardPool.CardNames.Count == 0)
             {
                 PlayerCardPool.CardNames.Add(cardName);
-
+                Remover.RemoveDrops(cardName);
                 return;
             }
 
@@ -53,6 +55,7 @@ public class PickUp : MonoBehaviour
             if (isInList == false)
             {
                 PlayerCardPool.CardNames.Add(cardName);
+                Remover.RemoveDrops(cardName);
             }
 
             Destroy(gameObject);

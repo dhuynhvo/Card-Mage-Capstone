@@ -39,9 +39,13 @@ public class ShopScript : MonoBehaviour
             randCard = Random.Range(q+1, CardPool.cards.Count);
         }
 
-        priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
-        price.text = priceOfCard.ToString();
-        sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+        if(CardPool.cards.Count > 0)
+        {
+            priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
+            price.text = priceOfCard.ToString();
+            sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+        }
+
     }
     private void ShopErr()
     {

@@ -100,7 +100,7 @@ public class Enemy_Mechanics : MonoBehaviour
     public void DropCardOnDeath(int ID)
     {
         float randChance = Random.Range(0f, 100f);
-        if(randChance < info.DropChance && NotDead && thisID == ID)
+        if(randChance < info.DropChance && NotDead && thisID == ID && CardPool.cards.Count > 0)
         {
             Vector3 m_NewForce = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
             int randCard = Random.Range(0, CardPool.cards.Count);

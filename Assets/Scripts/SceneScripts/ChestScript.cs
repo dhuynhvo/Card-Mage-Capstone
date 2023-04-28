@@ -28,8 +28,12 @@ public class ChestScript : MonoBehaviour
         thisID = gameObject.GetInstanceID();
         GameEvents.current.OnShopBuy += Current_OnChestBuy;
         randCard = Random.Range(0, CardPool.cards.Count);
-        priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
-        sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+        if(CardPool.cards.Count > 0)
+        {
+            priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
+            sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+        }
+
     }
     private void ChestErr()
     {
