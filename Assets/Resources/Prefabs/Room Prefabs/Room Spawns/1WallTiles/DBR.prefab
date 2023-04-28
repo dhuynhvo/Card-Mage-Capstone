@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351995160113104890}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8450338737694579198
 BoxCollider:
@@ -257,7 +257,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351995160113104890}
-  m_RootOrder: 7
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1569132866376977390
 SpriteRenderer:
@@ -425,7 +425,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351995160113104890}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &2242162685034349359
 SpriteRenderer:
@@ -593,7 +593,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351995160113104890}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3444981761571542264
 BoxCollider:
@@ -638,7 +638,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351995160113104890}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &6499796620390367791
 SpriteRenderer:
@@ -806,7 +806,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4351995160113104890}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &387625027809397810
 SpriteRenderer:
@@ -1050,6 +1050,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4351995160113104890}
+  - component: {fileID: 5805055983748431713}
   m_Layer: 3
   m_Name: DBR
   m_TagString: Tile
@@ -1076,12 +1077,29 @@ Transform:
   - {fileID: 1483752864493858160}
   - {fileID: 2155834882654320065}
   - {fileID: 6409998621950043099}
-  - {fileID: 3810466870471925112}
   - {fileID: 3542527250730020523}
   - {fileID: 1320077426412862324}
-  - {fileID: 5816143261764301460}
-  - {fileID: 6874946167895766717}
   - {fileID: 6078272497477285148}
+  - {fileID: 6874946167895766717}
+  - {fileID: 5816143261764301460}
+  - {fileID: 3810466870471925112}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5805055983748431713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168807269015710304}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27347485603c86c4c924957c80255915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 6620485509632747353}
+  - {fileID: 3650757616758158188}
+  - {fileID: 1162763833578872702}
+  levels: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}

@@ -594,7 +594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5525066750729777655}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.52, y: 0.9, z: 0.1}
+  m_LocalPosition: {x: 0.5, y: 0.9, z: 0.115}
   m_LocalScale: {x: 1.55, y: 1.5500001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -859,7 +859,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8241026002442684862}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.39, y: 1, z: 0.586}
+  m_LocalPosition: {x: 0.385, y: 1, z: 0.586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -927,6 +927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4351995160113104890}
+  - component: {fileID: 3638766314006436699}
   m_Layer: 3
   m_Name: DTL
   m_TagString: Tile
@@ -961,3 +962,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3638766314006436699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168807269015710304}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27347485603c86c4c924957c80255915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 5525066750729777655}
+  - {fileID: 8241026002442684862}
+  - {fileID: 5864076950982307375}
+  - {fileID: 482782971110641549}
+  levels: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}
