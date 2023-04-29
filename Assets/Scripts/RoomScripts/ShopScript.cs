@@ -15,12 +15,14 @@ public class ShopScript : MonoBehaviour
     [SerializeField]
     private int thisID;
     int randCard;
-    int priceOfCard;
+    public int priceOfCard;
     public TMP_Text price;
     public int CardNumber;
+    public string CurrentCard;
     public SpriteRenderer sprite;
     public GameObject CardSprite;
     public GameObject PriceObject;
+    int CurrentCount;
 
 
     // Start is called before the first frame update
@@ -46,7 +48,52 @@ public class ShopScript : MonoBehaviour
             sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
         }
 
+        CurrentCount = CardPool.cards.Count;
+        CurrentCard = CardPool.cards[randCard].name;
     }
+
+    private void Update()
+    {
+        if (CurrentCount != CardPool.cards.Count)
+        {
+            for (int i = 0; i < CardPool.cards.Count; i++)
+            {
+                if (CurrentCard == CardPool.cards[i].name)
+                {
+                    randCard = i;
+                    if (CardPool.cards.Count > 0)
+                    {
+                        priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
+                        sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+                    }
+                    CurrentCount = CardPool.cards.Count;
+                    CurrentCard = CardPool.cards[i].name;
+                    CurrentCard = CardPool.cards[i].name;
+                    price.text = priceOfCard.ToString();
+                    return;
+                }
+            }
+
+            randCard = Random.Range(0, CardPool.cards.Count);
+            if (CardPool.cards.Count > 0)
+            {
+                priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
+                sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+                CurrentCount = CardPool.cards.Count;
+                CurrentCard = CardPool.cards[randCard].name;
+                price.text = priceOfCard.ToString();
+            }
+
+            else
+            {
+                CurrentCount = 0;
+                CurrentCard = "";
+                price.text = "";
+                sprite.sprite = null;
+            }
+        }
+    }
+
     private void ShopErr()
     {
         throw new System.NotImplementedException();

@@ -14,6 +14,8 @@ public class ChestScript : MonoBehaviour
     private Premade_Decks CardPool;
     [SerializeField]
     private int thisID;
+    int CurrentCount;
+    public string CurrentCard;
     int randCard;
     int priceOfCard;
     public int CardNumber;
@@ -33,8 +35,48 @@ public class ChestScript : MonoBehaviour
             priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
             sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
         }
-
+        CurrentCount = CardPool.cards.Count;
+        CurrentCard = CardPool.cards[randCard].name;
     }
+
+    private void Update()
+    {
+        if(CurrentCount != CardPool.cards.Count)
+        {
+            for(int i = 0; i < CardPool.cards.Count; i++)
+            {
+                if(CurrentCard == CardPool.cards[i].name)
+                {
+                    randCard= i;
+                    if (CardPool.cards.Count > 0)
+                    {
+                        priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
+                        sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+                    }
+                    CurrentCount = CardPool.cards.Count;
+                    CurrentCard = CardPool.cards[i].name;
+                    return;
+                }
+            }
+
+            randCard = Random.Range(0, CardPool.cards.Count);
+            if (CardPool.cards.Count > 0)
+            {
+                priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
+                sprite.sprite = CardPool.cards[randCard].GetComponent<SpriteRenderer>().sprite;
+                CurrentCount = CardPool.cards.Count;
+                CurrentCard = CardPool.cards[randCard].name;
+            }
+
+            else
+            {
+                CurrentCount = 0;
+                CurrentCard = "";
+                sprite.sprite = null;
+            }
+        }
+    }
+
     private void ChestErr()
     {
         throw new System.NotImplementedException();
@@ -47,6 +89,7 @@ public class ChestScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("PURCHASE ATTTEMPTED");
+            Debug.Log(randCard);
             GameEvents.current.DropCard_S(thisID, collision.gameObject);
 
             //Destroy(gameObject);
@@ -60,6 +103,7 @@ public class ChestScript : MonoBehaviour
             //int randCard = Random.Range(0, CardPool.cards.Count);
             //int priceOfCard = CardPool.cards[randCard].GetComponent<Connected_Spell>().SpellInfo.SpellPrice;
             //player.GetComponent<Player_Currency>().Steves.money -= priceOfCard;
+
             var randPosition = new Vector3(Random.Range(-1.5f, 1.5f), 0, Random.Range(-1.5f, 1.5f));
             GameObject Card = Instantiate(CardPool.cards[randCard], gameObject.transform.position + randPosition, Quaternion.Euler(90, 0, 0));
             Debug.Log("PURCHASE SUCCESSFUL");
