@@ -32,6 +32,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private GameObject HealthUI;
     [SerializeField]
+    private GameObject BossHealth;
+    [SerializeField]
     private Player_Currency SteveMoney;
 
     public float DefenceBuff;
@@ -111,6 +113,7 @@ public class PlayerHealth : MonoBehaviour
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
+        BossHealth.SetActive(false);
         //mainCamera.GetComponent<shaker>().enabled = false;
         // GetComponent<shaker>().enabled = false;
         float currentTime = 0;
