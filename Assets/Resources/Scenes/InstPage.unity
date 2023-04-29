@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -475,7 +475,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 248332697}
         m_TargetAssemblyTypeName: InstructionsScreens, Assembly-CSharp
-        m_MethodName: ChangeScreens5to6
+        m_MethodName: ChangeScreens6to7
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1003,8 +1003,8 @@ MonoBehaviour:
   Screen2: {fileID: 1919116443}
   Screen3: {fileID: 758108490}
   Screen4: {fileID: 83108908}
-  Screen5: {fileID: 2048430100}
-  Screen6: {fileID: 1768204482}
+  Screen5: {fileID: 1768204482}
+  Screen6: {fileID: 2048430100}
   Screen7: {fileID: 1628508357}
 --- !u!1 &310625672
 GameObject:
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1351935616, guid: 3629cc4596253564f9545bd6ac8176db, type: 3}
+  m_Sprite: {fileID: -263275685, guid: 08eba63b178371444b6a361e7d1e4de7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1102,6 +1102,103 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310625672}
+  m_CullTransparentMesh: 1
+--- !u!1 &322660034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322660035}
+  - component: {fileID: 322660038}
+  - component: {fileID: 322660037}
+  - component: {fileID: 322660036}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &322660035
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322660034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1768204483}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 99}
+  m_SizeDelta: {x: 800, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &322660036
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322660034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 780a55fe6ec18cd48b76ddb00201c0c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &322660037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322660034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 574950700, guid: 5842b5fdd8f965d40874f7865b31dbb9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &322660038
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322660034}
   m_CullTransparentMesh: 1
 --- !u!1 &357996842
 GameObject:
@@ -2066,7 +2163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d230c61c591f6454aa44efa9f332ec94, type: 3}
+  m_Sprite: {fileID: 1076667671, guid: bc84b687cf5b2a745b78fc7d2d6243bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2314,7 +2411,7 @@ GameObject:
   - component: {fileID: 1037225554}
   - component: {fileID: 1037225553}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Creativity number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2337,7 +2434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 288}
+  m_AnchoredPosition: {x: 0, y: 343}
   m_SizeDelta: {x: 800, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1037225553
@@ -2827,7 +2924,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1325787770, guid: 7fcbe42797b8a244a8b3e7c8e66e2568, type: 3}
+  m_Sprite: {fileID: -1906719087, guid: f9089e5b1e41b034697c3e0f15025816, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3789,8 +3886,8 @@ RectTransform:
   - {fileID: 1919116444}
   - {fileID: 758108491}
   - {fileID: 83108909}
-  - {fileID: 2048430101}
   - {fileID: 1768204483}
+  - {fileID: 2048430101}
   - {fileID: 1628508358}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -3929,7 +4026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -304}
+  m_AnchoredPosition: {x: 0, y: -275}
   m_SizeDelta: {x: 1800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729404469
@@ -3965,8 +4062,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: collect cards from chests and defeated enemies, and exchange coins for
-    cards at shops
+  m_Text: collect cards from chests and defeated enemies, and exchange soulstones
+    for cards at shops
 --- !u!222 &1729404470
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4062,7 +4159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1768204483}
   m_Layer: 5
-  m_Name: Screen6
+  m_Name: Screen5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4083,8 +4180,9 @@ RectTransform:
   - {fileID: 1966872461}
   - {fileID: 1899453273}
   - {fileID: 1037225552}
+  - {fileID: 322660035}
   m_Father: {fileID: 1636035399}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4417,7 +4515,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 248332697}
         m_TargetAssemblyTypeName: InstructionsScreens, Assembly-CSharp
-        m_MethodName: ChangeScreens6to7
+        m_MethodName: ChangeScreens5to6
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4539,8 +4637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -164}
-  m_SizeDelta: {x: 1800, y: 600}
+  m_AnchoredPosition: {x: 0, y: -207}
+  m_SizeDelta: {x: 1800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966872462
 MonoBehaviour:
@@ -4575,10 +4673,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "For every unique key press for spell casts, creativity increases by one.
-    \nPressing the same key twice = creativity reset.\r\nFor each creativity point
-    speed and damage increases by 10% and the cooldown between casts is reduced by
-    10%."
+  m_Text: Unique key press for spell casts increases creativity (+1), same key pressed
+    twice resets. Each point boosts speed/damage (10%) and reduces cooldown (10%).
+    Creativity shown by blue dots on top of the hand
 --- !u!222 &1966872463
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4673,7 +4770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2048430101}
   m_Layer: 5
-  m_Name: Screen5
+  m_Name: Screen6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4696,7 +4793,7 @@ RectTransform:
   - {fileID: 506956170}
   - {fileID: 1165134631}
   m_Father: {fileID: 1636035399}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
