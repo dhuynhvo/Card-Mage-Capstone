@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class LeaderboardUi : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject PlayButton;
-    [SerializeField]
-    public GameObject OptionsButton;
-    [SerializeField]
-    public GameObject CreditsButton;
-    [SerializeField]
-    public GameObject ExitButton;
+
     [SerializeField]
     public GameObject CardMageTitle;
     [SerializeField]
-    public GameObject LeaderboardButton;
+    public GameObject Buttons;
 
     [SerializeField]
     public GameObject LeaderboardScreen;
@@ -23,24 +16,19 @@ public class LeaderboardUi : MonoBehaviour
 
     public void ToLeaderboard()
     {
-        PlayButton.SetActive(false);
-        OptionsButton.SetActive(false);
-        CreditsButton.SetActive(false);
-        ExitButton.SetActive(false);
+
         CardMageTitle.SetActive(false);
-        LeaderboardButton.SetActive(false);
+        Buttons.SetActive(false);
+
 
         LeaderboardScreen.SetActive(true);
     }
 
     public void FromLeaderboard()
     {
-        PlayButton.SetActive(true);
-        OptionsButton.SetActive(true);
-        CreditsButton.SetActive(true);
-        ExitButton.SetActive(true);
+        Buttons.SetActive(true);
         CardMageTitle.SetActive(true);
-        LeaderboardButton.SetActive(true);
+
 
         LeaderboardScreen.SetActive(false);
     }
