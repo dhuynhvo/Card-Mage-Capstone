@@ -140,7 +140,18 @@ public class BossNodeMovement : MonoBehaviour
         anim.SetBool("Walk", false);
 
         // Move the boss up by 1 unit along the z-axis
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+        Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.5f);
+        float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+
+        anim.SetBool("Walk", true);
+        while (distanceToTarget > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+            yield return null;
+        }
+
+        anim.SetBool("Walk", false);
 
         yield return new WaitForSeconds(destroyBossDelay);
         Destroy(gameObject);
