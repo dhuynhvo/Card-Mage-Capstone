@@ -25,7 +25,7 @@ public class trapscript : MonoBehaviour
         {
             // if the player enters the collider and the trap isn't armed, arm the trap after the delay
             animator.SetBool("IsActive", false);
-            armDelay = baseArmDelay - (float)levels.Level / 5; //arms faster at higher levels.
+            armDelay = baseArmDelay - (float)levels.Level / 20; //arms faster at higher levels.
             Invoke("ArmTrap", armDelay);
         }
     }
