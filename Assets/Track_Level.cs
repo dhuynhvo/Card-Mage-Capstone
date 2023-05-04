@@ -12,6 +12,7 @@ public class Track_Level : MonoBehaviour
     public GameObject EntryWindow;
     public Level_Counter CurrentLevel;
     public GameObject Screens;
+    public bool HasPressed;
 
     string PlayerName;
     string SavedName;
@@ -27,8 +28,9 @@ public class Track_Level : MonoBehaviour
     public void OnSub()
     {
         PlayerName = InputText.text;
-        if(PlayerName != "")
+        if(PlayerName != "" && HasPressed == false)
         {
+            HasPressed = true;
             Leader_Data info = new Leader_Data(CurrentLevel.Level, PlayerName);
             Debug.Log(info.level + info.player);
             Leaderboard.data.Add(info);
