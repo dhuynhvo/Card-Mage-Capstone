@@ -16,8 +16,8 @@ public class Pause_Screen : MonoBehaviour
     private GameObject ChangeDeckScreen;
     [SerializeField]
     private GameObject DeckBuilderScreen;
-    [SerializeField]
-    private GameObject StatsScreen;
+    //[SerializeField]
+    //private GameObject StatsScreen;
     [SerializeField]
     private Deck PlayerDeck;
     [SerializeField]
@@ -68,7 +68,6 @@ public class Pause_Screen : MonoBehaviour
                 HandUI.SetActive(false);
                 HealthUI.SetActive(false);
                 TimerUI.SetActive(false);
-                StatsScreen.SetActive(false);
                 ChangeDeckScreen.SetActive(false);
                 DeckBuilderScreen.SetActive(false);
 
@@ -84,7 +83,6 @@ public class Pause_Screen : MonoBehaviour
                 HandUI.SetActive(true);
                 HealthUI.SetActive(true);
                 TimerUI.SetActive(true);
-                StatsScreen.SetActive(false);
                 ChangeDeckScreen.SetActive(false);
                 DeckBuilderScreen.SetActive(false);
                 Time.timeScale = 1f;
@@ -103,7 +101,6 @@ public class Pause_Screen : MonoBehaviour
             HealthUI.SetActive(true);
             TimerUI.SetActive(true);
 
-            StatsScreen.SetActive(false);
             ChangeDeckScreen.SetActive(false);
             DeckBuilderScreen.SetActive(false);
             PauseScreen.SetActive(false);
@@ -123,7 +120,6 @@ public class Pause_Screen : MonoBehaviour
             PauseScreen.SetActive(false);
             ChangeDeckScreen.SetActive(false);
             DeckBuilderScreen.SetActive(false);
-            StatsScreen.SetActive(false);
             Time.timeScale = 1f;
             paused = false;
         }
@@ -136,7 +132,6 @@ public class Pause_Screen : MonoBehaviour
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(true);
         DeckBuilderScreen.SetActive(false);
         Time.timeScale = 0f;
@@ -151,7 +146,6 @@ public class Pause_Screen : MonoBehaviour
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-        StatsScreen.SetActive(true);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
         Time.timeScale = 0f;
@@ -165,7 +159,6 @@ public class Pause_Screen : MonoBehaviour
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(true);
         Time.timeScale = 0f;
@@ -179,14 +172,13 @@ public class Pause_Screen : MonoBehaviour
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
         Time.timeScale = 0f;
         paused = true;
     }
 
-    public void StatsToPause()
+/*    public void StatsToPause()
     {
         PauseScreen.SetActive(true);
         CurrencyUI.SetActive(false);
@@ -198,7 +190,7 @@ public class Pause_Screen : MonoBehaviour
         DeckBuilderScreen.SetActive(false);
         Time.timeScale = 0f;
         paused = true;
-    }
+    }*/
 
     public void DeckBuilderToResume()
     {
@@ -207,7 +199,6 @@ public class Pause_Screen : MonoBehaviour
         HandUI.SetActive(true);
         HealthUI.SetActive(true);
         TimerUI.SetActive(true);
-        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
         Time.timeScale = 1f;
@@ -221,7 +212,6 @@ public class Pause_Screen : MonoBehaviour
         HandUI.SetActive(true);
         HealthUI.SetActive(true);
         TimerUI.SetActive(true);
-        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
         Time.timeScale = 1f;
@@ -235,7 +225,6 @@ public class Pause_Screen : MonoBehaviour
         HandUI.SetActive(true);
         HealthUI.SetActive(true);
         TimerUI.SetActive(true);
-        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
         Time.timeScale = 1f;
@@ -250,7 +239,6 @@ public class Pause_Screen : MonoBehaviour
         HandUI.SetActive(false);
         HealthUI.SetActive(false);
         TimerUI.SetActive(false);
-        StatsScreen.SetActive(false);
         ChangeDeckScreen.SetActive(false);
         DeckBuilderScreen.SetActive(false);
         Time.timeScale = 0f;
