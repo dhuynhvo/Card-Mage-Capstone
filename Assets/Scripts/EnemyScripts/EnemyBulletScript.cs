@@ -18,6 +18,11 @@ public class EnemyBulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //EXPLICIT EASY LEVEL 1
+        if (levels.Level == 1)
+        {
+            bulletDamage = 1;
+        }
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);

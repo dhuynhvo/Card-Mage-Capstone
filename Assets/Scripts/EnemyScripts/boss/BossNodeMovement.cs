@@ -59,7 +59,7 @@ public class BossNodeMovement : MonoBehaviour
 
         // Get the enemy information component
         enemyInfo = GetComponent<Enemy_Info>();
-
+        enemyInfo.health += levels.Level * 3;
         // Adjust boss variables based on the level
         AdjustBossDifficulty(levels.Level);
         SetBossColorByLevel(levels.Level);

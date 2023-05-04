@@ -21,6 +21,7 @@ public class trapscript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Player") && !isArmed)
         {
             // if the player enters the collider and the trap isn't armed, arm the trap after the delay
@@ -35,6 +36,11 @@ public class trapscript : MonoBehaviour
         isArmed = true;
         animator.SetBool("IsActive", true);
         damage = basedamage + levels.Level * 2;
+        //EXPLICIT EASY LEVEL 1
+        if (levels.Level == 1)
+        {
+            damage = 3;
+        }
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         audio.clip = TrapNoise;
         audio.Play();
