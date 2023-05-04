@@ -13,6 +13,7 @@ public class Track_Level : MonoBehaviour
     public Level_Counter CurrentLevel;
     public GameObject Screens;
     public bool HasPressed;
+    public AudioClip victory;
 
     string PlayerName;
     string SavedName;
@@ -30,13 +31,16 @@ public class Track_Level : MonoBehaviour
         PlayerName = InputText.text;
         if(PlayerName != "" && HasPressed == false)
         {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = victory;
+            audio.Play();
             HasPressed = true;
             Leader_Data info = new Leader_Data(CurrentLevel.Level, PlayerName);
             Debug.Log(info.level + info.player);
             Leaderboard.data.Add(info);
             BubbleSort();
             Time.timeScale = 1f;
-            StartCoroutine(DelayScene(.5f));
+            StartCoroutine(DelayScene(1.2f));
         }
     }
 
