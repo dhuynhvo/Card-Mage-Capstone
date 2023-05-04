@@ -1,4 +1,4 @@
-//Dan Huynhvo
+//Dan Huynhvo and Grant Davis
 //UNR
 //CS 425
 

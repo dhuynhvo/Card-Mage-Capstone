@@ -25,6 +25,10 @@ public class Enemy_Info : MonoBehaviour
     [SerializeField]
     private Level_Counter levelCounter;
 
+    // Add death sound repeat count
+    [SerializeField]
+    private int deathSoundRepeat = 3;
+
     //reference to SlimeSound
     private SlimeSound slimeSound;
     private bool isTakingDamage;
@@ -64,6 +68,18 @@ public class Enemy_Info : MonoBehaviour
             health -= collision.gameObject.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
             StartCoroutine(PlayDamageAnimation());
         }
+
+        if (health <= 0)
+        {
+            if (gameObject.CompareTag("Boss"))
+            {
+                StartCoroutine(PlayDeathSoundMultipleTimes());
+            }
+            else
+            {
+                slimeSound.PlaySound(slimeSound.deathSound);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -78,6 +94,18 @@ public class Enemy_Info : MonoBehaviour
         {
             health -= collision.gameObject.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
             StartCoroutine(PlayDamageAnimation());
+        }
+
+        if (health <= 0)
+        {
+            if (gameObject.CompareTag("Boss"))
+            {
+                StartCoroutine(PlayDeathSoundMultipleTimes());
+            }
+            else
+            {
+                slimeSound.PlaySound(slimeSound.deathSound);
+            }
         }
     }
 
@@ -105,6 +133,14 @@ public class Enemy_Info : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
             anim.SetBool("Damage", false);
+        }
+    }
+    private IEnumerator PlayDeathSoundMultipleTimes()
+    {
+        for (int i = 0; i < deathSoundRepeat; i++)
+        {
+            slimeSound.PlaySound(slimeSound.deathSound);
+            yield return new WaitForSeconds(slimeSound.deathSound.length);
         }
     }
 }
