@@ -5,6 +5,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Enemy_Info : MonoBehaviour
 {
@@ -29,10 +31,18 @@ public class Enemy_Info : MonoBehaviour
     [SerializeField]
     private int deathSoundRepeat = 3;
 
-    //reference to SlimeSound
+    // Reference to TextMesh prefab
+    [SerializeField]
+    private GameObject damageNumberPrefab;
+
+    // Reference to SlimeSound
     private SlimeSound slimeSound;
     private bool isTakingDamage;
-    private const string DamageAnimationName = "Damage";    
+    private const string DamageAnimationName = "Damage";
+
+    private bool alternateSpawnPosition = false;
+    // Add the serialized field toggle for damage numbers
+    [SerializeField] private bool showDamageNumbers = true;
 
     void Start()
     {
@@ -57,16 +67,32 @@ public class Enemy_Info : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Spell_Info>())
+        HandleCollision(collision.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        HandleCollision(collision.gameObject);
+    }
+
+    private void HandleCollision(GameObject collision)
+    {
+        float damage = 0;
+
+        if (collision.tag == "Spell" && collision.GetComponent<Spell_Info>())
         {
-            health -= collision.gameObject.GetComponent<Spell_Info>().damage;
-            StartCoroutine(PlayDamageAnimation());
+            damage = collision.GetComponent<Spell_Info>().damage;
+        }
+        else if (collision.tag == "Spell" && collision.GetComponent<Connected_Spell>())
+        {
+            damage = collision.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
         }
 
-        else if(collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Connected_Spell>())
+        if (damage > 0)
         {
-            health -= collision.gameObject.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
+            health -= damage;
             StartCoroutine(PlayDamageAnimation());
+            ShowDamageNumber(damage);
         }
 
         if (health <= 0)
@@ -82,31 +108,47 @@ public class Enemy_Info : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void ShowDamageNumber(float damage)
     {
-        if (collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Spell_Info>())
+        if (showDamageNumbers)
         {
-            health -= collision.gameObject.GetComponent<Spell_Info>().damage;
-            StartCoroutine(PlayDamageAnimation());
-        }
+            // Calculate spawn position based on the value of alternateSpawnPosition
+            Vector3 spawnPosition = alternateSpawnPosition
+                ? transform.position + new Vector3(0.4f, 0.1f, 0)
+                : transform.position + new Vector3(-0.4f, 0.1f, 0);
 
-        else if (collision.gameObject.tag == "Spell" && collision.gameObject.GetComponent<Connected_Spell>())
-        {
-            health -= collision.gameObject.GetComponent<Connected_Spell>().SpellInfo.AOEdamage;
-            StartCoroutine(PlayDamageAnimation());
-        }
+            GameObject damageNumber = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.Euler(90, 0, 0));
+            TextMeshPro textMeshPro = damageNumber.GetComponent<TextMeshPro>();
 
-        if (health <= 0)
-        {
-            if (gameObject.CompareTag("Boss"))
+            if (textMeshPro != null)
             {
-                StartCoroutine(PlayDeathSoundMultipleTimes());
+                textMeshPro.text = damage.ToString("F0");
+                StartCoroutine(AnimateDamageNumber(damageNumber));
             }
             else
             {
-                slimeSound.PlaySound(slimeSound.deathSound);
+                Debug.LogError("TextMeshPro component not found on the damage number prefab.");
             }
+
+            // Toggle alternateSpawnPosition for the next spawn
+            alternateSpawnPosition = !alternateSpawnPosition;
         }
+    }
+
+    private IEnumerator AnimateDamageNumber(GameObject damageNumber)
+    {
+        float duration = 1f;
+        float t = 0;
+        Vector3 originalPosition = damageNumber.transform.position;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            damageNumber.transform.position = new Vector3(originalPosition.x, originalPosition.y + t * 0.5f, originalPosition.z);
+            yield return null;
+        }
+
+        Destroy(damageNumber);
     }
 
     public IEnumerator SapHealth(int SapNumber, float ActiveDuration, float SapDamage)

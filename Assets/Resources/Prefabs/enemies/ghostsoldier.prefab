@@ -124,6 +124,8 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: 24d4b36d138d83f4ab30f3cd7fd9ec73, type: 3}
   deathSound: {fileID: 8300000, guid: 6aa19171d2b66154b8eac86f4bb48c6c, type: 3}
   levelCounter: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}
+  deathSoundRepeat: 3
+  damageNumberPrefab: {fileID: 5052409267145481100, guid: f45db4f2e304d6641b0ae28fd0cd02d3, type: 3}
 --- !u!114 &3728043035978857174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,8 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebbbbbe16413894b87ed49516a0915c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardPool: {fileID: 11400000, guid: c7b4d07a7ff848644b2b6ef03844b0d8, type: 2}
-  DeadSprite: {fileID: 0}
   NotDead: 0
   thisID: 0
   CopperMoneyChance: 50
@@ -242,6 +242,8 @@ MonoBehaviour:
   SteveMoneyChance: 0
   MoneyRefArray: []
   hasDroppedMoney: 0
+  hasDroppedCard: 0
+  CardPool: {fileID: 11400000, guid: c7b4d07a7ff848644b2b6ef03844b0d8, type: 2}
   fadeDuration: 2
 --- !u!1 &3988873514242754272
 GameObject:
