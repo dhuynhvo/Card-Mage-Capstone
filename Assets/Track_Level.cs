@@ -36,8 +36,14 @@ public class Track_Level : MonoBehaviour
             Leaderboard.data.Add(info);
             BubbleSort();
             Time.timeScale = 1f;
-            SceneManager.LoadScene("CreditsPage");
+            StartCoroutine(DelayScene(.5f));
         }
+    }
+
+    public IEnumerator DelayScene(float dur)
+    {
+        yield return new WaitForSeconds(dur);
+        SceneManager.LoadScene("CreditsPage");
     }
 
     public void BubbleSort()
