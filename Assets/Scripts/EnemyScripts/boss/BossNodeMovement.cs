@@ -126,8 +126,9 @@ public class BossNodeMovement : MonoBehaviour
 
     IEnumerator MoveToNode0AndDestroy()
     {
-        // Instantiate the explosion prefab at the boss's position with a 90-degree rotation on the x-axis
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.Euler(90f, 0f, 0f));
+        // Instantiate the explosion prefab at the boss's local position with a 90-degree rotation on the x-axis
+        Vector3 explosionLocalPosition = new Vector3(0f, 0f, -1f);
+        GameObject explosion = Instantiate(explosionPrefab, transform.TransformPoint(explosionLocalPosition), Quaternion.Euler(90f, 0f, 0f), transform);
 
         // Set the explosion as a child of the boss, so it follows the boss
         explosion.transform.SetParent(transform);
@@ -136,11 +137,12 @@ public class BossNodeMovement : MonoBehaviour
         anim.SetBool("Walk", isMoving);
 
         // Move to node 0
+        float node0Speed = speed * 0.5f;
         while (Vector3.Distance(transform.position, nodes[0].position) > 0.1f)
         {
             Vector3 direction = nodes[0].position - transform.position;
             Flip(direction.x);
-            transform.position = Vector3.MoveTowards(transform.position, nodes[0].position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, nodes[0].position, node0Speed * Time.deltaTime);
             yield return null;
         }
 
