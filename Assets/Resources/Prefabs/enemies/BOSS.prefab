@@ -237,7 +237,7 @@ MonoBehaviour:
   MoneyRefArray: []
   hasDroppedMoney: 0
   navMeshAgent: {fileID: 0}
-  fadeDuration: 2
+  fadeDuration: 3
 --- !u!114 &4644797043707950141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +307,11 @@ MonoBehaviour:
   levels: {fileID: 11400000, guid: 9a7f33a1bb471a249a6de1c997933679, type: 2}
   goldTint: {r: 1, g: 0.84, b: 0, a: 1}
   goldTintMultiplier: 0.1
+  destroyBossDelay: 3
+  vanishUpwardSpeed: 3
+  vanishDuration: 3
+  explosionPrefab: {fileID: 1262953452491550, guid: bf675a57c29dfbd438b59e26f831c000, type: 3}
+  explosionPrefab2: {fileID: 1943103879558080, guid: 8d277c0bf1ac86248b897b30036ab895, type: 3}
 --- !u!114 &4080517265656778483
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -43,6 +43,8 @@ public class BossNodeMovement : MonoBehaviour
     private bool isDying = false;
     public float vanishUpwardSpeed = 3f;
     public float vanishDuration = 3f;
+    public GameObject explosionPrefab;
+    public GameObject explosionPrefab2;
 
     void Start()
     {
@@ -124,6 +126,12 @@ public class BossNodeMovement : MonoBehaviour
 
     IEnumerator MoveToNode0AndDestroy()
     {
+        // Instantiate the explosion prefab at the boss's position with a 90-degree rotation on the x-axis
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.Euler(90f, 0f, 0f));
+
+        // Set the explosion as a child of the boss, so it follows the boss
+        explosion.transform.SetParent(transform);
+        
         isMoving = true;
         anim.SetBool("Walk", isMoving);
 
@@ -139,6 +147,8 @@ public class BossNodeMovement : MonoBehaviour
         // Stop walking animation when the boss reaches node 0
         anim.SetBool("Walk", false);
 
+        
+
         // Move the boss up by 1 unit along the z-axis
         Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.5f);
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
@@ -153,10 +163,13 @@ public class BossNodeMovement : MonoBehaviour
 
         anim.SetBool("Walk", false);
 
+        // Wait for a few seconds to allow the explosion animation to play
         yield return new WaitForSeconds(destroyBossDelay);
+
+        // Destroy the explosion prefab along with the boss
+        Destroy(explosion);
         Destroy(gameObject);
     }
-
 
     private void SetBossColorByLevel(int level)
     {
