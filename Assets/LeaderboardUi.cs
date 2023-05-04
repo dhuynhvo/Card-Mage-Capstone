@@ -9,7 +9,8 @@ public class LeaderboardUi : MonoBehaviour
     public GameObject CardMageTitle;
     [SerializeField]
     public GameObject Buttons;
-
+    [SerializeField]
+    public Change_Leaderboard Changer;
     [SerializeField]
     public GameObject LeaderboardScreen;
 
@@ -22,6 +23,7 @@ public class LeaderboardUi : MonoBehaviour
 
 
         LeaderboardScreen.SetActive(true);
+        Changer.ChangeScores();
     }
 
     public void FromLeaderboard()
