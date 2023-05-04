@@ -39,7 +39,10 @@ public class BossNodeMovement : MonoBehaviour
     [SerializeField] private Level_Counter levels;
     public Color goldTint = new Color(1f, 0.84f, 0f); // Gold color
     public float goldTintMultiplier = 0.1f; // The amount of gold tint to apply per level
-
+    [SerializeField] private float destroyBossDelay = 3f;
+    private bool isDying = false;
+    public float vanishUpwardSpeed = 3f;
+    public float vanishDuration = 3f;
 
     void Start()
     {
@@ -109,8 +112,40 @@ public class BossNodeMovement : MonoBehaviour
             // Stop all animations and movement when the boss is dead
             anim.SetBool("Walk", false);
             isMoving = false;
+
+            if (!isDying)
+            {
+                // Set isDying to true to prevent the coroutine from being called repeatedly
+                isDying = true;
+                StartCoroutine(MoveToNode0AndDestroy());
+            }
         }
     }
+
+    IEnumerator MoveToNode0AndDestroy()
+    {
+        isMoving = true;
+        anim.SetBool("Walk", isMoving);
+
+        // Move to node 0
+        while (Vector3.Distance(transform.position, nodes[0].position) > 0.1f)
+        {
+            Vector3 direction = nodes[0].position - transform.position;
+            Flip(direction.x);
+            transform.position = Vector3.MoveTowards(transform.position, nodes[0].position, speed * Time.deltaTime);
+            yield return null;
+        }
+
+        // Stop walking animation when the boss reaches node 0
+        anim.SetBool("Walk", false);
+
+        // Move the boss up by 1 unit along the z-axis
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+
+        yield return new WaitForSeconds(destroyBossDelay);
+        Destroy(gameObject);
+    }
+
 
     private void SetBossColorByLevel(int level)
     {
@@ -183,8 +218,11 @@ public class BossNodeMovement : MonoBehaviour
 
     IEnumerator ShootSingleBulletWithDelay()
     {
-        shoot();
-        yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i < levels.Level; i++)
+        {
+            shoot();
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     void ShuffleNodes()
@@ -201,6 +239,7 @@ public class BossNodeMovement : MonoBehaviour
 
     void ShootBulletStorm()
     {
+        if (IsDead()) return;
         // Set the number of bullets and angle between them
         float angleBetweenBullets = 360f / numberOfBullets;
 
@@ -237,6 +276,7 @@ public class BossNodeMovement : MonoBehaviour
 
     void shoot()
     {
+        if (IsDead()) return;
         GameObject bullet2 = Instantiate(bulletSingle, transform.position, Quaternion.identity);
         AudioManager.instance.Play("BossBigProjectile");
 
