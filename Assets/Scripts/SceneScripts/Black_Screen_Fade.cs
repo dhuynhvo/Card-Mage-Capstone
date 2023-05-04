@@ -10,18 +10,6 @@ public class Black_Screen_Fade : MonoBehaviour
     private AnimationCurve _FadeInCurve;
     public Level_Counter Counter;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public IEnumerator FadeToBlack(float fadeinDuration, bool ReloadScene = false)
     {
         Time.timeScale = 0f;
@@ -71,5 +59,15 @@ public class Black_Screen_Fade : MonoBehaviour
             yield return null;
         }
         GetComponent<Image>().color = new Color(0, 0, 0, 0);
+    }
+
+    public void CallFadeToBlack(float duration)
+    {
+        StartCoroutine(FadeToBlack(duration, false));
+    }
+
+    public void CallFadeFromBlack(float duration)
+    {
+        StartCoroutine(FadeFromBlack(duration));
     }
 }
