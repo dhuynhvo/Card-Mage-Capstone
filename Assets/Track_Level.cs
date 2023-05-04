@@ -48,18 +48,15 @@ public class Track_Level : MonoBehaviour
 
     public void BubbleSort()
     {
-        if(Leaderboard.data.Count > 0)
+        for (int i = 0; i < Leaderboard.data.Count - 1; i++)
         {
-            for (int i = 0; i < Leaderboard.data.Count - 1; i++)
+            for (int j = 0; j < Leaderboard.data.Count - 1; j++)
             {
-                for (int j = 0; j < Leaderboard.data.Count - 1; j++)
+                if (Leaderboard.data[j].level < Leaderboard.data[j + 1].level)
                 {
-                    if (Leaderboard.data[j].level < Leaderboard.data[j + 1].level)
-                    {
-                        Leader_Data temp = Leaderboard.data[j];
-                        Leaderboard.data[j] = Leaderboard.data[j + 1];
-                        Leaderboard.data[j + 1] = temp;
-                    }
+                    Leader_Data temp = Leaderboard.data[j];
+                    Leaderboard.data[j] = Leaderboard.data[j + 1];
+                    Leaderboard.data[j + 1] = temp;
                 }
             }
         }
