@@ -114,9 +114,12 @@ public class BossNodeMovement : MonoBehaviour
 
     private void SetBossColorByLevel(int level)
     {
-        Renderer bossRenderer = GetComponent<Renderer>();
-        Color randomColor = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
-        bossRenderer.material.color = randomColor;
+        if (level >= 2)
+        {
+            Renderer bossRenderer = GetComponent<Renderer>();
+            Color randomColor = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
+            bossRenderer.material.color = randomColor;
+        }
     }
 
     // Flip the boss to face the correct direction based on movement
@@ -246,7 +249,7 @@ public class BossNodeMovement : MonoBehaviour
         
         isSecondPhase = true;
         bulletSpeed *= damagePhase2;
-        StartCoroutine(FlashFullGold());
+        //StartCoroutine(FlashFullGold());
 
         // Double the number of bullet storms per node in the second phase
         bulletStormsPerNode = Mathf.RoundToInt(bulletStormsPerNode * 1.5f);
