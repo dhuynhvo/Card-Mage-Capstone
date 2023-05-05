@@ -40,7 +40,6 @@ public class Track_Level : MonoBehaviour
             AudioSource audio = GetComponent<AudioSource>();
             audio.clip = victory;
             audio.Play();
-            Time.timeScale = 1f;
             StartCoroutine(DelayScene(1.2f));
         }
     }
