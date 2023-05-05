@@ -23,6 +23,7 @@ public class LeaderboardUi : MonoBehaviour
 
 
         LeaderboardScreen.SetActive(true);
+
         Changer.ChangeScores();
     }
 
