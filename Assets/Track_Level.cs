@@ -14,6 +14,7 @@ public class Track_Level : MonoBehaviour
     public GameObject Screens;
     public bool HasPressed;
     public AudioClip victory;
+    public AudioClip Error;
 
     string PlayerName;
     string SavedName;
@@ -40,15 +41,23 @@ public class Track_Level : MonoBehaviour
             AudioSource audio = GetComponent<AudioSource>();
             audio.clip = victory;
             audio.Play();
-            Time.timeScale = 1f;
-            StartCoroutine(DelayScene(1.2f));
         }
     }
 
-    public IEnumerator DelayScene(float dur)
+    public void GoToCredits()
     {
-        yield return new WaitForSeconds(dur);
-        SceneManager.LoadScene("CreditsPage");
+        if(HasPressed == true)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("CreditsPage");
+        }
+
+        else
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = Error;
+            audio.Play();
+        }
     }
 
     public void BubbleSort()
