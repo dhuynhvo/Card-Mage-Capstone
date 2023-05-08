@@ -1,10 +1,11 @@
+// Worked on by Abida
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 
-// Worked on by Abida
 // takes aspects of multiple online sources
 
 public class Brightness : MonoBehaviour
@@ -16,8 +17,8 @@ public class Brightness : MonoBehaviour
 
     [SerializeField]
     public BrightnessObject bright_value;
-
-    // change brightness slider
+    
+    // initial brightness setting
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class Brightness : MonoBehaviour
 
     }
 
+    // changes brightness slider
     public void AdjustBrightness(float value)
     {
         if(value != 0)

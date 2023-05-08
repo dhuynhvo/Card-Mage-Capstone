@@ -1,11 +1,11 @@
+// Worked on by Abida
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Worked on by Abida
-// used online sources for basis
-        // keeps volume outside of scene
+    // keeps volume outside of scene using DontDestroyOnLoad
 public class BGSound : MonoBehaviour
 {
 

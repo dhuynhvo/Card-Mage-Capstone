@@ -1,10 +1,11 @@
+// Worked on by Abida Mim
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// Worked on by Abida Mim
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -67,6 +68,9 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
+        // when the character takes damage, screen shake is activated,
+        // the character sprite changes color, a sound happens to indicate damage,
+        // and health bar is changed
     public void TakeDamage(float mod)
     {
         if (!IsAlive)
@@ -106,6 +110,8 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+        // code for the defeat screen, which toggles of all other ui elements
+        // and pulls up a black screen slowly with indicated text
     IEnumerator ShowDefeatScreen(float fadeinDuration)
     {
         SteveMoney.SteveReset();

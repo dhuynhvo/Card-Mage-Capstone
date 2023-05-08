@@ -1,7 +1,10 @@
+// Worked on by Abida
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+    // ui elements are toggled on and off in order to progress
+    // the pages of instructions
 public class InstructionsScreens : MonoBehaviour
 {
     [SerializeField]

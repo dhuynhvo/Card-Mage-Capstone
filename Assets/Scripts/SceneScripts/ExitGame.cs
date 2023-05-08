@@ -1,8 +1,9 @@
+// Worked on by Grant and Abida
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Worked on by Grant and Abida
 
 public class ExitGame : MonoBehaviour
 {

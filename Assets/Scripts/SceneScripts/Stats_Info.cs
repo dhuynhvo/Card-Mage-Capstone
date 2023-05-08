@@ -1,4 +1,4 @@
-// Dan Hyunhvo, Abida Mim
+// Worked on by Abida Mim and Dan Hyunhvo
 
 using System.Collections;
 using System.Collections.Generic;

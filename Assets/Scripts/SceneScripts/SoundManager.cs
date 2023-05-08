@@ -1,9 +1,10 @@
+// Worked on by Abida Mim
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Worked on by Abida
 // Based on previously existing code
 
 public class SoundManager : MonoBehaviour

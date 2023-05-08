@@ -92,6 +92,8 @@ public class Pause_Screen : MonoBehaviour
 
     }
 
+        // the next functions switch between the different pages of
+        // pause by toggling
     public void ResumeGame()
     {
         if(paused)
@@ -245,7 +247,8 @@ public class Pause_Screen : MonoBehaviour
         paused = true;
     }
 
-
+        // functions to adjust the deck, with preset decks
+        // and customized decks
     //It's hardcoded because i'm very sleepy, if anyone finds this remind me to fix it please -Dan
     public void ChoseDeck1()
     {
