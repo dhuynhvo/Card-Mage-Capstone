@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Implemented by Robert Bothne, used for shop teleport and return - scrapped mechanic
 public class Teleporter_to_shop : MonoBehaviour
 {
     public GameObject returnPoint;

@@ -1,4 +1,5 @@
-//Author: Grant Davis
+//Authors: Grant Davis & Robert Bothne
+//Difficulty scaling and projectile height by Robert Bothne, Mechanics by Grant Davis
 //CS 426 Senior Project: Card Mage
 //EnemyBulletScript
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//implemented by robert bothne , used to recolor walls and tiles if we can get proper colors set up.
 public class Recolor : MonoBehaviour
 {
     // Start is called before the first frame update

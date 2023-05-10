@@ -1,4 +1,5 @@
 //Author: Grant Davis
+//subAuthor: Robert Bothne - Added big single shot functionality
 //CS 426 Senior Project
 //BossNodeMovement.cs
 

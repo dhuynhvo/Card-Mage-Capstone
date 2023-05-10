@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+//implemented by robert bothne
 public class HoleDetector : MonoBehaviour
 {
     Camera myCamera;
@@ -36,7 +37,7 @@ public class HoleDetector : MonoBehaviour
             
         }
     }
-    IEnumerator Pause(float p)
+    IEnumerator Pause(float p) //slow time while player falls in hole
     {
         
         Time.timeScale = 0.1f;

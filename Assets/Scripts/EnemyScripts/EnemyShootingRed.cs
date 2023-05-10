@@ -1,4 +1,5 @@
 //Author: Robert and Grant Davis
+//used for all ranged enemies other than boss. Changes from EnemyShooting.cs by Robert bothne (difficulty scale, several bullets fired, single shot mode, fire rate, first strike timer and initial attack)
 //CS 426 Senior Project: Card Mage
 //EnemyShootingRed.cs
 

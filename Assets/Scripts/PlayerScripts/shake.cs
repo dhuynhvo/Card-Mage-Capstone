@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//implemented by robert bothne
 public class shake : MonoBehaviour
 {
     public AnimationCurve curve;
@@ -11,6 +11,7 @@ public class shake : MonoBehaviour
     {
         
     }
+    //move camera within set position on curve.
     IEnumerator Shaking()
     {
         Vector3 startPos = transform.position;

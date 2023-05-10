@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Implemented by Robert Bothne
 public class shaker : MonoBehaviour
 {
     public bool enableds = true;
@@ -12,7 +12,7 @@ public class shaker : MonoBehaviour
     private GameObject player;
     // Update is called once per frame
     void Update()
-    {
+    {//check if disabled through menu option or pit functionality.
         if (enableds == true)
         {
             if (start)
@@ -23,6 +23,7 @@ public class shaker : MonoBehaviour
         }
         
     }
+    //move camera within set position on curve.
     IEnumerator Shaking()
     {
         

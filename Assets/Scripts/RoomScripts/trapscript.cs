@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+//implemented by robert bothne
 public class trapscript : MonoBehaviour
 {
     public int basedamage = 5; // amount of damage the trap deals

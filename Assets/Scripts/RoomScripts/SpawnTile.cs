@@ -10,7 +10,7 @@ public class SpawnTile : MonoBehaviour
 {
     public GameObject[] objects;
     void Start()
-    {
+    {//spawn in tile prefabs in the array at a random rotation for increased variety
         int rotations = 0;
         int rand = Random.Range(0, objects.Length);
         int random = Random.Range(0, 3);
