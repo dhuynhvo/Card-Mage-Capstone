@@ -96,7 +96,7 @@ public class ChestScript : MonoBehaviour
         }
     }
 
-    public void Current_OnChestBuy(int ID, GameObject player)
+    public void Current_OnChestBuy(int ID, GameObject player)   //game events function to spawn a card when touching chest
     {
         if (thisID == ID)
         {

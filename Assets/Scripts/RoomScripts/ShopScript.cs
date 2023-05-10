@@ -55,7 +55,7 @@ public class ShopScript : MonoBehaviour
         CurrentCard = CardPool.cards[randCard].name;
     }
 
-    private void Update()
+    private void Update()   //main shop logic
     {
         if (CurrentCount != CardPool.cards.Count)
         {

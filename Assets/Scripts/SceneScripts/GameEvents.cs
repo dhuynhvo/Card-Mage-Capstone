@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEvents : MonoBehaviour
+public class GameEvents : MonoBehaviour // This class handles any game events to decrease needed references in the code base
 {
     public static GameEvents current;
 

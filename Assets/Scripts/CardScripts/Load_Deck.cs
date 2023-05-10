@@ -32,7 +32,7 @@ public class Load_Deck : MonoBehaviour
         
     }
 
-    public void LoadDeckBuilder(Premade_Decks deck, GameObject[] cards)
+    public void LoadDeckBuilder(Premade_Decks deck, GameObject[] cards) //Initializes the deck builder
     {
         for(int i = 0; i < CurrentDeck.cards.Count; i++)
         {

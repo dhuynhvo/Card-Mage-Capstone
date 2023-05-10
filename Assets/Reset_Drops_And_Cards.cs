@@ -12,7 +12,7 @@ public class Reset_Drops_And_Cards : MonoBehaviour
     public List<GameObject> StandardDrops;
     public List<string> StandardCardPool;
 
-    void Start()
+    void Start()    //initializes card pools and drops
     {
         Drops.cards.Clear();
         CardPool.CardNames.Clear();

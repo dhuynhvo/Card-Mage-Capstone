@@ -29,7 +29,7 @@ public class Hand : MonoBehaviour
         FillHand();
     }
 
-    public void FillHand()
+    public void FillHand()  //ensures the hand is always full
     {
         //if (PlayerDeck.Cards[0] != null && !HandFullCheck())
         if (!HandFullCheck() && PlayerDeck.InitDeck == true) //unsure why the behavior works without the Player.Deck.Cards != null
@@ -47,7 +47,7 @@ public class Hand : MonoBehaviour
         }
     }
 
-    public void EmptyHand()
+    public void EmptyHand() // clears hand
     {
             for (int i = 0; i < MaxHandLength; i++)
             {
@@ -58,7 +58,7 @@ public class Hand : MonoBehaviour
             }
     }
 
-    public bool HandFullCheck()
+    public bool HandFullCheck() // used in some functions
     {
 
         for(int i = 0; i < MaxHandLength; i++)
@@ -75,7 +75,7 @@ public class Hand : MonoBehaviour
         return true;
     }
 
-    public bool HandEmptyCheck()
+    public bool HandEmptyCheck() //used in some functions
     {
         for (int i = 0; i < MaxHandLength; i++)
         {

@@ -12,7 +12,7 @@ public class New_Level : MonoBehaviour
     public float duration;
     public Level_Counter Counter;
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)   // fade to black
     {
         if(collision.gameObject.tag == "Player")
         {

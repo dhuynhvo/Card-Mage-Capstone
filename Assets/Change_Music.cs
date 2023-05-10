@@ -10,7 +10,7 @@ public class Change_Music : MonoBehaviour
 
     public AudioClip BackgroundMusic;
     // Start is called before the first frame update
-    void Start()
+    void Start()    //changes music based on the scene
     {
         if(GameObject.Find("Audio"))
         {

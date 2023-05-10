@@ -10,7 +10,7 @@ public class Inventory_Slot : MonoBehaviour, IDropHandler
 {
     public GameObject startSpell;
 
-        public void OnDrop(PointerEventData eventData)
+        public void OnDrop(PointerEventData eventData)  //used YouTube tutorial for this: changes parent gameobjects to simulate card swapping
     {
         if (transform.childCount == 0 && gameObject.tag == "Deck")
         {

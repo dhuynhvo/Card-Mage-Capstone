@@ -13,7 +13,7 @@ public class Arcane_Bolt_Behavior : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < SpawnNumber; i++)
+        for(int i = 0; i < SpawnNumber; i++)    // instantiates child objects for arcane bolt behavior
         {
             Instantiate(bolt, transform.position, Quaternion.Euler(90, 0, -transform.localEulerAngles.y + offset));
             offset += 15;

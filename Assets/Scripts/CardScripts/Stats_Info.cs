@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Stats_Data", menuName = "ScriptableObjects/Stats_Info", order = 1)]
-public class NumEnemies : ScriptableObject
+public class NumEnemies : ScriptableObject  //data object for stats
 {
 
     [SerializeField]

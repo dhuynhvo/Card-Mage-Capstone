@@ -14,7 +14,7 @@ public class Point_To_Boss_Room : MonoBehaviour
     public float radius;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void FixedUpdate()  //points boss arrow to boss room
     {
         if(FoundTarget == true)
         {

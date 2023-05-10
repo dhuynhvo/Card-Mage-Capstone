@@ -1,5 +1,6 @@
 //Worked on by Dan Huynhvo
 
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class Add_Card_Storage : MonoBehaviour
     private GameObject card;
     [SerializeField]
 
-    public void addCardsToStorage()
+    public void addCardsToStorage() //updates cards to the card storage from the card pool scriptable object
     {
         while (transform.childCount > 0)
         {

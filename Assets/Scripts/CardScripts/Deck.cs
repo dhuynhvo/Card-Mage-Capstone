@@ -53,7 +53,7 @@ public class Deck : MonoBehaviour
         CheckDeckZero();
     }
 
-    public void Shuffle()
+    public void Shuffle()   //shuffles the deck
     {
         int index = 0;
         while (Cards[index] != null && index < Cards.Count - 1)
@@ -70,7 +70,7 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public void CheckDeckZero()
+    public void CheckDeckZero() //used in some functions
     {
         if (Cards[0] == null && PushingDeck == false)
         {
@@ -79,7 +79,7 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public void CheckEmptyDeck()
+    public void CheckEmptyDeck()    //used in some functions
     {
         for(int i = 0; i < Cards.Count; i++)
         {
@@ -95,7 +95,7 @@ public class Deck : MonoBehaviour
         Shuffle();
     }
 
-    public void LoadDeck(string nameOfDeck = "Base")
+    public void LoadDeck(string nameOfDeck = "Base")    // loads deck when called
     {
         PlayerHand.EmptyHand();
 

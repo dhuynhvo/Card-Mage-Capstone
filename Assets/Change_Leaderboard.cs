@@ -16,7 +16,7 @@ public class Change_Leaderboard : MonoBehaviour
         ChangeScores();
     }
 
-    public void ChangeScores()
+    public void ChangeScores()  //updates leaderboard scores
     {
         if (Data.data.Count > 0)
         {

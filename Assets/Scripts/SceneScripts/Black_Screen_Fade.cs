@@ -13,7 +13,7 @@ public class Black_Screen_Fade : MonoBehaviour
     private AnimationCurve _FadeInCurve;
     public Level_Counter Counter;
 
-    public IEnumerator FadeToBlack(float fadeinDuration, bool ReloadScene = false)
+    public IEnumerator FadeToBlack(float fadeinDuration, bool ReloadScene = false)  //fade out
     {
         Time.timeScale = 0f;
         float currentTime = 0;
@@ -49,7 +49,7 @@ public class Black_Screen_Fade : MonoBehaviour
 
     }
 
-    public IEnumerator FadeFromBlack(float fadeinDuration)
+    public IEnumerator FadeFromBlack(float fadeinDuration)  //fade in
     {
         float currentTime = 0;
         while (currentTime < fadeinDuration)

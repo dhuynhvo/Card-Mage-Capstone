@@ -189,7 +189,7 @@ public class Player_Movement : MonoBehaviour
         }
     }
     
-    void FixedUpdate()
+    void FixedUpdate()  //main logic for moving the player around
     {
         
         if(MoveDir == Vector3.right || MoveDir == Vector3.left)

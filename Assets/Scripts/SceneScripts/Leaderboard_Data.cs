@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Leaderboard", menuName = "ScriptableObjects/Leaderboard_Data", order = 6)]
-public class Leaderboard_Data : ScriptableObject
+public class Leaderboard_Data : ScriptableObject    // scriptable object for handling leaderboard data
 {
     public List<Leader_Data> data = new List<Leader_Data>();
 }

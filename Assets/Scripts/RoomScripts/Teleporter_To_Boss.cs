@@ -24,7 +24,7 @@ public class Teleporter_To_Boss : MonoBehaviour
         Arrow.FoundTarget = true;
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision other)  //teleporter to boss
     {
         //Debug.Log(other.gameObject.name);
         if(other.gameObject.tag == "Player")

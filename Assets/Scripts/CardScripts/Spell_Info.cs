@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spell_Info : MonoBehaviour
+public class Spell_Info : MonoBehaviour //data for spells
 {
     public string SpellName;
     public float damage;

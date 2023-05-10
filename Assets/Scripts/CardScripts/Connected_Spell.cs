@@ -11,7 +11,7 @@ public class Connected_Spell : MonoBehaviour
     public GameObject spell;
     public Spell_Info SpellInfo;
 
-    private void Start()
+    private void Start()    //linker script for functionality
     {
         if(spell != null)
         {

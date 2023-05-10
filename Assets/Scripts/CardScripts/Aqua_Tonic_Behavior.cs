@@ -28,7 +28,7 @@ public class Aqua_Tonic_Behavior : MonoBehaviour
         transform.position = Player.transform.position;
     }
 
-    public IEnumerator AquaTonicHeal()
+    public IEnumerator AquaTonicHeal()  // main behavior for aqua tonic spell
     {
         for(int i = 0; i < HealIterations; i++)
         {

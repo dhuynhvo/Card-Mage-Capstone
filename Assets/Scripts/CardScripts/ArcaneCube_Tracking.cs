@@ -10,7 +10,7 @@ public class ArcaneCube_Tracking : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider collision) //finds target for arcane cube
     {
         if(cube.target == null && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss"))
         {

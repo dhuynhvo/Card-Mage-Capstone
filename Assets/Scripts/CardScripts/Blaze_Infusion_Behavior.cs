@@ -10,7 +10,7 @@ public class Blaze_Infusion_Behavior : MonoBehaviour
     public GameObject Player;
     public float BuffAmount;
 
-    void Start()
+    void Start()    //buffs the players attack
     {
         Player = GameObject.Find("Player");
         AttackBuff = Player.GetComponent<Play_Card>();

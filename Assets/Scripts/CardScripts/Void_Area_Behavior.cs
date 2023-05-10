@@ -21,7 +21,7 @@ public class Void_Area_Behavior : MonoBehaviour
     [SerializeField]
     private float SapDamage;
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider collision) // logic for void area spell
     {
         
         if(collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<Enemy_Info>().SappingHealth != true)

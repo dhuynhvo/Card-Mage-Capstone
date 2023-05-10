@@ -12,7 +12,7 @@ public class Lightning_Cone : MonoBehaviour
     float speed;
     float dashSpeed;
 
-    void Start()
+    void Start()    //Teleports lightning bolt
     {
         Ray rayCast = Camera.main.ScreenPointToRay(Input.mousePosition);
         transform.position = rayCast.GetPoint(35);

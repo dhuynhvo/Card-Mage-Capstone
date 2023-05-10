@@ -96,7 +96,7 @@ public class Play_Card : MonoBehaviour
         NotSpamming = true;
     }
 
-    public void InstBasic()
+    public void InstBasic() //unused
     {
         newBasic = Instantiate(PlayerHand.BasicSpell, SpellSpawnArea.transform.position, Quaternion.Euler(90,0,0));
         info = newBasic.GetComponent<Spell_Info>();
@@ -216,7 +216,7 @@ public class Play_Card : MonoBehaviour
     }
 
 
-    public void PlayCard()
+    public void PlayCard()  //main logic for playing spells/cards
     {
 
         if (PlayerHand.HandEmptyCheck() && count == 0 && EmptyQueue())

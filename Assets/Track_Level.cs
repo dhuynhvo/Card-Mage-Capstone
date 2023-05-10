@@ -29,7 +29,7 @@ public class Track_Level : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void OnSub()
+    public void OnSub() // updates the data object for the leaderboard
     {
         PlayerName = InputText.text;
         if(PlayerName != "" && HasPressed == false)

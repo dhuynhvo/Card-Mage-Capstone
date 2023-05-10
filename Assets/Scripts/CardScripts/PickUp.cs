@@ -27,7 +27,7 @@ public class PickUp : MonoBehaviour
 
     }
 
-    private void PickUpCard(int ID)
+    private void PickUpCard(int ID) // logic for picking up cards
     {
         if(thisID == ID)
         {

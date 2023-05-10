@@ -21,7 +21,7 @@ public class UpdateCardSprites : MonoBehaviour
     private void Start()
     {
     }
-    void Update()
+    void Update()   // changes card sprite in hand
     {
         for(int i = 0; i < MaxCardSprites; i++)
         {

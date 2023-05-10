@@ -11,7 +11,7 @@ public class Smoke_Form_Behavior : MonoBehaviour
     public SphereCollider SmokeForm;
     public CapsuleCollider NormalForm;
     
-    void Start()
+    void Start()    //main smoke form behavior
     {
         int Smoke = LayerMask.NameToLayer("SmokeForm");
         Player = GameObject.Find("Player");

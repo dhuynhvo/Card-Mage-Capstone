@@ -29,7 +29,7 @@ public class SpellSpawn_Rotate : MonoBehaviour
         rotater();    
     }
 
-    void rotater()
+    void rotater()  //used youtube tutorial: logic for aiming spells
     {
         //float positionXRatio = Input.mousePosition.x / Screen.width;
         //float positionYRatio = Input.mousePosition.y / Screen.height;

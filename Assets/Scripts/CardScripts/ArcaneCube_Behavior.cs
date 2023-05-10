@@ -38,7 +38,7 @@ public class ArcaneCube_Behavior : MonoBehaviour
             
         //}
 
-        if (target != null)
+        if (target != null) //follows target
         {
             var speed = GetComponent<Spell_Info>().speed;
             var step = speed * Time.deltaTime; // calculate distance to move

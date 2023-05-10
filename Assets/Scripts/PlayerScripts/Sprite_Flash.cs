@@ -31,7 +31,7 @@ public class Sprite_Flash : MonoBehaviour
         originalMaterial = spriteRenderer.material;
     }
 
-    public void Flash()
+    public void Flash() //used youtube tutorial: flashes the player sprite when hit
     {
         // If the flashRoutine is not null, then it is currently running.
         if (flashRoutine != null)

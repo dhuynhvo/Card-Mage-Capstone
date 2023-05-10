@@ -11,7 +11,7 @@ public class RockInfusion : MonoBehaviour
     public float DefenceAmount;
 
     // Start is called before the first frame update
-    void Start()
+    void Start()    //shield behavior
     {
         Player = GameObject.Find("Player");
         DefenceBuff = Player.GetComponent<PlayerHealth>();

@@ -8,7 +8,7 @@ using UnityEngine;
 public class Boss_Listener : MonoBehaviour
 {
     public Enemy_Info info;
-    void Start()
+    void Start()    // Only finds a reference to the boss listener game object during runtime
     {
         GameObject listener = GameObject.Find("Listener");
         listener.gameObject.GetComponent<BossDeathEvents>().info = info;

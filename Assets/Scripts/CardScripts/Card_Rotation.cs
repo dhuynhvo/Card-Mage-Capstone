@@ -18,7 +18,7 @@ public class Card_Rotation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()   //Rotates the cards in the shop for visual effect
     {
         smooth = Time.deltaTime * smoothTime * convertedTime;
         transform.Rotate(rotationDirection * smooth);

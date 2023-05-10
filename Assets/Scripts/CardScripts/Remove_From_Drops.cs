@@ -17,7 +17,7 @@ public class Remove_From_Drops : MonoBehaviour
         }
     }
 
-    public void RemoveDrops(string drop)
+    public void RemoveDrops(string drop)    //logic for removing cards from card drops
     {
         for(int i = 0; i < Drops.cards.Count; i++)
         {

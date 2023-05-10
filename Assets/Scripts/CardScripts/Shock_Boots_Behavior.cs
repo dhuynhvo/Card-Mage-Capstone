@@ -11,7 +11,7 @@ public class Shock_Boots_Behavior : MonoBehaviour
     public float SpeedAmount;
 
     // Start is called before the first frame update
-    void Start()
+    void Start()    //makes player fast
     {
         Player = GameObject.Find("Player");
         SpeedBuff = Player.GetComponent<Player_Movement>();

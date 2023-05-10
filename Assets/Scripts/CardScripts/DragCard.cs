@@ -25,7 +25,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         info = gameObject.GetComponent<Connected_Spell>().SpellInfo;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)  //Used YouTube tutorial for this: logic for dragging card
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
@@ -58,7 +58,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         };
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)  //Used YouTube tutorial for this: logic for dragging card
     {
         DragParent = transform.parent;
         transform.SetParent(transform.root);
@@ -66,17 +66,17 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         image.raycastTarget = false;
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnDrag(PointerEventData eventData)  //Used YouTube tutorial for this: logic for dragging card
     {
         transform.position = Input.mousePosition;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData)  //Used YouTube tutorial for this: logic for dragging card
     {
         transform.SetParent(DragParent);
         image.raycastTarget = true;
     }
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData) // changes card text for spell descriptions
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
         Debug.Log("Mouse is over GameObject.");

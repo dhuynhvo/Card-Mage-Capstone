@@ -35,7 +35,7 @@ public class Currency_Info : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider collision) //adds currency on touching gameobject
     {
         GameObject player = collision.gameObject;
 
