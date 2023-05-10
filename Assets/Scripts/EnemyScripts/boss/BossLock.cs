@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.TestTools;
-
+//implemented by robert bothne.
 public class BossLock : MonoBehaviour
 {
     [SerializeField]
