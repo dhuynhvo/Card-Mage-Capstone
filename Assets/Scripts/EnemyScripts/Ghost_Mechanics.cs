@@ -1,6 +1,7 @@
-//Author: Grant Davis using Dan Huynhvo Enemy_Mechanics.cs as resource for this script.
-//UNR CS 426: Senior Project: Card Mage
-
+// Author: Grant Davis using Dan Huynhvo Enemy_Mechanics.cs as resource for this script.
+// CS 426: Senior Project: Card Mage
+// Ghost_Mechanics.cs
+// Specific Mechanics for the ghost enemy, since the ghost doesn't function the same as other enemies.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -30,9 +31,6 @@ public class Ghost_Mechanics : MonoBehaviour
     //private UnityEngine.AI.NavMeshAgent navMeshAgent;
     //.......................................................................//
 
-
-    
-    
     // Start is called before the first frame update
     void Start()
     {   

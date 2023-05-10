@@ -1,7 +1,8 @@
-//Dan Huynhvo and Grant Davis
-//UNR
-//CS 425
-
+// Dan Huynhvo and Grant Davis
+// UNR
+// CS 425
+// Enemy_Mechanics.cs
+// Original Code by Dan, added code for death animation and removal of navmesh by Grant
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,9 +30,9 @@ public class Enemy_Mechanics : MonoBehaviour
     [SerializeField]
     private bool hasDroppedMoney = false;
     private bool hasDroppedCard = false;
-    [SerializeField] //Navigation used in Update() to turn to false on death
+    [SerializeField] //Navigation used in Update() to turn to false on death -Grant 
     private UnityEngine.AI.NavMeshAgent navMeshAgent;
-    [SerializeField] //Time it takes for fade effect to occur
+    [SerializeField] //Time it takes for fade effect to occur -Grant
     public float fadeDuration = 2f;
     
     // Start is called before the first frame update

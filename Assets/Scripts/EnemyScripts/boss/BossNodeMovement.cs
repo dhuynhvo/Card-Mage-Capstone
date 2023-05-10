@@ -8,41 +8,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Defining the BossNodeMovement class that inherits from MonoBehaviour
 public class BossNodeMovement : MonoBehaviour
 {
-    // Boss movement variables
-    public float speed = 5f;
-    public Transform[] nodes;
-    private int currentNode = 0;
-    private bool isMoving = true; // Indicates if the boss is moving or stopped
-    // Bullet storm variables
-    public GameObject bulletPrefab;
-    public GameObject bulletSingle;
-    public Transform bulletSpawnPoint;
-    public float bulletSpeed = 7f;
-    public float bulletStormCooldown = 1f;
-    public float stopTimeAtNode = 3f; // The duration the boss will stop at each node
-    public float bulletStormsPerNode = 3f; // The number of bullet storms at each node
-    // Player detection and engagement variables
-    public float playerDetectionRange = 4f; // The range at which the boss detects the player
-    private bool isEngaged = false; // Indicates if the boss has engaged in a fight
-    // Animation variable
-    private Animator anim;
-    // Boss health and phase control
-    private Enemy_Info enemyInfo;
-    private bool isSecondPhase = false;
-    // Phase 1 variables
-    [SerializeField] float numberOfBullets = 4;
-    // Phase 2 variables
-    public float numberOfBulletsPhase2 = 8f;
-    public float damagePhase2 = 1.5f;
-    public float bulletSpeedatHalfHP = 10f;
-    [SerializeField] private Level_Counter levels;
-    public Color goldTint = new Color(1f, 0.84f, 0f); // Gold color
-    public float goldTintMultiplier = 0.1f; // The amount of gold tint to apply per level
-    [SerializeField] private float destroyBossDelay = 3f;
-    private bool isDying = false;
-    public float vanishUpwardSpeed = 3f;
+    // Defining variables related to boss movement
+    public float speed = 5f;  // Speed of the boss
+    public Transform[] nodes;  // Array to hold the nodes the boss will travel to
+    private int currentNode = 0;  // The current node the boss is moving towards
+    private bool isMoving = true;  // Flag indicating if the boss is moving
+
+    // Defining variables related to boss attacks
+    public GameObject bulletPrefab;  // Bullet prefab to instantiate when the boss attacks
+    public GameObject bulletSingle;  // A single bullet prefab
+    public Transform bulletSpawnPoint;  // The spawn point for bullets
+    public float bulletSpeed = 7f;  // Speed of the bullets
+    public float bulletStormCooldown = 1f;  // Cooldown time between bullet storms
+    public float stopTimeAtNode = 3f;  // The time the boss stops at each node
+    public float bulletStormsPerNode = 3f;  // The number of bullet storms at each node
+
+    // Variables related to player detection and engagement
+    public float playerDetectionRange = 4f;  // The range within which the boss detects the player
+    private bool isEngaged = false;  // Flag indicating if the boss is engaged in a fight
+
+    // Variable for controlling boss animations
+    private Animator anim;  // Animator component for the boss
+
+    // Variables for boss health and phase control
+    private Enemy_Info enemyInfo;  // Component holding boss's health and other related info
+    private bool isSecondPhase = false;  // Flag indicating if the boss is in the second phase of the fight
+
+    // Variables for the first phase of the boss fight
+    [SerializeField] float numberOfBullets = 4;  // Number of bullets in a bullet storm
+
+    // Variables for the second phase of the boss fight
+    public float numberOfBulletsPhase2 = 8f;  // Number of bullets in a bullet storm in the second phase
+    public float damagePhase2 = 1.5f;  // Damage multiplier in the second phase
+    public float bulletSpeedatHalfHP = 10f;  // Bullet speed when boss's HP is at half
+
+    // More variables related to boss behavior
+    [SerializeField] private Level_Counter levels;  // Component holding level-related information
+    public Color goldTint = new Color(1f, 0.84f, 0f);  // Gold tint for the boss
+    public float goldTintMultiplier = 0.1f;  // Amount of gold tint to apply per level
+
+    [SerializeField] private float destroyBossDelay = 3f;  // Delay before destroying the boss
+    private bool isDying = false;  // Flag indicating if the boss is dying
+
+    // Variables related to boss death animation
+    public float vanishUpwardSpeed = 3f;  // Speed at which the boss vanishes upwards
     public float vanishDuration = 3f;
     public GameObject explosionPrefab;
     public GameObject explosionPrefab2;
@@ -174,6 +186,7 @@ public class BossNodeMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Change boss color to for every level to add freshness.
     private void SetBossColorByLevel(int level)
     {
         if (level >= 2)
@@ -196,6 +209,7 @@ public class BossNodeMovement : MonoBehaviour
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
     }
+    //unused code for flashing gold boss when under half hp
     IEnumerator FlashFullGold()
     {
         Renderer bossRenderer = GetComponent<Renderer>();
@@ -207,6 +221,7 @@ public class BossNodeMovement : MonoBehaviour
         bossRenderer.material.color = originalColor;
     }
 
+    // This function handles shooting bullet storms at a node
     IEnumerator ShootBulletStormsAtNode()
     {
         // Rotate the boss to face the player
@@ -243,6 +258,7 @@ public class BossNodeMovement : MonoBehaviour
         isMoving = true;
     }
 
+    // This function handles shooting a single bullet with a delay
     IEnumerator ShootSingleBulletWithDelay()
     {
             for (int i = 0; i < levels.Level; i++)
@@ -252,6 +268,7 @@ public class BossNodeMovement : MonoBehaviour
         }
     }
 
+    // This function shuffles the order of the nodes randomly, excluding the first node
     void ShuffleNodes()
     {
         // Shuffle the order of the nodes randomly, excluding the first node
@@ -264,6 +281,7 @@ public class BossNodeMovement : MonoBehaviour
         }
     }
 
+    // This function handles shooting a bullet storm
     void ShootBulletStorm()
     {
         if (IsDead()) return;
@@ -286,6 +304,7 @@ public class BossNodeMovement : MonoBehaviour
         }
     }
 
+    // This function rotates the boss to face the player
     private void FacePlayer()
     {
         Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -301,6 +320,7 @@ public class BossNodeMovement : MonoBehaviour
         }
     }
 
+    // This function shoots a single bullet
     void shoot()
     {
         if (IsDead()) return;
@@ -311,6 +331,7 @@ public class BossNodeMovement : MonoBehaviour
         Destroy(bullet2, 5f);
     }
 
+    // The method that is called when the boss reaches 50% health, initiating the second phase of the fight
     private void EnterSecondPhase()
     {
         
@@ -327,6 +348,7 @@ public class BossNodeMovement : MonoBehaviour
         // other stats
     }
 
+    // This method checks if the boss is dead by checking if the boss's health is less than or equal to 0
     private void AdjustBossDifficulty(int level)
     {
         // Adjust the boss variables based on the level
@@ -337,10 +359,9 @@ public class BossNodeMovement : MonoBehaviour
         numberOfBullets += 1f * (level - 1);
         numberOfBulletsPhase2 += 1f * (level - 1);
     }
-
+    // This method checks if the boss is dead by checking if the boss's health is less than or equal to 0
     private bool IsDead()
     {
         return enemyInfo.health <= 0;
     }
-
 }

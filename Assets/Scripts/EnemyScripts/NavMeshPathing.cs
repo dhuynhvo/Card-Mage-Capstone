@@ -1,5 +1,8 @@
 // Author: Grant Davis
-// CS 426 Senior Project
+// CS 426 Senior Project: Card Mage
+// NavMeshPathing.cs
+// Used for nearly all enemies to navigate using navigation mesh.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -111,38 +114,63 @@ public class NavMeshPathing : MonoBehaviour
         }
     }
 
+    // This function flips the direction the enemy is facing.
     private void Flip()
     {
+        // Toggle the 'facingRight' flag.
         facingRight = !facingRight;
-        Vector3 newScale = transform.localScale;
+
+        // Flip the sprite in the X-axis.
         sprite.flipX = !sprite.flipX;
-        //newScale.x *= -1;
+
+        // Create a new vector with the same values as the current localScale.
+        Vector3 newScale = transform.localScale;
+
+        // Uncommenting the following line would also flip the local scale of the transform
+        // newScale.x *= -1;
+
+        // Assign the new scale to the transform's localScale.
         transform.localScale = newScale;
     }
 
+    // This function is used to visually display the enemy's detection range in the Unity editor.
     private void OnDrawGizmos()
     {
+        // Draw a wireframe sphere at the position of the enemy, with a radius equal to the enemy's detection range.
         Gizmos.DrawWireSphere(transform.position, enemyDistance);
     }
 
+    // This function returns a random point within a certain distance from an origin point, constrained by a navigation mesh.
     private Vector3 GetRandomPoint(Vector3 origin, float distance, int areaMask)
     {
+        // Generate a random direction.
         Vector3 randomDirection = Random.insideUnitSphere * distance;
+        // Add the origin to the random direction to get a point within the desired range.
         randomDirection += origin;
+
+        // Create a variable to store the result of the NavMesh sampling.
         NavMeshHit navHit;
+        // Sample the NavMesh at the randomly generated point, with the specified mask.
         NavMesh.SamplePosition(randomDirection, out navHit, distance, areaMask);
+
+        // Return the position of the sampled point.
         return navHit.position;
     }
 
+    // This function sets a specific game object as the priority target for the enemy.
     public void SetPriorityTarget(Transform target)
     {
-        // Set the player as the priority target
+        // Set the player as the priority target.
         player = target.gameObject;
     }
 
+    // This coroutine function resets the enemy's speed after a certain duration.
     public IEnumerator ResetSpeedForEnemy(float b, NavMeshAgent agent, float ActiveDuration)
     {
+        // Wait for the specified duration minus 0.1 seconds.
         yield return new WaitForSeconds(ActiveDuration - .1f);
+
+        // Reset the speed of the enemy.
         enemy.speed = b;
     }
 }

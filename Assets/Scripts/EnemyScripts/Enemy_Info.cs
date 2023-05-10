@@ -1,6 +1,8 @@
-//Dan Huynhvo and Grant Davis
-//UNR
-//CS 425
+// Dan Huynhvo and Grant Davis
+// UNR
+// CS 425
+// Enemy_Info.cs
+// Original code by Dan added functions with sounds, levels, and dmg numbers.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ public class Enemy_Info : MonoBehaviour
     public bool SappingHealth;
     private Animator anim;
 
-    // Add damage and death sounds to Enemy_Info
+    // damage and death sounds to Enemy_Info - Grant Davis
     [SerializeField]
     private AudioClip damageSound;
     [SerializeField]
@@ -27,21 +29,21 @@ public class Enemy_Info : MonoBehaviour
     [SerializeField]
     private Level_Counter levelCounter;
 
-    // Add death sound repeat count
+    // Add death sound repeat count -Grant Davis
     [SerializeField]
     private int deathSoundRepeat = 3;
 
-    // Reference to TextMesh prefab
+    // Reference to TextMesh prefab -Grant Davis
     [SerializeField]
     private GameObject damageNumberPrefab;
 
-    // Reference to SlimeSound
+    // Reference to SlimeSound -Grant Davis
     private SlimeSound slimeSound;
     private bool isTakingDamage;
     private const string DamageAnimationName = "Damage";
 
     private bool alternateSpawnPosition = false;
-    // Add the serialized field toggle for damage numbers
+    // Add the serialized field toggle for damage numbers -Grant Davis
     [SerializeField] private bool showDamageNumbers = true;
 
     void Start()
@@ -108,6 +110,7 @@ public class Enemy_Info : MonoBehaviour
         }
     }
 
+    //Spawns damage number on both one side of the enemy then the other side.
     private void ShowDamageNumber(float damage)
     {
         if (showDamageNumbers)
@@ -177,6 +180,7 @@ public class Enemy_Info : MonoBehaviour
             anim.SetBool("Damage", false);
         }
     }
+    
     private IEnumerator PlayDeathSoundMultipleTimes()
     {
         for (int i = 0; i < deathSoundRepeat; i++)

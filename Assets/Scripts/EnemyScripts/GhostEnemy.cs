@@ -1,49 +1,68 @@
+// Author: Grant Davis
+// CS 426 Senior Project: Card Mage
+// GhostEnemy.cs
+// Specific for the ghost enemy that will walk through all walls.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostEnemy : MonoBehaviour
 {
+    // Serialized fields allow you to set these variables in the Unity editor
+    // Define the detection range, speed, idle time and player's transform
     [SerializeField] private float detectionRange = 5f;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float idleTimeMin = 2.0f;
     [SerializeField] private float idleTimeMax = 5.0f;
     [SerializeField] private Transform player;
 
+    // Define references for the animator and sprite renderer
     private Animator anim;
     private SpriteRenderer sprite;
 
+    // Define state variables for idling
     private bool isIdle;
     private float idleTime;
     private Vector3 idlePosition;
+    // Define a boolean to determine if the ghost is facing right
     private bool facingRight = true;
     public Ghost_Mechanics ghostMechanics;
 
+    // Keep track of initial Y position
     private float initialY;
+
+    // This function is called when the script is first loaded
     void Start()
     {
+        // Find the player's transform using the tag "Player"
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        // Get the animator and sprite renderer components
         anim = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-
+        // Initialize idle state
         isIdle = false;
+        // Store initial Y position
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
-
+        // Store initial Y position
         initialY = transform.position.y;
     }
 
+    // If the player is in range, move towards the player
     void Update()
     {
+        // If the player is in range, move towards the player
         if (IsPlayerInRange(detectionRange))
         {
             // Move the ghost enemy while keeping the Y position constant
             Vector3 direction = (player.position - transform.position).normalized;
             direction.y = 34; // Set Y direction to 0
             transform.position += direction * moveSpeed * Time.deltaTime;
+            // Keep Y position constant
             transform.position = new Vector3(transform.position.x, initialY, transform.position.z);
             isIdle = false;
         }
+        // If the player is not in range, idle
         else
         {
             if (!isIdle)
@@ -55,6 +74,7 @@ public class GhostEnemy : MonoBehaviour
             else
             {
                 idleTime -= Time.deltaTime;
+                // Exit idle state when idle time is up
                 if (idleTime <= 0)
                 {
                     isIdle = false;
@@ -83,6 +103,7 @@ public class GhostEnemy : MonoBehaviour
         }
     }
 
+    // This function checks if the player is within a specified range
     private bool IsPlayerInRange(float range)
     {
         if (player == null)
@@ -94,12 +115,14 @@ public class GhostEnemy : MonoBehaviour
         return distance <= range;
     }
 
+    //This function flips the direction the enemy is facing.
     private void Flip()
     {
         facingRight = !facingRight;
         sprite.flipX = !sprite.flipX;
     }
 
+    // This function returns a random point within a certain distance from an origin point.
     private Vector3 GetRandomPoint(Vector3 origin, float distance)
     {
         Vector3 randomDirection = Random.insideUnitSphere * distance;
