@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //Implemented by Robert Bothne
+//https://www.youtube.com/watch?v=BQGTdRhGmE4&t=6s
 public class shaker : MonoBehaviour
 {
     public bool enableds = true;

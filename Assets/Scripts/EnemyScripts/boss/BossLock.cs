@@ -4,6 +4,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.TestTools;
 //implemented by robert bothne.
+//https://www.youtube.com/watch?v=R6scxu1BHhs
 public class BossLock : MonoBehaviour
 {
     [SerializeField]
