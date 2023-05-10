@@ -1,4 +1,4 @@
-//Dan Huynhvo
+//Dan Huynhvo Robert Bothne
 //UNR
 //CS 425
 
